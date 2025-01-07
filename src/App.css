@@ -1,0 +1,160 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+/* Header Start */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Header Styles */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  padding: 10px 20px;
+  z-index: 1000;
+  margin-top: -45px;
+}
+
+.logo-image {
+  width: 300px;
+  height: 200px;
+}
+
+.menu {
+  display: flex;
+  gap: 40px;
+  margin-right: 300px;
+}
+
+.header .menu a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.header .menu a:hover {
+  color: #d3d3d3; /* Gold color on hover */
+}
+
+header {
+  display: flex;
+  justify-content: space-between; /* Distribute space between the logo and menu */
+  align-items: center; /* Vertically center the content */
+  padding: 10px 20px; /* Adjust header padding */
+  width: 100%; /* Ensure the header takes full width */
+}
+
+nav {
+  display: flex;
+  justify-content: flex-start; /* Align menu items to the left */
+  flex-grow: 1; /* Allows the navigation to grow and take available space */
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  margin-right: 20px; /* Adjust spacing between menu items */
+}
+
+nav ul li:last-child {
+  margin-right: 0; /* Removes extra space after the last item */
+}
+
+/* Header End */
+
+.background-container {
+  background-image: url("./assets/home-background.jpg"); /* Replace with your image path */
+  background-size: cover;
+  background-position: top center; /* Adjust to focus on top-center */
+  background-repeat: no-repeat;
+  height: 100vh; /* Adjust height as needed */
+  width: 100%;
+}
+
+/* Hero Section Starts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+
+.hero-section {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  padding: 20px;
+  width: 100%;
+}
+
+.container {
+  max-width: 700px;
+  margin: 0;
+  padding: 20px;
+
+  border-radius: 10px; /* Optional: Adds rounded corners */
+  text-align: left; /* Aligns text to the left */
+  position: absolute;
+  top: 30%;
+}
+
+.hero-heading {
+  font-size: 2.5rem; /* Adjust size for heading */
+  font-weight: 700;
+}
+
+.hero-text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  font-weight: 300;
+  max-width: 500px;
+  margin-bottom: 30px;
+}
+
+.button-container {
+  display: flex;
+  gap: 20px; /* Adds spacing between buttons */
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #005e8f; /* Primary button background color */
+  color: white; /* Primary button text color */
+}
+
+.btn-primary:hover {
+  background-color: #004a72; /* Slightly darker shade for hover effect */
+}
+
+.btn-secondary {
+  background-color: white; /* Secondary button background color */
+  color: #005e8f; /* Secondary button text color */
+  border: 2px solid #005e8f; /* Adds a border to secondary button */
+}
+
+.btn-secondary:hover {
+  background-color: #e6f5fb; /* Light blue background on hover */
+}
+
+/* Hero Section Ends */
