@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logoImage from "../assets/Logo-Home.png";
 
 const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 280);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <header className="header">
+    <header className={`header ${isScrolled ? "scrolled" : ""}`}>
       {/* Logo Section */}
       <div className="logo">
         <img src={logoImage} alt="Drona Logo" className="logo-image" />
