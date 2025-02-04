@@ -15,7 +15,7 @@ html {
 
 /* Header Styles */
 .header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   display: flex;
@@ -268,4 +268,76 @@ nav ul li:last-child {
   justify-content: center;
   text-align: center;
   gap: 20px;
+}
+
+/* Advisory Board CSS */
+
+.advisory-background {
+  background-color: #153454;
+  height: 130vh; /* Full viewport height */
+}
+
+.advisory-container {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  height: 130vh; /* Full viewport height */
+  box-sizing: border-box;
+  padding-top: 50px;
+  padding-left: 220px;
+}
+
+.advisory-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #0e446b;
+  border-radius: 37px;
+  width: 200px; /* Reduced from 417px */
+  height: 340px; /* Reduced from 585px */
+  overflow: hidden;
+}
+
+/* .advisory-box:nth-child(even) {
+  margin-top: 30px; /* Creates the zigzag effect for even boxes */
+
+.advisory-heading {
+  text-align: center;
+  color: white;
+  font-size: 36px;
+  padding-top: 60px;
+}
+
+.card-image {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  border-top-left-radius: 37px;
+  border-top-right-radius: 37px;
+}
+
+.card-image-3 {
+  width: 100%;
+  height: 95%;
+  border-radius: 30px; /* Matches the card border radius for a smooth look */
+}
+
+.card-text {
+  padding: 10px 0;
+}
+
+.card-name {
+  font-size: 15px; /* Larger font size for the name */
+  font-weight: bold; /* Bold text for the name */
+  color: #ffffff; /* White color for better contrast */
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.card-designation {
+  font-size: 10px; /* Smaller font size for the designation */
+  font-weight: 500; /* Medium font weight */
+  color: #d1d1d1; /* Light gray for a subtle look */
+  text-align: center;
 }
