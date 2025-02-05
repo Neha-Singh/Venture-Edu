@@ -1,8 +1,8 @@
 import React from "react";
 import image1 from "../../src/assets/advisory-images/image-1.png";
-import image2 from "../../src/assets/advisory-images/image-3.jpg";
+import image2 from "../../src/assets/advisory-images/image-3.png";
 import image3 from "../../src/assets/advisory-images/image-2.png";
-import image4 from "../../src/assets/advisory-images/image-4.jpg";
+import image4 from "../../src/assets/advisory-images/image-4.png";
 
 const AdvisoryBoard = () => {
   return (

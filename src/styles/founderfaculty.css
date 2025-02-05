@@ -1,0 +1,58 @@
+.founder-faculty-background {
+  background-color: #153454;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.founder-faculty-heading.moved-up {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+  margin-top: -150px; /* Moves heading up by 50px total */
+}
+
+.founder-faculty-container.with-gap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  row-gap: 20px; /* Adds 10px gap between rows */
+  width: 80%;
+  height: 70%;
+}
+
+.faculty-box {
+  background-color: #0e446b;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 10px;
+  height: calc(100% + 10px); /* Increased height by 10px */
+}
+
+.faculty-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.faculty-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.faculty-title {
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-align: center;
+}

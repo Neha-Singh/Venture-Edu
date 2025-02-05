@@ -14,6 +14,13 @@ const Header = () => {
     };
   }, []);
 
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <header className={`header ${isScrolled ? "scrolled" : ""}`}>
       {/* Logo Section */}
@@ -24,7 +31,9 @@ const Header = () => {
       {/* Menu Section */}
       <div>
         <nav className="menu">
-          <a href="#about">About</a>
+          <a href="#about" onClick={() => scrollToSection("about-section")}>
+            About
+          </a>
           <a href="#eligibility">Program</a>
           <a href="#application">Application</a>
           <a href="#program">Eligibility</a>

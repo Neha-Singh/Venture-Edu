@@ -4,7 +4,7 @@ import { GiBrickWall } from "react-icons/gi";
 
 function AboutUs() {
   return (
-    <div className="experience-section">
+    <div className="experience-section" id="about-section">
       <h1 className="experience-heading">
         We empower aspiring entrepreneurs to turn ideas into scalable ventures
         through

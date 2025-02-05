@@ -18,6 +18,13 @@ const ScrollHeader = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <header className={`scroll-header ${showHeader ? "visible" : "hidden"}`}>
       <div className="scroll-logo-container">
@@ -26,7 +33,9 @@ const ScrollHeader = () => {
       <nav className="scroll-nav-menu">
         <ul>
           <li>
-            <a href="#about">About</a>
+            <a href="#about" onClick={() => scrollToSection("about-section")}>
+              About
+            </a>
           </li>
           <li>
             <a href="#program">Program</a>
