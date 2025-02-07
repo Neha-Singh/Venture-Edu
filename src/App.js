@@ -4,7 +4,9 @@ import AboutUs from "./components/AboutUs";
 import AdvisoryBoard from "./components/AdvisoryBoard";
 import HeaderOnScroll from "./components/HeaderOnScroll";
 import FounderFaculty from "./components/FounderFaculty";
-// import InvestorFaculty from "./components/InvestorFaculty";
+import InvestorFaculty from "./components/InvestorFaculty";
+import TraditionalFaculty from "./components/TraditionalFaculty";
+import ProgramStructure from "./components/ProgramStructure";
 import "./App.css";
 
 function App() {
@@ -16,7 +18,9 @@ function App() {
       <AboutUs />
       <AdvisoryBoard />
       <FounderFaculty />
-      {/* <InvestorFaculty /> */}
+      <InvestorFaculty />
+      <TraditionalFaculty />
+      <ProgramStructure />
     </div>
   );
 }

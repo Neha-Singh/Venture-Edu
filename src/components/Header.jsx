@@ -34,7 +34,12 @@ const Header = () => {
           <a href="#about" onClick={() => scrollToSection("about-section")}>
             About
           </a>
-          <a href="#eligibility">Program</a>
+          <a
+            href="#eligibility"
+            onClick={() => scrollToSection("program-structure")}
+          >
+            Program
+          </a>
           <a href="#application">Application</a>
           <a href="#program">Eligibility</a>
           <a href="#help-desk">Support</a>

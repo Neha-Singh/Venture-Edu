@@ -33,18 +33,16 @@ const ScrollHeader = () => {
       <nav className="scroll-nav-menu">
         <ul>
           <li>
-            <a href="#about" onClick={() => scrollToSection("about-section")}>
-              About
-            </a>
+            <a onClick={() => scrollToSection("about-section")}>About</a>
           </li>
           <li>
-            <a href="#program">Program</a>
+            <a onClick={() => scrollToSection("program-structure")}>Program</a>
           </li>
           <li>
-            <a href="#application">Application</a>
+            <a>Application</a>
           </li>
           <li>
-            <a href="#eligibility">Eligibility</a>
+            <a>Eligibility</a>
           </li>
           <li>
             <a href="#support">Support</a>

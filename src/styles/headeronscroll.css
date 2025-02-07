@@ -48,6 +48,7 @@
   font-size: 0.95rem; /* Slightly smaller font size */
   font-weight: 600;
   transition: color 0.3s ease;
+  cursor: pointer;
 }
 
 .scroll-nav-menu a:hover {
