@@ -29,6 +29,7 @@
 .scroll-logo {
   width: 100%;
   height: auto;
+  cursor: pointer;
 }
 
 .scroll-nav-menu ul {

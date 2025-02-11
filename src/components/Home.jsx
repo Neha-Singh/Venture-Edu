@@ -1,27 +1,41 @@
-function Home() {
+import React from "react";
+import "../styles/home.css";
+import video1 from "../../src/assets/Videos/HomePage/four.mp4";
+
+const Home = () => {
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
-    <div className="background-container">
-      <section className="hero-section">
-        <div className="container">
-          <h1 className="hero-heading">Build Ventures, Build the Future</h1>
-          Your Launchpad for Entrepreneurial Success
-          <br />
-          <br />
+    <div className="hero-container" id="home-page">
+      <video
+        className="hero-video"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+      >
+        <source src={video1} type="video/mp4" />
+      </video>
+      <div className="hero-overlay">
+        <div className="hero-content">
           <p className="hero-text">
-            Empower your entrepreneurial journey with certifications designed
-            for venture builders.
-            <br />
-            From ideation to scaling, our expert-led courses equip you with the
-            tools, insights, and strategies to build impactful and sustainable
-            ventures.
+            Experiential Learning for venture building
           </p>
-          <div className="button-container">
-            <button className="btn btn-primary">Why VentureEdu ?</button>
-            <button className="btn btn-secondary">Apply Now</button>
-          </div>
+          <button
+            className="apply-button"
+            onClick={() => scrollToSection("application-form")}
+          >
+            Apply
+          </button>
         </div>
-      </section>
+      </div>
     </div>
   );
-}
+};
+
 export default Home;

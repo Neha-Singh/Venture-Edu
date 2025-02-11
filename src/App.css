@@ -31,6 +31,7 @@ html {
 .logo-image {
   width: 300px;
   height: 200px;
+  cursor: pointer;
 }
 
 .menu {
@@ -123,10 +124,10 @@ nav ul li:last-child {
 }
 
 .hero-text {
-  font-size: 1.2rem;
+  font-size: 2rem;
   line-height: 1.6;
   font-weight: 300;
-  max-width: 500px;
+  width: 700px;
   margin-bottom: 30px;
 }
 
@@ -342,4 +343,22 @@ nav ul li:last-child {
   font-weight: 500; /* Medium font weight */
   color: #d1d1d1; /* Light gray for a subtle look */
   text-align: center;
+}
+
+.ghost-button {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  background: transparent; /* Ensure background is transparent */
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  position: relative;
+  top: -10px; /* Moves the button 10px upward */
+}
+
+.ghost-button:hover {
+  background-color: #fff; /* On hover, background turns white */
+  color: #000; /* On hover, text color changes to black */
 }

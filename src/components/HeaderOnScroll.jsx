@@ -28,7 +28,12 @@ const ScrollHeader = () => {
   return (
     <header className={`scroll-header ${showHeader ? "visible" : "hidden"}`}>
       <div className="scroll-logo-container">
-        <img src={logo} alt="Logo" className="scroll-logo" />
+        <img
+          src={logo}
+          alt="Logo"
+          className="scroll-logo"
+          onClick={() => scrollToSection("home-page")}
+        />
       </div>
       <nav className="scroll-nav-menu">
         <ul>
@@ -39,13 +44,15 @@ const ScrollHeader = () => {
             <a onClick={() => scrollToSection("program-structure")}>Program</a>
           </li>
           <li>
-            <a>Application</a>
+            <a onClick={() => scrollToSection("application-process")}>
+              Application
+            </a>
           </li>
           <li>
             <a>Eligibility</a>
           </li>
           <li>
-            <a href="#support">Support</a>
+            <a onClick={() => scrollToSection("global-support")}> Global</a>
           </li>
         </ul>
       </nav>

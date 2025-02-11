@@ -1,0 +1,48 @@
+/* Container for the video background component */
+.video-background-container {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden;
+}
+
+/* Video element covers the full background */
+.video-background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* Overlay container for text, centered over the video */
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(
+    0,
+    0,
+    0,
+    0.4
+  ); /* Semi-transparent overlay for better text contrast */
+}
+
+/* Styling for the overlay text */
+.video-overlay h2 {
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  padding: 20px;
+}

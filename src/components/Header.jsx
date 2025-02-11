@@ -25,7 +25,12 @@ const Header = () => {
     <header className={`header ${isScrolled ? "scrolled" : ""}`}>
       {/* Logo Section */}
       <div className="logo">
-        <img src={logoImage} alt="Drona Logo" className="logo-image" />
+        <img
+          src={logoImage}
+          alt="Drona Logo"
+          className="logo-image"
+          onClick={() => scrollToSection("home-page")}
+        />
       </div>
 
       {/* Menu Section */}
@@ -40,9 +45,19 @@ const Header = () => {
           >
             Program
           </a>
-          <a href="#application">Application</a>
+          <a
+            href="#application"
+            onClick={() => scrollToSection("application-process")}
+          >
+            Application
+          </a>
           <a href="#program">Eligibility</a>
-          <a href="#help-desk">Support</a>
+          <a
+            className="ghost-button"
+            onClick={() => scrollToSection("global-support")}
+          >
+            Global
+          </a>
         </nav>
       </div>
     </header>
