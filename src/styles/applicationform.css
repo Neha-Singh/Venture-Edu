@@ -1,3 +1,5 @@
+/* Provided CSS starts here */
+
 /* Container that sets the background color and centers the form */
 .form-container {
   background-color: #0e446b;
@@ -78,4 +80,46 @@
   color: #fff;
   font-size: 1rem;
   text-align: center;
+}
+
+/* Provided CSS ends here */
+
+/* Extra styles for horizontal grouping */
+/* Extra styles for horizontal grouping */
+.horizontal-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Decrease width of the country code field to 20% */
+.small-field {
+  flex: 0 0 9%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Increase the height of the country code select element */
+.small-field select {
+  height: 45px; /* Adjust this value as needed */
+  padding: 0 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Let the phone number field occupy the remaining width */
+.large-field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Optionally, adjust the phone number input height if needed */
+.large-field input {
+  height: 45px; /* Match the height for a consistent look */
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
