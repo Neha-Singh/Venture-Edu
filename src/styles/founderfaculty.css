@@ -1,5 +1,5 @@
 .founder-faculty-background {
-  background-color: #153454;
+  background-color: white;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -9,24 +9,24 @@
 }
 
 .founder-faculty-heading.moved-up {
-  color: white;
+  color: #153454;
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 40px;
-  margin-top: -150px; /* Moves heading up by 50px total */
+  margin-top: -150px; /* Moves heading up by 150px */
 }
 
 .founder-faculty-container.with-gap {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 20px;
-  row-gap: 20px; /* Adds 10px gap between rows */
+  gap: 20px;
   width: 80%;
   height: 70%;
 }
 
+/* Faculty box using the same gradient background as About Us boxes */
 .faculty-box {
-  background-color: #0e446b;
+  background: linear-gradient(45deg, #0e446b, #1f6b8f);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -34,7 +34,18 @@
   align-items: center;
   color: white;
   padding: 10px;
-  height: calc(100% + 10px); /* Increased height by 10px */
+  height: calc(100% + 10px);
+
+  /* Initial state: hidden and translated down vertically */
+  opacity: 0;
+  transform: translateY(50px);
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+/* When the slide-in class is present, animate to final state */
+.faculty-box.slide-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .faculty-image {

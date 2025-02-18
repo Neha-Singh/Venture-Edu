@@ -101,7 +101,7 @@ const ApplicationForm = () => {
   };
 
   return (
-    <div className="form-container">
+    <div className="form-container" id="application-form">
       <form className="application-form" onSubmit={handleSubmit}>
         <h2>Apply Now</h2>
         <div className="form-group">

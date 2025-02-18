@@ -1,4 +1,4 @@
-/* Container for the page styling (using a separate class instead of body) */
+/* Container for the page styling */
 .timeline-page {
   background-color: #0e446b;
   font-family: Arial, sans-serif;
@@ -13,7 +13,7 @@
   position: relative;
 }
 
-/* New heading for Program Structure with 100px padding from top */
+/* Heading for the process */
 .program-heading {
   padding-top: 100px;
   text-align: center;
@@ -21,7 +21,7 @@
   margin-bottom: 20px;
 }
 
-/* Header text below the Program Structure heading */
+/* Header text below the main heading */
 .timeline-header {
   text-align: center;
   font-size: 1.8rem;
@@ -55,22 +55,37 @@
   box-sizing: border-box;
 }
 
-/* The content box with fixed width, positioned on left or right */
-.timeline-item .timeline-content {
+/* Timeline content box with horizontal slide animation */
+/* Adjusted width and positioning for non-overlap with larger illustration */
+.timeline-item.left .timeline-content {
   position: relative;
-  width: 45%;
+  width: 40%;
   padding: 20px;
   box-sizing: border-box;
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateX(-50px);
   transition: all 0.5s ease-out;
+  text-align: right;
+  left: 0;
 }
 
-/* When active, the content fades in and is slightly scaled for emphasis */
+.timeline-item.right .timeline-content {
+  position: relative;
+  width: 40%;
+  padding: 20px;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.5s ease-out;
+  text-align: left;
+  left: 60%;
+}
+
+/* When active, content fades in, scales slightly, and shows a gradient background */
 .timeline-item .timeline-content.active {
   opacity: 1;
-  transform: translateY(0) scale(1.02);
-  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(0) scale(1.02);
+  background: linear-gradient(45deg, #0e446b, #1f6b8f);
   border-radius: 4px;
 }
 
@@ -82,34 +97,26 @@
   font-size: 0.9rem;
 }
 
-/* Left-aligned items: content on the left, text right-aligned */
-.timeline-item.left .timeline-content {
-  left: 0;
-  text-align: right;
-}
-
-/* Right-aligned items: content on the right, text left-aligned */
-.timeline-item.right .timeline-content {
-  left: 55%;
-  text-align: left;
-}
-
-/* Icon container: positioned in the center (on the vertical line) */
+/* Icon container: now to display the illustration image */
 .timeline-item .timeline-icon {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: white;
+  /* Remove the previous background and sizing */
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #0e446b;
-  font-size: 20px;
   z-index: 1;
+}
+
+/* New styling for the illustration image */
+.timeline-illustration-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 /* Heading and paragraph styling for each content box */
@@ -123,21 +130,22 @@
   font-size: 1rem;
 }
 
-/* Inline ghost button styling for "Apply" */
 .ghost-button-inline {
   display: inline-block;
   padding: 4px 8px;
-  border: 2px solid #fff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 4px;
-  background: transparent; /* Ensures transparent background */
-  color: #fff;
+  background: white;
+  color: #0e446b;
   text-decoration: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  margin-left: 5px; /* Provides a little spacing before the button */
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+  margin-left: 5px;
   cursor: pointer;
 }
 
 .ghost-button-inline:hover {
-  background-color: #fff;
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(255, 255, 255, 1);
   color: #0e446b;
 }

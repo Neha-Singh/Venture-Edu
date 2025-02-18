@@ -2,53 +2,20 @@
 .hero-container {
   position: relative;
   width: 100%;
-  height: 100vh; /* Full viewport height */
+  /* Instead of 100vh, use an aspect ratio for 16:9 */
+  aspect-ratio: 16 / 9;
   overflow: hidden;
 }
 
 /* Video element styling to cover the full background */
 .hero-video {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  transform: translate(-50%, -50%);
-  object-fit: cover;
-  object-position: center top; /* Ensure the top of the video is visible */
-  z-index: 1;
-}
-
-/* Overlay container for the video, with left alignment */
-.hero-overlay {
-  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 2;
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay for contrast */
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding-left: 50px; /* Adjust as needed */
-}
-
-/* Content container for text and button */
-.hero-content {
-  text-align: left;
-  color: #fff;
-  max-width: 600px; /* Constrain width for better wrapping */
-}
-
-/* Styling for the descriptive text */
-.hero-text {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-  line-height: 1.4;
-  padding-top: 100px;
+  object-fit: contain; /* Ensures the whole video is visible */
+  z-index: 1;
 }
 
 /* Apply button styling */
@@ -63,6 +30,64 @@
   transition: background-color 0.3s ease;
 }
 
-.apply-button:hover {
-  background-color: white;
+/* Existing CSS remains unchanged */
+.hero-container {
+  position: relative;
+  width: 100%;
+  /* Instead of 100vh, use an aspect ratio for 16:9 */
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 50px;
+}
+
+.hero-content {
+  text-align: left;
+  color: #fff;
+  max-width: 850px;
+}
+
+.hero-heading {
+  font-size: calc(2.5rem - 10px); /* Adjusted size if needed */
+  font-weight: bold;
+  margin: 0 0 10px;
+  padding-top: 100px;
+}
+
+.hero-subheading {
+  font-size: calc(1.8rem - 10px);
+  font-weight: 400;
+  margin: 0 0 10px;
+}
+
+.hero-paragraph {
+  font-size: calc(1.2rem - 5px);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.quote {
+  margin-top: 20px;
 }

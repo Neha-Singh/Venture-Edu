@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "../styles/founderfaculty.css";
 
 const facultyData = [
@@ -21,12 +21,43 @@ const facultyData = [
 ];
 
 const FounderFaculty = () => {
+  const boxesRef = useRef([]);
+
+  // Helper to add each element reference to boxesRef
+  const addToRefs = (el) => {
+    if (el && !boxesRef.current.includes(el)) {
+      boxesRef.current.push(el);
+    }
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          // When element is at least 30% visible, add "slide-in"; otherwise remove it
+          if (entry.isIntersecting) {
+            entry.target.classList.add("slide-in");
+          } else {
+            entry.target.classList.remove("slide-in");
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    boxesRef.current.forEach((box) => {
+      if (box) observer.observe(box);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="founder-faculty-background">
       <div className="founder-faculty-heading moved-up">Founder Faculty</div>
-      <div className="founder-faculty-container smaller-boxes with-gap">
+      <div className="founder-faculty-container with-gap">
         {facultyData.map((faculty, index) => (
-          <div key={index} className="faculty-box smaller-box">
+          <div key={index} className="faculty-box" ref={addToRefs}>
             <img
               src={require(`../../src/assets/founder-images/image-${
                 index + 1

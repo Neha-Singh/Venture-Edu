@@ -39,25 +39,14 @@ const Header = () => {
           <a href="#about" onClick={() => scrollToSection("about-section")}>
             About
           </a>
-          <a
-            href="#eligibility"
-            onClick={() => scrollToSection("program-structure")}
-          >
-            Program
-          </a>
+          <a onClick={() => scrollToSection("program-structure")}>Program</a>
           <a
             href="#application"
             onClick={() => scrollToSection("application-process")}
           >
             Application
           </a>
-          <a href="#program">Eligibility</a>
-          <a
-            className="ghost-button"
-            onClick={() => scrollToSection("global-support")}
-          >
-            Global
-          </a>
+          <a onClick={() => scrollToSection("global-support")}>Global</a>
         </nav>
       </div>
     </header>

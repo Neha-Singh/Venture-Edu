@@ -1,0 +1,132 @@
+.experience-section {
+  background-color: white;
+  padding: 50px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Center the entire content */
+}
+
+.experience-heading {
+  /* Remove the left margin and ensure it's centered */
+  font-size: 36px;
+  text-align: center;
+  width: 100%;
+  color: #153454;
+  padding-top: 60px;
+}
+
+.experience-box-container {
+  display: flex;
+  justify-content: center; /* Center the boxes horizontally */
+  gap: 20px;
+  margin-top: 100px;
+  width: 100%;
+  padding: 0; /* Remove the left padding */
+  box-sizing: border-box;
+}
+
+/* Default state: boxes are hidden and off-screen (vertical sliding) */
+.experience-box {
+  flex: 1;
+  background: linear-gradient(45deg, #0e446b, #1f6b8f);
+  border-radius: 10px;
+  padding: 20px;
+  color: white;
+  text-align: center; /* Center text inside each box */
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(50px);
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+/* When container has "in-view", trigger animation */
+.experience-box-container.in-view .experience-box {
+  animation: slideIn 0.8s forwards;
+}
+
+/* Animation delays for each box */
+.experience-box:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.experience-box:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.experience-box:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+/* Keyframes for vertical slideIn animation */
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Icon and heading container remains the same */
+.icon-and-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.box-heading {
+  font-family: "Poppins", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.box-text {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* Animate each word in the heading sequentially */
+.experience-heading span {
+  opacity: 0;
+  display: inline-block;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s forwards;
+}
+
+.experience-heading span {
+  opacity: 0;
+  display: inline-block;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s forwards;
+}
+
+/* Keyframes for fading in and sliding up */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Optional: spacing between words */
+.experience-heading span + span {
+  margin-left: 4px;
+}

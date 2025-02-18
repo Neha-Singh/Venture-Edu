@@ -49,9 +49,6 @@ const ScrollHeader = () => {
             </a>
           </li>
           <li>
-            <a>Eligibility</a>
-          </li>
-          <li>
             <a onClick={() => scrollToSection("global-support")}> Global</a>
           </li>
         </ul>
