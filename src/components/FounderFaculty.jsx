@@ -1,29 +1,21 @@
 import React, { useEffect, useRef } from "react";
+import image1 from "../../src/assets/advisory-images/image-1.png";
+import image2 from "../../src/assets/advisory-images/image-3.png";
+import image3 from "../../src/assets/advisory-images/image-2.png";
+import image4 from "../../src/assets/advisory-images/image-4.png";
 import "../styles/founderfaculty.css";
 
 const facultyData = [
-  { name: "Arjun Rao", designation: "Founder & CEO", company: "SparkCube" },
-  { name: "Pooja Mehta", designation: "Co-Founder", company: "TechNest" },
-  { name: "Prayag Sharma", designation: "Founder", company: "InnoWave" },
-  { name: "Rohan Kapoor", designation: "CEO", company: "NextGen Labs" },
-  {
-    name: "Aditi Joshi",
-    designation: "Founder & CTO",
-    company: "Bright Minds",
-  },
-  {
-    name: "Karan Patel",
-    designation: "Managing Director",
-    company: "InnovateX",
-  },
-  { name: "Sneha Verma", designation: "Founder", company: "GreenFuture" },
-  { name: "Vikram Desai", designation: "CEO", company: "Quantum Leap" },
+  { name: "Pooja Mehta", designation: "Founder and CEO, SparksCube" },
+  { name: "Rahul Sharma", designation: "CTO, InnovateX" },
+  { name: "Anita Desai", designation: "Head of Marketing, BrightWave" },
+  { name: "Ashwini Ahuja", designation: "CPO, TechEra Solutions" },
 ];
 
-const FounderFaculty = () => {
+function FounderFaculty() {
   const boxesRef = useRef([]);
 
-  // Helper to add each element reference to boxesRef
+  // Helper: add each card element to the boxesRef array
   const addToRefs = (el) => {
     if (el && !boxesRef.current.includes(el)) {
       boxesRef.current.push(el);
@@ -34,7 +26,7 @@ const FounderFaculty = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          // When element is at least 30% visible, add "slide-in"; otherwise remove it
+          // Use a lower threshold so the card reveals sooner
           if (entry.isIntersecting) {
             entry.target.classList.add("slide-in");
           } else {
@@ -42,7 +34,7 @@ const FounderFaculty = () => {
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 }
     );
 
     boxesRef.current.forEach((box) => {
@@ -54,26 +46,36 @@ const FounderFaculty = () => {
 
   return (
     <div className="founder-faculty-background">
-      <div className="founder-faculty-heading moved-up">Founder Faculty</div>
+      {/* New curriculum heading */}
+      <div className="curriculum-heading">
+        Our curriculum is built and delivered by those who have walked the talk
+        — renowned founders, seasoned investors, and visionary academics.
+      </div>
+      {/* Founder Faculty heading */}
+      <div className="founder-faculty-heading moved-up">Venture builders</div>
       <div className="founder-faculty-container with-gap">
         {facultyData.map((faculty, index) => (
           <div key={index} className="faculty-box" ref={addToRefs}>
             <img
-              src={require(`../../src/assets/founder-images/image-${
-                index + 1
-              }.jpg`)}
+              src={
+                index === 0
+                  ? image1
+                  : index === 1
+                  ? image2
+                  : index === 2
+                  ? image3
+                  : image4
+              }
               alt={`Faculty ${index + 1}`}
               className="faculty-image"
             />
             <p className="faculty-name">{faculty.name}</p>
-            <p className="faculty-title">
-              {faculty.designation}, {faculty.company}
-            </p>
+            <p className="faculty-title">{faculty.designation}</p>
           </div>
         ))}
       </div>
     </div>
   );
-};
+}
 
 export default FounderFaculty;

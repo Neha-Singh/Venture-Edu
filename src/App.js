@@ -11,6 +11,7 @@ import ProgramStructure from "./components/ProgramStructure";
 import ApplicationProcess from "./components/ApplicationProcess";
 import GlobalReach from "./components/GlobalReach";
 import ApplicationForm from "./components/ApplicationForm";
+import FAQs from "./components/FAQs";
 import Footer from "./components/Footer";
 import "./App.css";
 
@@ -23,13 +24,13 @@ function App() {
       <AboutUsText />
       <AboutUs />
       <ProgramStructure />
-
       <AdvisoryBoard />
       <FounderFaculty />
       <InvestorFaculty />
       <TraditionalFaculty />
       <GlobalReach />
       <ApplicationProcess />
+      <FAQs />
       <ApplicationForm />
       <Footer />
     </div>

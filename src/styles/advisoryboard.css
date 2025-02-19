@@ -1,6 +1,6 @@
 .advisory-background {
   background-color: white;
-  height: 130vh; /* Full viewport height */
+  height: 100vh; /* Full viewport height */
 }
 
 .advisory-heading {
@@ -14,7 +14,7 @@
   display: flex;
   gap: 20px;
   align-items: flex-start;
-  height: 130vh; /* Full viewport height */
+  height: 100vh; /* Full viewport height */
   box-sizing: border-box;
   padding-top: 50px;
   padding-left: 220px;

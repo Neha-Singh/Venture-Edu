@@ -54,9 +54,7 @@ const TraditionalFaculty = () => {
 
   return (
     <div className="founder-faculty-background">
-      <div className="founder-faculty-heading moved-up">
-        Traditional Faculty
-      </div>
+      <div className="founder-faculty-heading moved-up">Topic experts</div>
       <div className="founder-faculty-container with-gap">
         {facultyData.map((faculty, index) => (
           <div key={index} className="faculty-box" ref={addToRefs}>

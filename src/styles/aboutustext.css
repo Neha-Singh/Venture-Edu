@@ -1,60 +1,103 @@
-/* Container for the About Us Cards Dynamic component */
-.aboutus-cards-dynamic-page {
-  min-height: 150vh; /* Ensure enough vertical scroll */
-  padding: 50px 20px;
+/* Page container with background image */
+.aboutventuredu-page {
+  min-height: 100vh;
+  position: relative;
+  padding: 20px;
   font-family: "Poppins", sans-serif;
-  text-align: center;
-  transition: background 0.5s ease;
-}
-
-/* Main heading styling */
-.aboutus-cards-dynamic-heading {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  color: #0e446b;
-}
-
-/* Container for the cards */
-.aboutus-cards-dynamic-container {
+  color: #153454;
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  max-width: 800px;
-  margin: 0 auto;
+  align-items: center;
 }
 
-/* Card styling */
-.card {
-  background: linear-gradient(
-    45deg,
-    #0e446b,
-    #1f6b8f
-  ); /* Updated gradient background */
+/* Heading styling: normal scrolling heading */
+.aboutventuredu-heading {
+  margin-top: 40px; /* 50px from top of container */
+  text-align: center;
+  font-size: 3rem;
+  color: #153454;
+  margin-bottom: 80px; /* Space between heading and slider */
+}
+
+/* Slider container with fixed dimensions */
+.slider-container {
+  background: rgba(255, 255, 255, 0.8); /* Translucent white background */
   border-radius: 8px;
   padding: 20px;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  margin: 50px auto;
+  max-width: 800px;
+  height: 300px; /* Fixed height */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  color: #fff; /* Ensure text is white for contrast */
+  transition: transform 0.3s ease;
+  margin-bottom: 50px;
 }
 
-/* When visible, the card slides into place and fades in */
-.card.visible {
-  opacity: 1;
-  transform: translateY(0);
+.slider-container:hover {
+  transform: scale(1.02);
 }
 
-/* Card title styling */
-.card-title {
-  font-size: 1.8rem;
+/* Slide content styling */
+.slide {
+  flex: 1;
+  text-align: center;
+  transition: opacity 0.5s ease;
+  overflow: hidden;
+}
+
+/* New slide-change animation: slide text in from right */
+.slide.slide-change {
+  animation: slideText 0.5s ease forwards;
+}
+
+@keyframes slideText {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide heading styling */
+.slide-heading {
+  font-size: 2rem;
   margin-bottom: 10px;
-  color: #fff;
 }
 
-/* Card text styling */
-.card-text {
-  font-size: 1rem;
+/* Slide text styling */
+.slide-text {
+  font-size: 1.3rem;
   line-height: 1.6;
-  color: #fff;
+}
+
+/* Arrow button styling */
+.slider-arrow {
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #153454;
+  padding: 10px;
+  transition: transform 0.3s ease;
+}
+
+.slider-arrow:hover {
+  transform: scale(1.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .slider-container {
+    flex-direction: column;
+    gap: 20px;
+    height: auto;
+  }
+  .slider-arrow {
+    font-size: 1.8rem;
+  }
 }

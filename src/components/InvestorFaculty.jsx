@@ -54,7 +54,7 @@ const InvestorFaculty = () => {
 
   return (
     <div className="founder-faculty-background">
-      <div className="founder-faculty-heading moved-up">Investor Faculty</div>
+      <div className="founder-faculty-heading moved-up">Investors</div>
       <div className="founder-faculty-container with-gap">
         {facultyData.map((faculty, index) => (
           <div key={index} className="faculty-box smaller-box" ref={addToRefs}>
