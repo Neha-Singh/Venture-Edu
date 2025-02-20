@@ -1,0 +1,57 @@
+.scroll-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 5px 20px; /* Reduced padding for smaller height */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+  box-sizing: border-box;
+  height: 70px; /* Explicitly set header height */
+  gap: 400px;
+}
+
+.scroll-header.visible {
+  transform: translateY(0);
+}
+
+.scroll-logo-container {
+  width: 150px; /* Reduced logo size */
+  margin-left: 40px;
+}
+
+.scroll-logo {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+}
+
+.scroll-nav-menu ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.scroll-nav-menu li {
+  margin-left: 15px; /* Slightly reduced spacing between items */
+}
+
+.scroll-nav-menu a {
+  text-decoration: none;
+  color: #153454;
+  font-size: 0.95rem; /* Slightly smaller font size */
+  font-weight: 600;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.scroll-nav-menu a:hover {
+  color: #0e446b;
+}

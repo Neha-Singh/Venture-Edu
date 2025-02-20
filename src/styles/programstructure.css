@@ -1,0 +1,143 @@
+/* programstructure.css */
+
+/* Premium gradient background */
+.program-structure {
+  background: linear-gradient(135deg, #0e446b, #153454);
+  color: #fff;
+  padding: 50px 20px;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Program heading styling */
+.program-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+/* Tabs container */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+/* Individual tab button styling with smooth transitions */
+.tab {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.tab:hover {
+  transform: scale(1.05);
+  background-color: #fff;
+  color: #0e446b;
+}
+
+.tab.active {
+  background-color: #fff;
+  color: #0e446b;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Sprint details container */
+.sprint-details {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Sprint content layout */
+.sprint-content {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Sprint text styling */
+.sprint-text {
+  flex: 1 1 50%;
+  text-align: left;
+  transform: translateX(0);
+  transition: transform 0.5s ease;
+}
+
+/* Sprint illustration styling */
+.sprint-illustration {
+  flex: 1 1 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(0);
+  transition: transform 0.5s ease;
+}
+
+/* Trigger slide-in animations when animate-content class is added */
+.sprint-details.animate-content .sprint-text {
+  animation: slideInLeft 0.5s ease forwards;
+}
+
+.sprint-details.animate-content .sprint-illustration {
+  animation: slideInRight 0.5s ease forwards;
+}
+
+/* Keyframes for sliding in from the left */
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Keyframes for sliding in from the right */
+@keyframes slideInRight {
+  0% {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Additional sprint text styles */
+.sprint-heading {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.sprint-duration {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.sprint-description {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Illustration image styling */
+.sprint-illustration img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}

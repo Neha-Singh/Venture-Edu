@@ -1,0 +1,70 @@
+.advisory-background {
+  background-color: white;
+  height: 100vh; /* Full viewport height */
+}
+
+.advisory-heading {
+  text-align: center;
+  color: #153454;
+  font-size: 36px;
+  padding-top: 60px;
+}
+
+.advisory-container {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  height: 100vh; /* Full viewport height */
+  box-sizing: border-box;
+  padding-top: 50px;
+  padding-left: 220px;
+}
+
+.advisory-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #0e446b;
+  border-radius: 37px;
+  width: 200px; /* Reduced from 417px */
+  height: 340px; /* Reduced from 585px */
+  overflow: hidden;
+
+  /* Initial state: slightly below and transparent */
+  opacity: 0;
+  transform: translateY(50px);
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+.advisory-box.slide-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card-image {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  border-top-left-radius: 37px;
+  border-top-right-radius: 37px;
+}
+
+.card-text {
+  padding: 10px 0;
+}
+
+.card-name {
+  font-size: 15px; /* Larger font size for the name */
+  font-weight: bold; /* Bold text for the name */
+  color: #ffffff; /* White color for better contrast */
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.card-designation {
+  font-size: 10px; /* Smaller font size for the designation */
+  font-weight: 500; /* Medium font weight */
+  color: #d1d1d1; /* Light gray for a subtle look */
+  text-align: center;
+}

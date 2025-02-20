@@ -1,0 +1,121 @@
+/* FAQ Container */
+.faq-container {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Main FAQ heading */
+.faq-heading {
+  font-size: 2.5rem;
+  color: #153454;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Tabs container for FAQ categories */
+.faq-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+/* Individual tab button styling */
+.faq-tab {
+  background: linear-gradient(135deg, #153454, #1f6b8f);
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.faq-tab:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #1f6b8f, #153454);
+}
+
+/* Active tab: white background with blue text */
+.faq-tab.active {
+  background: white;
+  color: #153454;
+  border: 2px solid #153454;
+}
+
+/* FAQ List */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* FAQ Item */
+.faq-item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 15px;
+  transition: background 0.3s ease;
+}
+
+.faq-item:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+/* FAQ Question: use same gradient as FAQ tabs */
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+  background: linear-gradient(135deg, #153454, #1f6b8f);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.faq-question:hover {
+  background: linear-gradient(135deg, #1f6b8f, #153454);
+}
+
+.faq-question-text {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: white;
+}
+
+/* FAQ Toggle Icon */
+.faq-toggle-icon {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+/* FAQ Answer - initially hidden */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  margin-top: 0;
+}
+
+/* FAQ Answer open */
+.faq-answer.open {
+  max-height: 500px; /* large enough to display content */
+  opacity: 1;
+  margin-top: 10px;
+}
+
+/* FAQ Answer text styling */
+.faq-answer p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #153454;
+  margin: 0;
+}

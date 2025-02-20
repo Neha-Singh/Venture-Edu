@@ -1,0 +1,70 @@
+.founder-faculty-background {
+  background-color: #153454;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.founder-faculty-heading.moved-up {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+  margin-top: -150px; /* Moves heading up */
+}
+
+.founder-faculty-container.with-gap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  row-gap: 20px; /* Adds gap between rows */
+  width: 80%;
+  height: 70%;
+}
+
+/* Faculty box with premium gradient background and sliding effect */
+.faculty-box {
+  background: linear-gradient(45deg, #0e446b, #1f6b8f);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 10px;
+  height: calc(100% + 10px); /* Increased height by 10px */
+
+  /* Initial state for vertical slide */
+  opacity: 0;
+  transform: translateY(50px);
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+/* When the slide-in class is added, animate to final state */
+.faculty-box.slide-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.faculty-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.faculty-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.faculty-title {
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-align: center;
+}

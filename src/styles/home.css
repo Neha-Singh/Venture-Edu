@@ -1,0 +1,93 @@
+/* Container for the hero section */
+.hero-container {
+  position: relative;
+  width: 100%;
+  /* Instead of 100vh, use an aspect ratio for 16:9 */
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+/* Video element styling to cover the full background */
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensures the whole video is visible */
+  z-index: 1;
+}
+
+/* Apply button styling */
+.apply-button {
+  background-color: #0e446b;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Existing CSS remains unchanged */
+.hero-container {
+  position: relative;
+  width: 100%;
+  /* Instead of 100vh, use an aspect ratio for 16:9 */
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 50px;
+}
+
+.hero-content {
+  text-align: left;
+  color: #fff;
+  max-width: 850px;
+}
+
+.hero-heading {
+  font-size: calc(2.5rem - 10px); /* Adjusted size if needed */
+  font-weight: bold;
+  margin: 0 0 10px;
+  padding-top: 100px;
+}
+
+.hero-subheading {
+  font-size: calc(1.8rem - 10px);
+  font-weight: 400;
+  margin: 0 0 10px;
+}
+
+.hero-paragraph {
+  font-size: calc(1.2rem - 5px);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.quote {
+  margin-top: 20px;
+}
