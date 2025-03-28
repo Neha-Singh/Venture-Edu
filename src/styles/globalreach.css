@@ -1,0 +1,215 @@
+/* Container for the video background component */
+.video-background-container {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden;
+}
+
+/* Video element covers the full background */
+.video-background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* Overlay container for text, centered over the video */
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay for contrast */
+  padding: 20px;
+}
+
+/* Global Reach Text Container */
+.global-reach-text {
+  max-width: 800px;
+  text-align: center;
+  color: #fff;
+  padding: 20px;
+}
+
+.global-reach-text h1 {
+  font-size: 2rem; /* Reduced from 2.5rem */
+  margin-bottom: 20px;
+}
+
+.global-reach-text h2 {
+  font-size: 1.5rem; /* Reduced from 2rem */
+  margin: 20px 0 10px;
+}
+
+.global-reach-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.global-reach-text ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  text-align: left;
+}
+
+.global-reach-text ul li {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.global-reach-text ul li strong {
+  font-size: 1.1rem;
+}
+
+/* Responsive adjustments for Tablets & Laptops */
+@media (max-width: 1024px) {
+  .global-reach-text h1 {
+    font-size: 1.8rem;
+    padding: 15px;
+  }
+  .global-reach-text h2 {
+    font-size: 1.4rem;
+  }
+  .global-reach-text p,
+  .global-reach-text ul li {
+    font-size: 1rem;
+  }
+}
+
+/* Responsive adjustments for Mobile */
+@media (max-width: 768px) {
+  .global-reach-text h1 {
+    font-size: 1.6rem;
+  }
+  .global-reach-text h2 {
+    font-size: 1.3rem;
+  }
+  .global-reach-text p,
+  .global-reach-text ul li {
+    font-size: 0.9rem;
+  }
+  .video-overlay {
+    padding: 10px;
+  }
+}
+
+/* Responsive adjustments for Very Small Devices */
+@media (max-width: 480px) {
+  .global-reach-text h1 {
+    font-size: 1.4rem;
+  }
+  .global-reach-text h2 {
+    font-size: 1.2rem;
+  }
+  .global-reach-text p,
+  .global-reach-text ul li {
+    font-size: 0.85rem;
+  }
+  .video-overlay {
+    padding: 5px;
+  }
+}
+
+/* Program Highlights - Horizontal Layout */
+.highlights-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Adjust gap as needed */
+  padding: 0;
+  list-style: none;
+}
+
+.highlights-list li {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem; /* Adjust font size if necessary */
+  color: #fff;
+}
+
+.highlight-icon {
+  color: white;
+  margin-right: 5px;
+  font-size: 0.8rem; /* Adjust icon size as needed */
+}
+
+/* Global Reach Text Container */
+.global-reach-text {
+  max-width: 800px;
+  text-align: center;
+  color: #fff;
+  padding: 20px;
+}
+
+.global-reach-text h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.global-reach-text h2 {
+  font-size: 1.5rem;
+  margin: 20px 0 10px;
+}
+
+.global-reach-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Program Highlights – Default: Horizontal layout for Desktop */
+.highlights-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+  text-align: center;
+}
+
+.highlights-list li {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+.highlight-icon {
+  color: white;
+  margin-right: 5px;
+  font-size: 0.8rem;
+}
+
+/* Responsive adjustments for Mobile: Render Highlights vertically */
+@media (max-width: 768px) {
+  .highlights-list {
+    display: block; /* Disable flex/grid */
+    width: 100%;
+    margin: 20px auto 0;
+    text-align: center;
+  }
+  .highlights-list li {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+  }
+}

@@ -1,0 +1,32 @@
+import { useState } from "react";
+import Header from "./components/Header";
+import Home from "./components/Home";
+import AboutUs from "./components/AboutUs";
+import AboutUsTwo from "./components/AboutUsTwo";
+import ProgramStructure from "./components/ProgramStructure";
+import GlobalReach from "./components/GlobalReach";
+import Faqs from "./components/Faqs";
+import ApplicationForm from "./components/ApplicationForm";
+import ApplicationProcessTimeline from "./components/ApplicationProcess";
+import Footer from "./components/Footer";
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <>
+      <Header />
+      <Home />
+      <AboutUs />
+      <AboutUsTwo />
+      <ProgramStructure />
+      <GlobalReach />
+      <ApplicationProcessTimeline />
+      <Faqs />
+      <ApplicationForm />
+      <Footer />
+    </>
+  );
+}
+
+export default App;

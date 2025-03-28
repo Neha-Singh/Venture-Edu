@@ -1,0 +1,178 @@
+/* Container that sets the background color and centers the form */
+.form-container {
+  background-color: #0e446b;
+  padding: 20px 20px;
+  min-height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Form styling */
+.application-form {
+  background-color: #0e446b;
+  max-width: 500px;
+  width: 100%;
+  padding: 30px;
+  border-radius: 8px;
+  color: #fff;
+}
+
+/* Form heading */
+.application-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+/* Group each form field */
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Label styling */
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Input field styling for all text boxes */
+.form-group input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Force all input/select fields to the same height */
+.form-group input,
+.small-field select,
+.large-field input {
+  height: 45px;
+}
+
+/* Error message styling */
+.error {
+  color: #ff6f61;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+/* Submit button styling */
+.submit-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #fff;
+  color: #0e446b;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #f0f0f0;
+  color: #0e446b;
+}
+
+/* Success message styling */
+.success-message {
+  margin-top: 20px;
+  color: #fff;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Extra styles for horizontal grouping */
+.horizontal-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Country code field styling */
+.small-field {
+  flex: 0 0 9%;
+  display: flex;
+  flex-direction: column;
+}
+
+.small-field select {
+  padding: 0 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Phone number field styling */
+.large-field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.large-field input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Responsive adjustments for Tablets & Laptops */
+@media (max-width: 1024px) {
+  .application-form {
+    max-width: 90%;
+    padding: 25px;
+  }
+  .form-group input,
+  .small-field select,
+  .large-field input {
+    font-size: 0.95rem;
+    padding: 8px;
+  }
+  .submit-button {
+    font-size: 1rem;
+    padding: 10px;
+  }
+}
+
+/* Responsive adjustments for Mobile */
+@media (max-width: 768px) {
+  .form-container {
+    padding: 20px 10px;
+  }
+  .application-form {
+    max-width: 100%;
+    padding: 20px;
+  }
+  .form-group input,
+  .small-field select,
+  .large-field input {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+  .submit-button {
+    font-size: 0.95rem;
+    padding: 8px;
+  }
+}
+
+/* Responsive adjustments for Very Small Devices */
+@media (max-width: 480px) {
+  .application-form {
+    padding: 15px;
+  }
+  .form-group input,
+  .small-field select,
+  .large-field input {
+    font-size: 0.85rem;
+    padding: 6px;
+  }
+  .submit-button {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+}
