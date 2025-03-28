@@ -8,6 +8,13 @@ const VideoPlayer = lazy(() => import("../components/Global/VideoPlayer"));
 const Home = () => {
   const [showSplash, setShowSplash] = useState(true);
 
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowSplash(false);
@@ -34,7 +41,12 @@ const Home = () => {
           <i className="quote">
             “Chance favors the prepared mind” – Louis Pasteur
           </i>
-          <button className="explore-btn">Explore Now</button>
+          <button
+            className="explore-btn"
+            onClick={() => scrollToSection("about-section")}
+          >
+            Explore Now
+          </button>
         </div>
       </div>
     </div>

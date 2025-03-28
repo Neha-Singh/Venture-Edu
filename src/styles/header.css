@@ -192,3 +192,8 @@
     color: white !important;
   }
 }
+/* Add cursor pointer to all logos */
+.logo img,
+.mobile-logo {
+  cursor: pointer;
+}
