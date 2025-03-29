@@ -112,7 +112,7 @@ const ApplicationForm = () => {
           {errors.name && <span className="error">{errors.name}</span>}
         </div>
         <div className="form-group">
-          <label>Phone Number</label>
+          <label>Phone number</label>
           <div className="horizontal-group">
             <div className="small-field">
               <select

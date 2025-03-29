@@ -67,12 +67,49 @@
   transition: color 0.3s ease;
 }
 
+/* Transparent header: nav links appear white */
 .header:not(.header-scrolled) .nav ul li a {
   color: white;
 }
 
+/* Scrolled header: nav links appear blue */
 .header.header-scrolled .nav ul li a {
+  color: #153454;
+}
+
+/* Apply button styling for desktop and mobile */
+.apply-button {
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+/* Transparent header: Apply button is white with blue text */
+.header:not(.header-scrolled) .apply-button {
+  background-color: white;
+  color: #153454;
+}
+
+.header:not(.header-scrolled) .apply-button:hover {
+  background-color: #f0f0f0;
+}
+
+/* Scrolled header: Apply button is blue with white text */
+.header.header-scrolled .apply-button {
+  background-color: #153454;
   color: white;
+}
+
+.header.header-scrolled .apply-button:hover {
+  background-color: #1f6b8f;
+}
+
+/* Separate class for button text */
+.btn-text {
+  color: inherit;
 }
 
 /* Mobile menu icon styling */
@@ -93,7 +130,7 @@
   color: #153454;
 }
 
-/* Mobile Menu Overlay – New Vertical Layout */
+/* Mobile Menu Overlay – Vertical Layout */
 .mobile-menu-overlay {
   position: fixed;
   top: 0;
@@ -123,9 +160,10 @@
 .mobile-logo {
   height: 40px;
   width: auto;
+  cursor: pointer;
 }
 
-/* Mobile active navigation styling */
+/* Mobile active navigation styling (overlay) */
 .nav.mobile-active {
   width: 100%;
   display: flex;
@@ -134,13 +172,13 @@
   padding-top: 20px;
 }
 
-/* Ensure mobile menu items are rendered vertically in separate rows */
 .nav.mobile-active ul {
-  display: block;
+  display: block !important;
   list-style: none;
   padding: 0;
   margin: 0 auto;
   width: 90%;
+  text-align: center;
 }
 
 .nav.mobile-active ul li {
@@ -158,21 +196,37 @@
   font-weight: 500;
   color: white;
   text-align: center;
-  /* Gradient background from left to right */
-  background: linear-gradient(to left, #153454, #1f6b8f);
+  background: linear-gradient(to top, #153454, #1f6b8f);
   border-radius: 4px;
   transition: background 0.3s ease;
 }
 
 .nav.mobile-active ul li a:hover {
-  background: linear-gradient(to right, #1f6b8f, #153454);
+  background: linear-gradient(to top, #1f6b8f, #153454);
 }
 
-/* Hide the "Media" menu item on mobile */
-@media (max-width: 768px) {
-  .nav.mobile-active ul li:nth-child(5) {
-    display: none;
-  }
+/* Mobile Apply Now button container and styling */
+.mobile-apply-container {
+  width: 90%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.mobile-apply-button {
+  display: inline-block;
+  width: 50%;
+  padding: 12px 0;
+  background-color: white;
+  color: #153454;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.mobile-apply-button:hover {
+  background-color: #f0f0f0;
 }
 
 /* Responsive adjustments for Mobile only */
@@ -191,9 +245,23 @@
   .header:not(.header-scrolled) .mobile-menu-icon .icon-hamburger {
     color: white !important;
   }
+  .header.header-scrolled .nav ul li a {
+    color: white;
+  }
 }
+
 /* Add cursor pointer to all logos */
 .logo img,
 .mobile-logo {
   cursor: pointer;
+}
+
+.header:not(.header-scrolled) .apply-button .btn-text {
+  font-weight: bold;
+  color: #153454;
+}
+
+.header.header-scrolled .apply-button .btn-text {
+  font-weight: bold;
+  color: white;
 }

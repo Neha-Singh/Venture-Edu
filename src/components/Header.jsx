@@ -30,7 +30,7 @@ const Header = () => {
   return (
     <header className={`header ${scrolled ? "header-scrolled" : ""}`}>
       <div className="header-container">
-        {/* Clicking the logo scrolls to home page */}
+        {/* Clicking the logo scrolls to home */}
         <div className="logo" onClick={() => scrollToSection("home-page")}>
           {scrolled ? (
             <img src={blueLogo} alt="Logo" />
@@ -70,7 +70,13 @@ const Header = () => {
               </a>
             </li>
             <li>
-              <a href="#media">Media</a>
+              <a
+                href="#application"
+                onClick={() => scrollToSection("application-form")}
+                className="apply-button"
+              >
+                <span className="btn-text">Apply</span>
+              </a>
             </li>
           </ul>
         </nav>
@@ -139,9 +145,20 @@ const Header = () => {
                   Application
                 </a>
               </li>
-              {/* "Media" menu item is hidden on mobile */}
             </ul>
           </nav>
+          <div className="mobile-apply-container">
+            <a
+              href="#application"
+              onClick={() => {
+                scrollToSection("application-form");
+                toggleMobileMenu();
+              }}
+              className="mobile-apply-button"
+            >
+              <span className="btn-text">Apply</span>
+            </a>
+          </div>
         </div>
       )}
     </header>

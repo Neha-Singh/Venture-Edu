@@ -143,8 +143,7 @@ const ApplicationProcessTimeline = () => {
           Application Process
         </h1>
         <h2 className="timeline-header">
-          We are highly selective and only &lt;1% of the candidates are selected
-          for the program
+          Less than 1% of the candidates are selected for the program
         </h2>
         <div className="timeline">
           {steps.map((step, index) => {
