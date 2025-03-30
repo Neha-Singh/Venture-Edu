@@ -9,7 +9,7 @@ const faqGroups = {
         "At VenturEdu, your day is split between hands-on work with startups, engaging classroom sessions, and mentor interactions. Expect a dynamic mix of learning, problem-solving, and collaboration tailored to equip you with real-world entrepreneurial skills.",
     },
     {
-      question: "What are the benefits of the 12-month program?",
+      question: "What are the benefits of the 14-month program?",
       answer:
         "Our 12-month program offers foundational skills, real-world startup immersion, and mentorship from experienced founders, culminating in building and pitching your own venture. It’s a transformative journey designed to bridge the gap between learning and execution.",
     },
@@ -29,11 +29,6 @@ const faqGroups = {
       question: "Is there an age limit for admission?",
       answer:
         "No, there is no age limit. We welcome anyone with a passion for entrepreneurship.",
-    },
-    {
-      question: "Can applicants without a UG degree apply?",
-      answer:
-        "Yes, applicants without a formal degree can be considered if they demonstrate a strong entrepreneurial mindset and relevant experience.",
     },
     {
       question: "How many years of work experience are required to apply?",

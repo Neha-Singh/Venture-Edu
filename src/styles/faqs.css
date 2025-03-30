@@ -1,6 +1,6 @@
 /* FAQ Container */
 .faq-container {
-  max-width: 900px;
+  max-width: 1200px; /* Increased from 900px to 1200px */
   margin: 50px auto;
   padding: 20px;
   font-family: "Poppins", sans-serif;
@@ -182,6 +182,7 @@
   .faq-content {
     flex-direction: column;
   }
+  /* Arrange tabs in two columns */
   .faq-tabs {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -198,6 +199,7 @@
     flex-direction: column;
     gap: 15px;
   }
+  /* Allow FAQ question text to wrap and position toggle icon absolutely */
   .faq-question {
     flex-wrap: wrap;
   }

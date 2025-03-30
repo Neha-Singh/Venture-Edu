@@ -27,38 +27,32 @@ const steps = [
         </a>
       </span>
     ),
-    description:
-      "Submit your application to join our wait list and get started with our process.",
+    description: "",
     illustration: step1,
   },
   {
     title: "Attend Weekly Orientation",
-    description:
-      "Join our weekly orientation sessions to understand the program and its requirements.",
+    description: "",
     illustration: step2,
   },
   {
     title: "Use directions from orientation to fill application form",
-    description:
-      "Follow the guidelines provided during orientation to complete your application form accurately.",
+    description: "",
     illustration: step3,
   },
   {
-    title: "Admission committee conducts fitness assessment",
-    description:
-      "Our admissions committee evaluates your fitness through a comprehensive assessment.",
+    title: "Admissions committee conducts fitness assessment",
+    description: "",
     illustration: step4,
   },
   {
-    title: "Shortlisted candidates invited in person interviews",
-    description:
-      "If you are shortlisted, you will be invited for an in-person interview with our team.",
+    title: "Shortlisted candidates invited for in person interview",
+    description: "",
     illustration: step5,
   },
   {
-    title: "Final invitation to join program",
-    description:
-      "Successful candidates will receive a final invitation to join our program.",
+    title: "Invitation to join the program",
+    description: "",
     illustration: step6,
   },
 ];

@@ -32,15 +32,18 @@ const Home = () => {
           <h1 className="hero-heading">
             Venture is a contrarian way of living life.
           </h1>
+          <br></br>
           <h2 className="hero-subheading">
             The input – output model for venture building is complex.
             Entrepreneurship cannot be taught; it must take root in your mind.
             Possessing a founder's toolkit and the right mental models increases
             your probability of success.
           </h2>
+          <br></br>
           <i className="quote">
             “Chance favors the prepared mind” – Louis Pasteur
           </i>
+          <br></br>
           <button
             className="explore-btn"
             onClick={() => scrollToSection("about-section")}

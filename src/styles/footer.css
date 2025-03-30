@@ -15,6 +15,7 @@
 /* Navigation Links */
 .footer-links {
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .footer-link {

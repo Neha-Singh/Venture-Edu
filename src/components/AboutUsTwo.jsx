@@ -11,7 +11,7 @@ function AboutUs() {
   const [headingKey, setHeadingKey] = useState(Date.now());
 
   const headingText =
-    "We help By empowering aspiring entrepreneurs to turn ideas into scalable ventures through: ";
+    "We help aspiring entrepreneurs to turn ideas into scalable ventures.";
   const words = headingText.split(" ");
 
   useEffect(() => {
