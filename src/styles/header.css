@@ -265,3 +265,11 @@
   font-weight: bold;
   color: white;
 }
+
+/* Shift logo to the left only for desktop when header is transparent */
+@media (min-width: 1024px) {
+  .header:not(.header-scrolled) .logo {
+    margin-left: -80px; /* Adjust value as needed */
+    margin-top: 10px;
+  }
+}

@@ -53,7 +53,7 @@ function AboutUs() {
             <FaClockRotateLeft style={{ fontSize: "50px" }} />
           </div>
           <p className="box-text">
-            Providing 6 month long focused startup exposure
+            Providing focused early stage startup experience
           </p>
         </div>
         <div className="experience-box">

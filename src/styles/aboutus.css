@@ -8,6 +8,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center; /* Center content vertically */
   overflow: hidden;
 }
 
@@ -24,12 +25,11 @@
   transition: opacity 0.5s ease;
 }
 
-/* Slider container (desktop) */
+/* Slider container (transparent white overlay) */
 .slider-container {
   background: rgba(255, 255, 255, 0.8);
   border-radius: 8px;
   padding: 20px;
-  margin: 50px auto;
   width: 800px;
   height: 300px; /* Fixed height for desktop */
   display: flex;
@@ -37,10 +37,11 @@
   justify-content: space-between;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
-  margin-bottom: 50px;
   cursor: pointer;
+  /* Remove vertical margins so centering is controlled by parent */
 }
 
+/* Hover effect */
 .slider-container:hover {
   transform: scale(1.02);
 }
@@ -97,11 +98,11 @@
   transform: scale(1.2);
 }
 
-/* Responsive adjustments for tablets & laptops */
+/* Responsive adjustments for Tablets & Laptops */
 @media (max-width: 1024px) {
   .slider-container {
     width: 90%;
-    height: 300px; /* Fixed height maintained */
+    height: 300px; /* Maintain fixed height */
     padding: 20px;
     flex-direction: row;
     gap: 20px;
@@ -117,13 +118,13 @@
   }
 }
 
-/* Responsive adjustments for mobile */
+/* Responsive adjustments for Mobile */
 @media (max-width: 768px) {
   .slider-container {
     width: 90%;
-    flex-direction: row; /* Keep arrows left/right */
+    flex-direction: row; /* Keep left/right arrow layout */
     gap: 20px;
-    height: 400px; /* Increased fixed height for mobile overlay */
+    height: 400px; /* Increased height for mobile overlay */
     padding: 15px;
   }
   .slider-arrow {
@@ -137,7 +138,7 @@
   }
 }
 
-/* Further adjustments for very small devices */
+/* Responsive adjustments for Very Small Devices */
 @media (max-width: 480px) {
   .slider-container {
     width: 95%;

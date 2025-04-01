@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense, lazy } from "react";
+import React, { useState, useEffect, lazy } from "react";
 import "../styles/home.css";
 import homeVideo from "../../src/assets/Videos/HomePage/Cliff.mp4";
 
@@ -24,9 +24,8 @@ const Home = () => {
 
   return (
     <div className="home-page" id="home-page">
-      <Suspense fallback={<div>Loading video...</div>}>
-        <VideoPlayer videoSrc={homeVideo} className="home-video" />
-      </Suspense>
+      <VideoPlayer videoSrc={homeVideo} className="home-video" />
+
       <div className="hero-overlay">
         <div className="hero-content">
           <h1 className="hero-heading">
