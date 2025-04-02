@@ -36,7 +36,7 @@ const steps = [
     illustration: step2,
   },
   {
-    title: "Use directions from orientation to fill application form",
+    title: "Follow orientation directions to fill the application form.",
     description: "",
     illustration: step3,
   },

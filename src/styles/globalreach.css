@@ -31,7 +31,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay for contrast */
+  background: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay */
   padding: 20px;
 }
 
@@ -44,12 +44,12 @@
 }
 
 .global-reach-text h1 {
-  font-size: 2rem; /* Reduced from 2.5rem */
+  font-size: 2rem;
   margin-bottom: 20px;
 }
 
 .global-reach-text h2 {
-  font-size: 1.5rem; /* Reduced from 2rem */
+  font-size: 1.5rem;
   margin: 20px 0 10px;
 }
 
@@ -59,29 +59,42 @@
   margin-bottom: 20px;
 }
 
-/* Program Highlights – Grid Layout */
-.highlights-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+/* Highlights section for desktop: use flexbox to keep all boxes in one row */
+.highlights-grid {
+  display: flex;
   gap: 20px;
-  list-style: none;
-  padding: 0;
-  margin: 20px 0 0;
-  text-align: center;
+  margin: 20px auto 0;
+  justify-content: center;
+  align-items: center;
 }
 
-.highlights-list li {
+/* Highlight box styling */
+.highlight-box {
+  background: rgba(255, 255, 255, 0.2); /* Transparent background */
+  border: 2px solid white; /* Solid white border */
+  border-radius: 4px;
+  width: 190px;
+  height: 150px;
+  aspect-ratio: 1 / 1; /* Keep square shape */
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
-  color: #fff;
+  gap: 10px;
+  padding: 10px;
+}
+
+.highlight-box span {
+  font-size: 1rem;
+  color: white;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .highlight-icon {
   color: white;
-  margin-right: 8px;
-  font-size: 1.2rem; /* Increased from 0.8rem */
+  margin-bottom: 5px;
+  font-size: 2rem;
 }
 
 /* Responsive adjustments for Tablets & Laptops */
@@ -94,12 +107,22 @@
     font-size: 1.4rem;
   }
   .global-reach-text p,
-  .highlights-list li {
+  .highlight-box span {
     font-size: 1rem;
+  }
+  .highlight-icon {
+    font-size: 1.8rem;
+  }
+  .highlight-box {
+    width: 150px;
+    height: 150px;
   }
 }
 
 /* Responsive adjustments for Mobile */
+/* Switch the layout to a 2x2 grid */
+/* Responsive adjustments for Mobile */
+/* Switch the layout to a 2x2 grid */
 @media (max-width: 768px) {
   .global-reach-text h1 {
     font-size: 1.6rem;
@@ -108,11 +131,27 @@
     font-size: 1.3rem;
   }
   .global-reach-text p,
-  .highlights-list li {
+  .highlight-box span {
     font-size: 0.9rem;
   }
   .video-overlay {
     padding: 10px;
+  }
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 20px auto 0;
+    justify-items: center;
+    align-items: center;
+  }
+  .highlight-box {
+    width: 160px !important;
+    height: 150px !important;
+    aspect-ratio: unset;
+  }
+  .highlight-icon {
+    font-size: 1.6rem;
   }
 }
 
@@ -125,10 +164,17 @@
     font-size: 1.2rem;
   }
   .global-reach-text p,
-  .highlights-list li {
+  .highlight-box span {
     font-size: 0.85rem;
   }
   .video-overlay {
     padding: 5px;
+  }
+  .highlight-box {
+    width: 100px;
+    height: 100px;
+  }
+  .highlight-icon {
+    font-size: 1.4rem;
   }
 }

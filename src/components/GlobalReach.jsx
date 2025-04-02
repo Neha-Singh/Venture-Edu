@@ -23,25 +23,29 @@ const VideoBackground = () => {
               horizons.
             </p>
             <p>
-              Travelling to Dubai, candidates will engage in a dynamic startup
+              Travelling to Dubai, students will engage in a dynamic startup
               ecosystem, connecting with global investors, successful founders,
               and industry leaders.
             </p>
             <h2>Program Highlights</h2>
-            <ul className="highlights-list">
-              <li>
-                <FaHandshake className="highlight-icon" /> Investor mixer
-              </li>
-              <li>
-                <FaBullhorn className="highlight-icon" /> Demo day
-              </li>
-              <li>
-                <FaRocket className="highlight-icon" /> Local startup immersion
-              </li>
-              <li>
-                <FaGraduationCap className="highlight-icon" /> Expert sessions
-              </li>
-            </ul>
+            <div className="highlights-grid">
+              <div className="highlight-box">
+                <FaHandshake className="highlight-icon" />
+                <span>Investor Mixer</span>
+              </div>
+              <div className="highlight-box">
+                <FaBullhorn className="highlight-icon" />
+                <span>Demo Day</span>
+              </div>
+              <div className="highlight-box">
+                <FaRocket className="highlight-icon" />
+                <span>Local Startup Immersion</span>
+              </div>
+              <div className="highlight-box">
+                <FaGraduationCap className="highlight-icon" />
+                <span>Expert Sessions</span>
+              </div>
+            </div>
           </div>
         </div>
       </VideoPlayer>
