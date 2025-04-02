@@ -14,7 +14,7 @@ const slides = [
   },
   {
     heading: "Our Approach",
-    text: "Here, students are immersed in real–world startup ecosystems, mentored by those who have scaled billion–dollar ventures, and equipped with tools to build businesses that disrupt and endure. We blend experiential learning with global exposure to create leaders ready to take risks, learn from failure, and shape the future of industries.",
+    text: "Here, candidates are immersed in real–world startup ecosystems, mentored by those who have scaled billion–dollar ventures, and equipped with tools to build businesses that disrupt and endure. We blend experiential learning with global exposure to create leaders ready to take risks, learn from failure, and shape the future of industries.",
   },
   {
     heading: "Join Us",

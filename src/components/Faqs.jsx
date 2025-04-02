@@ -11,7 +11,7 @@ const faqGroups = {
     {
       question: "What are the benefits of the 14-month program?",
       answer:
-        "Our 12-month program offers foundational skills, real-world startup immersion, and mentorship from experienced founders, culminating in building and pitching your own venture. It’s a transformative journey designed to bridge the gap between learning and execution.",
+        "Our 14-month program offers foundational skills, real-world startup immersion, and mentorship from experienced founders, culminating in building and pitching your own venture. It’s a transformative journey designed to bridge the gap between learning and execution.",
     },
   ],
   Admissions: [
@@ -44,17 +44,12 @@ const faqGroups = {
   ],
   "Admission Process": [
     {
-      question: "Are all applicants interviewed?",
-      answer:
-        "Yes, all shortlisted applicants undergo an interview to assess their fit for the program and their entrepreneurial potential.",
-    },
-    {
       question: "Can applicants defer their admission for the next year?",
       answer:
         "We allow deferrals on a case-by-case basis. You’ll need to provide a valid reason and deferment request during the admissions process.",
     },
     {
-      question: "Can students request a callback from VenturEdu?",
+      question: "Can candidates request a callback from VenturEdu?",
       answer:
         "Yes, you can schedule a callback to discuss your application or queries about the program.",
     },
@@ -66,15 +61,15 @@ const faqGroups = {
         "Assessment is based on a combination of classroom performance, contributions to startup, and the progress of your venture idea. Real-world impact and learning are our key focus areas.",
     },
     {
-      question: "Will students receive a degree upon completion?",
+      question: "Will candidates receive a degree upon completion?",
       answer:
         "No, VenturEdu does not offer a traditional degree. Instead, you’ll gain a certificate of completion and, more importantly, the skills, network, and experience to build a successful venture.",
     },
     {
       question:
-        "Can students leave the program to join the startup they work with?",
+        "Can candidates leave the program to join the startup they work with?",
       answer:
-        "We encourage students to complete the program but support those who receive exceptional opportunities to join startups. Terms will be discussed individually.",
+        "We encourage candidates to complete the program but support those who receive exceptional opportunities to join startups. Terms will be discussed individually.",
     },
     {
       question: "What is the refund policy?",
@@ -100,7 +95,7 @@ const faqGroups = {
     },
     {
       question:
-        "Can students receive partial funding for their venture during the program?",
+        "Can candidates receive partial funding for their venture during the program?",
       answer:
         "Yes, select startups from the cohort may receive funding support through our advisory board and investor network.",
     },
@@ -156,7 +151,7 @@ const faqGroups = {
     {
       question: "Does VenturEdu offer scholarships?",
       answer:
-        "Yes! We are committed to making quality education accessible to top talent. We offer 100% scholarships for exceptional candidates who demonstrate outstanding merit, leadership, and entrepreneurial potential, as well as partial scholarships for high-potential students based on merit and fitment.",
+        "Yes! We are committed to making quality education accessible to top talent. We offer 100% scholarships for exceptional candidates who demonstrate outstanding merit, leadership, and entrepreneurial potential, as well as partial scholarships for high-potential candidates based on merit and fitment.",
     },
     {
       question: "How is the scholarship awarded?",

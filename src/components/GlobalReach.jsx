@@ -1,5 +1,10 @@
 import React, { lazy } from "react";
-import { FaCircle } from "react-icons/fa";
+import {
+  FaHandshake,
+  FaBullhorn,
+  FaRocket,
+  FaGraduationCap,
+} from "react-icons/fa";
 import "../styles/globalreach.css";
 import globalVideo from "../../src/assets/Videos/brj.mp4";
 
@@ -18,23 +23,23 @@ const VideoBackground = () => {
               horizons.
             </p>
             <p>
-              Travelling to Dubai, students will engage in a dynamic startup
+              Travelling to Dubai, candidates will engage in a dynamic startup
               ecosystem, connecting with global investors, successful founders,
               and industry leaders.
             </p>
             <h2>Program Highlights</h2>
             <ul className="highlights-list">
               <li>
-                <FaCircle className="highlight-icon" /> Investor mixer
+                <FaHandshake className="highlight-icon" /> Investor mixer
               </li>
               <li>
-                <FaCircle className="highlight-icon" /> Demo day
+                <FaBullhorn className="highlight-icon" /> Demo day
               </li>
               <li>
-                <FaCircle className="highlight-icon" /> Local startup immersion
+                <FaRocket className="highlight-icon" /> Local startup immersion
               </li>
               <li>
-                <FaCircle className="highlight-icon" /> Expert sessions
+                <FaGraduationCap className="highlight-icon" /> Expert sessions
               </li>
             </ul>
           </div>
