@@ -10,10 +10,10 @@ const HeroSection = () => {
     }
   };
   return (
-    <section className="landing-hero-section">
+    <section className="landing-hero-section" id="landing-page">
       <div className="landing-hero-content">
         <div className="landing-hero-text">
-          <h1>India’s first venture school</h1>
+          <h1>New Age Venture School</h1>
           <h2>PGP in Entrepreneurship</h2>
 
           <h3>14-Month Full Time Residential - Gurgaon</h3>

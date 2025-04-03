@@ -31,7 +31,7 @@ const Header = () => {
     <header className={`header ${scrolled ? "header-scrolled" : ""}`}>
       <div className="header-container">
         {/* Clicking the logo scrolls to home */}
-        <div className="logo" onClick={() => scrollToSection("home-page")}>
+        <div className="logo" onClick={() => scrollToSection("landing-page")}>
           {scrolled ? (
             <img src={blueLogo} alt="Logo" />
           ) : (
@@ -93,7 +93,7 @@ const Header = () => {
               alt="Mobile Logo"
               className="mobile-logo"
               onClick={() => {
-                scrollToSection("home-page");
+                scrollToSection("landing-page");
                 toggleMobileMenu();
               }}
             />

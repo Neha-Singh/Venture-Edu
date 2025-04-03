@@ -1,6 +1,6 @@
 /* Set the background image for the entire page */
 .landing-hero-section {
-  background-image: url("../../src/assets/home-images/background.png");
+  background-image: url("../../src/assets/home-images/background1.png");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -166,5 +166,10 @@
 
   .landing-hero-image img {
     height: 95px;
+  }
+}
+@media (max-width: 768px) {
+  .landing-hero-section {
+    background-image: url("../../src/assets/home-images/background2.png");
   }
 }
