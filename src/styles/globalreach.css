@@ -71,7 +71,6 @@
 /* Highlight box styling */
 .highlight-box {
   background: rgba(255, 255, 255, 0.2); /* Transparent background */
-  border: 2px solid white; /* Solid white border */
   border-radius: 4px;
   width: 190px;
   height: 150px;
@@ -177,4 +176,9 @@
   .highlight-icon {
     font-size: 1.4rem;
   }
+}
+
+.dubai {
+  font-weight: bold;
+  font-size: 25px;
 }

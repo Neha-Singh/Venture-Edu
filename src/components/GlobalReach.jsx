@@ -23,9 +23,9 @@ const VideoBackground = () => {
               horizons.
             </p>
             <p>
-              Travelling to Dubai, students will engage in a dynamic startup
-              ecosystem, connecting with global investors, successful founders,
-              and industry leaders.
+              Travelling to <span class="dubai">Dubai</span>, students will
+              engage in a dynamic startup ecosystem, connecting with global
+              investors, successful founders, and industry leaders.
             </p>
             <h2>Program Highlights</h2>
             <div className="highlights-grid">

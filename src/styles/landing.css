@@ -1,0 +1,170 @@
+/* Set the background image for the entire page */
+.landing-hero-section {
+  background-image: url("../../src/assets/home-images/background.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  min-height: 100vh; /* Ensures full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Main content container splitting the page into two halves,
+   shifted a bit to the bottom and right */
+.landing-hero-content {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 50px; /* Shift content downward */
+  margin-left: 50px; /* Shift content to the right */
+}
+
+/* Left half: Text content */
+.landing-hero-text {
+  flex: 1;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.landing-hero-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.landing-hero-text h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+/* Adjusted h3: Smaller font size and medium weight */
+.landing-hero-text h3 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.landing-hero-text p {
+  font-size: 1.2rem;
+}
+
+/* Button styles */
+.landing-hero-button {
+  margin-top: 20px;
+}
+
+.landing-hero-button button {
+  background-color: white;
+  color: #153454;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.landing-hero-button button:hover {
+  background-color: #f0f0f0;
+}
+
+/* Right half: Image container */
+.landing-hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.landing-hero-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* Desktop-only adjustment: Scale the image up without changing container size */
+@media (min-width: 1024px) {
+  .landing-hero-image img {
+    transform: scale(2);
+  }
+}
+
+/* Responsive adjustments for Mobile Devices */
+@media (max-width: 768px) {
+  .landing-hero-content {
+    flex-direction: column;
+    margin-top: 30px; /* Less margin on mobile */
+    margin-left: 10px; /* Reduce right shift on mobile */
+  }
+
+  /* Reorder elements for mobile: image at the top, text below */
+  .landing-hero-image {
+    order: 1;
+    width: 100%;
+    padding: 30px;
+  }
+
+  .landing-hero-text {
+    order: 2;
+    width: 100%;
+    padding: 30px;
+  }
+
+  .landing-hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .landing-hero-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .landing-hero-text h3 {
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+
+  .landing-hero-text p {
+    font-size: 1rem;
+  }
+
+  .landing-hero-image img {
+    height: 95px;
+    object-fit: cover;
+    transform: none; /* Remove scaling on mobile */
+  }
+}
+
+/* Responsive adjustments for Very Small Devices */
+@media (max-width: 480px) {
+  .landing-hero-content {
+    margin-top: 20px;
+    margin-left: 5px;
+  }
+
+  .landing-hero-text h1 {
+    font-size: 1.3rem;
+  }
+
+  .landing-hero-text h2 {
+    font-size: 1.1rem;
+  }
+
+  .landing-hero-text h3 {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .landing-hero-text p {
+    font-size: 0.9rem;
+  }
+
+  .landing-hero-image img {
+    height: 95px;
+  }
+}

@@ -8,6 +8,7 @@ import GlobalReach from "./components/GlobalReach";
 import Faqs from "./components/Faqs";
 import ApplicationForm from "./components/ApplicationForm";
 import ApplicationProcessTimeline from "./components/ApplicationProcess";
+import LandingPage from "./components/Landing";
 import Footer from "./components/Footer";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
   return (
     <>
       <Header />
+      <LandingPage />
       <Home />
       <AboutUs />
       <AboutUsTwo />

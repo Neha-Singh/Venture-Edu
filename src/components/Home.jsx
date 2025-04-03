@@ -47,7 +47,7 @@ const Home = () => {
             className="explore-btn"
             onClick={() => scrollToSection("about-section")}
           >
-            Explore Now
+            Explore more
           </button>
         </div>
       </div>
