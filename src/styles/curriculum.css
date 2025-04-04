@@ -1,0 +1,139 @@
+/* Container for the entire curriculum tabs page */
+.curriculum-tabs-page {
+  padding: 40px 20px;
+  background-color: #153454; /* Blue background */
+  color: white;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+
+/* Page Title */
+.curriculum-page-title {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: white;
+}
+
+/* Container for the subject tabs */
+.subject-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+/* Each subject tab box */
+.subject-tab {
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  min-width: 100px;
+  text-align: center;
+  color: white;
+}
+
+.subject-tab:hover {
+  transform: scale(1.05);
+}
+
+.subject-tab.active {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.2
+  ); /* Subtle highlight for active tab */
+  border-color: white;
+  color: white;
+}
+
+/* Subject content container (central box) */
+.subject-content {
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+  text-align: left;
+}
+
+/* Subject title styling */
+.subject-title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  border-bottom: 2px solid white;
+  padding-bottom: 10px;
+  color: white;
+}
+
+/* Topics list styling */
+.topic-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  color: white;
+}
+
+.topic-list li {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+/* Responsive adjustments for Tablets & Laptops */
+@media (max-width: 1024px) {
+  .curriculum-page-title {
+    font-size: 2.2rem;
+  }
+  .subject-tab {
+    font-size: 0.95rem;
+    padding: 8px 16px;
+  }
+  .subject-title {
+    font-size: 1.6rem;
+  }
+  .topic-list li {
+    font-size: 0.95rem;
+  }
+}
+
+/* Responsive adjustments for Mobile Devices */
+@media (max-width: 768px) {
+  .curriculum-page-title {
+    font-size: 2rem;
+  }
+  .subject-tab {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+  .subject-title {
+    font-size: 1.4rem;
+  }
+  .topic-list li {
+    font-size: 0.9rem;
+  }
+}
+
+/* Responsive adjustments for Very Small Devices */
+@media (max-width: 480px) {
+  .curriculum-page-title {
+    font-size: 1.8rem;
+  }
+  .subject-tab {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+  }
+  .subject-title {
+    font-size: 1.3rem;
+  }
+  .topic-list li {
+    font-size: 0.85rem;
+  }
+}
