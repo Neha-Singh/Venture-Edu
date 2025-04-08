@@ -126,7 +126,7 @@ const Accordion = ({ moduleNumber, subject, topics }) => {
 const CurriculumPage = () => {
   return (
     <div className="curriculum-page">
-      <h1 className="page-heading">Ventureedu Curriculum</h1>
+      <h1 className="page-heading">VenturEdu Curriculum</h1>
       {curriculumData.map((item, index) => (
         <Accordion
           key={index}
