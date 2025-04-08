@@ -1,139 +1,109 @@
-/* Container for the entire curriculum tabs page */
-.curriculum-tabs-page {
-  padding: 40px 20px;
-  background-color: #153454; /* Blue background */
-  color: white;
-  font-family: "Poppins", sans-serif;
-  text-align: center;
-}
-
-/* Page Title */
-.curriculum-page-title {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  color: white;
-}
-
-/* Container for the subject tabs */
-.subject-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 40px;
-}
-
-/* Each subject tab box */
-.subject-tab {
-  background-color: transparent;
-  border: 2px solid white;
-  border-radius: 8px;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  min-width: 100px;
-  text-align: center;
-  color: white;
-}
-
-.subject-tab:hover {
-  transform: scale(1.05);
-}
-
-.subject-tab.active {
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.2
-  ); /* Subtle highlight for active tab */
-  border-color: white;
-  color: white;
-}
-
-/* Subject content container (central box) */
-.subject-content {
-  background-color: transparent;
-  border: 2px solid white;
-  border-radius: 8px;
+/* Set page background, padding, and base font size */
+.curriculum-page {
+  background-color: #153454;
   padding: 20px;
-  max-width: 800px;
-  margin: 0 auto;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
-  text-align: left;
+  min-height: 100vh;
+  font-size: 16px;
 }
 
-/* Subject title styling */
-.subject-title {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  border-bottom: 2px solid white;
-  padding-bottom: 10px;
-  color: white;
+/* Page heading styling with increased font size and extra spacing */
+.page-heading {
+  color: #fff;
+  font-size: 48px;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 50px;
 }
 
-/* Topics list styling */
-.topic-list {
+/* Accordion container - half width and centered */
+.accordion {
+  width: 50%;
+  margin: 5px auto;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Accordion header with gradient background */
+.accordion-header {
+  background: linear-gradient(90deg, #1f6b8f, #4aa3e0);
+  color: #fff;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+/* Module button styling: small and sleek */
+.module-button {
+  background-color: #ffce1b;
+  color: #153454;
+  border: none;
+  padding: 4px 8px;
+  margin-right: 10px;
+  font-size: 12px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Accordion title styling */
+.accordion-title {
+  font-size: 18px;
+  flex: 1;
+}
+
+/* Arrow icon styling with smooth rotation */
+.accordion-arrow {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+  color: #fff;
+}
+
+.accordion-arrow.open {
+  transform: rotate(180deg);
+}
+
+/* Accordion content: same gradient background as header,
+   white text, and smooth sliding animation */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  background: linear-gradient(90deg, #1f6b8f, #4aa3e0);
+  color: #fff;
+  padding: 0 15px;
+}
+
+.accordion-content.open {
+  max-height: 500px; /* Adjust if content is longer */
+  padding: 15px;
+}
+
+/* Remove default list styling */
+.accordion-content ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  text-align: left;
-  color: white;
 }
 
-.topic-list li {
-  font-size: 1rem;
-  margin-bottom: 10px;
+/* List item styling with light white border */
+.accordion-content li {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Responsive adjustments for Tablets & Laptops */
-@media (max-width: 1024px) {
-  .curriculum-page-title {
-    font-size: 2.2rem;
-  }
-  .subject-tab {
-    font-size: 0.95rem;
-    padding: 8px 16px;
-  }
-  .subject-title {
-    font-size: 1.6rem;
-  }
-  .topic-list li {
-    font-size: 0.95rem;
-  }
+.accordion-content li:last-child {
+  border-bottom: none;
 }
 
-/* Responsive adjustments for Mobile Devices */
+/* Responsive styles */
 @media (max-width: 768px) {
-  .curriculum-page-title {
-    font-size: 2rem;
+  .accordion {
+    width: 90%;
   }
-  .subject-tab {
-    font-size: 0.9rem;
-    padding: 6px 12px;
-  }
-  .subject-title {
-    font-size: 1.4rem;
-  }
-  .topic-list li {
-    font-size: 0.9rem;
-  }
-}
 
-/* Responsive adjustments for Very Small Devices */
-@media (max-width: 480px) {
-  .curriculum-page-title {
-    font-size: 1.8rem;
-  }
-  .subject-tab {
-    font-size: 0.85rem;
-    padding: 6px 10px;
-  }
-  .subject-title {
-    font-size: 1.3rem;
-  }
-  .topic-list li {
-    font-size: 0.85rem;
+  .page-heading {
+    font-size: 32px;
+    margin-bottom: 30px;
   }
 }

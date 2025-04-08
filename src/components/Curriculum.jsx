@@ -101,30 +101,21 @@ const curriculumData = [
   },
 ];
 
-const CurriculumTabs = () => {
-  const [activeSubject, setActiveSubject] = useState(0);
+const Accordion = ({ moduleNumber, subject, topics }) => {
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="curriculum-tabs-page">
-      <h1 className="curriculum-page-title">VenturEdu Curriculum</h1>
-      <div className="subject-tabs">
-        {curriculumData.map((item, index) => (
-          <div
-            key={index}
-            className={`subject-tab ${activeSubject === index ? "active" : ""}`}
-            onClick={() => setActiveSubject(index)}
-          >
-            Subject {index + 1}
-          </div>
-        ))}
+    <div className="accordion">
+      <div className="accordion-header" onClick={() => setIsOpen(!isOpen)}>
+        <button className="module-button">Module {moduleNumber}</button>
+        <span className="accordion-title">{subject}</span>
+        <span className={`accordion-arrow ${isOpen ? "open" : ""}`}>▼</span>
       </div>
-      <div className="subject-content">
-        <h2 className="subject-title">
-          Subject {activeSubject + 1}: {curriculumData[activeSubject].subject}
-        </h2>
-        <ul className="topic-list">
-          {curriculumData[activeSubject].topics.map((topic, idx) => (
-            <li key={idx}>{topic}</li>
+      {/* Always render the content div and control its visibility via CSS */}
+      <div className={`accordion-content ${isOpen ? "open" : ""}`}>
+        <ul>
+          {topics.map((topic, index) => (
+            <li key={index}>{topic}</li>
           ))}
         </ul>
       </div>
@@ -132,4 +123,20 @@ const CurriculumTabs = () => {
   );
 };
 
-export default CurriculumTabs;
+const CurriculumPage = () => {
+  return (
+    <div className="curriculum-page">
+      <h1 className="page-heading">Ventureedu Curriculum</h1>
+      {curriculumData.map((item, index) => (
+        <Accordion
+          key={index}
+          moduleNumber={index + 1}
+          subject={item.subject}
+          topics={item.topics}
+        />
+      ))}
+    </div>
+  );
+};
+
+export default CurriculumPage;
