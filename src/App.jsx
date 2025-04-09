@@ -3,8 +3,6 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 import AboutUs from "./components/AboutUs";
 import AboutUsTwo from "./components/AboutUsTwo";
-import ProgramStructure from "./components/ProgramStructure";
-
 import GlobalReach from "./components/GlobalReach";
 import Faqs from "./components/Faqs";
 import ApplicationForm from "./components/ApplicationForm";
@@ -23,7 +21,6 @@ function App() {
       <Home />
       <AboutUs />
       <AboutUsTwo />
-      <ProgramStructure />
       <Curriculum />
       <GlobalReach />
       <ApplicationProcessTimeline />

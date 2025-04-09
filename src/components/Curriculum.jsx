@@ -111,11 +111,12 @@ const Accordion = ({ moduleNumber, subject, topics }) => {
         <span className="accordion-title">{subject}</span>
         <span className={`accordion-arrow ${isOpen ? "open" : ""}`}>▼</span>
       </div>
-      {/* Always render the content div and control its visibility via CSS */}
       <div className={`accordion-content ${isOpen ? "open" : ""}`}>
         <ul>
           {topics.map((topic, index) => (
-            <li key={index}>{topic}</li>
+            <li key={index}>
+              <strong>Topic {index + 1}:</strong> {topic}
+            </li>
           ))}
         </ul>
       </div>
@@ -125,8 +126,8 @@ const Accordion = ({ moduleNumber, subject, topics }) => {
 
 const CurriculumPage = () => {
   return (
-    <div className="curriculum-page">
-      <h1 className="page-heading">VenturEdu Curriculum</h1>
+    <div className="curriculum-page" id="program-structure">
+      <h1 className="page-heading">Program Structure</h1>
       {curriculumData.map((item, index) => (
         <Accordion
           key={index}

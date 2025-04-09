@@ -12,7 +12,7 @@
   font-size: 48px;
   text-align: center;
   margin-top: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 50px; /* Extra space between heading and accordions */
 }
 
 /* Accordion container - half width and centered */
