@@ -1,0 +1,60 @@
+/* Container for the Startup Internship Page */
+.internship-page {
+  padding: 20px;
+  color: #fff;
+  min-height: calc(100vh - 70px); /* Subtract navbar height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Styled card for the content */
+.internship-card {
+  background: linear-gradient(135deg, #1f6b8f, #4aa3e0);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  max-width: 800px;
+  width: 100%;
+}
+
+/* Heading styling */
+.internship-heading {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Paragraph text styling */
+.internship-text {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Tablet responsiveness */
+@media (max-width: 768px) {
+  .internship-card {
+    padding: 20px;
+  }
+  .internship-heading {
+    font-size: 28px;
+  }
+  .internship-text {
+    font-size: 16px;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+  .internship-card {
+    padding: 15px;
+  }
+  .internship-heading {
+    font-size: 24px;
+  }
+  .internship-text {
+    font-size: 14px;
+  }
+}

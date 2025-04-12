@@ -9,7 +9,7 @@ import ApplicationForm from "./components/ApplicationForm";
 import ApplicationProcessTimeline from "./components/ApplicationProcess";
 import LandingPage from "./components/Landing";
 import Footer from "./components/Footer";
-import Curriculum from "./components/Curriculum";
+import ProgramOverview from "./components/ProgranOverview";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -21,7 +21,7 @@ function App() {
       <Home />
       <AboutUs />
       <AboutUsTwo />
-      <Curriculum />
+      <ProgramOverview />
       <GlobalReach />
       <ApplicationProcessTimeline />
       <Faqs />

@@ -3,50 +3,123 @@ body,
 html {
   margin: 0;
   padding: 0;
+  width: 100%;
+}
+
+/* Main container for the entire page with a background color */
+.container {
+  background-color: #0e446b;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Horizontal navbar for desktop with fixed height */
+.navbar {
+  width: 100%;
+  height: 70px; /* Increased height */
+  overflow: hidden;
+}
+
+/* Horizontal flex container for navigation items */
+.nav-list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
   height: 100%;
 }
 
-/* Main container with background color #0e446b */
-.container {
-  background-color: #0e446b;
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: center; /* vertically centers the sidebar */
-}
-
-/* Sidebar styled as a vertical overlay with complete white background, rounded corners, 
-   fixed height, and margin from the right-hand side */
-.sidebar {
-  background: #ffffff; /* complete white background */
-  width: 250px; /* adjust as needed */
-  height: 80vh; /* less than full page height */
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border-radius: 12px; /* rounded corners */
-  margin-right: 40px; /* margin from right-hand side of the page */
-}
-
-/* Remove default list styling */
-.nav-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* Navigation items styled with black text, medium font weight, and proper spacing */
+/* Desktop nav-item styles */
 .nav-item {
-  color: black; /* black text color */
-  margin-bottom: 15px; /* fine gap between items */
-  font-size: 16px;
-  font-weight: 500; /* medium font weight */
-  font-family: Arial, sans-serif;
+  flex: 1; /* Equally distribute horizontal space */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center content on desktop */
+  gap: 10px;
+  padding: 0 20px;
+  background: linear-gradient(90deg, #0e446b, #153454); /* Dark blue gradient */
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  border-right: 1px solid #fff;
+  transition: filter 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+  box-shadow: inset 0 -3px 5px rgba(255, 255, 255, 0.3);
 }
 
-/* Remove extra gap after the last item */
+/* Remove the right border from the last tab */
 .nav-item:last-child {
-  margin-bottom: 0;
+  border-right: none;
+}
+
+/* Active tab styling removes brightness filter and all bottom separations */
+.nav-item.active {
+  filter: brightness(1.1);
+  box-shadow: none; /* Remove the inset shadow that creates the bottom line */
+  border-bottom: none; /* Ensure no bottom border is set */
+}
+
+/* Text shadow for visual appeal */
+.nav-item span {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Icon styling with drop-shadow */
+.icon {
+  font-size: 22px;
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
+}
+
+/* --- Mobile Styles --- */
+@media (max-width: 768px) {
+  .navbar {
+    height: auto;
+  }
+
+  /* Stack navigation items vertically */
+  .nav-list {
+    flex-direction: column;
+  }
+
+  /* Mobile nav-item: remove all borders then add bottom border back only for non-active items */
+  .nav-item {
+    justify-content: flex-start; /* Left justify for mobile */
+    padding: 15px 20px;
+    border: none;
+    border-bottom: 1px solid #fff;
+  }
+
+  /* For non-active items, the bottom border remains */
+  .nav-item:not(.active) {
+    border-bottom: 1px solid #fff;
+  }
+
+  /* Ensure active item has no bottom border and no inset shadow */
+  .nav-item.active {
+    border-bottom: none;
+    box-shadow: none;
+  }
+
+  /* Remove bottom border from the last item */
+  .nav-item:last-child {
+    border-bottom: none;
+  }
+}
+
+/* --- Extra Small Screens --- */
+@media (max-width: 480px) {
+  .nav-item {
+    font-size: 16px;
+    padding: 12px 15px;
+  }
+
+  .icon {
+    font-size: 18px;
+  }
+}
+
+/* Content container styling; no top margin to keep it attached to the active tab */
+.content {
+  padding: 10px 40px 10px 10px;
+  margin-top: 0;
 }

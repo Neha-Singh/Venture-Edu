@@ -127,7 +127,6 @@ const Accordion = ({ moduleNumber, subject, topics }) => {
 const CurriculumPage = () => {
   return (
     <div className="curriculum-page" id="program-structure">
-      <h1 className="page-heading">Program Structure</h1>
       {curriculumData.map((item, index) => (
         <Accordion
           key={index}
