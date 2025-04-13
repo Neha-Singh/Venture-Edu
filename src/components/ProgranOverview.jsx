@@ -16,7 +16,7 @@ const App = () => {
   const [activeTab, setActiveTab] = useState("curriculum");
 
   return (
-    <div className="container">
+    <div className="container" id="program-structure">
       <nav className="navbar">
         <ul className="nav-list">
           <li

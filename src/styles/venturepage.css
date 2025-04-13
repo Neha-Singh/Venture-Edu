@@ -60,6 +60,13 @@
   .venture-text {
     font-size: 14px;
   }
+  .venture-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 300px); /* Adjust for navbar height */
+    color: #fff;
+  }
 }
 
 /* --- New CSS to align icons and text --- */

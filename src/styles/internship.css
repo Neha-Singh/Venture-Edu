@@ -56,6 +56,13 @@
   .internship-text {
     font-size: 14px;
   }
+  .internship-page {
+    color: #fff;
+    min-height: calc(100vh - 320px); /* Subtract navbar height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 /* New rules to format paragraphs so the icon and text align properly */
