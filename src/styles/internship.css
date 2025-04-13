@@ -1,8 +1,7 @@
 /* Container for the Startup Internship Page */
 .internship-page {
-  padding: 20px;
   color: #fff;
-  min-height: calc(100vh - 70px); /* Subtract navbar height */
+  min-height: calc(100vh - 190px); /* Subtract navbar height */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,4 +56,22 @@
   .internship-text {
     font-size: 14px;
   }
+}
+
+/* New rules to format paragraphs so the icon and text align properly */
+.internship-text {
+  display: flex;
+  align-items: flex-start;
+  /* The existing margin-bottom, font-size, and line-height remain as defined */
+}
+
+.internship-text .icon-wrapper {
+  margin-right: 8px;
+  flex-shrink: 0;
+  /* Optional: if needed to adjust vertical alignment */
+  margin-top: 4px;
+}
+
+.internship-text .text-content {
+  flex: 1;
 }

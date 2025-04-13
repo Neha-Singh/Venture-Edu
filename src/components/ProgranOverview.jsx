@@ -53,16 +53,10 @@ const App = () => {
       <div className="content">
         {activeTab === "curriculum" && <CurriculumPage />}
         {/* Additional components for other tabs can be rendered here conditionally */}
-      </div>
-      <div className="content">
         {activeTab === "activities" && <OutOfClassActivities />}
         {/* Additional components for other tabs can be rendered here conditionally */}
-      </div>
-      <div>
         {activeTab === "internship" && <InternshipPage />}
         {/* Additional components for other tabs can be rendered here conditionally */}
-      </div>
-      <div>
         {activeTab === "venture" && <VenturePage />}
         {/* Additional components for other tabs can be rendered here conditionally */}
       </div>

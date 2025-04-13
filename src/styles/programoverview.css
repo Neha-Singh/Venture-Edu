@@ -120,6 +120,6 @@ html {
 
 /* Content container styling; no top margin to keep it attached to the active tab */
 .content {
-  padding: 10px 40px 10px 10px;
+  padding: 10px;
   margin-top: 0;
 }
