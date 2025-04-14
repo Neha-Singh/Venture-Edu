@@ -13,16 +13,6 @@ const VenturePage = () => {
       <div className="venture-card">
         <p className="venture-text">
           <span className="icon-wrapper">
-            <FaLightbulb />
-          </span>
-          <span className="text-content">
-            14-month long ongoing venture building sprint where participants
-            identify real problems, validate them, and build solutions through
-            brainstorming and mentor-led problem-solving sessions.
-          </span>
-        </p>
-        <p className="venture-text">
-          <span className="icon-wrapper">
             <FaBullseye />
           </span>
           <span className="text-content">
@@ -36,8 +26,7 @@ const VenturePage = () => {
             <FaUsers />
           </span>
           <span className="text-content">
-            Finding co-founder, pivot and help each revenue generation stage
-            with notable traction.
+            Finding co-founder, pivot and help reach revenue generation stage
           </span>
         </p>
         <p className="venture-text">
@@ -45,9 +34,9 @@ const VenturePage = () => {
             <FaGraduationCap />
           </span>
           <span className="text-content">
-            Graduate not with a certificate, but with a venture you own, a team
-            you believe in, and the clarity to raise capital, scale, or
-            bootstrap your next bold move.
+            Graduate not with just a certificate, but with a venture you own, a
+            team you believe in, and the clarity to raise capital, scale, or
+            bootstrap your idea
           </span>
         </p>
       </div>
