@@ -18,12 +18,13 @@ const PrivacyPolicyModal = ({ isOpen, onClose }) => {
         <div className="privacy-modal-body">
           <p>
             This Privacy Policy sets forth the reasonable security practices and
-            procedures adopted by Venturedu Private Limited and shall apply to
-            the use and disclosure and sharing of sensitive personal data or
-            information (“Personal Information”) provided by the registered
-            users of the Website www.venturedu.com (“Website”), which is owned,
-            maintained, and operated by Venturedu Private Limited. This policy
-            is equally applicable to the visitors/users on the Website.
+            procedures adopted by Virahanka Learning Private Limited and shall
+            apply to the use and disclosure and sharing of sensitive personal
+            data or information (“Personal Information”) provided by the
+            registered users of the Website www.venturedu.com (“Website”), which
+            is owned, maintained, and operated by Virahanka Learning Private
+            Limited. This policy is equally applicable to the visitors/users on
+            the Website.
           </p>
           <p>
             We value the trust you have placed with us. To provide you with a
@@ -164,16 +165,17 @@ const PrivacyPolicyModal = ({ isOpen, onClose }) => {
             </li>
             <li>For transaction processing and report generation.</li>
             <li>
-              To protect the interests of Venturedu Private Limited, its
-              affiliates, directors, officers, employees, representatives, and
-              authorised agents.
+              To protect the interests of Virahanka Learning Private Limited,
+              its affiliates, directors, officers, employees, representatives,
+              and authorised agents.
             </li>
           </ul>
           <p>
-            Venturedu Private Limited may aggregate Personal Information and
-            disclose or use such data only in a non-personally identifiable
-            manner (anonymously) for purposes of research, advertising, or
-            comparison to organizations approved by Venturedu Private Limited.
+            Virahanka Learning Private Limited may aggregate Personal
+            Information and disclose or use such data only in a non-personally
+            identifiable manner (anonymously) for purposes of research,
+            advertising, or comparison to organizations approved by Virahanka
+            Learning Private Limited.
           </p>
           <p>
             Notwithstanding anything above, portions of your data, consisting of
