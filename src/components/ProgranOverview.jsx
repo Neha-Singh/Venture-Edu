@@ -4,19 +4,59 @@ import {
   FaCalendarAlt,
   FaBriefcase,
   FaLightbulb,
+  FaArrowLeft,
+  FaArrowRight,
 } from "react-icons/fa";
-import CurriculumPage from "./Curriculum"; // Adjust the import path as needed
+import CurriculumPage from "./Curriculum";
 import OutOfClassActivities from "./OutOfClassActivities";
 import InternshipPage from "./InternshipPage";
 import VenturePage from "./VenturePage";
+import AccelFundingOverview from "./AccelFunding"; // <–– new import
 import "../styles/programoverview.css";
 
-const App = () => {
-  // "curriculum" is active by default so that the Curriculum component renders on load.
+const ProgramOverview = () => {
+  // view: "overview" shows the 4-tab view; "accelFunding" shows the 2-tab view
+  const [view, setView] = useState("overview");
   const [activeTab, setActiveTab] = useState("curriculum");
 
+  const goPrev = () => {
+    // if we're in accelFunding, go back to overview
+    if (view === "accelFunding") {
+      setView("overview");
+    }
+  };
+  const goNext = () => {
+    // clicking forward arrow takes you to the Acceleration & Funding view
+    setView("accelFunding");
+  };
+
+  // Render the two-tab Acceleration & Funding component when in that view
+  if (view === "accelFunding") {
+    return <AccelFundingOverview onBack={goPrev} />;
+  }
+
+  // Otherwise render your original 4-tab Program Structure
   return (
     <div className="container" id="program-structure">
+      <header className="program-header">
+        <h1 className="program-title">Program Structure</h1>
+        <div className="nav-capsule">
+          <div className="capsule-half" onClick={goPrev}>
+            <FaArrowLeft className="capsule-icon" />
+          </div>
+          <div className="capsule-half" onClick={goNext}>
+            <FaArrowRight className="capsule-icon" />
+          </div>
+        </div>
+      </header>
+
+      <div className="line-wrapper">
+        <hr className="program-line" />
+        <div className="pill-container">
+          <div className="term-pill">PGP in Enterprenuership</div>
+        </div>
+      </div>
+
       <nav className="navbar">
         <ul className="nav-list">
           <li
@@ -52,16 +92,12 @@ const App = () => {
 
       <div className="content">
         {activeTab === "curriculum" && <CurriculumPage />}
-        {/* Additional components for other tabs can be rendered here conditionally */}
         {activeTab === "activities" && <OutOfClassActivities />}
-        {/* Additional components for other tabs can be rendered here conditionally */}
         {activeTab === "internship" && <InternshipPage />}
-        {/* Additional components for other tabs can be rendered here conditionally */}
         {activeTab === "venture" && <VenturePage />}
-        {/* Additional components for other tabs can be rendered here conditionally */}
       </div>
     </div>
   );
 };
 
-export default App;
+export default ProgramOverview;
