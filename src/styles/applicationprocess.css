@@ -3,7 +3,7 @@
   background-color: #0e446b;
   font-family: Arial, sans-serif;
   color: white;
-  padding: 2rem 0;
+  padding: 1rem 0;
 }
 
 .timeline-container {
@@ -13,7 +13,7 @@
 }
 
 .program-heading {
-  padding-top: 100px;
+  padding-top: 50px;
   text-align: center;
   font-size: 2.2rem;
   margin-bottom: 20px;
@@ -154,7 +154,7 @@
   }
   .program-heading {
     font-size: 2rem;
-    padding-top: 80px;
+    padding-top: 40px;
   }
   .timeline-header {
     font-size: 1.6rem;
@@ -186,7 +186,7 @@
   }
   .program-heading {
     font-size: 1.8rem;
-    padding-top: 80px;
+    padding-top: 40px;
   }
   .timeline-header {
     font-size: 1.4rem;
@@ -236,7 +236,7 @@
 @media (max-width: 480px) {
   .program-heading {
     font-size: 1.6rem;
-    padding-top: 60px;
+    padding-top: 30px;
   }
   .timeline-header {
     font-size: 1.2rem;

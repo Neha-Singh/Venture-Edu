@@ -32,7 +32,7 @@ const AccelFundingOverview = ({ onBack }) => {
       </header>
 
       <div className="line-wrapper">
-        <hr className="program-line" />
+        {/* horizontal rule removed */}
         <div className="pill-container">
           <div className="term-pill">Post Program Support</div>
         </div>
