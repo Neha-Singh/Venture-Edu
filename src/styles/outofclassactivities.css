@@ -1,7 +1,7 @@
 /* Container styling for the Activities Page */
 .activities-page {
   padding: 20px;
-  min-height: calc(100vh - 70px); /* Adjust height to subtract navbar height */
+  min-height: auto !important;
   color: #fff;
 }
 

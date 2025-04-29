@@ -13,12 +13,12 @@ function Footer() {
       <footer className="footer">
         <div className="footer-container">
           <div className="footer-content">
-            {/* Registered Address Section */}
-            <div className="footer-address-section">
-              <h4 className="footer-address-heading">Registered Address</h4>
+            {/* Logo + Address */}
+            <div className="footer-logo-section">
+              <img src="/logo.png" alt="Logo" className="footer-logo" />
               <p className="footer-address">
                 WeWork Two Horizon Centre, Golf Course Road, 5th Floor, DLF Two
-                Horizon Centre, DLF Phase 5, Gurugram, HR 122002
+                Horizon Centre, DLF Phase 5, Gurugram, HR 122002
               </p>
             </div>
             {/* Navigation Links */}

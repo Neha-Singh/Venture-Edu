@@ -16,11 +16,15 @@ const HeroSection = () => {
           <h1>India's Most Ambitious StartUp School</h1>
           <h2>PGP in Entrepreneurship</h2>
 
-          <h3>14-Month Full Time Residential - Gurgaon</h3>
+          <h3>14-Month Full Time Residential</h3>
+          <h3>Gurgaon</h3>
 
           <div className="landing-hero-button">
-            <button type="button" onClick={() => scrollToSection("home-page")}>
-              Explore more
+            <button
+              type="button"
+              onClick={() => scrollToSection("application-form")}
+            >
+              Apply Now
             </button>
           </div>
         </div>

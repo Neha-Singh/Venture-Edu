@@ -82,3 +82,14 @@
 .internship-text .text-content {
   flex: 1;
 }
+
+/* Mobile (≤480px): let page height grow to content only */
+@media (max-width: 480px) {
+  .internship-page,
+  .venture-page {
+    min-height: auto !important;
+    display: block;
+    align-items: flex-start;
+    padding: 20px 0;
+  }
+}

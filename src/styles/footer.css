@@ -1,7 +1,6 @@
 .footer {
   background-color: white;
   padding: 30px 20px;
-  /* Increase footer height to ensure all items fit and are vertically centered */
   min-height: 250px;
   display: flex;
   align-items: center;
@@ -10,27 +9,27 @@
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
-  /* Arrange content in a column and align all items on the left */
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center; /* centered instead of flex-start */
   justify-content: center;
   width: 100%;
+  text-align: center; /* center all text */
 }
 
 .footer-content {
   width: 100%;
 }
 
-/* Registered Address Section */
-.footer-address-section {
+/* Logo + Address */
+.footer-logo-section {
   margin-bottom: 20px;
 }
 
-.footer-address-heading {
-  font-size: 1rem;
-  color: #0e446b;
-  margin: 0 0 5px 0;
+.footer-logo {
+  max-width: 100px;
+  height: auto;
+  margin-bottom: 10px;
 }
 
 .footer-address {
@@ -42,13 +41,12 @@
 /* Navigation Links */
 .footer-links {
   margin-bottom: 20px;
-  cursor: pointer;
 }
 
 .footer-link {
   color: #0e446b;
   text-decoration: none;
-  margin-right: 15px;
+  margin: 0 15px;
   font-size: 1rem;
   transition: color 0.3s ease;
 }
@@ -60,7 +58,7 @@
 
 .social-icon {
   color: #0e446b;
-  margin-right: 10px;
+  margin: 0 10px;
   font-size: 1.5rem;
   transition: color 0.3s ease;
 }
@@ -71,17 +69,17 @@
   color: #0e446b;
 }
 
-/* Responsive adjustments for Tablets & Laptops */
+/* Responsive adjustments */
 @media (max-width: 1024px) {
   .footer {
     padding: 25px 15px;
   }
   .footer-link {
-    margin-right: 10px;
+    margin: 0 10px;
     font-size: 0.95rem;
   }
   .social-icon {
-    margin-right: 8px;
+    margin: 0 8px;
     font-size: 1.4rem;
   }
   .footer-copy {
@@ -89,33 +87,23 @@
   }
 }
 
-/* Responsive adjustments for Mobile */
 @media (max-width: 768px) {
   .footer {
     padding: 20px 10px;
   }
   .footer-container {
-    align-items: center;
-  }
-  .footer-content {
     text-align: center;
   }
-  .footer-address-section {
-    margin-bottom: 15px;
-  }
-  .footer-links {
-    margin-bottom: 15px;
+  .footer-logo {
+    max-width: 120px;
   }
   .footer-link {
     display: block;
     margin: 5px 0;
     font-size: 0.9rem;
   }
-  .footer-social {
-    margin-bottom: 15px;
-  }
   .social-icon {
-    margin-right: 6px;
+    margin: 0 6px;
     font-size: 1.3rem;
   }
   .footer-copy {
@@ -123,10 +111,12 @@
   }
 }
 
-/* Responsive adjustments for Very Small Devices */
 @media (max-width: 480px) {
   .footer {
     padding: 15px 5px;
+  }
+  .footer-logo {
+    max-width: 100px;
   }
   .footer-link {
     font-size: 0.85rem;
@@ -134,7 +124,7 @@
   }
   .social-icon {
     font-size: 1.2rem;
-    margin-right: 4px;
+    margin: 0 4px;
   }
   .footer-copy {
     font-size: 0.75rem;

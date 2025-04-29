@@ -9,7 +9,7 @@ html {
 /* Container */
 .container {
   background-color: #0e446b;
-  min-height: 100vh;
+  min-height: auto !important;
   padding-top: 20px;
 }
 
@@ -55,7 +55,7 @@ html {
   flex: 1;
   border: none;
   border-top: 0.5px solid #fff;
-  margin: 0px;
+  margin: 0;
 }
 
 /* Slider container */
@@ -77,13 +77,13 @@ html {
   transform: translateX(-50%);
 }
 
-/* Each panel fills 100% */
+/* Each panel fills the viewport */
 .view-panel {
-  width: 50%; /* 50% of 200% = 100% viewport */
+  width: 50%;
   flex: none;
 }
 
-/* Tabs */
+/* Nav Tabs */
 .navbar {
   width: 100%;
 }
@@ -112,6 +112,15 @@ html {
 }
 .nav-item.active {
   filter: brightness(1.2);
+  box-shadow: none !important;
+  border-top: 0.5px solid #fff;
+  border-left: 0.5px solid #fff;
+  border-right: 0.5px solid #fff;
+  border-bottom: none;
+  background: linear-gradient(90deg, #0e446b, #153454);
+}
+.nav-item:not(.active) {
+  border-bottom: 0.5px solid #fff;
 }
 .nav-item .icon {
   font-size: 20px;
@@ -127,11 +136,23 @@ html {
   color: #fff;
 }
 
-/* Support List */
+/* Support-card */
+.support-card {
+  background: linear-gradient(135deg, #1f6b8f, #4aa3e0);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
 .support-list {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .support-list li {
   display: flex;
@@ -146,11 +167,16 @@ html {
   color: #fff;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* ——————————————————
+   LAPTOP / LARGE TABLET
+   —————————————————— */
+@media (max-width: 1024px) {
   .program-header,
   .line-wrapper {
-    padding: 0 20px;
+    padding: 0 30px;
+  }
+  .program-title {
+    font-size: 32px;
   }
   .term-pill {
     font-size: 16px;
@@ -158,17 +184,60 @@ html {
   }
   .nav-item {
     font-size: 16px;
+    padding: 10px 0;
   }
-  .support-list li {
-    font-size: 16px;
+  .content {
+    padding: 15px;
+  }
+  .support-card {
+    padding: 25px;
+    max-width: 700px;
   }
 }
+
+/* ——————————————————
+   TABLET / SMALLER
+   —————————————————— */
+@media (max-width: 768px) {
+  .program-header,
+  .line-wrapper {
+    padding: 0 20px;
+  }
+  .term-pill {
+    font-size: 14px;
+    padding: 5px 16px;
+  }
+  .nav-item {
+    font-size: 14px;
+    padding: 8px 0;
+  }
+  .content {
+    padding: 10px;
+  }
+  .support-card {
+    padding: 20px;
+    max-width: 100%;
+  }
+}
+
+/* ——————————————————
+   MOBILE
+   —————————————————— */
 @media (max-width: 480px) {
   .program-title {
     font-size: 28px;
   }
+  .line-wrapper {
+    /* force pills side-by-side, with a smaller gap */
+    display: flex;
+    flex-direction: row !important;
+    align-items: center;
+    gap: 8px; /* smaller separation */
+    padding: 0 20px; /* preserve horizontal padding */
+    margin-bottom: 20px; /* adjust as needed */
+  }
   .term-pill {
-    font-size: 14px;
+    font-size: 12px;
     padding: 4px 12px;
   }
   .nav-item {
@@ -178,48 +247,4 @@ html {
   .support-list li {
     font-size: 14px;
   }
-}
-
-/* — support-card styling exactly like your Internship/Venture cards — */
-.support-card {
-  background: linear-gradient(135deg, #1f6b8f, #4aa3e0);
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  max-width: 800px;
-  width: 100%;
-  margin: 0 auto; /* center the card */
-  color: #fff;
-}
-
-/* center the list items inside that card */
-.support-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* left-justify all items */
-}
-
-.support-list li {
-  display: flex;
-  align-items: center;
-  margin: 10px 0;
-  font-size: 18px;
-  line-height: 1.6;
-}
-
-.nav-item.active {
-  box-shadow: none !important;
-  filter: none !important;
-  border-top: 0.5px solid #fff;
-  border-left: 0.5px solid #fff;
-  border-right: 0.5px solid #fff;
-  border-bottom: none;
-  background: linear-gradient(90deg, #0e446b, #153454);
-}
-
-.nav-item:not(.active) {
-  border-bottom: 0.5px solid #fff;
 }
