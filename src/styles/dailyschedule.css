@@ -1,0 +1,261 @@
+/* -------- base -------- */
+.daily-container {
+  font-family: sans-serif;
+  color: #153454;
+  padding: 20px;
+  background: #eee8e1;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* -------- header + nav controls -------- */
+.daily-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.daily-heading {
+  flex: 1; /* take all available space */
+  text-align: center; /* center the text */
+  font-size: 2rem;
+  color: #0e446b;
+  margin: 0;
+}
+
+.nav-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.nav-btn {
+  width: 25px;
+  height: 25px;
+  border: none;
+  background: rgba(14, 68, 107); /* blue-transparent circle */
+  color: #fff; /* white chevron */
+  border-radius: 50%;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* -------- table wrapper -------- */
+.table-wrap {
+  overflow-x: auto; /* allow sideways scroll */
+  scrollbar-width: none; /* Firefox: hide scrollbar */
+  -ms-overflow-style: none; /* IE/Edge: hide scrollbar */
+}
+.table-wrap::-webkit-scrollbar {
+  display: none; /* WebKit: hide scrollbar */
+}
+
+/* -------- schedule table -------- */
+.schedule-table {
+  width: max-content; /* grow to fit content */
+  min-width: 100%; /* at least full viewport */
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+.schedule-table th,
+.schedule-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: normal;
+  white-space: nowrap;
+}
+
+.schedule-table thead th {
+  background: linear-gradient(90deg, #0e446b, #065481);
+  color: white;
+  font-weight: bold;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+/* alternating row backgrounds */
+.schedule-table tbody tr:nth-child(odd) {
+  background-color: #ebdcc2;
+}
+.schedule-table tbody tr:nth-child(even) {
+  background-color: #fff;
+}
+
+/* -------- special cells -------- */
+.time-cell {
+  font-weight: bold;
+  color: #005e8f;
+}
+
+.break-cell {
+  background: #4aa3e0;
+  color: #fff;
+}
+
+.class-cell {
+  background: #fff;
+  color: rgba(14, 68, 107, 0.95);
+}
+
+.workshop-cell {
+  background: #ecdfca;
+  color: rgba(14, 68, 107, 0.95);
+}
+
+/* -------- legend -------- */
+.legend-section {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.legend-section h2 {
+  margin-bottom: 12px;
+  color: #153454;
+  font-size: 1.2rem;
+}
+
+.legend-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+}
+
+.swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+.break-swatch {
+  background: #4aa3e0;
+}
+
+.class-swatch {
+  background: #fff;
+  border: 1px solid #ddd;
+}
+
+.workshop-swatch {
+  background: #ecdfca;
+  border: 1px solid #ddd;
+}
+
+/* -------- responsive -------- */
+@media (max-width: 1024px) {
+  .daily-heading {
+    font-size: 1.8rem;
+  }
+  .schedule-table th,
+  .schedule-table td {
+    padding: 6px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .daily-container {
+    padding: 12px;
+  }
+  .daily-heading {
+    font-size: 1.6rem;
+  }
+  .schedule-table th,
+  .schedule-table td {
+    padding: 4px;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .daily-heading {
+    font-size: 1.4rem;
+  }
+  .schedule-table th,
+  .schedule-table td {
+    font-size: 0.7rem;
+  }
+}
+
+.case-study-cell {
+  background: #0d8ccb;
+  color: #fff;
+  font-weight: 500;
+  text-align: center;
+}
+
+.case-study-swatch {
+  background: #0d8ccb;
+}
+
+.case-study-cell {
+  background: #0d8ccb;
+  color: #fff;
+  text-align: center;
+}
+
+.case-study-swatch {
+  background: #0d8ccb;
+}
+/* new “Industry Interactions” cell */
+.industry-cell {
+  background: #83b0c5;
+  color: #fff;
+  text-align: center;
+}
+
+/* legend swatch */
+.industry-swatch {
+  background: #83b0c5;
+}
+
+/* breaks theme (Breakfast, Lunch, now Coffee) */
+.class-cell {
+  background: #fff; /* white background */
+  color: rgba(14, 68, 107, 0.95); /* match your blue text */
+  text-align: center;
+}
+/* New: Discussion with peers (light cream) */
+.discussion-cell {
+  background: #eee8e1;
+  color: #153454;
+  text-align: center;
+}
+
+.sports-swatch {
+  background: #aedff7;
+}
+
+.discussion-cell {
+  background: #eee8e1;
+  color: #153454;
+  text-align: center;
+}
+
+/* Sports & Recreation */
+.sports-cell {
+  background: #aedff7;
+  color: #153454;
+  text-align: center;
+}
+.time-cell {
+  background-color: #fff;
+}
+.sunday-cell {
+  background: #fff !important;
+}

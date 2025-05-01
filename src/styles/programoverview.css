@@ -144,7 +144,7 @@ html {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
   max-width: 800px;
   width: 100%;
-  margin: 0 auto;
+  margin-top: 25px;
 }
 .support-list {
   list-style: none;
@@ -191,6 +191,7 @@ html {
   }
   .support-card {
     padding: 25px;
+    margin-top: 25px;
     max-width: 700px;
   }
 }
@@ -215,6 +216,7 @@ html {
     padding: 10px;
   }
   .support-card {
+    margin-top: 25px;
     padding: 20px;
     max-width: 100%;
   }

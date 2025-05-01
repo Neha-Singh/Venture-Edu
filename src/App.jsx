@@ -10,6 +10,7 @@ import ApplicationProcessTimeline from "./components/ApplicationProcess";
 import LandingPage from "./components/Landing";
 import Footer from "./components/Footer";
 import ProgramOverview from "./components/ProgranOverview";
+import DailySchedule from "./components/DailySchedule";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -22,6 +23,7 @@ function App() {
       <AboutUs />
       <AboutUsTwo />
       <ProgramOverview />
+      <DailySchedule />
       <GlobalReach />
       <ApplicationProcessTimeline />
       <Faqs />
