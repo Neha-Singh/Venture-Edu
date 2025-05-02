@@ -1,4 +1,4 @@
-// DailySchedulePage.jsx
+// DailySchedule.jsx
 import React, { useRef } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import "../styles/dailyschedule.css";
@@ -38,7 +38,6 @@ export default function DailySchedulePage() {
     time: "08:00 - 09:00",
     Monday: "Breakfast & Informal Networking",
   };
-
   const classSession = {
     Monday: "Lean Startup Workshop",
     Tuesday: "First-Principles Thinking & Mental Models",
@@ -75,10 +74,10 @@ export default function DailySchedulePage() {
             {/* 08:00–09:00 */}
             <tr>
               <td className="time-cell">{firstRow.time}</td>
-              <td className="class-cell" colSpan={6}>
+              <td className="break-cell" colSpan={6}>
                 {firstRow.Monday}
               </td>
-              <td>{firstRow.Sunday}</td>
+              <td></td>
             </tr>
 
             {/* 09:00–12:00 */}
@@ -86,25 +85,21 @@ export default function DailySchedulePage() {
               <td className="time-cell">09:00 - 12:00</td>
               {days.map((day) => {
                 if (day === "Monday" || day === "Friday") {
-                  const text =
-                    day === "Friday"
-                      ? "Dropshipping Bootcamp"
-                      : classSession[day];
                   return (
                     <td key={day} className="workshop-cell">
-                      {text}
+                      Dropshipping Bootcamp
                     </td>
                   );
                 } else if (classSession[day]) {
                   return (
-                    <td key={day} className="break-cell">
+                    <td key={day} className="class-cell">
                       {classSession[day]}
                     </td>
                   );
                 } else if (day === "Sunday") {
                   return (
                     <td key={day} className="sports-cell">
-                      Sports &amp; Recreational Activities
+                      Sports & Recreational Activities
                     </td>
                   );
                 } else {
@@ -116,7 +111,7 @@ export default function DailySchedulePage() {
             {/* 12:00–13:00 */}
             <tr>
               <td className="time-cell">12:00 - 13:00</td>
-              <td className="class-cell" colSpan={6}>
+              <td className="break-cell" colSpan={6}>
                 Lunch Break
               </td>
               <td></td>
@@ -128,16 +123,16 @@ export default function DailySchedulePage() {
               <td className="workshop-cell" rowSpan={2}>
                 Product Prototyping Workshop
               </td>
-              <td className="break-cell" rowSpan={2}>
+              <td className="class-cell" rowSpan={2}>
                 Founder's Toolkit: Building Startups
               </td>
-              <td className="break-cell" rowSpan={2}>
+              <td className="class-cell" rowSpan={2}>
                 Founder's Toolkit: Fundraising
               </td>
               <td className="case-study-cell" rowSpan={2}>
                 Case Study: Reviving Failed Ventures
               </td>
-              <td className="break-cell">Group Mentorship</td>
+              <td className="class-cell">Group Mentorship</td>
               <td className="case-study-cell">
                 Panel Discussion: Future of Startups
               </td>
@@ -147,7 +142,6 @@ export default function DailySchedulePage() {
             {/* 14:30–16:00 */}
             <tr>
               <td className="time-cell">14:30 - 16:00</td>
-              {/* Mon–Thu covered by rowspan */}
               <td className="industry-cell">
                 Fireside Chat with an Industry Leader
               </td>
@@ -156,13 +150,16 @@ export default function DailySchedulePage() {
               </td>
               <td></td>
             </tr>
+
+            {/* 16:00–17:00 */}
             <tr>
               <td className="time-cell">16:00 - 17:00</td>
-              <td className="class-cell" colSpan={6}>
+              <td className="break-cell" colSpan={6}>
                 Coffee Break
               </td>
               <td></td>
             </tr>
+
             {/* 17:00–18:30 */}
             <tr>
               <td className="time-cell">17:00 - 18:30</td>
@@ -179,9 +176,11 @@ export default function DailySchedulePage() {
               <td className="industry-cell">
                 Networking with Founders & Investors
               </td>
-              <td className="break-cell">Mentor Q&amp;A</td>
+              <td className="class-cell">Mentor Q&amp;A</td>
               <td></td>
             </tr>
+
+            {/* 18:30–20:00 */}
             <tr>
               <td className="time-cell">18:30 - 20:00</td>
               <td></td>
@@ -192,7 +191,6 @@ export default function DailySchedulePage() {
               <td className="case-study-cell">
                 Dinner &amp; Closing Reflections
               </td>
-              {/* Sunday empty */}
               <td></td>
             </tr>
           </tbody>
@@ -202,11 +200,11 @@ export default function DailySchedulePage() {
       <div className="legend-section">
         <div className="legend-items">
           <div className="legend-item">
-            <span className="swatch class-swatch"></span>
+            <span className="swatch break-swatch"></span>
             <span>Breaks</span>
           </div>
           <div className="legend-item">
-            <span className="swatch break-swatch"></span>
+            <span className="swatch class-swatch"></span>
             <span>Classes & Mentor Sessions</span>
           </div>
           <div className="legend-item">
@@ -221,7 +219,6 @@ export default function DailySchedulePage() {
             <span className="swatch industry-swatch"></span>
             <span>Industry Interactions</span>
           </div>
-
           <div className="legend-item">
             <span className="swatch sports-swatch"></span>
             <span>Sports & Recreation</span>
