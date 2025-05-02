@@ -114,7 +114,8 @@ export default function DailySchedulePage() {
               <td className="break-cell" colSpan={6}>
                 Lunch Break
               </td>
-              <td></td>
+              {/* merged Sunday cell spanning the next 6 rows */}
+              <td rowSpan={6} className="sun-merged"></td>
             </tr>
 
             {/* 13:00–14:30 */}
@@ -136,7 +137,6 @@ export default function DailySchedulePage() {
               <td className="case-study-cell">
                 Panel Discussion: Future of Startups
               </td>
-              <td></td>
             </tr>
 
             {/* 14:30–16:00 */}
@@ -148,7 +148,6 @@ export default function DailySchedulePage() {
               <td className="industry-cell">
                 Networking Event: Meet Your Co-Founder
               </td>
-              <td></td>
             </tr>
 
             {/* 16:00–17:00 */}
@@ -157,7 +156,6 @@ export default function DailySchedulePage() {
               <td className="break-cell" colSpan={6}>
                 Coffee Break
               </td>
-              <td></td>
             </tr>
 
             {/* 17:00–18:30 */}
@@ -177,7 +175,6 @@ export default function DailySchedulePage() {
                 Networking with Founders & Investors
               </td>
               <td className="class-cell">Mentor Q&amp;A</td>
-              <td></td>
             </tr>
 
             {/* 18:30–20:00 */}
@@ -191,7 +188,6 @@ export default function DailySchedulePage() {
               <td className="case-study-cell">
                 Dinner &amp; Closing Reflections
               </td>
-              <td></td>
             </tr>
           </tbody>
         </table>

@@ -85,7 +85,7 @@
 }
 .break-cell {
   background: #fff;
-  color: #4aa3e0;
+  color: rgba(14, 68, 107, 0.95);
 }
 .class-cell {
   background: #4a87a6;
@@ -112,7 +112,7 @@
 }
 .sports-cell {
   background: #aedff7 !important;
-  color: #153454;
+  color: #153454 !important;
   text-align: center;
 }
 
@@ -240,5 +240,11 @@
 /* Force Sports & Recreational Activities cell to gradient + white text */
 .schedule-table tbody tr td.sports-cell {
   background: linear-gradient(135deg, #87ceeb, #b0e0e6) !important;
-  color: #fff !important;
+  color: #153454 !important;
+}
+.sun-merged {
+  background-color: #fff;
+  /* optional centering */
+  text-align: center;
+  vertical-align: middle;
 }
