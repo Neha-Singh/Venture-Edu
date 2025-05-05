@@ -220,6 +220,14 @@ html {
     padding: 20px;
     max-width: 100%;
   }
+
+  /* ** NEW: wrap tabs into two per row ** */
+  .nav-list {
+    flex-wrap: wrap;
+  }
+  .nav-item {
+    flex: 0 0 50%;
+  }
 }
 
 /* ——————————————————
@@ -248,5 +256,13 @@ html {
   }
   .support-list li {
     font-size: 14px;
+  }
+
+  /* ** also wrap on very small ** */
+  .nav-list {
+    flex-wrap: wrap;
+  }
+  .nav-item {
+    flex: 0 0 50%;
   }
 }
