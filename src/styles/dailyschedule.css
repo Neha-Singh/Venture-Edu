@@ -6,7 +6,7 @@
   color: #153454;
   padding: 20px;
   background: white;
-  min-height: 100vh;
+  min-height: auto !important;
   box-sizing: border-box;
 }
 
