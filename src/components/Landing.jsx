@@ -13,7 +13,7 @@ const HeroSection = () => {
     <section className="landing-hero-section" id="landing-page">
       <div className="landing-hero-content">
         <div className="landing-hero-text">
-          <h1>India's Most Ambitious StartUp School</h1>
+          <h1>VentureEdu – India's Most Ambitious StartUp School</h1>
           <h2>PGP in Entrepreneurship</h2>
 
           <h3>14-Month Full Time Residential</h3>
