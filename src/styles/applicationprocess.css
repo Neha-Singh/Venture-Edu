@@ -34,6 +34,7 @@
   width: max-content; /* ← size to fit all items */
   max-width: none; /* undo any earlier cap */
   padding: 1rem 0; /* keep your vertical padding */
+  gap: 30x; /* space between items */
 }
 
 /* the full-length line now lives on the inner container */
@@ -180,7 +181,7 @@
 /* ─── 1) Desktop: keep titles on one line & add padding ───────────────── */
 @media (min-width: 769px) {
   .timeline-item {
-    padding: 0 3rem; /* was 0 2rem; tweak if you need more/less */
+    padding: 0 0.5rem; /* was 0 2rem; tweak if you need more/less */
   }
 }
 
