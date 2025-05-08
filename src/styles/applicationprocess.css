@@ -181,7 +181,7 @@
 /* ─── 1) Desktop: keep titles on one line & add padding ───────────────── */
 @media (min-width: 769px) {
   .timeline-item {
-    padding: 0 0.5rem; /* was 0 2rem; tweak if you need more/less */
+    padding: 0 4rem; /* was 0 2rem; tweak if you need more/less */
   }
 }
 
