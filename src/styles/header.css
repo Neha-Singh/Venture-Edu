@@ -271,3 +271,24 @@
     margin-left: -50px; /* Adjust this value for desired alignment */
   }
 }
+#about-section {
+  scroll-margin-top: 80px;
+}
+#program-structure {
+  scroll-margin-top: 80px;
+}
+#global-support {
+  scroll-margin-top: 80px;
+}
+#application-form {
+  scroll-margin-top: 80px;
+}
+#application-process {
+  scroll-margin-top: 80px;
+}
+#about-section {
+  scroll-margin-top: 80px;
+}
+#application {
+  scroll-margin-top: 80px;
+}

@@ -1,5 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+// ApplicationProcess.jsx
+import React, { useRef, useState, useEffect } from "react";
 import "../styles/applicationprocess.css";
+
 import step1 from "../../src/assets/illustrations/timeline-illustrations/step1.jpg";
 import step2 from "../../src/assets/illustrations/timeline-illustrations/step2.jpg";
 import step3 from "../../src/assets/illustrations/timeline-illustrations/step3.jpg";
@@ -7,156 +9,110 @@ import step4 from "../../src/assets/illustrations/timeline-illustrations/step4.j
 import step5 from "../../src/assets/illustrations/timeline-illustrations/step5.jpg";
 import step6 from "../../src/assets/illustrations/timeline-illustrations/step6.jpg";
 
-const scrollToSection = (id) => {
-  const section = document.getElementById(id);
-  if (section) {
-    section.scrollIntoView({ behavior: "smooth" });
-  }
-};
-
 const steps = [
   {
     title: (
       <span>
-        Join our wait list via{" "}
-        <a
-          onClick={() => scrollToSection("application-form")}
-          className="ghost-button-inline"
-        >
+        Join our wait list via
+        <br />
+        <a href="#application-form" className="ghost-button-inline">
           Apply
         </a>
       </span>
     ),
-    description: "",
     illustration: step1,
   },
+  { title: "Attend Weekly Orientation", illustration: step2 },
+  { title: "Fill out the application form", illustration: step3 },
   {
-    title: "Attend Weekly Orientation",
-    description: "",
-    illustration: step2,
-  },
-  {
-    title: "Follow orientation directions to fill the application form.",
-    description: "",
-    illustration: step3,
-  },
-  {
-    title: "Admissions committee conducts fitness assessment",
-    description: "",
+    title: "Admissions committee fitness assessment",
     illustration: step4,
   },
   {
-    title: "Shortlisted candidates invited for in person interview",
-    description: "",
+    title: "In-person interview for shortlisted candidates",
     illustration: step5,
   },
-  {
-    title: "Invitation to join the program",
-    description: "",
-    illustration: step6,
-  },
+  { title: "Invitation to join the program", illustration: step6 },
 ];
 
-const TimelineItem = ({
-  alignment,
-  stepNumber,
-  title,
-  description,
-  illustration,
-}) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const itemRef = useRef(null);
+export default function ApplicationProcess() {
+  const wrapperRef = useRef(null);
+  const [pages, setPages] = useState(window.innerWidth < 769 ? 3 : 2);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [maxScroll, setMaxScroll] = useState(0);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries, observerInstance) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            observerInstance.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-    if (itemRef.current) {
-      observer.observe(itemRef.current);
-    }
+    const wrap = wrapperRef.current;
+    const calc = () => {
+      const w = wrap.clientWidth;
+      const scrollWidth = wrap.scrollWidth;
+      const max = scrollWidth - w;
+      // determine mobile vs desktop
+      const isMobile = window.innerWidth < 769;
+      const newPages = isMobile ? 3 : 2;
+      setPages(newPages);
+      setMaxScroll(max);
+      // subdivide into (pages-1) segments
+      const step = newPages > 1 ? max / (newPages - 1) : 0;
+      const curr = step > 0 ? Math.round(wrap.scrollLeft / step) : 0;
+      setCurrentPage(curr);
+    };
+    calc();
+    window.addEventListener("resize", calc);
+    wrap.addEventListener("scroll", calc, { passive: true });
     return () => {
-      if (itemRef.current) observer.unobserve(itemRef.current);
+      window.removeEventListener("resize", calc);
+      wrap.removeEventListener("scroll", calc);
     };
   }, []);
 
-  const handleMouseEnter = () => {
-    if (itemRef.current) {
-      const contentDiv = itemRef.current.querySelector(".timeline-content");
-      if (contentDiv) {
-        contentDiv.classList.remove("active");
-        void contentDiv.offsetWidth;
-        contentDiv.classList.add("active");
-      }
-    }
+  const goToPage = (idx) => {
+    if (!wrapperRef.current) return;
+    const step = pages > 1 ? maxScroll / (pages - 1) : 0;
+    wrapperRef.current.scrollTo({
+      left: step * idx,
+      behavior: "smooth",
+    });
   };
 
   return (
-    <div
-      ref={itemRef}
-      className={`timeline-item ${alignment}`}
-      onMouseEnter={handleMouseEnter}
-    >
-      <div className={`timeline-content ${isVisible ? "active" : ""}`}>
-        <span className="timeline-step">Step {stepNumber}</span>
-        <h3>{title}</h3>
-        <p>{description}</p>
-        {/* Mobile illustration: visible only on mobile via CSS */}
-        <div className="mobile-illustration">
-          <img
-            src={illustration}
-            alt={`Step ${stepNumber} illustration`}
-            className="timeline-illustration-icon"
+    <div className="horizontal-timeline-page">
+      <h1 className="program-heading" id="application-process">
+        Application Process
+      </h1>
+      <h2 className="timeline-header">
+        Less than 1% of the candidates are selected for the program
+      </h2>
+
+      {/* scrollable timeline */}
+      <div className="timeline-wrapper" ref={wrapperRef}>
+        <div className="timeline-container">
+          {steps.map((step, i) => (
+            <div key={i} className="timeline-item">
+              <div className="timeline-icon-wrapper">
+                <img
+                  src={step.illustration}
+                  alt={`Step ${i + 1}`}
+                  className="timeline-icon"
+                />
+                <span className="timeline-step">Step {i + 1}</span>
+              </div>
+              <h3 className="timeline-title">{step.title}</h3>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* pagination dots (2 on desktop, 3 on mobile) */}
+      <div className="timeline-dots">
+        {Array.from({ length: pages }, (_, idx) => (
+          <span
+            key={idx}
+            className={"timeline-dot" + (currentPage === idx ? " active" : "")}
+            onClick={() => goToPage(idx)}
           />
-        </div>
-      </div>
-      {/* Desktop illustration: visible on desktop/tablet */}
-      <div className="timeline-icon desktop-illustration">
-        <img
-          src={illustration}
-          alt={`Step ${stepNumber} illustration`}
-          className="timeline-illustration-icon"
-        />
+        ))}
       </div>
     </div>
   );
-};
-
-const ApplicationProcessTimeline = () => {
-  return (
-    <div className="timeline-page">
-      <div className="timeline-container">
-        <h1 className="program-heading" id="application-process">
-          Application Process
-        </h1>
-        <h2 className="timeline-header">
-          Less than 1% of the candidates are selected for the program
-        </h2>
-        <div className="timeline">
-          {steps.map((step, index) => {
-            const alignment = index % 2 === 0 ? "left" : "right";
-            return (
-              <TimelineItem
-                key={index}
-                alignment={alignment}
-                stepNumber={index + 1}
-                title={step.title}
-                description={step.description}
-                illustration={step.illustration}
-              />
-            );
-          })}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default ApplicationProcessTimeline;
+}

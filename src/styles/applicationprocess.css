@@ -1,255 +1,272 @@
-/* Base styles for Application Process Page */
-.timeline-page {
-  background-color: #0e446b;
-  font-family: Arial, sans-serif;
-  color: white;
-  padding: 1rem 0;
+/* applicationprocess.css */
+
+.timeline-wrapper {
+  width: 100%; /* full‐width viewport */
+  overflow-x: auto; /* scroll its inner content */
+  -webkit-overflow-scrolling: touch;
 }
 
-.timeline-container {
-  max-width: 800px;
-  margin: 0 auto;
-  position: relative;
+.horizontal-timeline-page {
+  background-color: #0e446b;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 2rem 1rem;
 }
 
 .program-heading {
-  padding-top: 50px;
-  text-align: center;
-  font-size: 2.2rem;
-  margin-bottom: 20px;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
 }
 
 .timeline-header {
-  text-align: center;
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   margin-bottom: 2rem;
-  line-height: 1.4;
+  line-height: 1.3;
 }
 
-/* Desktop/Tablet: Timeline with alternating layout and vertical line */
-.timeline {
+/* the horizontal line */
+.timeline-container {
   position: relative;
-  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: max-content; /* ← size to fit all items */
+  max-width: none; /* undo any earlier cap */
+  padding: 1rem 0; /* keep your vertical padding */
 }
 
-.timeline::before {
+/* the full-length line now lives on the inner container */
+.timeline-container::before {
   content: "";
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: 50px; /* aligns with icon centers */
+  left: 0;
+  right: 0; /* because container is as wide as its kids */
+  height: 2px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* each step */
+.timeline-item {
+  position: relative;
+  flex: 1;
+  text-align: center;
+  padding: 0 0.5rem;
+}
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 50px;
   left: 50%;
-  width: 2px;
-  background-color: white;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border: 2px solid #0e446b;
+  border-radius: 50%;
   transform: translateX(-50%);
 }
 
-.timeline-item {
-  position: relative;
-  width: 100%;
-  margin-bottom: 40px;
-  min-height: 80px;
-  box-sizing: border-box;
+/* icon + step number */
+.timeline-icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0.5rem;
 }
-
-.timeline-item.left .timeline-content {
-  position: relative;
-  width: 40%;
-  padding: 20px;
-  box-sizing: border-box;
-  opacity: 0;
-  transform: translateX(-50px);
-  transition: all 0.5s ease-out;
-  text-align: right;
-  left: 0;
-}
-
-.timeline-item.right .timeline-content {
-  position: relative;
-  width: 40%;
-  padding: 20px;
-  box-sizing: border-box;
-  opacity: 0;
-  transform: translateX(50px);
-  transition: all 0.5s ease-out;
-  text-align: left;
-  left: 60%;
-}
-
-.timeline-item .timeline-content.active {
-  opacity: 1;
-  transform: translateX(0) scale(1.02);
-  background: linear-gradient(45deg, #0e446b, #1f6b8f);
-  border-radius: 4px;
-}
-
-.timeline-step {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-  font-size: 0.9rem;
-}
-
-/* Desktop illustration: visible on desktop/tablet */
-.timeline-icon.desktop-illustration {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100px;
-  height: 100px;
-  overflow: hidden;
-  border-radius: 50%;
-  z-index: 1;
-}
-
-.timeline-illustration-icon {
-  width: 100%;
-  height: 100%;
+.timeline-icon {
+  width: 50px;
+  height: 50px;
   object-fit: cover;
   border-radius: 50%;
+  border: 2px solid #fff;
+}
+.timeline-step {
+  margin-top: 0.3rem;
+  font-weight: bold;
+  font-size: 0.75rem;
+  color: #fff;
 }
 
-/* Typography for content box */
-.timeline-content h3 {
-  margin: 0 0 5px;
-  font-size: 1.2rem;
-}
-
-.timeline-content p {
+/* step title */
+.timeline-title {
+  font-weight: normal;
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.75rem;
+  line-height: 1.1;
+  white-space: nowrap;
 }
 
-/* Hide mobile illustration by default on desktop/tablet */
-.mobile-illustration {
-  display: none;
-}
-
-/* Ghost button styling */
+/* ghost-button */
 .ghost-button-inline {
   display: inline-block;
   padding: 4px 8px;
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 4px;
-  background: white;
+  background: #fff;
   color: #0e446b;
   text-decoration: none;
-  transition: background-color 0.3s ease, color 0.3s ease,
-    border-color 0.3s ease;
-  margin-left: 5px;
-  cursor: pointer;
+  font-size: 0.75rem;
+  transition: 0.3s;
+  margin-top: 10px;
 }
-
 .ghost-button-inline:hover {
   background: rgba(255, 255, 255, 0.7);
   border-color: rgba(255, 255, 255, 1);
-  color: #0e446b;
 }
 
-/* Responsive adjustments for Tablets & Laptops */
-@media (max-width: 1024px) {
-  .timeline-container {
-    max-width: 95%;
-    padding: 0 10px;
-  }
-  .program-heading {
-    font-size: 2rem;
-    padding-top: 40px;
-  }
-  .timeline-header {
-    font-size: 1.6rem;
-  }
-  .timeline-item.left .timeline-content,
-  .timeline-item.right .timeline-content {
-    width: 45%;
-    padding: 15px;
-  }
-  .timeline-item.left .timeline-content {
-    transform: translateX(-30px);
-  }
-  .timeline-item.right .timeline-content {
-    transform: translateX(30px);
-  }
-  .timeline-content h3 {
-    font-size: 1.1rem;
-  }
-  .timeline-content p {
-    font-size: 0.95rem;
-  }
-}
-
-/* Responsive adjustments for Mobile */
+/* responsive: scrollable on small screens */
 @media (max-width: 768px) {
   .timeline-container {
-    max-width: 100%;
-    padding: 0 20px;
+    overflow-x: auto;
+    padding-bottom: 1rem;
   }
-  .program-heading {
-    font-size: 1.8rem;
-    padding-top: 40px;
-  }
-  .timeline-header {
-    font-size: 1.4rem;
-  }
-  /* For mobile, override alternating layout: center all timeline-content boxes */
-  .timeline-item.left .timeline-content,
-  .timeline-item.right .timeline-content {
-    position: relative;
-    width: 80%;
-    padding: 15px;
-    text-align: center;
-    margin: 0 auto 10px auto;
-    left: 0 !important;
-    transform: none !important;
-  }
-  /* Vertical line remains visible */
-  .timeline::before {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  /* Show mobile illustration inside content box */
-  .mobile-illustration {
-    display: block;
-    margin-top: 10px;
-  }
-  /* Hide desktop illustration on mobile */
-  .timeline-icon.desktop-illustration {
-    display: none;
-  }
-  .timeline-content h3 {
-    font-size: 1rem;
-  }
-  .timeline-content p {
-    font-size: 0.9rem;
-  }
-  .timeline-item .timeline-icon {
+  .timeline-item {
+    flex: 0 0 auto;
     width: 80px;
-    height: 80px;
   }
-  .timeline-illustration-icon {
-    width: 100%;
-    height: 100%;
+}
+/* ─── Remove the dots entirely ───────────────────────────────────────── */
+.timeline-item::before {
+  display: none;
+}
+
+/* ─── Desktop: increase icon & text sizes ───────────────────────────── */
+@media (min-width: 769px) {
+  .timeline-icon {
+    width: 60px; /* was 50px */
+    height: 60px; /* was 50px */
+  }
+  .timeline-step {
+    font-size: 0.9rem; /* was 0.75rem */
+  }
+  .timeline-title {
+    font-size: 0.7rem; /* was 0.75rem */
   }
 }
 
-/* Responsive adjustments for Very Small Devices */
-@media (max-width: 480px) {
+/* ─── Mobile fixes: full-width line + extra spacing ───────────────────── */
+@media (max-width: 768px) {
+  /* let the container grow to the full width of its flex items,
+     so the ::before line runs all the way under step 6 */
+  .timeline-container {
+    width: max-content;
+  }
+
+  /* remove the fixed 80px width and bump horizontal padding
+     so images sit further apart and their text wraps less */
+  .timeline-item {
+    flex: 0 0 auto;
+    width: auto;
+    padding: 0 1.5rem; /* was 0 0.5rem */
+  }
+}
+
+@media (max-width: 768px) {
+  .timeline-container {
+    padding-left: 0.5rem;
+  }
+  .timeline-item {
+    padding: 0 0.5rem; /* tighter spacing so Step 3 peeks in */
+  }
+  /* and your desktop/media-queries for icon/text sizing remain the same */
+}
+@media (min-width: 769px) {
+  .timeline-container {
+    margin: 0 auto;
+  }
+}
+
+/* ─── 1) Desktop: keep titles on one line & add padding ───────────────── */
+@media (min-width: 769px) {
+  .timeline-item {
+    padding: 0 3rem; /* was 0 2rem; tweak if you need more/less */
+  }
+}
+
+/* slightly reduce icon & font sizes so they all fit comfortably */
+@media (min-width: 769px) {
+  .timeline-icon {
+    width: 50px;
+    height: 50px;
+  }
+  .timeline-step,
+  .timeline-title {
+    font-size: 0.8rem;
+  }
+}
+
+/* hide native scrollbar but keep scrollable */
+.timeline-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE */
+}
+.timeline-wrapper::-webkit-scrollbar {
+  display: none; /* WebKit */
+}
+
+/* the two pagination dots container */
+.timeline-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 0.5rem;
+}
+
+/* each dot */
+.timeline-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.timeline-dot.active {
+  background: #fff;
+  transform: scale(1.2);
+}
+/* ─── Desktop: enlarge the step icons ────────────────────────────────── */
+@media (min-width: 769px) {
+  .timeline-icon {
+    width: 80px; /* up from 60px */
+    height: 80px; /* up from 60px */
+  }
+}
+@media (min-width: 769px) {
+  /* enlarge the “Step X” labels */
+  .timeline-step {
+    font-size: 1rem; /* was 0.9rem */
+  }
+
+  /* enlarge the step titles */
+  .timeline-title {
+    font-size: 1rem; /* was 0.8rem */
+  }
+
+  /* (Optional) bump up your section headings too */
   .program-heading {
-    font-size: 1.6rem;
-    padding-top: 30px;
+    font-size: 2rem; /* was 1.8rem */
   }
   .timeline-header {
-    font-size: 1.2rem;
+    font-size: 1.4rem; /* was 1.2rem */
   }
-  .timeline-item .timeline-content {
-    width: 90%;
-    padding: 10px;
-    margin: 0 auto 10px auto;
+}
+
+@media (min-width: 769px) {
+  /* 1) Make each step keep its own width */
+  .timeline-item {
+    flex: 0 0 auto;
   }
-  .timeline-content h3 {
-    font-size: 0.9rem;
+
+  /* 2) Give every gap the same right‐hand spacing */
+  .timeline-item {
+    margin-right: 3rem; /* ← tweak “3rem” to whatever the 5→6 gap currently is */
   }
-  .timeline-content p {
-    font-size: 0.9rem;
+  /* 3) Don’t add extra space after the last item */
+  .timeline-item:last-child {
+    margin-right: 0;
   }
 }
