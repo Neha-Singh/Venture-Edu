@@ -23,18 +23,20 @@ function Footer() {
             </div>
             {/* Navigation Links */}
             <div className="footer-links">
-              <a
+              <button
+                type="button"
                 onClick={() => setIsPrivacyOpen(true)}
                 className="footer-link privacy-button"
               >
                 Privacy Policy
-              </a>
-              <a
+              </button>
+              <button
+                type="button"
                 onClick={() => setisTermsOpen(true)}
                 className="footer-link privacy-button"
               >
                 Terms of Service
-              </a>
+              </button>
             </div>
             {/* Social Media Icons */}
             <div className="footer-social">
