@@ -12,9 +12,9 @@ const activitiesData = [
     ],
   },
   {
-    title: "Demo Days",
+    title: "Challenges & Bootcamp",
     items: [
-      "Challenges & Bootcamp",
+      "Demo Days",
       "Drop shipping Challenges",
       "Startup advertising campaign challenge",
       "No code startup bootcamp",
@@ -33,7 +33,7 @@ const ActivitiesPage = () => {
               {group.title === "Industry Interaction" && (
                 <FaUsers className="activity-icon" />
               )}
-              {group.title === "Demo Days" && (
+              {group.title === "Challenges & Bootcamp" && (
                 <FaTrophy className="activity-icon" />
               )}
               {group.title}
