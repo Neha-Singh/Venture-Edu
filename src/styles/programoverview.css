@@ -266,3 +266,10 @@ html {
     flex: 0 0 50%;
   }
 }
+/* center support‐card on tablets and desktop (keep mobile as is) */
+@media (min-width: 481px) {
+  .support-card {
+    /* keep your 25px top-margin, and auto-center horizontally */
+    margin: 25px auto 0;
+  }
+}

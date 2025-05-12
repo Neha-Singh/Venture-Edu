@@ -9,13 +9,13 @@ const activitiesData = [
       "Founder / Investor mixers",
       "Fireside chats",
       "1:1 mentorship sessions with industry leaders",
+      "Pitch days",
     ],
   },
   {
     title: "Challenges & Bootcamp",
     items: [
-      "Demo Days",
-      "Drop shipping Challenges",
+      "Drop shipping challenges",
       "Startup advertising campaign challenge",
       "No code startup bootcamp",
       "Lean startup bootcamp",

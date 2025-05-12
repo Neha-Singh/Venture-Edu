@@ -118,12 +118,15 @@ html {
 .content {
   padding: 20px;
   color: #fff;
+  justify-content: center;
 }
 .acceleration-content,
 .funding-content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 500px; /* or whatever fixed/relative width you want */
+  width: 90%;
 }
 .acceleration-content ul,
 .funding-content ul {
