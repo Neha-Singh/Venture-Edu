@@ -1,0 +1,533 @@
+/* yourjourney.css */
+
+/*––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+   PAGE WRAPPER (1px half-transparent strokes at left/right)
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+.your-journey-page {
+  box-sizing: border-box;
+  width: 100%;
+
+  overflow-x: hidden;
+}
+
+/*––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+   TOP FEATURES (single, merged block)
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+.journey-features {
+  display: flex;
+  justify-content: space-between;
+  background: #01193a;
+  padding: 0 24px; /* no vertical padding so dividers hit top/bottom */
+  margin: 0 auto;
+  width: calc(100% - 2px); /* room for 1px borders each side */
+  border: 1px solid rgba(4, 153, 252, 0.2);
+  box-sizing: border-box;
+}
+.journey-features .feature-card {
+  flex: 1;
+  max-width: 23%;
+  text-align: center;
+  color: #fff;
+  padding: 32px 8px;
+}
+.journey-features .feature-card img {
+  width: 48px;
+  margin-bottom: 16px;
+}
+.journey-features .feature-card h3 {
+  font-family: "Inter Tight", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #0499fc;
+}
+.journey-features .feature-card p {
+  font-family: "Inter Tight", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 0;
+}
+.journey-features .feature-card:not(:last-child) {
+  border-right: 1px solid rgba(4, 153, 252, 0.2);
+}
+
+/*––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+   HERO SECTION
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+.journey-hero {
+  background: #0499fc;
+  padding: 80px 40px;
+  position: relative;
+  margin: 0 auto;
+  width: calc(100% - 2px);
+  box-sizing: border-box;
+}
+.hero-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.hero-text {
+  max-width: 50%;
+}
+.hero-text .small {
+  display: block;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 32px;
+  color: #000;
+  margin-bottom: 8px;
+}
+.hero-text h2 {
+  margin: 0;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #000;
+}
+.hero-button {
+  display: inline-flex;
+  align-items: center;
+  background: #000;
+  color: #fff;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 16px;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 24px;
+  cursor: pointer;
+  margin-right: -14px;
+  position: absolute;
+  top: 120px;
+  right: 2px;
+}
+.hero-button img {
+  margin-left: 8px;
+  width: 16px;
+  height: auto;
+}
+
+/* Decorative vectors */
+.vector {
+  position: absolute;
+  pointer-events: none;
+}
+.vector.blue {
+  top: 20px;
+  right: 403px;
+  width: 60px;
+}
+.vector.grey {
+  top: -12px;
+  right: 365px;
+  width: 48px;
+}
+.vector.triangle {
+  bottom: -110px;
+  right: 107px;
+  width: 105px;
+  z-index: 1;
+  height: 71px;
+}
+
+/*––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+   LOWER CONTENT (Accordion + Image)
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+.journey-lower {
+  display: flex;
+  align-items: flex-start;
+  margin: 40px auto 0;
+  width: calc(100% - 2px);
+  box-sizing: border-box;
+}
+.accordion {
+  width: calc(50% - 1px); /* leave 1px gap for inner divider */
+}
+.accordion-item {
+  background: #fff;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+.title-bar {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 100px;
+  cursor: pointer;
+}
+.title-bar .index {
+  position: absolute;
+  left: -20px;
+  top: 68%;
+  transform: translateY(-50%);
+  font-family: "Inter Tight", sans-serif;
+  font-size: 82px;
+  font-weight: 550;
+  color: rgba(0, 0, 0, 0.1);
+  letter-spacing: -9.84px;
+}
+.title-bar .phase-label {
+  margin-left: 100px;
+  background: #0499fc;
+  color: #fff;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 14px;
+  padding: 6px 14px;
+  border-radius: 12px;
+}
+.title-bar h4 {
+  margin: 0 0 0 16px;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 35px;
+  font-weight: 400;
+  color: #000;
+}
+.chevron {
+  margin-left: auto;
+  width: 16px;
+  transition: transform 0.2s;
+}
+.chevron.rotated {
+  transform: rotate(180deg);
+}
+.accordion-item .content {
+  padding: 16px;
+}
+.accordion-item .content p {
+  margin: 0;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: #333;
+}
+
+/* Hero Image beside accordion */
+.hero-image {
+  width: calc(50% - 1px);
+  /* padding-left: 24px; */
+  box-sizing: border-box;
+}
+.hero-image img {
+  width: 100%;
+  display: block;
+}
+
+/*––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+   RESPONSIVE BREAKPOINTS
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+@media (max-width: 1024px) {
+  .journey-features {
+    flex-wrap: wrap;
+    padding: 40px 20px;
+    width: calc(100% - 2px);
+  }
+  .feature-card {
+    max-width: 48%;
+    margin-bottom: 24px;
+  }
+  .journey-hero {
+    padding: 60px 20px;
+    width: calc(100% - 2px);
+  }
+  .hero-text h2 {
+    font-size: 36px;
+  }
+  .journey-lower {
+    flex-direction: column;
+  }
+  .accordion {
+    width: 100%;
+  }
+  .hero-image {
+    width: 100%;
+    padding: 0;
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .feature-card {
+    max-width: 100%;
+  }
+  .hero-text h2 {
+    font-size: 28px;
+  }
+  .hero-button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}
+
+.your-journey-page {
+  position: relative; /* establish a positioning context */
+  /* remove any old borders here if present */
+  border-left: none;
+  border-right: none;
+}
+
+.your-journey-page::before,
+.your-journey-page::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  background: rgba(4, 153, 252, 0.2);
+  /* leave 40px of “dead space” at top/bottom—adjust as you like */
+  top: 0px;
+  bottom: 0px;
+}
+
+.your-journey-page::before {
+  left: 24px;
+}
+
+.your-journey-page::after {
+  right: 24px;
+}
+
+/*––––––––––––––––––––––––––––––––––––––––––––––––––––––
+  BLACK EDGE STROKES ON HERO & LOWER SECTIONS
+––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+.journey-hero,
+.journey-lower {
+  position: relative; /* establish a containing block */
+}
+
+/* target both sections’ before/after */
+.journey-hero::before,
+.journey-hero::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  background: #000; /* solid black stroke */
+  top: 0;
+  bottom: 0;
+}
+
+/* inset from the left edge by your horizontal padding (e.g. 24px) */
+.journey-hero::before {
+  left: 24px;
+}
+
+/* inset from the right edge */
+.journey-hero::after {
+  right: 24px;
+}
+
+/* ─────────────────────────────────────────────
+   Accordion – Rectangular, no gaps, drop-downs
+───────────────────────────────────────────── */
+.accordion {
+  margin: 0; /* drop the gap you might have set elsewhere */
+}
+
+.accordion-item {
+  border-radius: 0; /* remove all rounding */
+  background: rgba(1, 25, 58, 0.68); /* closed state bg */
+  border-bottom: 1px solid #01193a; /* closed state divider */
+  margin-bottom: 0; /* glue them together */
+  position: relative; /* for absolute chevron */
+  overflow: hidden; /* clip if needed */
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+.accordion-item.open {
+  background: #fff;
+  border-bottom: none;
+}
+
+/* Title-bar stays full-width, no rounding */
+.title-bar {
+  padding: 16px;
+  padding-left: 70px;
+  cursor: pointer;
+  position: relative; /* for chevron absolute */
+}
+
+.chevron-icon {
+  position: absolute;
+  right: 16px; /* sit at the extreme right edge */
+  top: 50%;
+  transform: translateY(-50%);
+  mix-blend-mode: hard-light;
+  width: 36px;
+  height: auto;
+}
+
+/* When open, move it to the very top of the item */
+.accordion-item.open .chevron-icon {
+  top: 8px; /* tweak this if you need more/less offset */
+  transform: none;
+}
+
+/*––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+   Open-accordion Phase Number (“01”, etc.) – Responsive
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+.accordion-item.open .title-bar .index {
+  /* Base desktop styles */
+  position: absolute;
+  top: 65px; /* aligns with the very top of .title-bar */
+  left: -20px; /* match your .title-bar horizontal padding */
+  color: #91b6e9;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 88px;
+  font-weight: 550;
+  line-height: 108px; /* ~91.7% */
+  letter-spacing: -9.84px;
+  white-space: nowrap;
+}
+
+/*––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+   Tablet / small desktop (≤1024px)
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+@media (max-width: 1024px) {
+  .accordion-item.open .title-bar .index {
+    top: 40px;
+    left: -24px;
+    font-size: 80px;
+    line-height: 72px;
+    letter-spacing: -6px;
+  }
+}
+
+/*––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+   Mobile landscape (≤768px)
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+@media (max-width: 768px) {
+  .accordion-item.open .title-bar .index {
+    top: 30px;
+    left: -20px;
+    font-size: 60px;
+    line-height: 52px;
+    letter-spacing: -4px;
+  }
+}
+
+/*––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+   Mobile portrait (≤480px)
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+@media (max-width: 480px) {
+  .accordion-item.open .title-bar .index {
+    top: 24px;
+    left: -16px;
+    font-size: 48px;
+    line-height: 44px;
+    letter-spacing: -3px;
+    /* If it still overflows, you can hide it on very small screens:
+       display: none;
+    */
+  }
+}
+/* at the end of yourjourney.css */
+
+/* Boost the open‐state accordion height */
+.accordion-item.open .title-bar {
+  padding: 24px 16px;
+}
+
+.accordion-item.open .content {
+  padding: 0px 20px 40px 78px;
+}
+
+/* (Optional) force a minimum height if you want every open panel at least X tall */
+.accordion-item.open {
+  min-height: 200px; /* adjust as desired */
+}
+
+/* Fixed size for the accordion column */
+.journey-lower .accordion {
+  width: 600px;
+  height: 800px;
+  flex-shrink: 0;
+}
+/*––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+   Open‐state: stack the title under the phase–label
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+.accordion-item.open .title-bar {
+  /* switch from row to column layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* remove the old left-margin and add some breathing room below the label */
+.accordion-item.open .title-bar .phase-label {
+  margin: 0 0 8px 0;
+}
+
+/* Indent phase-label and title under the clipped “01” in open panels */
+.accordion-item.open .title-bar .phase-label {
+  margin: 20px 0 8px 62px; /* top 0, right 0, bottom 8px, left 100px */
+}
+
+.accordion-item.open .title-bar h4 {
+  margin: 0 0 0 62px !important;
+}
+
+.accordion-item:not(.open) .phase-label {
+  display: none;
+}
+
+.accordion-item:not(.open) .title-bar h4 {
+  position: absolute;
+  top: 50%;
+  color: #fff;
+  font-size: 30px;
+}
+
+/*─────────────────────────────────────────────
+  Accordion Slide-Down Animation
+─────────────────────────────────────────────*/
+.accordion-item .content {
+  max-height: 0; /* start fully closed */
+  overflow: hidden; /* hide anything beyond max-height */
+  transition: max-height 0.4s ease;
+}
+
+/* when the parent has .open, expand to show the text */
+.accordion-item.open .content {
+  /* pick a value larger than your content’s tallest height */
+  max-height: 300px; /* adjust as needed */
+}
+
+/* preserve your existing padding inside .content */
+.accordion-item:not(.open) .content p {
+  margin: 0;
+  padding: 16px;
+
+  /* ...other text styles... */
+}
+
+/* Closed‐state accordion: spacing around the title */
+.accordion-item:not(.open) .title-bar {
+  display: flex;
+  align-items: flex-start; /* children start at top of the bar */
+  padding: 30px 280px 30px 100px; /* top right bottom left */
+}
+
+/* Closed‐state title styling */
+.accordion-item:not(.open) .title-bar h4 {
+  margin: 0; /* remove any default margins */
+  color: #fff;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 48px; /* 120% */
+}
+
+/*––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+   Center the closed‐state chevron in the accordion header
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+.accordion-item:not(.open) .title-bar {
+  position: relative; /* ensure the chevron is positioned within the header */
+}
+
+.accordion-item:not(.open) .title-bar .chevron-icon {
+  position: absolute;
+  top: 80%;
+  left: 90%;
+}
