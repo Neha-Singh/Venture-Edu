@@ -1,0 +1,159 @@
+/* Page wrapper */
+.venturedufor-page {
+  background: #001430;
+  padding: 80px 40px;
+  box-sizing: border-box;
+}
+
+/* Header */
+.vdf-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+/* Title */
+.vdf-title {
+  color: #fff;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 38px;
+  font-weight: 500;
+  line-height: 34px; /* 100% */
+  letter-spacing: -1px;
+  margin: 0;
+  white-space: normal; /* allow wrapping */
+}
+.vdf-title span {
+  font-weight: 600;
+}
+
+/* Subtitle */
+.vdf-subtitle {
+  color: #fff;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  max-width: 40%;
+  margin-top: 40px;
+}
+
+/* Button */
+.vdf-button {
+  display: inline-flex;
+  align-items: center;
+  background: #0499fc;
+  color: #fff;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 24px;
+  cursor: pointer;
+  white-space: nowrap;
+  margin-top: 60px;
+}
+.vdf-button img {
+  margin-left: 8px;
+  width: 16px;
+  height: auto;
+}
+
+/* Cards container */
+.vdf-cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* Individual card */
+.vdf-card {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  /* slanted top-right corner */
+  clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 0% 100%);
+  background: #01193a;
+}
+.vdf-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.vdf-card h3 {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  margin: 0;
+  color: #fff;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .venturedufor-page {
+    padding: 60px 20px;
+  }
+  .vdf-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .vdf-subtitle {
+    max-width: 100%;
+  }
+  .vdf-cards {
+    flex-wrap: wrap;
+  }
+  .vdf-card {
+    flex: 0 0 48%;
+  }
+}
+
+@media (max-width: 768px) {
+  .vdf-title {
+    font-size: 36px;
+  }
+  .vdf-subtitle {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .vdf-button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+  .vdf-card {
+    flex: 0 0 100%;
+  }
+}
+/*––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+  Vector above the 3rd card
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+.vdf-cards {
+  position: relative; /* establish a positioning context */
+}
+
+/* inject the vector */
+.vdf-cards-vector {
+  position: absolute;
+  top: -180px; /* lift it above the cards row */
+  /* center it over the 3rd card: 
+     100% width /4 cards = 25% per card, so 2.5×25% = 62.5% from the left edge */
+  left: 62.5%;
+  transform: translateX(-50%);
+  width: 180px; /* adjust to match Figma spec */
+  height: auto;
+  pointer-events: none; /* so it never blocks any hovers/clicks */
+  z-index: 1; /* float above the cards */
+}
+
+.vdf-title-line2 {
+  display: block; /* make the second part a new line */
+  margin-top: 8px; /* optional spacing between lines */
+}
