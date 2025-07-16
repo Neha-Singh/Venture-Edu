@@ -3,7 +3,7 @@ import "../../styles/Home/launchventure.css";
 
 import rightArrow from "../../assets/header-images/rightarrow.svg";
 import smallVector from "../../assets/home-images/launch-venture/smallvector.svg";
-import bigVector from "../../assets/home-images/launch-venture/bigvector.svg";
+import bigVector from "../../assets/home-images/launch-venture/bigvector.png";
 
 export default function LaunchVenture() {
   return (

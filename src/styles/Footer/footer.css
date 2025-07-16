@@ -1,0 +1,323 @@
+/*────────────────────────────────────────────────────────
+  RESET
+────────────────────────────────────────────────────────*/
+.site-footer {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter Tight", sans-serif;
+  color: #fff;
+  background: #000;
+}
+
+/*────────────────────────────────────────────────────────
+  SHARED: Five vertical strokes mixin
+────────────────────────────────────────────────────────*/
+.fv-upper,
+.fv-lower {
+  position: relative;
+  overflow: hidden;
+}
+.fv-upper::before,
+.fv-lower::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  opacity: 0.2;
+  background-image: linear-gradient(to bottom, #0499fc 0, #0499fc 100%),
+    linear-gradient(to bottom, #0499fc 0, #0499fc 100%),
+    linear-gradient(to bottom, #0499fc 0, #0499fc 100%),
+    linear-gradient(to bottom, #0499fc 0, #0499fc 100%),
+    linear-gradient(to bottom, #0499fc 0, #0499fc 100%);
+  background-repeat: no-repeat;
+  background-size: 1px 100%;
+  background-position:
+    /* inset 24px from left */ left 24px top 0,
+    /* 25% */ left 25% top 0, /* 50% */ left 50% top 0, /* 75% */ left 75% top 0,
+    /* inset 24px from right */ right 24px top 0;
+}
+.fv-upper > *,
+.fv-lower > * {
+  position: relative;
+  z-index: 2;
+}
+
+/*────────────────────────────────fv-upper-small────────────────────────
+  UPPER: Launch Your Venture
+────────────────────────────────────────────────────────*/
+.fv-upper {
+  background: #000;
+  padding: 80px 40px 262px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+.fv-upper-text {
+  max-width: 50%;
+}
+.fv-upper .small {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #fff;
+}
+.fv-upper h2 {
+  margin: 0 0 16px;
+  font-size: 48px;
+  font-weight: 800;
+  color: #fff;
+}
+.fv-upper p {
+  margin: 8px 0;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ddd;
+}
+.fv-button {
+  margin-top: 24px;
+  display: inline-flex;
+  align-items: center;
+  background: #0595f5;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.fv-button img {
+  margin-left: 8px;
+  width: 16px;
+  height: auto;
+}
+.fv-upper-small {
+  position: absolute;
+  bottom: 80px;
+  left: 52%;
+  width: 80px;
+}
+.fv-upper-big {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  width: 480px;
+}
+
+/*────────────────────────────────────────────────────────
+  MIDDLE CARD: Connect…  
+────────────────────────────────────────────────────────*/
+.fv-card {
+  position: relative;
+  z-index: 3; /* float above the lower section */
+  margin: -40px auto -40px; /* overlap 40px upward and 40px downward */
+
+  /* keep your existing width, height, background, etc */
+  background: #0595f5;
+  width: 1757px;
+  max-width: calc(100% - 48px);
+  height: 502px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+.fv-card-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: auto;
+}
+.fv-card-content {
+  max-width: 50%;
+  color: #fff;
+  z-index: 2;
+}
+.fv-card-content h2 {
+  margin: 0 0 24px;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+.fv-card-content p {
+  margin: 0 0 32px;
+  font-size: 16px;
+  line-height: 24px;
+}
+.fv-card-cta {
+  background: #fff;
+  color: #0595f5;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 28px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.fv-card-right {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  width: 360px;
+}
+.fv-card-triangle {
+  position: absolute;
+  top: 16px;
+  right: 80px;
+  width: 40px;
+}
+
+/*────────────────────────────────────────────────────────
+  LOWER: Contact Form / Links / Logo  
+────────────────────────────────────────────────────────*/
+.fv-lower {
+  background: #013563;
+  padding: 60px 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+.fv-form {
+  flex: 1 1 280px;
+}
+.fv-form h3 {
+  margin-bottom: 16px;
+  font-size: 24px;
+}
+.fv-form form .row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.fv-form input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+.fv-form button {
+  background: #0595f5;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 24px;
+  cursor: pointer;
+}
+
+.fv-links {
+  flex: 1 1 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.fv-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.fv-address {
+  flex: 1 1 240px;
+  font-size: 14px;
+}
+.fv-address p {
+  margin: 4px 0;
+}
+.fv-address .social {
+  display: flex;
+  gap: 16px;
+  margin: 16px 0;
+}
+.fv-address .email {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.fv-logo {
+  text-align: center;
+  background: #013563;
+  padding: 40px 0;
+}
+.fv-logo img {
+  width: 160px;
+  height: auto;
+}
+
+/*────────────────────────────────────────────────────────
+  RESPONSIVE
+────────────────────────────────────────────────────────*/
+@media (max-width: 1440px) {
+  .fv-card {
+    width: 100%;
+    height: auto;
+    margin-top: -20px;
+    flex-direction: column;
+    padding: 40px 20px;
+    align-items: flex-start;
+    text-align: left;
+  }
+  .fv-card-content {
+    max-width: 100%;
+  }
+  .fv-card-left,
+  .fv-card-right,
+  .fv-card-triangle {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .fv-upper {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 60px 20px;
+  }
+  .fv-upper-text {
+    max-width: 100%;
+  }
+  .fv-upper-small,
+  .fv-upper-big {
+    display: none;
+  }
+  .fv-button {
+    margin-top: 16px;
+  }
+  .fv-lower {
+    flex-direction: column;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .fv-upper h2,
+  .fv-card-content h2 {
+    font-size: 36px;
+  }
+  .fv-upper p,
+  .fv-card-content p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .fv-button,
+  .fv-card-cta,
+  .fv-form button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+  .fv-form form .row {
+    flex-direction: column;
+  }
+  .fv-links,
+  .fv-address {
+    text-align: center;
+    flex: 1 1 100%;
+  }
+}
