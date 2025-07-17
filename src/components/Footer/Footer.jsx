@@ -1,16 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 import "../../styles/Footer/footer.css";
 
 import rightArrow from "../../assets/header-images/rightarrow.svg";
 import smallVector from "../../assets/home-images/launch-venture/smallvector.svg";
 import bigVector from "../../assets/home-images/launch-venture/bigvector.png";
 import leftVector from "../../assets/footer-images/left-vector.svg";
-import rightVector from "../../assets/footer-images/right-vector.svg";
+import logoVector from "../../assets/footer-images/right-vector.svg";
+import blazerGuy from "../../assets/footer-images/blazer-guy.svg";
+import curlyGirl from "../../assets/footer-images/curly-hair-girl.svg";
+import spectaclesGuy from "../../assets/footer-images/spectacles-guy.svg";
+import yellowGirl from "../../assets/footer-images/yellow-tee-girl.svg";
 import invertedTriangle from "../../assets/footer-images/inverted-triangle.svg";
-import homeLogo from "../../assets/Logo-Home.png";
+import fbIcon from "../../assets/footer-images/fb.png";
+import xIcon from "../../assets/footer-images/x.png";
+import youtubeIcon from "../../assets/footer-images/youtube.png";
+import igIcon from "../../assets/footer-images/ig.png";
+import linkedinIcon from "../../assets/footer-images/linkedin.png";
+import bigLogo from "../../assets/footer-images/big-white-logo.png";
 
 export default function Footer() {
-  const [open, setOpen] = useState(false);
   return (
     <footer className="site-footer">
       {/* ─── UPPER: Launch Your Venture ───────────────────────── */}
@@ -24,12 +32,7 @@ export default function Footer() {
             make it happen.
           </p>
           <p>Take the first step towards becoming a VenturEdu founder.</p>
-          <button
-            className="fv-button"
-            onClick={() => {
-              /* your handler */
-            }}
-          >
+          <button className="fv-button">
             Start your Application
             <img src={rightArrow} alt="→" loading="lazy" />
           </button>
@@ -45,16 +48,40 @@ export default function Footer() {
 
       {/* ─── MIDDLE CARD: Connect, Collaborate, Conquer ───────── */}
       <section className="fv-card">
+        {/* slanted left corner */}
         <img src={leftVector} alt="" className="fv-card-left" loading="lazy" />
-        <div className="fv-card-content">
-          <h2>
-            Connect,
-            <br />
-            Collaborate,
-            <br />
-            Conquer.
-          </h2>
-          <p>
+
+        {/* heading top-left */}
+        <h2 className="fv-card-title">
+          Connect,
+          <br />
+          <span className="fv-highlight">Collaborate,</span>
+          <br />
+          Conquer.
+        </h2>
+
+        {/* logo  avatars container */}
+        {/* <div className="fv-card-graphic">
+          <img
+            src={logoVector}
+            alt=""
+            className="fv-card-logo-vector"
+            loading="lazy"
+          />
+          <img src={blazerGuy} alt="" className="avatar a1" loading="lazy" />
+          <img src={curlyGirl} alt="" className="avatar a2" loading="lazy" />
+          <img
+            src={spectaclesGuy}
+            alt=""
+            className="avatar a3"
+            loading="lazy"
+          />
+          <img src={yellowGirl} alt="" className="avatar a4" loading="lazy" />
+        </div> */}
+
+        {/* centered body panel */}
+        <div className="fv-card-body">
+          <p className="fv-card-text">
             Being part of VenturEdu means more than just education—it means
             joining a thriving community of ambitious, like-minded innovators
             and disruptors. Benefit from a slew of knowledge resources,
@@ -63,12 +90,8 @@ export default function Footer() {
           </p>
           <button className="fv-card-cta">Join the Community</button>
         </div>
-        <img
-          src={rightVector}
-          alt=""
-          className="fv-card-right"
-          loading="lazy"
-        />
+
+        {/* slanted triangle top-right */}
         <img
           src={invertedTriangle}
           alt=""
@@ -77,22 +100,51 @@ export default function Footer() {
         />
       </section>
 
-      {/* ─── LOWER: Contact Form / Links / Logo ───────────────── */}
+      {/* ─── LOWER: Contact Form / Links / Address ────────────── */}
       <section className="fv-lower">
+        {/* Contact form */}
         <div className="fv-form">
           <h3>Get in touch</h3>
           <form>
             <div className="row">
-              <input type="text" placeholder="Enter your name" />
-              <input type="text" placeholder="Enter your second name" />
+              <div className="form-group">
+                <label htmlFor="firstName">Name</label>
+                <input
+                  id="firstName"
+                  type="text"
+                  placeholder="Enter your name"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="secondName">Second Name</label>
+                <input
+                  id="secondName"
+                  type="text"
+                  placeholder="Enter your second name"
+                />
+              </div>
             </div>
             <div className="row">
-              <input type="email" placeholder="Enter your email ID" />
-              <input type="tel" placeholder="Ex. 00000 00000" />
+              <div className="form-group">
+                <label htmlFor="email">Email ID</label>
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="Enter your email ID"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="phone">Phone Number</label>
+                <input id="phone" type="tel" placeholder="Ex. 00000 00000" />
+              </div>
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit" className="fv-form-submit">
+              Submit
+            </button>
           </form>
         </div>
+
+        {/* Navigation links */}
         <div className="fv-links">
           <a href="#">Home</a>
           <a href="#">About VenturEdu</a>
@@ -101,36 +153,41 @@ export default function Footer() {
           <a href="#">Admissions</a>
           <a href="#">Success Stories</a>
         </div>
+
+        {/* Address & social */}
         <div className="fv-address">
+          <h3>Address</h3>
           <p>WeWork Two Horizon Centre,</p>
           <p>Golf Course Road, 5th Floor,</p>
           <p>DLF Two Horizon Centre, DLF Phase 5,</p>
           <p>Gurugram, HR 122002</p>
-          <div className="social">
-            {/* replace with real links/icons */}
+
+          <div className="fv-social-icons">
             <a href="#">
-              <i className="fab fa-facebook-f"></i>
+              <img src={fbIcon} alt="Facebook" />
             </a>
             <a href="#">
-              <i className="fab fa-x-twitter"></i>
+              <img src={xIcon} alt="X" />
             </a>
             <a href="#">
-              <i className="fab fa-youtube"></i>
+              <img src={youtubeIcon} alt="YouTube" />
             </a>
             <a href="#">
-              <i className="fab fa-instagram"></i>
+              <img src={igIcon} alt="Instagram" />
             </a>
             <a href="#">
-              <i className="fab fa-linkedin-in"></i>
+              <img src={linkedinIcon} alt="LinkedIn" />
             </a>
           </div>
+
           <p className="email">Info@VenturEdu.com</p>
         </div>
       </section>
 
-      {/* Footer Brand Logo */}
+      {/* ─── BRAND LOGO ───────────────────────────────────────── */}
       <div className="fv-logo">
-        <img src={homeLogo} alt="VenturEdu" loading="lazy" />
+        <img src={bigLogo} alt="VenturEdu Logo" loading="lazy" />
+        <span className="fv-logo-text">VenturEdu</span>
       </div>
     </footer>
   );

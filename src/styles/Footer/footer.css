@@ -21,12 +21,12 @@
 .fv-lower::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0; /* top:0; right:0; bottom:0; left:0 */
   pointer-events: none;
+  z-index: 1;
   opacity: 0.2;
+
+  /* five 1px‐wide, full‐height blue lines */
   background-image: linear-gradient(to bottom, #0499fc 0, #0499fc 100%),
     linear-gradient(to bottom, #0499fc 0, #0499fc 100%),
     linear-gradient(to bottom, #0499fc 0, #0499fc 100%),
@@ -35,9 +35,9 @@
   background-repeat: no-repeat;
   background-size: 1px 100%;
   background-position:
-    /* inset 24px from left */ left 24px top 0,
-    /* 25% */ left 25% top 0, /* 50% */ left 50% top 0, /* 75% */ left 75% top 0,
-    /* inset 24px from right */ right 24px top 0;
+    /* 1st stroke @ 58px from left */ left 50px top 0,
+    /* 2nd @ 25% */ left 25% top 0, /* 3rd @ 50% */ left 50% top 0,
+    /* 4th @ 75% */ left 75% top 0, /* 5th @ 58px from right */ right 50px top 0;
 }
 .fv-upper > *,
 .fv-lower > * {
@@ -112,84 +112,130 @@
 /*────────────────────────────────────────────────────────
   MIDDLE CARD: Connect…  
 ────────────────────────────────────────────────────────*/
+/*────────────────────────────────────────────────────────
+  MIDDLE CARD: Connect… (new layout)
+────────────────────────────────────────────────────────*/
 .fv-card {
   position: relative;
-  z-index: 3; /* float above the lower section */
-  margin: -40px auto -40px; /* overlap 40px upward and 40px downward */
-
-  /* keep your existing width, height, background, etc */
-  background: #0595f5;
+  z-index: 3;
+  margin: -40px auto -40px; /* overlap both above & below by 40px */
   width: 1757px;
   max-width: calc(100% - 48px);
-  height: 502px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 40px;
+  height: 420px;
+  background: #0595f5;
+  overflow: hidden;
   box-sizing: border-box;
 }
-.fv-card-left {
+
+/* 1) Heading top-left */
+.fv-card-title {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 240px;
-  height: auto;
-}
-.fv-card-content {
-  max-width: 50%;
+  top: 82px;
+  left: 40px;
+  margin: 0;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 66px;
+  font-weight: 600;
+  line-height: 67px;
+  letter-spacing: -3px;
   color: #fff;
+}
+.fv-highlight {
+  color: #001531;
+}
+
+/* 2) Logo vector behind the body panel */
+.fv-card-logo-vector {
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  width: 400px; /* adjust to taste */
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 3) Body panel (text + CTA) centered over logo */
+.fv-card-body {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 30%;
   z-index: 2;
 }
-.fv-card-content h2 {
+.fv-card-text {
   margin: 0 0 24px;
-  font-size: 48px;
-  font-weight: 800;
-  line-height: 1.1;
-}
-.fv-card-content p {
-  margin: 0 0 32px;
+  font-family: "Inter Tight", sans-serif;
   font-size: 16px;
   line-height: 24px;
+  color: #001531;
 }
 .fv-card-cta {
+  display: inline-flex;
+  align-items: center;
   background: #fff;
   color: #0595f5;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
   border: none;
   border-radius: 50px;
   padding: 12px 28px;
-  font-size: 16px;
   cursor: pointer;
 }
-.fv-card-right {
+
+/* 4) Avatars container */
+.fv-card-avatars {
   position: absolute;
-  top: 40px;
-  right: 0;
-  width: 360px;
+  top: 50%;
+  right: 40px;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 24px;
+  z-index: 2;
 }
+.fv-card-avatars .avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #fff;
+  padding: 4px;
+}
+
+/* 5) Slanted right triangle */
 .fv-card-triangle {
   position: absolute;
   top: 16px;
   right: 80px;
   width: 40px;
+  height: auto;
 }
 
 /*────────────────────────────────────────────────────────
   LOWER: Contact Form / Links / Logo  
 ────────────────────────────────────────────────────────*/
 .fv-lower {
+  position: relative;
   background: #013563;
-  padding: 60px 40px;
+  padding: 420px 40px 60px;
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
 }
 .fv-form {
   flex: 1 1 280px;
+  position: absolute;
+  top: 100px; /* align under the new top padding */
+  left: 58px; /* aligns left‐edge with stroke 1 */
+  width: auto; /* preserve your existing form width behavior */
 }
 .fv-form h3 {
   margin-bottom: 16px;
-  font-size: 24px;
+  font-size: 20px;
+  color: #0595f5;
 }
 .fv-form form .row {
   display: flex;
@@ -218,6 +264,13 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  position: absolute;
+  top: 120px;
+  left: 50%; /* aligns left‐edge with stroke 3 */
+  transform: translateX(0);
+  font-size: 12px;
+  font-weight: 200;
+  line-height: 10px;
 }
 .fv-links a {
   color: #fff;
@@ -226,7 +279,14 @@
 
 .fv-address {
   flex: 1 1 240px;
-  font-size: 14px;
+  font-size: 12px;
+  font-weight: 200;
+  line-height: 14px;
+  color: #4e779a;
+  position: absolute;
+  top: 120px;
+  left: 75%; /* aligns left‐edge with stroke 4 */
+  transform: translateX(0);
 }
 .fv-address p {
   margin: 4px 0;
@@ -257,7 +317,7 @@
 @media (max-width: 1440px) {
   .fv-card {
     width: 100%;
-    height: auto;
+    height: 460px;
     margin-top: -20px;
     flex-direction: column;
     padding: 40px 20px;
@@ -320,4 +380,382 @@
     text-align: center;
     flex: 1 1 100%;
   }
+}
+
+.fv-card-content h2 {
+  margin: 0 0 24px;
+  color: #fff; /* default for “Connect” & “Conquer” */
+  font-family: "Inter Tight", sans-serif;
+  font-size: 46px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 47px; /* ~101% */
+  letter-spacing: -3px;
+}
+
+/* Only “Collaborate,” should be navy */
+.fv-card-content .fv-highlight {
+  color: #001531;
+}
+
+/*────────────────────────────────────────────────────────
+  MIDDLE CARD: Connect…  (OVERWRITE the old fv-card rules)
+────────────────────────────────────────────────────────*/
+.fv-card {
+  position: relative;
+  z-index: 3; /* float above lower section */
+  margin: -40px auto -40px; /* overlap both upper & lower by 40px */
+  width: 1757px;
+  max-width: calc(100% - 98px);
+  height: 400px;
+  background: #0595f5; /* blue card */
+  flex-shrink: 0;
+  overflow: hidden; /* clip slanted corners */
+  box-sizing: border-box;
+}
+
+/* left slanted corner (unchanged) */
+.fv-card-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: auto;
+}
+
+/* Logo-vector behind text */
+.fv-card-logo-vector {
+  position: absolute;
+  top: 50%;
+  left: 85%;
+  transform: translate(-50%, -40%);
+  width: 520px; /* adjust as needed */
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Circular headshots on top */
+.fv-card-circle {
+  position: absolute;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  z-index: 2;
+}
+/* tweak these coords to match your Figma exactly */
+.fv-card-circle.c1 {
+  top: 40px;
+  right: 160px;
+}
+.fv-card-circle.c2 {
+  top: 120px;
+  right: 96px;
+}
+.fv-card-circle.c3 {
+  top: 200px;
+  right: 168px;
+}
+.fv-card-circle.c4 {
+  top: 280px;
+  right: 96px;
+}
+
+/* Heading + body container, centered */
+.fv-card-content {
+  position: absolute;
+  top: 50%;
+  left: 24%; /* move it into the middle */
+  transform: translateY(-50%);
+  max-width: 35%;
+  z-index: 2;
+  text-align: left;
+}
+
+/* Heading retains its white/navy styling */
+.fv-card-content h2 {
+  margin: 0 0 16px;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 96px;
+  font-weight: 600;
+  line-height: 97px;
+  letter-spacing: -3px;
+  color: #fff;
+}
+.fv-card-content .fv-highlight {
+  color: #001531; /* navy only on “Collaborate,” */
+}
+
+/* Paragraph / CTA now sit “behind” the heading but on top of the logo vector */
+.fv-card-content p {
+  margin: 0 0 32px;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: #001531; /* black text */
+}
+
+/* CTA button: white bg, blue text */
+.fv-card-cta {
+  display: inline-flex;
+  align-items: center;
+  background: #fff;
+  color: #0595f5;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 28px;
+  cursor: pointer;
+}
+
+/* small slanted triangle on the right */
+.fv-card-triangle {
+  position: absolute;
+  top: 16px;
+  right: 80px;
+  width: 40px;
+  height: auto;
+}
+
+/*──────────────────────────────────────────────────────────
+  Position avatars on each edge of the logo vector polygon
+──────────────────────────────────────────────────────────*/
+.fv-card-avatars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.fv-card-avatars .avatar {
+  position: absolute;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #fff;
+  padding: 4px;
+}
+
+/* 1) Top edge (centered) */
+.fv-card-avatars .a1 {
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 2) Right edge (centered vertically) */
+.fv-card-avatars .a2 {
+  top: 50%;
+  right: 40px;
+  transform: translateY(-50%);
+}
+
+/* 3) Bottom edge (centered) */
+.fv-card-avatars .a3 {
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 4) Left edge (centered vertically) */
+.fv-card-avatars .a4 {
+  top: 50%;
+  left: 40px;
+  transform: translateY(-50%);
+}
+/*────────────────────────────────────────────────────────
+  3) Logo & avatars group – cardinal placement
+────────────────────────────────────────────────────────*/
+.fv-card-graphic {
+  position: absolute;
+  top: 50%;
+  right: 40px; /* match your previous .fv-card-logo-vector right offset */
+  transform: translateY(-50%);
+  width: 520px; /* same width you gave the logo-vector */
+  height: 520px; /* make a square to simplify percentage positions */
+  pointer-events: none;
+  z-index: 1; /* behind the text but above the card bg */
+}
+
+.fv-card-graphic .fv-card-logo-vector {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0.2;
+}
+
+.fv-card-graphic .avatar {
+  position: absolute;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #fff;
+  padding: 4px;
+  z-index: 2;
+}
+
+/* Top‐center of the polygon */
+.fv-card-graphic .a1 {
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Right‐center of the polygon */
+.fv-card-graphic .a2 {
+  top: 50%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+}
+
+/* Bottom‐center of the polygon */
+.fv-card-graphic .a3 {
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Left‐center of the polygon */
+.fv-card-graphic .a4 {
+  top: 50%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+}
+/*────────────────────────────────────────────────────────
+  Form inputs: pill‐shape, translucent white
+────────────────────────────────────────────────────────*/
+.fv-form .form-group input {
+  border-radius: 56px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  background: rgba(255, 255, 255, 0.12);
+  padding: 14px 20px;
+  font-family: "Inter Tight", sans-serif;
+  -webkit-text-fill-color: #fff;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  padding: 10px 60px 10px 22px;
+  width: 227px;
+}
+
+/* Submit button: pill‐shape, solid white */
+.fv-form-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 56px;
+  background-color: #fffbfb;
+  color: #013563; /* adjust if you need a different text color */
+  border: none;
+  padding: 14px 32px;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+}
+/*────────────────────────────────────────────────────────
+  Form-group labels: smaller text + space before inputs
+────────────────────────────────────────────────────────*/
+.fv-form .form-group label {
+  display: block; /* ensure margin-bottom takes effect */
+  margin-bottom: 8px; /* space between label and input */
+  font-family: "Inter Tight", sans-serif;
+  font-size: 10px; /* reduced from default */
+  color: #fff; /* keep them white */
+}
+/*────────────────────────────────────────────────────────
+  Address heading + social-icons row
+────────────────────────────────────────────────────────*/
+.fv-address h3 {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.fv-social-icons {
+  display: flex;
+  gap: 16px;
+  margin: 16px 0;
+}
+
+.fv-social-icons img {
+  width: 24px;
+  height: auto;
+}
+
+/*────────────────────────────────────────────────────────
+  Extend 5 inset strokes through the bottom logo bar
+────────────────────────────────────────────────────────*/
+.fv-logo {
+  position: relative;
+  overflow: hidden;
+}
+
+.fv-logo::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* cover the entire .fv-logo area */
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.2;
+
+  /* five full-height 1px blue lines */
+  background-image: linear-gradient(to bottom, #0499fc 0, #0499fc 100%),
+    linear-gradient(to bottom, #0499fc 0, #0499fc 100%),
+    linear-gradient(to bottom, #0499fc 0, #0499fc 100%),
+    linear-gradient(to bottom, #0499fc 0, #0499fc 100%),
+    linear-gradient(to bottom, #0499fc 0, #0499fc 100%);
+  background-repeat: no-repeat;
+  background-size: 1px 100%;
+  background-position:
+    /* 1st stroke 58px from left */ left 50px top 0,
+    /* 2nd stroke at 25% */ left 25% top 0,
+    /* 3rd stroke at 50% */ left 50% top 0,
+    /* 4th stroke at 75% */ left 75% top 0,
+    /* 5th stroke 58px from right */ right 50px top 0;
+}
+
+/* lift the logo image above the strokes */
+.fv-logo > img {
+  position: relative;
+  z-index: 2;
+}
+
+/*────────────────────────────────────────────────────────
+  Bottom bar: big logo + “VenturEdu” text
+────────────────────────────────────────────────────────*/
+.fv-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #013563;
+  padding: 40px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.fv-logo img {
+  height: 120px; /* adjust to match your Figma spec */
+  width: auto;
+}
+
+.fv-logo-text {
+  margin-left: 16px;
+  color: #fff;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 64px; /* tweak as needed */
+  font-weight: 600;
+  line-height: 1;
 }

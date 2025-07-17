@@ -43,13 +43,13 @@
   background-size: 1px 100%;
 
   background-position:
-    /* first stroke 24px from left */ left 24px top 0,
+    /* first stroke 24px from left */ left 54px top 0,
     /* second stroke at (25% of inner width + 12px) */ left calc(25% + 12px) top
       0,
     /* third stroke at exact center */ left 50% top 0,
     /* fourth stroke at (75% of inner width - 12px) */ left calc(75% - 12px) top
       0,
-    /* fifth stroke 24px from right */ right 24px top 0;
+    /* fifth stroke 24px from right */ right 54px top 0;
 }
 /* push all your hero children above the strokes */
 .launch-hero > * {

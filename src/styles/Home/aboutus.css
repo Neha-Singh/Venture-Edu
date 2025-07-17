@@ -26,7 +26,7 @@
 .aboutus-title {
   color: #fff;
   font-family: "Inter Tight", sans-serif;
-  font-size: 38px;
+  font-size: 32px;
   font-style: normal;
   font-weight: 500;
   line-height: 38px;
@@ -45,7 +45,7 @@
 .aboutus-list li {
   display: list-item;
   margin-bottom: 16px;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .aboutus-list li::before {
@@ -109,8 +109,8 @@
 }
 
 .vector1 {
-  top: 50%;
-  left: 10%;
+  top: 60%;
+  left: -12%;
   transform: translate(-50%, -50%);
 }
 
@@ -121,8 +121,8 @@
 }
 
 .vector3 {
-  top: 20%;
-  right: 0;
+  top: 65%;
+  right: 5%;
   transform: translateX(50%);
 }
 
