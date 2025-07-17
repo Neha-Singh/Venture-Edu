@@ -11,8 +11,7 @@
       rgba(0, 20, 48, 0.2) 100%
     ),
     #011a3c;
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
+
   overflow: hidden;
 
   justify-content: space-between;
@@ -164,4 +163,24 @@
   border-radius: 8px;
   display: block;
   margin: 0;
+}
+
+.aboutus-section::before,
+.aboutus-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: #0499fc;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.aboutus-section::before {
+  left: 24px;
+}
+
+.aboutus-section::after {
+  right: 24px;
 }

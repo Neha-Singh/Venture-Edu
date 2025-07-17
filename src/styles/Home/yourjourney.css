@@ -57,10 +57,9 @@
 .journey-hero {
   background: #0499fc;
   padding: 80px 40px;
+  padding-bottom: -80px !important;
   position: relative;
-  margin: 0 auto;
   width: calc(100% - 2px);
-  box-sizing: border-box;
 }
 .hero-top {
   display: flex;
