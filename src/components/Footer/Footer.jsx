@@ -37,10 +37,18 @@ export default function Footer() {
             <img src={rightArrow} alt="→" loading="lazy" />
           </button>
         </div>
+        {/* bottom-left small arrow */}
         <img
           src={smallVector}
           alt=""
-          className="fv-upper-small"
+          className="fv-upper-small-bottom"
+          loading="lazy"
+        />
+        {/* top-right small arrow */}
+        <img
+          src={smallVector}
+          alt=""
+          className="fv-upper-small-top"
           loading="lazy"
         />
         <img src={bigVector} alt="" className="fv-upper-big" loading="lazy" />

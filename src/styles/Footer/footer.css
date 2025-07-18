@@ -50,7 +50,7 @@
 ────────────────────────────────────────────────────────*/
 .fv-upper {
   background: #000;
-  padding: 80px 40px 262px;
+  padding: 120px 40px 262px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -60,6 +60,7 @@
 }
 .fv-upper-text {
   max-width: 50%;
+  left: 40px;
 }
 .fv-upper .small {
   display: block;
@@ -96,11 +97,11 @@
   width: 16px;
   height: auto;
 }
-.fv-upper-small {
+.fv-upper-small-bottom {
   position: absolute;
-  bottom: 80px;
+  bottom: 120px;
   left: 52%;
-  width: 80px;
+  width: 70px;
 }
 .fv-upper-big {
   position: absolute;
@@ -758,4 +759,11 @@
   font-size: 64px; /* tweak as needed */
   font-weight: 600;
   line-height: 1;
+}
+.fv-upper-small-top {
+  position: absolute;
+  top: 40px; /* lifts it above the bigVector apex */
+  right: 80px; /* nudge in from the right edge */
+  width: 96px; /* ~20% larger for emphasis */
+  transform: translateY(-10%); /* fine-tune centering */
 }
