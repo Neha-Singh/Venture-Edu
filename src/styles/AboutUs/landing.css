@@ -1,0 +1,135 @@
+.about-us {
+  background: #001430;
+  color: #fff;
+  padding: 40px 50px;
+  font-family: "Inter Tight", sans-serif;
+
+  /* two vertical strokes 50px from left and right */
+  background-image: linear-gradient(to bottom, #0595f5 0%, #0595f5 100%),
+    linear-gradient(to bottom, #0595f5 0%, #0595f5 100%);
+  background-repeat: no-repeat;
+  background-size: 1px 100%;
+  background-position: left 50px top 0, right 50px top 0;
+}
+
+/* constrain top section inside strokes */
+.about-us__top {
+  max-width: calc(100% - 100px);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.about-us__heading,
+.about-us__text {
+  box-sizing: border-box;
+}
+.about-us__heading {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+.about-us__heading h1 {
+  font-size: 2.5rem;
+  color: #0595f5;
+  margin: 0;
+  font-weight: 700;
+}
+.decorators {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin-top: 16px;
+}
+.decor {
+  position: absolute;
+}
+.decor1 {
+  top: 0;
+  left: 0;
+  width: 60px;
+}
+.decor2 {
+  top: 30px;
+  left: 60px;
+  width: 24px;
+}
+.about-us__text {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding-left: 40px;
+}
+.about-us__text p {
+  margin-bottom: 16px;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+.about-us__text .blue {
+  color: #0595f5;
+}
+
+/* constrain hero image inside strokes */
+.about-us__hero {
+  max-width: calc(100% - 100px);
+  margin: 40px auto 0;
+  position: relative;
+}
+.hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.triangle {
+  position: absolute;
+  top: -32px;
+  right: 50px;
+  width: 60px;
+}
+.decor3 {
+  position: absolute;
+  bottom: 20px;
+  left: 50px;
+  width: 80px;
+}
+
+@media (max-width: 767px) {
+  .about-us__top,
+  .about-us__hero {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .about-us__top {
+    flex-direction: column;
+  }
+  .about-us__heading,
+  .about-us__text {
+    max-width: 100%;
+    flex: 0 0 100%;
+    padding-left: 0;
+  }
+  .about-us__heading h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .breadcrumb {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .about-us__top {
+    flex-wrap: nowrap;
+  }
+}
+
+/* Hero Section (Bottom Image) – spans fully between the strokes */
+.about-us__hero {
+  max-width: 100%;
+  margin: 40px auto 0;
+  position: relative;
+}
+
+.about-us__hero .hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+}
