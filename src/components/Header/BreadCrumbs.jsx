@@ -1,19 +1,20 @@
 import React from "react";
-import "../../styles/Header/breadcrumbs.css"; // Adjust the path as necessary";
+import "../../styles/Header/breadcrumbs.css";
 
-const Breadcrumb = ({ links }) => (
+const Breadcrumb = ({ links, currentPath }) => (
   <nav className="breadcrumb">
     {links.map((link, idx) => (
       <React.Fragment key={idx}>
-        {link.url ? (
-          <a href={link.url} className="breadcrumb__link">
-            {link.label}
-          </a>
-        ) : (
-          <span className="breadcrumb__current">{link.label}</span>
-        )}
+        <a
+          href={link.url}
+          className={`breadcrumb__link${
+            currentPath === link.url ? " breadcrumb__current" : ""
+          }`}
+        >
+          {link.label}
+        </a>
         {idx < links.length - 1 && (
-          <span className="breadcrumb__separator">/</span>
+          <span className="breadcrumb__separator">.</span>
         )}
       </React.Fragment>
     ))}

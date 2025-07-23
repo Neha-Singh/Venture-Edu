@@ -8,8 +8,13 @@ import invertedTriangle from "../../assets/about-us-images/inverted-triangle.png
 
 const AboutUs = () => (
   <section className="about-us">
-    <Breadcrumb links={[{ label: "Home", url: "/" }, { label: "About Us" }]} />
-
+    <Breadcrumb
+      links={[
+        { label: "Home", url: "/" },
+        { label: "About Us", url: "/aboutus" },
+      ]}
+      currentPath={window.location.pathname}
+    />
     <div className="about-us__top">
       <div className="about-us__heading">
         <h1>About VenturEdu</h1>
