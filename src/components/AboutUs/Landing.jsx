@@ -19,13 +19,13 @@ const AboutUs = () => (
         </div>
       </div>
       <div className="about-us__text">
-        <p>
+        <p className="intro">
           VenturEdu is India’s first venture school—a launchpad for dreamers who
           are believers, innovators who take action, and change makers ready to
-          shape tomorrow’s industries.
+          shape tomorrow’s industries
         </p>
         <p>
-          <span>Here,</span>
+          <span className="dimmed">Here,</span>
           <br />
           <span className="blue">ideas meet execution,</span>
           <br />
