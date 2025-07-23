@@ -25,14 +25,14 @@
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  padding-top: 90px; /* added top padding */
+  padding-top: 80px; /* added top padding */
 }
 .about-us__heading,
 .about-us__text {
   box-sizing: border-box;
 }
 .about-us__heading {
-  flex: 0 0 50%;
+  flex: 0 0 40%;
   position: relative;
   left: -50px; /* flush with left vertical line */
 }
@@ -66,9 +66,10 @@
   width: 30px;
 }
 .about-us__text {
-  flex: 0 0 50%;
-  max-width: 50%;
+  flex: 0 0 60%;
+  max-width: 60%;
   padding-left: 40px;
+  text-align: justify;
 }
 .about-us__text p {
   margin-bottom: 16px;
