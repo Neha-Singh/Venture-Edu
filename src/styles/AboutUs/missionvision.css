@@ -1,0 +1,106 @@
+.missionvision {
+  background: #001430;
+  padding: 80px 50px;
+  font-family: "Inter Tight", sans-serif;
+
+  /* vertical strokes at 50px from sides */
+  background-image: linear-gradient(to bottom, #0595f5 0%, #0595f5 100%),
+    linear-gradient(to bottom, #0595f5 0%, #0595f5 100%);
+  background-repeat: no-repeat;
+  background-size: 1px 100%;
+  background-position: left 50px top 0, right 50px top 0;
+}
+
+.missionvision__inner {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0; /* blocks touch each other */
+  max-width: 100%;
+  margin: 0 auto; /* center between strokes */
+}
+
+.missionvision__block {
+  position: relative;
+  flex: 0 0 50%;
+  min-height: 400px; /* reduced height */
+  padding: 40px;
+  overflow: hidden;
+  clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 0 100%);
+  display: flex;
+  flex-direction: column; /* stack content */
+}
+
+.missionvision__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.missionvision__title {
+  font-size: 2.75rem;
+  margin: 0 0 10px;
+  font-weight: 700;
+  line-height: 1.1;
+  padding-top: 20px;
+}
+
+.missionvision__header-img {
+  width: 120px;
+  height: auto;
+}
+
+/* Base paragraph styling */
+.missionvision__text {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Mission paragraph: push to bottom */
+.missionvision__mission-text {
+  margin-top: auto; /* push down */
+  padding-top: 10px;
+}
+
+/* Vision paragraph: pull up slightly */
+.missionvision__vision-text {
+  margin-top: 20px; /* pull up */
+  padding-top: 10px;
+}
+
+.missionvision__block--mission {
+  background: #0499fc;
+  color: #ffffff;
+}
+
+.missionvision__block--vision {
+  background: #ffffff;
+  color: #000000;
+}
+
+.missionvision__cutout {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+}
+
+@media (max-width: 767px) {
+  .missionvision__inner {
+    flex-direction: column;
+  }
+  .missionvision__block {
+    clip-path: none;
+    padding: 20px;
+  }
+  .missionvision__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .missionvision__header-img,
+  .missionvision__text {
+    margin-top: 20px;
+    padding-top: 0;
+  }
+}

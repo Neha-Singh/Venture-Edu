@@ -7,6 +7,7 @@ import AboutUsHome from "./components/Home/AboutUs.jsx";
 import AboutUsPage from "./components/AboutUs/Landing.jsx";
 import YourJourney from "./components/Home/YourJourney.jsx";
 import VentureduFor from "./components/Home/VentureduFor.jsx";
+import MissionVision from "./components/AboutUs/MissionVision.jsx";
 
 function App() {
   return (
@@ -24,7 +25,15 @@ function App() {
             </>
           }
         />
-        <Route path="/aboutus" element={<AboutUsPage />} />
+        <Route
+          path="/aboutus"
+          element={
+            <>
+              <AboutUsPage />
+              <MissionVision />
+            </>
+          }
+        />
       </Routes>
       <Footer />
     </Router>
