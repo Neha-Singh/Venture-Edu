@@ -1,0 +1,111 @@
+/* src/components/AboutUs/VentureDifference.css */
+
+.venture-difference {
+  position: relative;
+  background: #001430;
+  font-family: "Inter Tight", sans-serif;
+
+  /* top and bottom horizontal strokes */
+  border-top: 0.2px solid #0595f5;
+  border-bottom: 0.2px solid #0595f5;
+}
+
+/* full-height vertical strokes at 50px in from each side */
+.venture-difference::before,
+.venture-difference::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 0.1px;
+  background-color: #0595f5;
+}
+
+.venture-difference::before {
+  left: 50px;
+}
+
+.venture-difference::after {
+  right: 50px;
+}
+
+.venture-difference__inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: calc(100% - 100px);
+  margin: 0 auto;
+}
+
+.venture-difference__cell {
+  padding: 30px;
+}
+
+/* internal vertical grid lines between columns */
+.venture-difference__cell:not(:nth-child(3n)) {
+  border-right: 0.2px solid #0595f5;
+}
+
+/* internal horizontal grid line under the first row */
+.venture-difference__cell:nth-child(-n + 3) {
+  border-bottom: 0.2px solid #0595f5;
+}
+
+/* Intro cell styling */
+.venture-difference__cell--intro {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.venture-difference__title {
+  position: relative;
+  top: -20%;
+  color: #ffffff;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.venture-difference__vector {
+  position: relative;
+  top: 20%;
+  width: 140px;
+  height: auto;
+}
+
+/* Feature card styles */
+.venture-difference__icon {
+  width: 40px;
+  height: auto;
+  margin-bottom: 40px;
+}
+
+.venture-difference__card-title {
+  color: #0595f5;
+  font-size: 0.9rem;
+  margin: 0 0 8px;
+}
+
+.venture-difference__card-text {
+  color: #ffffff;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* Responsive: stack on mobile and hide strokes */
+@media (max-width: 767px) {
+  .venture-difference {
+    padding: 20px;
+  }
+  .venture-difference::before,
+  .venture-difference::after {
+    display: none;
+  }
+  .venture-difference__inner {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+  .venture-difference__cell {
+    border: none !important;
+  }
+}

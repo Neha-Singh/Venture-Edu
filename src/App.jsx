@@ -8,6 +8,7 @@ import AboutUsPage from "./components/AboutUs/Landing.jsx";
 import YourJourney from "./components/Home/YourJourney.jsx";
 import VentureduFor from "./components/Home/VentureduFor.jsx";
 import MissionVision from "./components/AboutUs/MissionVision.jsx";
+import VentureDifference from "./components/AboutUs/VentureEduDifference.jsx";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             <>
               <AboutUsPage />
               <MissionVision />
+              <VentureDifference />
             </>
           }
         />
