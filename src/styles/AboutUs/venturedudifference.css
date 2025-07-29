@@ -2,7 +2,7 @@
 
 .venture-difference {
   position: relative;
-  background: #001430;
+  background: #01193a;
   font-family: "Inter Tight", sans-serif;
 
   /* top and bottom horizontal strokes */
@@ -37,7 +37,7 @@
 }
 
 .venture-difference__cell {
-  padding: 30px;
+  padding: 30px 30px 10px 30px;
 }
 
 /* internal vertical grid lines between columns */
@@ -63,12 +63,14 @@
   color: #ffffff;
   font-size: 2rem;
   margin: 0;
+  display: inline-block; /* shrink‐to‐fit its content */
+  white-space: nowrap;
 }
 
 .venture-difference__vector {
   position: relative;
-  top: 20%;
-  width: 140px;
+  top: -5%;
+  width: 380px;
   height: auto;
 }
 
@@ -82,7 +84,7 @@
 .venture-difference__card-title {
   color: #0595f5;
   font-size: 0.9rem;
-  margin: 0 0 8px;
+  margin: 20 0 8px;
 }
 
 .venture-difference__card-text {

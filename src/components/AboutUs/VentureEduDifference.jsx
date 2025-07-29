@@ -14,7 +14,6 @@ const VentureDifference = () => (
     <div className="venture-difference__inner">
       {/* Intro cell */}
       <div className="venture-difference__cell venture-difference__cell--intro">
-        <h2 className="venture-difference__title">The VentureEdu Difference</h2>
         <img
           src={vector}
           alt=""
