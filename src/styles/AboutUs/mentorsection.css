@@ -1,0 +1,172 @@
+/* ../../styles/AboutUs/mentorsection.css */
+
+.advisory {
+  position: relative;
+  background: #001430;
+  padding: 80px 50px;
+  font-family: "Inter Tight", sans-serif;
+  color: #fff;
+
+  /* two thin vertical strokes at 50px in */
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.1) 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.1) 100%
+    );
+  background-repeat: no-repeat;
+  background-size: 1px 100%;
+  background-position: left 50px top 0, right 50px top 0;
+}
+
+.advisory__bg-vector {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 0;
+}
+
+.advisory__header {
+  position: relative;
+  z-index: 1;
+  max-width: calc(100% - 100px);
+  margin: 0 auto 40px;
+}
+.advisory__title {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin: 0 0 16px;
+  display: inline-block;
+  white-space: nowrap;
+}
+.advisory__subtitle {
+  font-size: 1rem;
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 0;
+}
+
+/* corner decorations */
+.advisory__decor {
+  position: absolute;
+  width: 40px;
+  height: auto;
+  z-index: 1;
+}
+.advisory__decor1 {
+  top: 16px;
+  right: 120px;
+}
+.advisory__decor2 {
+  top: 64px;
+  right: 64px;
+}
+.advisory__decor3 {
+  bottom: 16px;
+  left: 120px;
+}
+.advisory__decor4 {
+  bottom: 64px;
+  left: 64px;
+}
+
+.advisory__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 50vh; /* each row = half viewport height */
+  max-width: calc(100%);
+  margin: 40px auto 0;
+}
+
+.advisory__card {
+  position: relative;
+  background: #01469e;
+  display: flex;
+  align-items: flex-start; /* top-align text + image */
+  overflow: hidden;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.advisory__card:nth-child(2),
+.advisory__card:nth-child(4),
+.advisory__card:nth-child(6),
+.advisory__card:nth-child(8) {
+  border-right: none;
+}
+.advisory__card:nth-child(n + 7),
+.advisory__card:nth-child(n + 8) {
+  border-bottom: none;
+}
+
+.advisory__card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.15;
+  z-index: 0;
+}
+
+.advisory__card-content {
+  position: relative;
+  z-index: 1;
+  padding: 32px;
+  flex: 1;
+}
+.advisory__card-name {
+  font-size: 1.25rem;
+  margin: 0 0 12px;
+}
+/* enable bullet points */
+.advisory__card-bio {
+  margin: 0 0 24px;
+  padding-left: 20px; /* indent for bullets */
+  list-style-type: disc;
+  list-style-position: inside;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+.advisory__card-bio li + li {
+  margin-top: 4px;
+}
+
+.advisory__card-linkedin {
+  width: 20px;
+  height: auto;
+  z-index: 1;
+}
+
+.advisory__card-img {
+  position: relative; /* remove absolute positioning */
+  margin-left: auto; /* push it to the right */
+  margin-top: 32px; /* align with the text padding-top */
+  width: 280px;
+  height: auto;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* Mobile: stack, hide strokes */
+@media (max-width: 767px) {
+  .advisory {
+    padding: 40px 20px;
+    background-image: none;
+  }
+  .advisory__grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+  .advisory__card {
+    border: none;
+    margin-bottom: 20px;
+    height: auto;
+  }
+}
