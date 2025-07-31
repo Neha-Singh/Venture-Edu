@@ -1,0 +1,143 @@
+/* src/styles/Program/programlanding.css */
+
+.program-landing {
+  position: relative;
+  background: #001430;
+  color: #fff;
+  padding: 40px 50px 2px 50px;
+  font-family: "Inter Tight", sans-serif;
+
+  /* two ultra‐thin (0.2px) vertical strokes at 50px in */
+  background-image: linear-gradient(to bottom, #0595f5 0%, #0595f5 100%),
+    linear-gradient(to bottom, #0595f5 0%, #0595f5 100%);
+  background-repeat: no-repeat;
+  background-size: 0.2px 100%;
+  background-position: left 50px top 0, right 50px top 0;
+
+  /* bottom hairline to close strokes */
+  box-shadow: inset 0 -100% 0 0.2px #0595f5;
+}
+
+/* Top intro row */
+.program-landing__top {
+  display: flex;
+  align-items: flex-start;
+  gap: 80px;
+  max-width: calc(100% - 100px);
+  margin: 0 auto;
+  padding-bottom: 60px;
+}
+
+/* Left heading and vectors */
+.program-landing__heading {
+  flex: 0 0 40%;
+  position: relative;
+  left: -50px; /* flush with left stroke */
+}
+.program-landing__heading h1 {
+  font-size: 3rem;
+  margin: 0;
+  color: #0595f5;
+  display: inline-block;
+  white-space: nowrap;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 48px;
+  letter-spacing: -1px;
+}
+.program-landing__vectors {
+  position: relative;
+}
+.program-landing__vectors .vector1 {
+  width: 35px;
+  position: absolute;
+  top: 57px; /* align vertically with vector2 */
+  left: 106px;
+}
+.program-landing__vectors .vector2 {
+  position: absolute;
+  top: 0;
+  left: -40px;
+  width: 80px;
+}
+
+/* Right intro text */
+.program-landing__intro {
+  flex: 0 0 60%;
+}
+.program-landing__intro p {
+  font-size: 1.5rem;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Subtitle and ultra-thin top grid stroke */
+.program-landing__subtitle {
+  max-width: 100%;
+  margin: 10px auto 0;
+  font-size: 1.5rem;
+  /* hairline at 0.2px below the text */
+  border-bottom: 0.2px solid #0595f5;
+  padding-bottom: 16px;
+}
+
+/* Three-column pillar grid */
+.program-landing__grid {
+  display: flex;
+  max-width: calc(100vw - 100px);
+  margin: 0;
+}
+.program-landing__grid-item {
+  flex: 1;
+  padding: 32px 16px 25px 16px;
+  /* align number top-left and text bottom-left */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-align: left;
+  /* hairline at 0.2px between columns */
+  border-right: 0.2px solid #0595f5;
+  min-height: 280px; /* ensure sufficient height */
+  background-color: #01193a; /* applied background color */
+}
+.program-landing__grid-item:last-child {
+  border-right: none;
+}
+.program-landing__grid-item h3 {
+  font-size: 4.2rem;
+  margin: 0;
+}
+.program-landing__grid-item p {
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+/* Mobile: stack intro + grid, remove strokes */
+@media (max-width: 767px) {
+  .program-landing {
+    padding: 20px;
+    background-image: none;
+  }
+  .program-landing__top {
+    flex-direction: column;
+  }
+  .program-landing__heading {
+    left: 0;
+    margin-bottom: 24px;
+  }
+  .program-landing__subtitle {
+    max-width: 100%;
+    border-bottom: none;
+    margin: 24px auto 0;
+    padding-bottom: 0;
+  }
+  .program-landing__grid {
+    flex-direction: column;
+  }
+  .program-landing__grid-item {
+    border: none;
+    margin-bottom: 24px;
+    background-color: #01193a;
+  }
+}

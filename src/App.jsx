@@ -10,6 +10,7 @@ import VentureduFor from "./components/Home/VentureduFor.jsx";
 import MissionVision from "./components/AboutUs/MissionVision.jsx";
 import VentureDifference from "./components/AboutUs/VentureEduDifference.jsx";
 import MentorSection from "./components/AboutUs/MentorSection.jsx";
+import ProgramLandingPage from "./components/Program/ProgramLanding.jsx";
 
 function App() {
   return (
@@ -35,6 +36,14 @@ function App() {
               <MissionVision />
               <VentureDifference />
               <MentorSection />
+            </>
+          }
+        />
+        <Route
+          path="/program"
+          element={
+            <>
+              <ProgramLandingPage />
             </>
           }
         />
