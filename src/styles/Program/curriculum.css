@@ -1,0 +1,136 @@
+.curriculum {
+  position: relative;
+  background: #001430;
+  padding: 80px 50px;
+  font-family: "Inter Tight", sans-serif;
+  color: #fff;
+}
+
+.curriculum__inner {
+  display: flex;
+  gap: 40px;
+  max-width: calc(100% - 100px); /* 50px strokes each side */
+  margin: 0 auto;
+}
+
+.curriculum__heading {
+  flex: 0 0 40%;
+  position: relative;
+  left: -50px; /* flush to left stroke */
+}
+.curriculum__heading h2 {
+  font-size: 2.2rem;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.curriculum__content {
+  flex: 0 0 60%;
+}
+.curriculum__content p {
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.4;
+  text-align: justify;
+}
+
+@media (max-width: 767px) {
+  .curriculum {
+    padding: 40px 20px;
+  }
+  .curriculum__inner {
+    flex-direction: column;
+  }
+  .curriculum__heading {
+    left: 0;
+    margin-bottom: 24px;
+  }
+  .curriculum__content p {
+    text-align: left;
+  }
+}
+
+/* Carousel Section */
+.curriculum__carousel {
+  position: relative;
+  background: #001430;
+  font-family: "Inter Tight", sans-serif;
+  color: #fff;
+  overflow: visible; /* allow controls to overflow */
+}
+
+.carousel {
+  position: relative;
+  overflow: visible;
+  max-width: calc(100%); /* 50px strokes each side */
+  margin: 0 auto;
+}
+
+/* Track of visible images */
+.carousel__track {
+  display: flex;
+}
+
+/* Each image pane */
+.carousel__item {
+  flex: 0 0 33.333%;
+}
+.carousel__item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Controls at bottom right */
+.carousel__controls {
+  position: absolute;
+  bottom: 16px;
+  right: 50px;
+  display: flex;
+  gap: 16px;
+}
+.carousel__controls button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.carousel__controls img {
+  width: 24px;
+  height: auto;
+  display: block;
+}
+
+/* Mobile fallback: stack images */
+@media (max-width: 767px) {
+  .curriculum__carousel {
+    padding: 20px;
+    background-image: none;
+  }
+  .carousel__track {
+    display: block;
+  }
+  .carousel__item {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  .carousel__controls {
+    right: 20px;
+  }
+}
+.carousel__track {
+  display: flex;
+  transition: transform 0.5s ease; /* animate the slide */
+  will-change: transform;
+}
+
+.carousel__item {
+  flex: 0 0 33.333%; /* 3 visible at once */
+}
+
+.carousel__controls button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}

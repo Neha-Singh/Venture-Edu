@@ -1,0 +1,91 @@
+.explore {
+  position: relative;
+  background: #001430;
+  padding: 80px 0; /* vertical padding; horizontals come from .explore__inner */
+  font-family: "Inter Tight", sans-serif;
+  color: #fff;
+
+  /* two ultra-thin (0.2px) vertical strokes at 50px in from each side */
+  background-image: linear-gradient(to bottom, #0595f5 0%, #0595f5 100%),
+    linear-gradient(to bottom, #0595f5 0%, #0595f5 100%);
+  background-repeat: no-repeat;
+  background-size: 0.2px 100%;
+  background-position: left 50px top 0, right 50px top 0;
+}
+
+.explore__inner {
+  max-width: calc(100% - 100px); /* account for 50px strokes each side */
+  margin: 0 auto;
+  padding: 0 0; /* no extra horizontal padding */
+}
+
+/* Section title */
+.explore__heading {
+  font-size: 2rem;
+  margin: 0 0 32px;
+}
+
+/* Tabs bar */
+.explore__tabs {
+  display: flex;
+  border-bottom: 0.2px solid #0595f5;
+  height: 42px;
+}
+
+/* Individual tab */
+.explore__tab {
+  flex: 1;
+  background: #fff; /* inactive */
+  color: #001430;
+  border: none;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 0.2px hairline between tabs */
+.explore__tab + .explore__tab {
+  border-left: 0.2px solid #0595f5;
+}
+
+/* Active tab = dark background, white text */
+.explore__tab--active {
+  background: #001430;
+  color: #fff;
+  border-top: 0.2px solid #0595f5; /* new top stroke */
+}
+
+/* Content area under tabs */
+.explore__content {
+  padding-top: 40px;
+}
+
+/* Responsive: stack tabs & content on narrow screens */
+@media (max-width: 767px) {
+  .explore {
+    padding: 40px 0;
+    background-image: none;
+  }
+  .explore__inner {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+  .explore__tabs {
+    flex-direction: column;
+    border-bottom: none;
+  }
+  .explore__tab {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  .explore__tab + .explore__tab {
+    border-left: none;
+  }
+  .explore__content {
+    padding-top: 24px;
+  }
+}

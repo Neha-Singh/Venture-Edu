@@ -2,6 +2,8 @@ import React from "react";
 import Breadcrumb from "../../components/Header/Breadcrumbs";
 import vector1 from "../../assets/program-images/vector1.png";
 import vector2 from "../../assets/program-images/vector2.png";
+import bgImage from "../../assets/program-images/blue-background-image.png";
+import rightArrow from "../../assets/header-images/rightarrow.svg";
 import "../../styles/Program/programlanding.css";
 
 const ProgramLanding = () => (
@@ -53,6 +55,32 @@ const ProgramLanding = () => (
       <div className="program-landing__grid-item">
         <h3>03</h3>
         <p>Two-week deep dive into Dubai’s innovation ecosystem.</p>
+      </div>
+    </div>
+
+    {/* Bottom CTA */}
+    <div className="program-landing__cta">
+      <img
+        src={bgImage}
+        alt=""
+        className="program-landing__cta-bg"
+        loading="lazy"
+      />
+      <div className="program-landing__cta-content">
+        <h2 className="program-landing__cta-title">
+          Transform your
+          <br />
+          entrepreneurial dreams into reality.
+        </h2>
+        <button className="program-landing__cta-button">
+          Apply for the Next Cohort
+          <img
+            src={rightArrow}
+            alt=""
+            className="program-landing__cta-arrow"
+            loading="lazy"
+          />
+        </button>
       </div>
     </div>
   </section>
