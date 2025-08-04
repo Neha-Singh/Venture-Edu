@@ -84,7 +84,7 @@
 /* Controls at bottom right */
 .carousel__controls {
   position: absolute;
-  bottom: 16px;
+  bottom: -64px;
   right: 50px;
   display: flex;
   gap: 16px;

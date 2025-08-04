@@ -1,0 +1,232 @@
+.curriculum-detailed {
+  position: relative;
+  background: #001430;
+  padding: 80px 50px;
+  font-family: "Inter Tight", sans-serif;
+  color: #fff;
+  /* ultra-thin side strokes at 50px */
+  background-image: linear-gradient(to bottom, #0595f5 0%, #0595f5 100%),
+    linear-gradient(to bottom, #0595f5 0%, #0595f5 100%);
+  background-repeat: no-repeat;
+  background-size: 0.2px 100%;
+  background-position: left 50px top 0, right 50px top 0;
+}
+
+.curriculum-detailed__wrapper {
+  display: flex;
+  gap: 40px;
+  max-width: calc(100% - 100px);
+  margin: 0 auto;
+}
+
+/* Sidebar */
+.curriculum-detailed__sidebar {
+  flex: 0 0 40%;
+  background: #0499fc;
+  padding: 40px;
+  clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 0 100%);
+}
+.curriculum-detailed__title {
+  margin: 0;
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 0.8;
+  letter-spacing: -1.5px;
+  color: black;
+}
+.curriculum-detailed__img {
+  margin-top: 24px;
+  width: 100%;
+  display: block;
+}
+
+/* Accordion container */
+.curriculum-detailed__accordion {
+  flex: 0 0 60%;
+  width: 100%;
+  border-top: 0.2px solid #0595f5;
+}
+
+/* Module wrapper */
+.curriculum-detailed__module {
+  width: 100%;
+}
+.curriculum-detailed__module.closed .curriculum-detailed__header {
+  background: #01469e;
+  color: #fff;
+  border-bottom: 0.2px solid #0595f5;
+}
+.curriculum-detailed__module.open .curriculum-detailed__header {
+  background: #fff;
+  color: #000;
+  border-bottom: none;
+}
+
+/* Header: two rows grid */
+.curriculum-detailed__header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  row-gap: 1.5px;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  padding: 22px 32px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+/* “Module X” */
+.curriculum-detailed__modnum {
+  grid-column: 1;
+  grid-row: 1;
+  font-size: 0.9rem;
+  color: #0595f5;
+  margin: 0;
+  justify-self: start;
+  align-self: end;
+}
+
+/* Title on second row */
+.curriculum-detailed__modtitle {
+  grid-column: 1;
+  grid-row: 2;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 0;
+  justify-self: start;
+  align-self: start;
+}
+
+/* Chevron spans both rows, right-aligned */
+.curriculum-detailed__toggle {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  justify-self: end;
+  align-self: center;
+  width: 24px;
+  height: auto;
+}
+
+/* Content wrapper (animated height) */
+.curriculum-detailed__list-wrapper {
+  overflow: hidden;
+  background: #fff; /* ensure the sliding area is white */
+}
+
+/* Content inside */
+.curriculum-detailed__content {
+  background: #fff;
+  color: #000;
+  padding: 16px 40px 48px; /* top, sides, extra bottom */
+  position: relative;
+}
+.curriculum-detailed__content::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0.2px;
+  background: #0595f5;
+}
+
+/* Open panel title */
+.curriculum-detailed__content-title {
+  margin: 0 0 16px;
+  font-size: 1.75rem;
+  line-height: 1.2;
+}
+
+/* Bullet list */
+.curriculum-detailed__list {
+  color: #41435b;
+  margin: 0;
+  padding: 16px 40px 32px;
+  list-style: disc inside;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  border-bottom: 0.2px solid #0595f5;
+  font-family: "Inter Tight", sans-serif;
+  letter-spacing: -0.8px;
+}
+
+/* Mobile fallback */
+@media (max-width: 767px) {
+  .curriculum-detailed {
+    padding: 40px 20px;
+    background-image: none;
+  }
+  .curriculum-detailed__wrapper {
+    flex-direction: column;
+  }
+  .curriculum-detailed__sidebar {
+    clip-path: none;
+    padding: 20px;
+  }
+  .curriculum-detailed__img {
+    margin-top: 16px;
+  }
+  .curriculum-detailed__accordion {
+    border-top: none;
+  }
+  .curriculum-detailed__module.closed .curriculum-detailed__header {
+    border-bottom: none;
+  }
+}
+
+.curriculum-detailed__list li::marker {
+  color: #41435b;
+}
+
+/* remove the top hairline above the first header */
+.curriculum-detailed__accordion {
+  border-top: none !important;
+}
+
+/* ensure no header ever has a stray top border */
+.curriculum-detailed__header {
+  border-top: none;
+}
+
+.curriculum-detailed {
+  background-image: none !important;
+}
+
+.curriculum-detailed {
+  /* overwrite the background shorthand (removes any bg-image) */
+  background: #001430 !important;
+}
+
+/* Just in case any header panels got side borders, kill those too */
+.curriculum-detailed__header {
+  border-left: none !important;
+  border-right: none !important;
+}
+
+/* Reset the old title rules */
+.curriculum-detailed__title {
+  margin: 0;
+  padding: 0;
+  line-height: 1; /* we’ll control spacing per-line */
+}
+
+/* “Core” = small, lighter, indented */
+.curriculum-detailed__subtitle {
+  display: block;
+  font-size: 1.4rem; /* smaller size */
+  font-weight: 400;
+  color: #000; /* black */
+  margin-left: 16px; /* indent it slightly */
+}
+
+/* “Curriculum” = big, bold, flush-left */
+.curriculum-detailed__main {
+  display: block;
+  font-size: 2.5rem; /* larger size */
+  font-weight: 700;
+  color: #000;
+  margin-left: 0; /* reset any indent */
+  line-height: 1.2; /* tight line-height */
+}
