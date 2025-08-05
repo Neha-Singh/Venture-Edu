@@ -7,6 +7,7 @@ import c3 from "../../assets/program-images/curriculum/carousalimage3.png";
 import arrowForward from "../../assets/program-images/curriculum/arrowforward.svg";
 import arrowBack from "../../assets/program-images/curriculum/arrowback.svg";
 import CurriculumContent from "./CurriculumContent.jsx";
+import CurriculumActivities from "./CurriculumActivities.jsx";
 
 const Curriculum = () => (
   <>
@@ -30,6 +31,7 @@ const Curriculum = () => (
     <section className="curriculum__carousel">
       <Carousel />
       <CurriculumContent />
+      <CurriculumActivities />
     </section>
   </>
 );

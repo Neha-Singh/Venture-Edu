@@ -1,0 +1,152 @@
+.curriculum-detailed {
+  background: #001430;
+  padding: 80px 50px;
+  font-family: "Inter Tight", sans-serif;
+  color: #fff;
+}
+
+.curriculum-detailed__wrapper {
+  display: flex;
+  gap: 40px;
+  max-width: calc(100% - 100px);
+  margin: 0 auto;
+}
+
+/* Sidebar */
+.curriculum-detailed__sidebar {
+  flex: 0 0 40%;
+  background: #0499fc;
+  padding: 48px 56px;
+  clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 0 100%);
+}
+.curriculum-detailed__title {
+  margin: 0;
+  line-height: 1;
+}
+.curriculum-detailed__subtitle {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #000;
+  margin-left: 16px;
+}
+.curriculum-detailed__main {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #000;
+  margin-left: 0;
+  line-height: 1.2;
+}
+.curriculum-detailed__img {
+  margin-top: 24px;
+  width: 100%;
+  display: block;
+}
+
+/* Accordion container */
+.curriculum-detailed__accordion {
+  flex: 0 0 60%;
+  width: 100%;
+}
+
+/* Module header */
+.curriculum-detailed__module.closed .curriculum-detailed__header {
+  background: #01469e;
+  color: #fff;
+  border-bottom: 0.2px solid #0595f5;
+}
+.curriculum-detailed__module.open .curriculum-detailed__header {
+  background: #fff;
+  color: #000;
+  border-bottom: none;
+}
+
+/* Header grid */
+.curriculum-detailed__header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  row-gap: 4px;
+  align-items: center;
+  padding: 22px 32px;
+  cursor: pointer;
+}
+
+/* Number & title */
+.curriculum-detailed__modnum {
+  grid-column: 1;
+  grid-row: 1;
+  font-size: 0.9rem;
+  color: #0595f5;
+  justify-self: start;
+  align-self: end;
+}
+.curriculum-detailed__modtitle {
+  grid-column: 1;
+  grid-row: 2;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+  justify-self: start;
+  align-self: start;
+}
+
+/* Chevron */
+.curriculum-detailed__toggle {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  justify-self: end;
+  align-self: center;
+  width: 24px;
+}
+
+/* Sliding wrapper */
+.curriculum-detailed__list-wrapper {
+  overflow: hidden;
+  background: #fff;
+  /* no border here */
+}
+
+/* Inner content (measured by scrollHeight) */
+.curriculum-detailed__inner {
+  background: #fff;
+  box-sizing: border-box;
+
+  /* apply all the vertical spacing here so scrollHeight includes it */
+  padding: 15px 48px 32px;
+}
+
+/* Bullets */
+.curriculum-detailed__list {
+  margin: 0;
+  padding-left: 20px;
+  list-style: disc inside;
+  color: #41435b;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 32px;
+  /* bottom gap moves into inner padding now */
+}
+
+/* Explanation now lives inside the inner padding—as plain text */
+.curriculum-detailed__explanation {
+  /* remove margins entirely */
+  margin: 0;
+}
+.curriculum-detailed__explanation p {
+  /* vertical rhythm within the inner padding */
+  margin: 0 0 24px 0;
+  color: #41435b;
+  font-size: 15px;
+  line-height: 32px;
+}
+
+/* And make sure no border is sitting on the list or header */
+.curriculum-detailed__module.open .curriculum-detailed__header {
+  border-bottom: none;
+}
+.curriculum-detailed__list,
+.curriculum-detailed__list-wrapper {
+  border: none;
+}

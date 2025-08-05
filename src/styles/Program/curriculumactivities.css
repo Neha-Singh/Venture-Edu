@@ -1,0 +1,121 @@
+.curriculum-activities {
+  position: relative;
+  background: #001430;
+  padding: 80px 50px;
+  font-family: "Inter Tight", sans-serif;
+  color: #fff;
+
+  /* ultra-thin vertical strokes 50px in */
+  background-image: linear-gradient(to bottom, #0595f5 0%, #0595f5 100%),
+    linear-gradient(to bottom, #0595f5 0%, #0595f5 100%);
+  background-repeat: no-repeat;
+  background-size: 0.2px 100%;
+  background-position: left 50px top 0, right 50px top 0;
+}
+
+.curriculum-activities__wrapper {
+  display: flex;
+  gap: 40px;
+  max-width: calc(100% - 100px);
+  margin: 0 auto;
+}
+
+/* Shared panel styles */
+.curriculum-activities__panel {
+  flex: 1;
+  position: relative;
+  padding: 48px 56px;
+  box-sizing: border-box;
+  clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 0 100%);
+}
+
+/* Left panel */
+.curriculum-activities__panel--left {
+  background: #0499fc;
+}
+
+/* Right panel */
+.curriculum-activities__panel--right {
+  background: #fff;
+  color: #000;
+}
+
+/* Section title */
+.curriculum-activities__title {
+  margin: 0 0 24px;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.curriculum-activities__title--dark {
+  color: #000;
+}
+
+/* Intro text */
+.curriculum-activities__intro {
+  margin: 0 0 16px;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+/* Subheading (Challenges/Acceleration/etc) */
+.curriculum-activities__subheading {
+  margin: 24px 0 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.curriculum-activities__subheading--dark {
+  color: #000;
+}
+
+/* Bullet lists */
+.curriculum-activities__list {
+  margin: 0 0 24px 0;
+  padding-left: 20px;
+  list-style: disc inside;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+.curriculum-activities__list--dark {
+  color: #000;
+}
+
+/* Decorative vectors */
+.curriculum-activities__vector--bigblue {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 60%;
+  pointer-events: none;
+}
+.curriculum-activities__vector--biglight {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  width: 50%;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.curriculum-activities__vector--navy {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60%;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.curriculum-activities__vector--blue {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  width: 50%;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 767px) {
+  .curriculum-activities__wrapper {
+    flex-direction: column;
+  }
+}

@@ -230,24 +230,3 @@
   margin-left: 0; /* reset any indent */
   line-height: 1.2; /* tight line-height */
 }
-
-.curriculum-detailed__inner {
-  background: #fff;
-  box-sizing: border-box;
-}
-
-/* explanation text styling */
-.curriculum-detailed__explanation {
-  margin-top: 24px; /* space above */
-  margin-bottom: 32px; /* space below */
-  color: #41435b;
-  font-family: "Inter Tight", sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 32px; /* 160% */
-}
-
-/* tighten up the bullet list padding if needed */
-.curriculum-detailed__list {
-  padding: 32px 48px 0; /* remove bottom so explanation sits flush */
-}
