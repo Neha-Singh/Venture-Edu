@@ -29,20 +29,6 @@ const CurriculumActivities = () => (
           <li>Drop shipping and startup advertising campaign challenge.</li>
           <li>No code and lean startup bootcamp.</li>
         </ul>
-
-        {/* Decorative vectors */}
-        <img
-          src={icon1}
-          alt=""
-          className="curriculum-activities__vector--bigblue"
-          loading="lazy"
-        />
-        <img
-          src={icon2}
-          alt=""
-          className="curriculum-activities__vector--biglight"
-          loading="lazy"
-        />
       </div>
 
       {/* Right Panel */}

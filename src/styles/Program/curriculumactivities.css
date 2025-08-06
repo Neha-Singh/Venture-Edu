@@ -1,22 +1,15 @@
 .curriculum-activities {
   position: relative;
   background: #001430;
-  padding: 80px 50px;
+  padding: 28px 50px;
   font-family: "Inter Tight", sans-serif;
   color: #fff;
-
-  /* ultra-thin vertical strokes 50px in */
-  background-image: linear-gradient(to bottom, #0595f5 0%, #0595f5 100%),
-    linear-gradient(to bottom, #0595f5 0%, #0595f5 100%);
-  background-repeat: no-repeat;
-  background-size: 0.2px 100%;
-  background-position: left 50px top 0, right 50px top 0;
 }
 
 .curriculum-activities__wrapper {
   display: flex;
-  gap: 40px;
-  max-width: calc(100% - 100px);
+  gap: 0px;
+  max-width: calc(100%);
   margin: 0 auto;
 }
 
@@ -84,7 +77,7 @@
 .curriculum-activities__vector--bigblue {
   position: absolute;
   bottom: 0;
-  right: 0;
+  right: 40%;
   width: 60%;
   pointer-events: none;
 }
@@ -118,4 +111,33 @@
   .curriculum-activities__wrapper {
     flex-direction: column;
   }
+}
+
+/* 1) Remove any top‐margins on the first text under each title */
+.curriculum-activities__panel--left .curriculum-activities__intro,
+.curriculum-activities__panel--right .curriculum-activities__list {
+  margin-top: 0;
+}
+
+/* Also remove the extra gap before the very first subheading/text in the right panel */
+.curriculum-activities__panel--right
+  .curriculum-activities__subheading:first-of-type {
+  margin-top: 0;
+}
+
+/* 2) Ensure bullets never wrap to a second line */
+.curriculum-activities__list li {
+  white-space: nowrap;
+  overflow-x: auto; /* allow horizontal scroll if needed */
+}
+
+/* 3) Optional: if you’d like an ellipsis instead of scroll */
+.curriculum-activities__list li {
+  text-overflow: ellipsis;
+}
+
+/* 4) (Re-center content if text starts too far right) */
+.curriculum-activities__intro,
+.curriculum-activities__list {
+  padding-left: 0; /* align flush with panel padding */
 }
