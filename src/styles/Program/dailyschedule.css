@@ -1,0 +1,348 @@
+/* src/styles/Program/dailyschedule.css */
+
+/* ───────────── Root Section ───────────── */
+.daily-schedule {
+  background: #001430;
+  padding: 60px 0; /* less vertical padding for a tighter header */
+  font-family: "Inter Tight", sans-serif;
+  color: #fff;
+  background-image: none; /* removed side strokes */
+  overflow-x: visible;
+}
+
+/* ───────────── Header + Legend ───────────── */
+.daily-schedule__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0px 45px; /* side margins to keep content away from viewport edges */
+}
+
+/* Title */
+.daily-schedule__title {
+  font-size: 1.75rem; /* reduced from 2rem */
+  font-weight: 600;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* Legend container */
+.daily-schedule__legend {
+  display: flex;
+  flex-wrap: nowrap; /* keep on one line */
+  gap: 16px; /* tightened gap */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: visible; /* remove scrollbars */
+}
+
+/* Legend items */
+.daily-schedule__legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* smaller icon‐text gap */
+  font-size: 0.75rem; /* reduced from 0.875rem */
+  white-space: nowrap;
+}
+
+/* Swatches */
+.swatch {
+  display: inline-block;
+  width: 14px; /* reduced from 16px */
+  height: 14px;
+  border: 0.2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 3px;
+}
+.swatch--break {
+  background: #f6f6f6;
+}
+.swatch--class {
+  background: #ffffff;
+}
+.swatch--workshop {
+  background: #ddebff;
+}
+.swatch--discussion {
+  background: #012961;
+}
+.swatch--industry {
+  background: #b4e0fe;
+}
+.swatch--sports {
+  background: #18a1fc;
+}
+
+/* ───────────── Schedule Table ───────────── */
+.daily-schedule__table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin: 0 0px; /* same side margins as header */
+}
+
+/* Header row hairline */
+.daily-schedule__table thead tr {
+  border-bottom: 0.2px solid #0595f5;
+}
+
+/* Header cells */
+.daily-schedule__table thead th {
+  padding: 16px 6px; /* reduced padding */
+  text-align: center;
+  font-size: 0.65rem; /* slightly smaller to balance */
+  font-weight: 500;
+  color: #fff;
+  margin: 0;
+}
+.daily-schedule__table thead th.col-timeslot {
+  background: #001430;
+  text-align: left;
+  padding-left: 12px;
+}
+
+/* Day-of-week gradients (unchanged) */
+.daily-schedule__table thead th:nth-child(2) {
+  background: linear-gradient(90deg, #01204d, #053e8c);
+}
+.daily-schedule__table thead th:nth-child(3) {
+  background: linear-gradient(90deg, #053e8c, #0753aa);
+}
+.daily-schedule__table thead th:nth-child(4) {
+  background: linear-gradient(90deg, #0753aa, #0971c5);
+}
+.daily-schedule__table thead th:nth-child(5) {
+  background: linear-gradient(90deg, #0971c5, #0b8ce0);
+}
+.daily-schedule__table thead th:nth-child(6) {
+  background: linear-gradient(90deg, #0b8ce0, #0e9bf6);
+}
+.daily-schedule__table thead th:nth-child(7) {
+  background: linear-gradient(90deg, #0e9bf6, #29b1ff);
+}
+.daily-schedule__table thead th:nth-child(8) {
+  background: linear-gradient(90deg, #29b1ff, #69d8ff);
+}
+
+/* Body row hairlines */
+.daily-schedule__table tbody tr {
+  border-bottom: 0.2px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Time-slot column */
+.daily-schedule__table td.col-timeslot {
+  background: #ffffff;
+  color: #001430;
+  text-align: left;
+  padding: 6px 12px; /* reduced padding */
+  font-size: 0.65rem;
+  font-weight: 500;
+}
+
+/* All other cells */
+.daily-schedule__table td {
+  padding: 6px; /* reduced padding */
+  font-size: 0.65rem;
+  line-height: 1.2;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+/* Cell swatch backgrounds (unchanged) */
+.daily-schedule__table .cell--break {
+  background: #ffffff;
+  color: #001430;
+}
+.daily-schedule__table .cell--class {
+  background: #ffffff;
+  color: #001430;
+}
+.daily-schedule__table .cell--workshop {
+  background: #ddebff;
+  color: #001430;
+}
+.daily-schedule__table .cell--discussion {
+  background: #012961;
+  color: #fff;
+}
+.daily-schedule__table .cell--industry {
+  background: #f5f5f5;
+  color: #001430;
+}
+.daily-schedule__table .cell--sports {
+  background: #18a1fc;
+  color: #fff;
+}
+
+.daily-schedule__table tbody td:empty {
+  background-color: #f6f6f6;
+}
+/* shared header‐cell styles */
+.daily-schedule__table thead th {
+  padding: 6px;
+  text-align: center;
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: #fff;
+  margin: 0;
+
+  /* first layer: subtle radial glow
+     second layer: fallback solid/navy/gradient */
+  background: radial-gradient(
+      487.6% 203.18% at 0.9% -2.56%,
+      rgba(0, 110, 255, 0.2) 0%,
+      rgba(0, 20, 48, 0.2) 100%
+    ),
+    #011f4a; /* default, overridden below per‐column */
+}
+
+/* Time Slot: radial + solid navy */
+.daily-schedule__table thead th.col-timeslot {
+  background: radial-gradient(
+      487.6% 203.18% at 0.9% -2.56%,
+      rgba(0, 110, 255, 0.2) 0%,
+      rgba(0, 20, 48, 0.2) 100%
+    ),
+    #001430;
+  text-align: left;
+  padding-left: 12px;
+}
+
+/* Monday */
+.daily-schedule__table thead th:nth-child(2) {
+  background: radial-gradient(
+      487.6% 203.18% at 0.9% -2.56%,
+      rgba(0, 110, 255, 0.2) 0%,
+      rgba(0, 20, 48, 0.2) 100%
+    ),
+    linear-gradient(90deg, #01204d, #053e8c);
+}
+
+/* Tuesday */
+.daily-schedule__table thead th:nth-child(3) {
+  background: radial-gradient(
+      487.6% 203.18% at 0.9% -2.56%,
+      rgba(0, 110, 255, 0.2) 0%,
+      rgba(0, 20, 48, 0.2) 100%
+    ),
+    linear-gradient(90deg, #053e8c, #0753aa);
+}
+
+/* Wednesday */
+.daily-schedule__table thead th:nth-child(4) {
+  background: radial-gradient(
+      487.6% 203.18% at 0.9% -2.56%,
+      rgba(0, 110, 255, 0.2) 0%,
+      rgba(0, 20, 48, 0.2) 100%
+    ),
+    linear-gradient(90deg, #0753aa, #0971c5);
+}
+
+/* Thursday */
+.daily-schedule__table thead th:nth-child(5) {
+  background: radial-gradient(
+      487.6% 203.18% at 0.9% -2.56%,
+      rgba(0, 110, 255, 0.2) 0%,
+      rgba(0, 20, 48, 0.2) 100%
+    ),
+    linear-gradient(90deg, #0971c5, #0b8ce0);
+}
+
+/* Friday */
+.daily-schedule__table thead th:nth-child(6) {
+  background: radial-gradient(
+      487.6% 203.18% at 0.9% -2.56%,
+      rgba(0, 110, 255, 0.2) 0%,
+      rgba(0, 20, 48, 0.2) 100%
+    ),
+    linear-gradient(90deg, #0b8ce0, #0e9bf6);
+}
+
+/* Saturday */
+.daily-schedule__table thead th:nth-child(7) {
+  background: radial-gradient(
+      487.6% 203.18% at 0.9% -2.56%,
+      rgba(0, 110, 255, 0.2) 0%,
+      rgba(0, 20, 48, 0.2) 100%
+    ),
+    linear-gradient(90deg, #0e9bf6, #29b1ff);
+}
+
+/* Sunday */
+.daily-schedule__table thead th:nth-child(8) {
+  background: radial-gradient(
+      487.6% 203.18% at 0.9% -2.56%,
+      rgba(0, 110, 255, 0.2) 0%,
+      rgba(0, 20, 48, 0.2) 100%
+    ),
+    linear-gradient(90deg, #29b1ff, #69d8ff);
+}
+
+.daily-schedule__table thead th,
+.daily-schedule__table tbody td {
+  /* bump up the row height */
+  height: 50px;
+  /* or, if you’d rather keep content vertically centered,
+     increase top/bottom padding instead:
+  padding: 16px 6px;
+  */
+}
+/* ───────────── Add thin borders to all cells ───────────── */
+.daily-schedule__table th,
+.daily-schedule__table td {
+  border: 0.2px solid #e6e6e6;
+}
+
+.daily-schedule__table .cell--break {
+  border: none;
+}
+/* 1. Remove any border from header cells */
+.daily-schedule__table thead th {
+  border: none;
+}
+
+/* 2. Only data cells get the gray hairline */
+.daily-schedule__table tbody td {
+  border: 0.2px solid #e6e6e6;
+}
+
+/* 3. Except break cells, which stay border-free */
+.daily-schedule__table .cell--break {
+  border: none;
+}
+/* Vertically center everything in every cell */
+.daily-schedule__table th,
+.daily-schedule__table td {
+  vertical-align: middle;
+}
+
+/* Remove the inner horizontal border on spanned cells:
+   the row-border stays under the entire merged cell (i.e. after row 5) */
+.daily-schedule__table tbody tr:nth-child(4) {
+  /* remove border-bottom on the 4th row */
+  border-bottom: none;
+}
+
+/* ensure the cell still shows the hairline below row 5 */
+.daily-schedule__table tbody tr:nth-child(5) {
+  border-bottom: 0.2px solid rgba(255, 255, 255, 0.15);
+}
+/* vertically center every cell’s content */
+.daily-schedule__table th,
+.daily-schedule__table td {
+  vertical-align: middle;
+}
+
+/* remove the “inner” border under the 13:00 row */
+.daily-schedule__table tbody tr:nth-child(4) {
+  border-bottom: none;
+}
+
+/* re-add the hairline under the next row so grid stays intact */
+.daily-schedule__table tbody tr:nth-child(5) {
+  border-bottom: 0.2px solid rgba(255, 255, 255, 0.15);
+}
+.daily-schedule__table thead th:nth-child(8),
+.daily-schedule__table tbody td:nth-child(8) {
+  border: none;
+}

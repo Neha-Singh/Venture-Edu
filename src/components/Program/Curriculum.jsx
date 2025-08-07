@@ -8,6 +8,7 @@ import arrowForward from "../../assets/program-images/curriculum/arrowforward.sv
 import arrowBack from "../../assets/program-images/curriculum/arrowback.svg";
 import CurriculumContent from "./CurriculumContent.jsx";
 import CurriculumActivities from "./CurriculumActivities.jsx";
+import DailySchedule from "./dailyschedule.jsx";
 
 const Curriculum = () => (
   <>
@@ -32,6 +33,7 @@ const Curriculum = () => (
       <Carousel />
       <CurriculumContent />
       <CurriculumActivities />
+      <DailySchedule />
     </section>
   </>
 );

@@ -9,7 +9,7 @@
 .curriculum-activities__wrapper {
   display: flex;
   gap: 0px;
-  max-width: calc(100%);
+  max-width: 100%;
   margin: 0 auto;
 }
 
