@@ -7,10 +7,10 @@ import vector2 from "../../assets/program-images/vector1.png";
 import vector1 from "../../assets/program-images/vector2.png";
 
 // mentor icons
-import immersionIcon from "../../assets/about-us-images/venturedudifference/real-world-immersion.png";
-import cohortIcon from "../../assets/about-us-images/venturedudifference/cohort.png";
-import toolkitIcon from "../../assets/about-us-images/venturedudifference/founder-toolkit.png";
-import exposureIcon from "../../assets/about-us-images/venturedudifference/global-exposure.png";
+import immersionIcon from "../../assets/facultyandmentor/rocket.svg";
+import cohortIcon from "../../assets/facultyandmentor/diverse.svg";
+import toolkitIcon from "../../assets/facultyandmentor/real-time.svg";
+import exposureIcon from "../../assets/facultyandmentor/network.svg";
 
 const Faculty = () => (
   <section className="faculty">
