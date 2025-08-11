@@ -1,0 +1,229 @@
+/* src/styles/AboutUs/faculty.css */
+
+.faculty {
+  position: relative;
+  background: #001430;
+  padding: 40px 50px;
+  font-family: "Inter Tight", sans-serif;
+  color: #fff;
+
+  /* two 0.2px vertical hairlines at 50px from edges */
+  background-image: linear-gradient(to bottom, #0499fc 0%, #0499fc 100%),
+    linear-gradient(to bottom, #0499fc 0%, #0499fc 100%);
+  background-repeat: no-repeat;
+  background-size: 0.2px 100%, 0.2px 100%;
+  background-position: left 50px top 0, right 50px top 0;
+}
+
+/* Hero */
+.faculty__hero {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: 80px;
+  margin-top: 80px;
+}
+.faculty__hero-left {
+  position: relative;
+  flex: 1;
+}
+.faculty__hero-right {
+  flex: 1;
+}
+.faculty__title {
+  font-size: 2.5rem;
+  color: #0595f5;
+  margin: 0;
+}
+.faculty__subtitle {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* Decorative vectors */
+.faculty__decorators {
+  position: relative;
+  margin-top: 16px;
+  width: max-content;
+}
+.faculty__vector {
+  display: block;
+}
+.faculty__vector--1 {
+  width: 84px;
+  height: auto;
+}
+.faculty__vector--2 {
+  position: absolute;
+  top: 8px;
+  left: 96px;
+  width: 30px;
+  height: auto;
+}
+
+/* Four-column grid with vertical separators */
+.faculty__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 0.2px solid #0499fc; /* outer box */
+  padding: 40px 0; /* makes the side strokes taller */
+  gap: 0;
+}
+.faculty__item {
+  position: relative; /* anchor the divider */
+  text-align: center;
+  padding: 0 20px;
+}
+.faculty__item:first-child {
+  border-left: none;
+}
+.faculty__item + .faculty__item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0; /* full height inside the box */
+  width: 0.2px;
+  background: #0499fc;
+}
+
+/* Icon size */
+.faculty__item img {
+  display: block;
+  margin: 0 auto;
+  max-width: 40px; /* reduced from 64px */
+  height: auto;
+}
+
+/* Title size */
+.faculty__item h3 {
+  margin: 12px 0 6px; /* tighter margins */
+  font-size: 1rem; /* reduced from 1.25rem */
+  color: #0595f5;
+}
+
+/* Description size */
+.faculty__item p {
+  margin: 0;
+  font-size: 0.875rem; /* reduced from 1rem */
+  line-height: 1.4;
+  color: #fff;
+}
+
+/* Responsive tweaks */
+@media (max-width: 1024px) {
+  .faculty__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .faculty__hero {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .faculty__grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.faculty__item:first-child {
+  border-left: none;
+}
+
+/* last item: no extra right divider */
+.faculty__item:last-child {
+  border-right: none;
+}
+
+/* Full-bleed band behind the icon section */
+.faculty__grid-wrap {
+  background: #01193a;
+
+  /* pull the band under the section’s left/right padding so it
+     extends beyond the vertical strokes drawn by the section */
+  margin-left: -50px; /* must match .faculty { padding-left } */
+  margin-right: -50px; /* must match .faculty { padding-right } */
+  padding-left: 50px; /* restore content alignment */
+  padding-right: 50px;
+}
+
+/* keep the blue outline and inner vertical dividers */
+.faculty__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid #0499fc; /* outer blue box */
+  padding: 40px 0; /* height for tall side strokes */
+  gap: 0; /* dividers meet cleanly */
+
+  background: transparent;
+  --grid-vpad: 40px; /* vertical padding */
+  padding: var(--grid-vpad) 0;
+}
+
+/* draw inner vertical dividers only between items (no doubles on edges) */
+.faculty__item {
+  position: relative;
+  text-align: center;
+  padding: 0 20px;
+}
+.faculty__item + .faculty__item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: calc(var(--grid-vpad) * -1); /* reach up into grid’s top padding */
+  bottom: calc(
+    var(--grid-vpad) * -1
+  ); /* reach down into grid’s bottom padding */
+  width: 1px; /* 1px reads crisper than 0.1/0.2px */
+  background: rgba(4, 153, 252, 0.2); /* same blue/opacity as strokes */
+  pointer-events: none;
+}
+
+/* responsive: if you change the section padding, update the wrap’s neg. margins */
+@media (max-width: 600px) {
+  /* example if you later change .faculty padding for mobile
+     .faculty { padding: 60px 24px; } then use: */
+  /* .faculty__grid-wrap { margin-left:-24px; margin-right:-24px; padding-left:24px; padding-right:24px; } */
+}
+
+/* ───────────────────────────────────────────────
+   Faculty & Mentors cards: left-aligned content,
+   more padding, taller boxes
+   (overrides previous center-aligned styles)
+   ─────────────────────────────────────────────── */
+.faculty__item {
+  /* more breathing room and a taller card */
+  padding: 12px 40px; /* ↑ padding */
+  min-height: 150px; /* ↑ card height (tweak as needed) */
+
+  /* lay out content top→bottom and align to left edge */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* left edge of the card */
+  text-align: left; /* ensure text is left-justified */
+}
+
+/* icon sits just above the text, left-aligned */
+.faculty__item img {
+  margin: 0 0 16px 0; /* space below the icon */
+  max-width: 56px; /* optional: make icon a touch larger */
+  height: auto;
+  align-self: flex-start; /* keep it left even if parent changes */
+}
+
+/* title: left-aligned, with comfortable spacing */
+.faculty__item h3 {
+  margin: 4px 0 12px; /* small gap above, more below */
+  font-size: 14px; /* keep your scale; adjust if needed */
+  line-height: 1.3;
+  text-align: left;
+}
+
+/* paragraph: left-aligned; optional readable width */
+.faculty__item p {
+  margin: 0;
+  text-align: left;
+  max-width: 560px; /* keeps lines readable; remove if not needed */
+}

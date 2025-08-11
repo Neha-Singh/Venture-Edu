@@ -11,7 +11,7 @@ import MissionVision from "./components/AboutUs/MissionVision.jsx";
 import VentureDifference from "./components/AboutUs/VentureEduDifference.jsx";
 import MentorSection from "./components/AboutUs/MentorSection.jsx";
 import ProgramLandingPage from "./components/Program/ProgramLanding.jsx";
-import Explore from "./components/Program/Explore.jsx";
+import Faculty from "./components/Faculty/FacultyandMentor.jsx";
 
 function App() {
   return (
@@ -45,7 +45,15 @@ function App() {
           element={
             <>
               <ProgramLandingPage />
-              <Explore />
+              {/* <Explore /> */}
+            </>
+          }
+        />
+        <Route
+          path="/faculty"
+          element={
+            <>
+              <Faculty />
             </>
           }
         />
