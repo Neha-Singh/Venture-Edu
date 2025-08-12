@@ -12,6 +12,8 @@ import VentureDifference from "./components/AboutUs/VentureEduDifference.jsx";
 import MentorSection from "./components/AboutUs/MentorSection.jsx";
 import ProgramLandingPage from "./components/Program/ProgramLanding.jsx";
 import Faculty from "./components/Faculty/FacultyandMentor.jsx";
+import Facultyandmentortwo from "./components/Faculty/FacultyandMentortwo.jsx";
+import FacultyPeople from "./components/Faculty/FacultyPeople.jsx";
 
 function App() {
   return (
@@ -54,6 +56,8 @@ function App() {
           element={
             <>
               <Faculty />
+              <Facultyandmentortwo />
+              <FacultyPeople />
             </>
           }
         />

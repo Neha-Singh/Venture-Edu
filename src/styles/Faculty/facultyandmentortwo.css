@@ -1,0 +1,594 @@
+/* ---------- Section shell ---------- */
+.faculty-intro {
+  --bg: #001430; /* base background */
+  --stroke: #0499fc; /* stroke color */
+  --stroke-inset: 50px; /* set to 0 if you truly want extreme edges */
+  --copy-max: 560px;
+
+  position: relative;
+  background: var(--bg);
+  color: #fff;
+  overflow: hidden;
+}
+
+/* constrain inner width and spacing */
+.fi-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 76px 24px; /* top/bottom, side gutters */
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+/* ---------- Two vertical strokes ---------- */
+.fi-strokes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.2;
+  background-image: linear-gradient(
+      to bottom,
+      var(--stroke) 0,
+      var(--stroke) 100%
+    ),
+    linear-gradient(to bottom, var(--stroke) 0, var(--stroke) 100%);
+  background-repeat: no-repeat;
+  background-size: 1px 100%;
+  background-position: left var(--stroke-inset) top,
+    right var(--stroke-inset) top;
+  z-index: 0;
+}
+
+/* ---------- Left copy ---------- */
+
+.fi-copy h2 {
+  font-family: "Inter Tight", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  margin: 0 0 20px;
+  max-width: var(--copy-max);
+}
+
+.fi-lead {
+  margin: 0 0 20px;
+  color: #cfe5ff;
+  max-width: var(--copy-max);
+}
+
+.fi-list {
+  margin: 0;
+  padding: 0 0 0 20px; /* bullet indent */
+  list-style: disc;
+}
+
+.fi-list li {
+  margin: 10px 0 12px;
+  color: #d9e6f7;
+  max-width: var(--copy-max);
+}
+
+.fi-list li strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* ---------- Right images ---------- */
+.fi-images {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  justify-items: center;
+}
+
+.fi-img.tall {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* stagger: left higher, right slightly lower */
+.fi-img.left {
+  align-self: start;
+}
+.fi-img.right {
+  align-self: end;
+}
+
+/* ---------- Decorative vectors ---------- */
+.fi-vector {
+  position: absolute;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* adjust positions to match the screenshot */
+.fi-vector.v1 {
+  /* small arrow near upper right */
+  top: 70px;
+  right: 120px;
+  width: 68px;
+}
+
+.fi-vector.v2 {
+  /* large outline triangle behind images */
+  top: 40px;
+  right: 80px;
+  width: 520px;
+  opacity: 0.18;
+}
+
+.fi-vector.v3 {
+  /* bottom center arrow */
+  bottom: 72px;
+  left: 50%;
+  width: 88px;
+  transform: translateX(-50%);
+  opacity: 0.25;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+  .fi-wrap {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .fi-copy h2 {
+    font-size: 32px;
+  }
+  .fi-img.tall {
+    height: 420px;
+  }
+  .fi-vector.v2 {
+    width: 440px;
+  }
+}
+
+@media (max-width: 768px) {
+  .fi-wrap {
+    padding: 72px 16px;
+  }
+  .fi-copy h2 {
+    font-size: 28px;
+  }
+  .fi-lead,
+  .fi-list li {
+    font-size: 14px;
+  }
+  .fi-images {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .fi-img.tall {
+    height: 320px;
+    border-radius: 10px;
+  }
+  .fi-vector.v1,
+  .fi-vector.v2,
+  .fi-vector.v3 {
+    opacity: 0.2;
+  }
+}
+
+/* Faculty Intro body copy */
+.fi-lead,
+.fi-list li {
+  color: #fff;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 24px; /* 120% */
+}
+
+/* keep the emphasized part in bullets bold */
+.fi-list li strong {
+  font-weight: 700;
+  color: #fff; /* stays white */
+}
+
+/* Limit the width of bullet text so each item wraps to ~3 lines */
+.faculty-intro {
+  --bullets-max: 56ch; /* ≈ three lines for current copy; try 54–60ch to tune */
+}
+
+.fi-list {
+  max-width: var(--bullets-max);
+  list-style-position: outside; /* keep bullets outside the text block */
+  padding-left: 20px; /* your existing indent */
+}
+
+.fi-list li {
+  max-width: 100%;
+}
+/* show full image, no cropping */
+.fi-images {
+  overflow: visible; /* don't clip the zig-zag offsets */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* remove the fixed height and cover-cropping */
+.fi-img,
+.fi-img.tall {
+  display: block;
+  width: 100%;
+  object-fit: contain; /* show entire image */
+  object-position: center;
+  border-radius: 12px;
+}
+
+/* zig-zag offsets on desktop */
+.fi-img.left {
+  transform: translateY(-12px);
+}
+.fi-img.right {
+  transform: translateY(36px);
+}
+
+/* optional: keep very tall images from growing too tall */
+@media (min-width: 1100px) {
+  .fi-img {
+    max-height: 640px;
+  }
+}
+
+/* stack on small screens and remove offsets */
+@media (max-width: 768px) {
+  .fi-images {
+    grid-template-columns: 1fr;
+  }
+  .fi-img.left,
+  .fi-img.right {
+    transform: none;
+  }
+}
+/* === Taller images, no cropping, clean zig-zag === */
+
+/* 1) pick your target height once, easy to tweak */
+.faculty-intro {
+  --fi-img-height: 620px; /* try 560/600/680 if you want */
+}
+
+/* 2) show the entire image and make it taller */
+.fi-img,
+.fi-img.tall {
+  display: block;
+  width: 100%;
+  object-fit: contain; /* no cropping */
+  object-position: center;
+  border-radius: 12px;
+}
+
+/* 3) keep the stagger without weird layout shifts */
+.fi-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+  overflow: visible;
+}
+
+/* use margins (not translate) for the zig-zag */
+.fi-img.left {
+  margin-top: -12px;
+}
+.fi-img.right {
+  margin-top: 36px;
+}
+
+/* optional: smaller height on narrow screens */
+@media (max-width: 768px) {
+  .faculty-intro {
+    --fi-img-height: 420px;
+  }
+  .fi-images {
+    grid-template-columns: 1fr;
+  }
+  .fi-img.left,
+  .fi-img.right {
+    margin-top: 0;
+  }
+}
+/* === Taller images, no cropping, clean zig-zag === */
+
+/* 1) pick your target height once, easy to tweak */
+.faculty-intro {
+  --fi-img-height: 620px; /* try 560/600/680 if you want */
+}
+
+/* 2) show the entire image and make it taller */
+.fi-img,
+.fi-img.tall {
+  display: block;
+  width: 100%;
+  object-fit: contain; /* no cropping */
+  object-position: center;
+  border-radius: 12px;
+}
+
+/* 3) keep the stagger without weird layout shifts */
+.fi-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+  overflow: visible;
+}
+
+/* use margins (not translate) for the zig-zag */
+.fi-img.left {
+  margin-top: -12px;
+}
+.fi-img.right {
+  margin-top: 36px;
+}
+
+/* optional: smaller height on narrow screens */
+@media (max-width: 768px) {
+  .faculty-intro {
+    --fi-img-height: 420px;
+  }
+  .fi-images {
+    grid-template-columns: 1fr;
+  }
+  .fi-img.left,
+  .fi-img.right {
+    margin-top: 0;
+  }
+}
+/* === Force taller images and show them entirely === */
+.faculty-intro .fi-img,
+.faculty-intro .fi-img.tall {
+  display: block;
+  width: 100%;
+  height: 620px !important; /* bump this number as needed */
+  object-fit: contain !important; /* no cropping; switch to 'cover' if you prefer */
+  object-position: center;
+  border-radius: 12px;
+}
+
+/* Zig-zag using margins (avoids layout shifts) */
+.faculty-intro .fi-img.left {
+  margin-top: -12px;
+}
+.faculty-intro .fi-img.right {
+  margin-top: 36px;
+}
+
+/* Optional: responsive height */
+@media (max-width: 768px) {
+  .faculty-intro .fi-img,
+  .faculty-intro .fi-img.tall {
+    height: 420px !important;
+  }
+  .faculty-intro .fi-img.left,
+  .faculty-intro .fi-img.right {
+    margin-top: 0;
+  }
+}
+
+/* Make sure grid itself isn't constraining height */
+.fi-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+  overflow: visible;
+}
+
+/* Fixed-height wrappers – this controls the visible height */
+.faculty-intro {
+  --fi-photo-h: 620px;
+} /* tweak: 560/600/680 */
+
+.fi-photo {
+  height: var(--fi-photo-h);
+  width: 100%;
+  border-radius: 12px;
+  background: transparent; /* no cropping container */
+  display: flex; /* center the img inside */
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+/* The actual <img> scales to fit the wrapper without cropping */
+.fi-photo img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+  border-radius: 12px; /* keep rounded look */
+}
+
+/* Zig-zag using margins so layout stays stable */
+.fi-photo.left {
+  margin-top: -12px;
+}
+.fi-photo.right {
+  margin-top: 36px;
+}
+
+/* Responsive: smaller on mobile, stack and remove offsets */
+@media (max-width: 768px) {
+  .faculty-intro {
+    --fi-photo-h: 420px;
+  }
+  .fi-images {
+    grid-template-columns: 1fr;
+  }
+  .fi-photo.left,
+  .fi-photo.right {
+    margin-top: 0;
+  }
+} /* Make sure grid itself isn't constraining height */
+.fi-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+  overflow: visible;
+}
+
+/* Fixed-height wrappers – this controls the visible height */
+.faculty-intro {
+  --fi-photo-h: 620px;
+} /* tweak: 560/600/680 */
+
+.fi-photo {
+  height: var(--fi-photo-h);
+  width: 100%;
+  border-radius: 12px;
+  background: transparent; /* no cropping container */
+  display: flex; /* center the img inside */
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+/* The actual <img> scales to fit the wrapper without cropping */
+.fi-photo img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+  border-radius: 12px; /* keep rounded look */
+}
+
+/* Zig-zag using margins so layout stays stable */
+.fi-photo.left {
+  margin-top: -12px;
+}
+.fi-photo.right {
+  margin-top: 36px;
+}
+
+/* Responsive: smaller on mobile, stack and remove offsets */
+@media (max-width: 768px) {
+  .faculty-intro {
+    --fi-photo-h: 420px;
+  }
+  .fi-images {
+    grid-template-columns: 1fr;
+  }
+  .fi-photo.left,
+  .fi-photo.right {
+    margin-top: 0;
+  }
+}
+
+/* Make sure grid itself isn't constraining height */
+.fi-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+  overflow: visible;
+}
+
+/* Fixed-height wrappers – this controls the visible height */
+.faculty-intro {
+  --fi-photo-h: 620px;
+} /* tweak: 560/600/680 */
+
+.fi-photo {
+  height: var(--fi-photo-h);
+  width: 100%;
+  border-radius: 12px;
+  background: transparent; /* no cropping container */
+  display: flex; /* center the img inside */
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+/* The actual <img> scales to fit the wrapper without cropping */
+.fi-photo img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+  border-radius: 12px; /* keep rounded look */
+}
+
+/* Zig-zag using margins so layout stays stable */
+.fi-photo.left {
+  margin-top: -12px;
+}
+.fi-photo.right {
+  margin-top: 36px;
+}
+
+/* Responsive: smaller on mobile, stack and remove offsets */
+@media (max-width: 768px) {
+  .faculty-intro {
+    --fi-photo-h: 420px;
+  }
+  .fi-images {
+    grid-template-columns: 1fr;
+  }
+  .fi-photo.left,
+  .fi-photo.right {
+    margin-top: 0;
+  }
+}
+
+/* Grid holds two columns and lets items stretch fully */
+.fi-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: stretch; /* make cells fill the row height */
+}
+
+/* Fixed-height wrappers control the visible height */
+.fi-photo {
+  width: 100%;
+  border-radius: 12px;
+  display: flex; /* center the img inside */
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* hide any stray overflow */
+}
+
+/* The image fills the wrapper without cropping */
+.fi-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* show entire image */
+  display: block;
+  border-radius: 12px;
+}
+
+/* Zig-zag using margins (cleaner than transforms) */
+.fi-photo.left {
+  margin-top: -16px;
+}
+.fi-photo.right {
+  margin-top: 40px;
+}
+
+/* Mobile: stack and reduce height */
+@media (max-width: 768px) {
+  .fi-images {
+    grid-template-columns: 1fr;
+  }
+  .fi-photo {
+    height: 420px !important;
+  }
+  .fi-photo.left,
+  .fi-photo.right {
+    margin-top: 0;
+  }
+}
