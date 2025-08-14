@@ -14,6 +14,9 @@ import ProgramLandingPage from "./components/Program/ProgramLanding.jsx";
 import Faculty from "./components/Faculty/FacultyandMentor.jsx";
 import Facultyandmentortwo from "./components/Faculty/FacultyandMentortwo.jsx";
 import FacultyPeople from "./components/Faculty/FacultyPeople.jsx";
+import Admissions from "./components/Admissions/AdmissionLanding.jsx";
+import AdmissionsProcess from "./components/Admissions/AdmissionsProcess.jsx";
+import FeesScholarship from "./components/Admissions/FeesScholarship.jsx";
 
 function App() {
   return (
@@ -58,6 +61,16 @@ function App() {
               <Faculty />
               <Facultyandmentortwo />
               <FacultyPeople />
+            </>
+          }
+        />
+        <Route
+          path="/admissions"
+          element={
+            <>
+              <Admissions />
+              <AdmissionsProcess />
+              <FeesScholarship />
             </>
           }
         />

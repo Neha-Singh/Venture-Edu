@@ -1,0 +1,264 @@
+/* ---------- Page shell ---------- */
+.admissions-landing {
+  --bg: #001430; /* full-page background */
+  --stroke: #0499fc; /* stroke color */
+  --stroke-inset: 50px; /* vertical strokes 50px from edges */
+
+  position: relative;
+  background: var(--bg);
+  color: #fff;
+  overflow: hidden;
+  padding-bottom: 48px; /* page bottom breathing room */
+}
+
+/* two thin full-height vertical strokes at 50px (overlay so always visible) */
+.admissions-landing::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* cover entire section */
+  pointer-events: none;
+  opacity: 0.2;
+  z-index: 5; /* ABOVE content so lines are visible */
+
+  background-image: linear-gradient(
+      to bottom,
+      var(--stroke) 0,
+      var(--stroke) 100%
+    ),
+    linear-gradient(to bottom, var(--stroke) 0, var(--stroke) 100%);
+  background-repeat: no-repeat;
+  background-size: 1px 100%;
+  background-position: left calc(var(--stroke-inset)) top 0,
+    right calc(var(--stroke-inset)) top 0;
+}
+
+/* (If your JSX still includes <div class="ad-strokes" />, hide it) */
+.ad-strokes {
+  display: none;
+}
+
+/* keep all content under the overlay strokes */
+.admissions-landing > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Header / Top block ---------- */
+.ad-head {
+  max-width: 1200px;
+  margin: 24px auto 44px;
+  padding: 15px 24px 86px; /* extra bottom padding under title & vectors */
+  position: relative;
+}
+
+/* breadcrumb */
+.ad-breadcrumb {
+  font-family: "Inter Tight", sans-serif;
+  font-size: 12px;
+  line-height: 1.2;
+  opacity: 0.75;
+  margin-bottom: 12px;
+}
+.ad-breadcrumb .sep {
+  margin: 0 6px;
+}
+.ad-breadcrumb .current {
+  opacity: 1;
+}
+
+/* title left / copy right */
+.ad-top {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 48px;
+  align-items: start;
+  margin-top: 60px;
+}
+
+/* bigger title */
+.ad-title {
+  margin: 0;
+  font-family: "Inter Tight", sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 1.1;
+  color: #0595f5;
+}
+
+/* bigger right-side copy */
+.ad-sub {
+  margin: 0;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 560px;
+  color: #d6e7ff;
+}
+
+/* decorative vectors */
+.ad-v {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.35;
+}
+.ad-v.v1 {
+  left: 24px;
+  top: 108px;
+  width: 96px;
+}
+.ad-v.v2 {
+  left: 106px;
+  top: 120px;
+  width: 28px;
+  opacity: 0.5;
+}
+
+/* ---------- Cards grid (fits between the two strokes) ---------- */
+.ad-grid {
+  width: calc(100% - (var(--stroke-inset) * 2)); /* aligns to strokes */
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0px;
+  padding: 8px 0;
+}
+
+/* individual card */
+.ad-card {
+  position: relative;
+  aspect-ratio: 1 / 1; /* square tiles */
+  overflow: hidden;
+  background: #0a2c55; /* fallback under image */
+  isolation: isolate;
+}
+
+/* fill the tile */
+.ad-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* dark gradient at the bottom so labels read well */
+.ad-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.15) 45%,
+    transparent 65%
+  );
+  z-index: 1;
+}
+
+/* label text */
+.ad-label {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  z-index: 2;
+  font-family: "Inter Tight", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+/* top-right cut corner for last tile */
+.ad-card.cut-corner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 56px;
+  height: 56px;
+  background: var(--bg);
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+  z-index: 2;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .ad-top {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .ad-title {
+    font-size: 34px;
+  }
+  .ad-sub {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 680px) {
+  .ad-grid {
+    grid-template-columns: 1fr;
+  }
+  .ad-v.v1 {
+    left: 16px;
+    top: 40px;
+    width: 48px;
+  }
+}
+
+/* Breadcrumb visibility & stacking */
+.ad-crumb {
+  position: relative;
+  z-index: 10; /* above the stroke overlay */
+  margin-bottom: 12px;
+}
+
+/* force readable color regardless of Breadcrumb’s internal markup */
+.ad-crumb,
+.ad-crumb * {
+  color: #cfe5ff !important;
+}
+
+/* optional niceties */
+.ad-crumb a {
+  text-decoration: none;
+}
+.ad-crumb a:hover {
+  color: #ffffff !important;
+}
+
+/* ──────────────────────────────────────────────────────
+   Bottom copy section (below the 2×2 grid)
+   ────────────────────────────────────────────────────── */
+.ad-bottom {
+  padding: 24px 0 72px; /* top/bottom space around the copy block */
+}
+
+.ad-bottom-wrap {
+  width: calc(100% - (var(--stroke-inset) * 2)); /* fits between 50px strokes */
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr; /* blank left / text right */
+  gap: 48px;
+  align-items: start;
+}
+
+.ad-bottom-copy p {
+  margin: 0 0 14px;
+  color: #d6e7ff; /* readable on dark bg */
+  font-family: "Inter Tight", sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 600px; /* keeps lines tidy */
+}
+
+@media (max-width: 900px) {
+  .ad-bottom-wrap {
+    grid-template-columns: 1fr; /* stack on small screens */
+    gap: 16px;
+  }
+  .ad-bottom-copy p {
+    font-size: 13.5px;
+    max-width: 100%;
+  }
+}
