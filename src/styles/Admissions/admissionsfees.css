@@ -107,7 +107,7 @@
 .fee-white {
   background: #ffffff;
   color: #001531;
-  padding: 28px 28px 32px;
+  padding: 78px 28px 32px;
   box-shadow: 0 1px 0 rgba(4, 153, 252, 0.18) inset; /* subtle edge like figma */
 }
 
@@ -115,13 +115,14 @@
   margin: 0 0 12px;
   font-family: "Inter Tight", sans-serif;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 34px;
   line-height: 1.2;
   color: #001531;
+  letter-spacing: -1px; /* slight letter spacing for readability */
 }
 
 .sch-list {
-  margin: 0;
+  margin: 0 0 12px;
   padding-left: 18px;
   font-family: "Inter Tight", sans-serif;
   font-size: 13.8px;
@@ -220,4 +221,44 @@
 }
 .fee-heading span {
   display: block;
+}
+.sch-p {
+  margin: 0 0 12px;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #273444;
+}
+/* keep the blue card cut-corner exactly as you already have it */
+.fee-blue::after {
+  /* your current values are fine; shown here for clarity */
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 96px; /* keep/tweak to match your design */
+  height: 96px;
+  background: var(--bg); /* reveals page background to make a cut */
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+  pointer-events: none;
+}
+
+/* ---- White card: add an *inverted blue triangle* on the top-right ---- */
+.fee-white {
+  position: relative;
+  overflow: visible; /* allow the triangle to hang outside the card */
+}
+
+/* Draw the triangle without touching the blue card rules */
+.fee-white::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0; /* anchor to top-right of the white card */
+  width: 96px; /* match the blue card’s size */
+  height: 96px;
+  background: var(--bg); /* the blue triangle you asked for */
+  clip-path: polygon(100% 0, 0 0, 100% 100%); /* right-angle triangle */
+  z-index: 2;
+  pointer-events: none;
 }

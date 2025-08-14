@@ -7,7 +7,6 @@ export default function FeesScholarship() {
       <div className="ad-fees-wrap">
         {/* Left — Blue card with cut corner */}
         <div className="ad-fee-card fee-blue">
-          {/* Force the line break exactly as per design */}
           <h3 className="fee-heading">
             <span>Fees &amp;</span>
             <span>Scholarship</span>
@@ -20,30 +19,35 @@ export default function FeesScholarship() {
           </p>
         </div>
 
-        {/* Right — White scholarship details */}
+        {/* Right — Scholarship copy (para → bullets → para) */}
         <div className="ad-fee-card fee-white">
           <h3 className="sch-title">Scholarship</h3>
+
+          {/* paragraph 1 */}
+          <p className="sch-p">
+            VenturEdu is committed to making venture building knowledge
+            accessible to top talent.
+          </p>
+
+          {/* bullets (middle only) */}
           <ul className="sch-list">
             <li>
-              VenturEdu is committed to making quality education accessible to
-              top talent.
+              We offer a 100% fee refund in the form of funding into their
+              registered company bank account for the top 10% participants,
+              basis rating.
             </li>
             <li>
-              We offer a limited number of 100% scholarships for exceptional
-              candidates who demonstrate outstanding merit, leadership, and
-              entrepreneurial potential.
-            </li>
-            <li>
-              We also offer partial scholarships for high-potential candidates
-              based on merit and fitment.
-            </li>
-            <li>
-              Scholarships are awarded immediately after the VenturEdu Entrance
-              Test — before the interview stage — based on performance. We
-              encourage applicants to apply early for the best chances of
-              securing financial aid.
+              We also offer partial refund in the form of funding for the next
+              20% participants, based on rating.
             </li>
           </ul>
+
+          {/* paragraph 2 */}
+          <p className="sch-p">
+            Rating is a function of performance on internal assessments, demo
+            days, and idea potential. Funding is finalized during the last
+            module of the program.
+          </p>
         </div>
       </div>
     </section>
