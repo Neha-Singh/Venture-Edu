@@ -17,6 +17,7 @@ import FacultyPeople from "./components/Faculty/FacultyPeople.jsx";
 import Admissions from "./components/Admissions/AdmissionLanding.jsx";
 import AdmissionsProcess from "./components/Admissions/AdmissionsProcess.jsx";
 import FeesScholarship from "./components/Admissions/FeesScholarship.jsx";
+import FAQS from "./components/Admissions/Faqs.jsx";
 
 function App() {
   return (
@@ -71,6 +72,7 @@ function App() {
               <Admissions />
               <AdmissionsProcess />
               <FeesScholarship />
+              <FAQS />
             </>
           }
         />
