@@ -236,8 +236,8 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 96px; /* keep/tweak to match your design */
-  height: 96px;
+  width: 66px; /* keep/tweak to match your design */
+  height: 66px;
   background: var(--bg); /* reveals page background to make a cut */
   clip-path: polygon(100% 0, 0 0, 100% 100%);
   pointer-events: none;
@@ -255,8 +255,8 @@
   position: absolute;
   top: 0;
   right: 0; /* anchor to top-right of the white card */
-  width: 96px; /* match the blue card’s size */
-  height: 96px;
+  width: 66px; /* match the blue card’s size */
+  height: 66px;
   background: var(--bg); /* the blue triangle you asked for */
   clip-path: polygon(100% 0, 0 0, 100% 100%); /* right-angle triangle */
   z-index: 2;
