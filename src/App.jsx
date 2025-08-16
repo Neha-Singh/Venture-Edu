@@ -18,6 +18,8 @@ import Admissions from "./components/Admissions/AdmissionLanding.jsx";
 import AdmissionsProcess from "./components/Admissions/AdmissionsProcess.jsx";
 import FeesScholarship from "./components/Admissions/FeesScholarship.jsx";
 import FAQS from "./components/Admissions/Faqs.jsx";
+import CommunityLanding from "./components/Community/CommunityLanding.jsx";
+import CommunityEvents from "./components/Community/CommunityEvents.jsx";
 
 function App() {
   return (
@@ -73,6 +75,15 @@ function App() {
               <AdmissionsProcess />
               <FeesScholarship />
               <FAQS />
+            </>
+          }
+        />
+        <Route
+          path="/community"
+          element={
+            <>
+              <CommunityLanding />
+              <CommunityEvents />
             </>
           }
         />

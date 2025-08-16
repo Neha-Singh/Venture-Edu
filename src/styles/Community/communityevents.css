@@ -1,0 +1,221 @@
+/* =========================================================
+   Community – Events / Podcast
+   ========================================================= */
+
+.ce {
+  --bg: #001430;
+  --ink: #ffffff;
+  --muted: #cfe0ff;
+  --brand: #0595f5;
+  --stroke: #0499fc;
+  --stroke-inset: 50px; /* vertical strokes 50px from edges */
+
+  position: relative;
+  background: var(--bg);
+  color: var(--ink);
+  overflow: hidden;
+  padding: 56px 0 72px;
+}
+
+/* Edge strokes: 50px from left & right, + top/bottom line if needed */
+.ce::before,
+.ce::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* two full-height 1px lines */
+.ce::before {
+  background-image: linear-gradient(
+      to bottom,
+      var(--stroke) 0,
+      var(--stroke) 100%
+    ),
+    linear-gradient(to bottom, var(--stroke) 0, var(--stroke) 100%);
+  background-repeat: no-repeat;
+  background-size: 1px 100%, 1px 100%;
+  background-position: left var(--stroke-inset) top,
+    right var(--stroke-inset) top;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+/* Grid between the edge strokes */
+.ce-wrap {
+  position: relative;
+  z-index: 2;
+  width: calc(100% - var(--stroke-inset) * 2);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+}
+
+/* ---------- Left column ---------- */
+.ce-left {
+  padding-right: 24px;
+}
+
+.ce-title {
+  margin: 0 0 24px;
+  font-family: "Inter Tight", sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: 0.2px;
+}
+
+.ce-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ce-item + .ce-item {
+  margin-top: 28px;
+}
+
+.ce-item-title {
+  margin: 0 0 8px;
+  font-family: "Inter Tight", sans-serif;
+  font-weight: 750;
+  font-size: 14px;
+  color: var(--brand);
+}
+
+.ce-item-desc {
+  margin: 0;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: 460px;
+}
+
+/* ---------- Right column ---------- */
+.ce-right {
+  padding-left: 24px;
+}
+
+.ce-promo-title {
+  margin: 0 0 10px;
+  font-family: "Inter Tight", sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.ce-promo-copy {
+  margin: 0 0 28px;
+  font-family: "Inter Tight", sans-serif;
+  color: var(--muted);
+  font-size: 13px;
+  max-width: 520px;
+}
+
+/* Podcast image + label */
+.ce-podcast {
+  display: grid;
+  place-items: center;
+  gap: 16px;
+}
+
+.ce-podcast-img {
+  width: min(64vw, 320px);
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.35));
+}
+
+.ce-podcast-label {
+  font-family: "Inter Tight", sans-serif;
+  letter-spacing: 3px;
+  font-weight: 800;
+  font-size: 16px;
+  color: var(--brand);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 980px) {
+  .ce-wrap {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .ce-wrap::before {
+    display: none;
+  } /* no center divider on mobile */
+
+  .ce-left,
+  .ce-right {
+    padding: 0;
+  }
+
+  .ce-promo-copy {
+    max-width: 100%;
+  }
+  .ce-item-desc {
+    max-width: 100%;
+  }
+}
+
+/* Full-height middle stroke that touches top and bottom */
+.ce::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0; /* spans entire section height */
+  left: 50%;
+  width: 1px;
+  background: var(--stroke);
+  opacity: 0.2;
+  transform: translateX(-0.5px); /* pixel-crisp */
+  pointer-events: none;
+  z-index: 1; /* sits under content */
+}
+
+/* Ensure content is above the strokes */
+.ce-wrap {
+  position: relative;
+  z-index: 2;
+}
+
+/* --- More top space for the whole section --- */
+.ce {
+  padding-top: 80px; /* was 56px */
+}
+
+/* --- Keep "Upcoming Event" block away from the left stroke --- */
+.ce-left {
+  padding-left: 24px; /* gives breathing room from the left line */
+}
+
+@media (max-width: 980px) {
+  .ce-left {
+    padding-left: 16px;
+  } /* slightly tighter on mobile */
+}
+
+/* --- Typography tweaks --- */
+.ce-title {
+  font-size: 33px; /* +5px from 28px */
+}
+
+.ce-promo-title {
+  font-weight: 500; /* lighter than 700 */
+}
+/* Make the middle vertical stroke meet the horizontal stroke perfectly */
+.ce::after {
+  /* previously: top: 0; bottom: 0; */
+  top: -1px; /* overlap top by 1px */
+  bottom: -1px; /* overlap bottom by 1px */
+  /* keep the pixel-crisp x alignment */
+  left: 50%;
+  width: 1px;
+  background: var(--stroke);
+  opacity: 0.2;
+  transform: translateX(-0.5px);
+  pointer-events: none;
+  position: absolute;
+  content: "";
+  z-index: 1;
+}

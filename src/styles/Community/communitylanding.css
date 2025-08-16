@@ -1,0 +1,362 @@
+/* ====== Community Landing Header ====== */
+
+.community-landing {
+  /* vertical strokes inset */
+  --stroke-inset: 50px;
+
+  position: relative;
+  background: #001430; /* <-- requested background */
+  overflow: hidden;
+  color: #e9f2ff;
+  min-height: 72vh;
+}
+
+/* (optional safety) ensure page bg matches section bg */
+html,
+body,
+#root {
+  background: #001430;
+}
+
+.community-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px 72px;
+  position: relative;
+}
+
+/* Hairline strokes */
+.stroke {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.25;
+  background: #0499fc;
+}
+.stroke-left,
+.stroke-right {
+  top: 0;
+  bottom: 0;
+  width: 1px;
+}
+.stroke-top,
+.stroke-bottom {
+  left: 0;
+  right: 0;
+  height: 1px;
+}
+
+/* Vertical strokes exactly 50px from edges */
+.stroke-left {
+  left: var(--stroke-inset);
+}
+.stroke-right {
+  right: var(--stroke-inset);
+}
+
+/* REMOVE the top horizontal stroke */
+.stroke-top {
+  display: none !important;
+}
+
+/* Keep bottom horizontal (if you still want it) */
+.stroke-bottom {
+  bottom: 10px;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.2px;
+  color: rgba(233, 242, 255, 0.65);
+  margin-bottom: 28px;
+}
+.breadcrumbs .divider {
+  margin: 0 8px;
+  opacity: 0.7;
+}
+.breadcrumbs .current {
+  color: rgba(233, 242, 255, 0.9);
+}
+
+/* Layout */
+.community-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: 32px;
+}
+
+.community-copy {
+  max-width: 640px;
+}
+
+.community-title {
+  color: #0595f5;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 48px; /* 75% */
+  letter-spacing: -1px;
+  margin: 0 0 12px;
+}
+
+.community-subtitle {
+  color: #fff;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 44px; /* 122.222% */
+  margin: 0 0 28px;
+}
+
+/* CTA */
+.cta-btn {
+  background: #ffffff;
+  color: #0595f5;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px; /* 110% */
+  padding: 14px 20px;
+  border-radius: 28px;
+  text-decoration: none;
+  display: inline-block;
+}
+.cta-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(4, 153, 252, 0.28);
+}
+.cta-btn:active {
+  transform: translateY(0);
+  color: #0595f5;
+}
+
+/* Right visual */
+.community-art {
+  display: grid;
+  place-items: center;
+}
+.community-art img {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.35));
+  animation: floatY 6s ease-in-out infinite;
+}
+@keyframes floatY {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .community-title {
+    font-size: 46px;
+  }
+  .community-grid {
+    grid-template-columns: 1fr;
+  }
+  .community-art {
+    order: -1;
+    margin-bottom: 10px;
+  }
+  .cta-btn {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 640px) {
+  .community-wrap {
+    padding: 36px 16px 56px;
+  }
+  .community-title {
+    font-size: 36px;
+  }
+  .community-subtitle {
+    font-size: 16.5px;
+  }
+
+  /* keep vertical strokes at 50px on mobile too */
+  .stroke-left {
+    left: var(--stroke-inset);
+  }
+  .stroke-right {
+    right: var(--stroke-inset);
+  }
+}
+/* === Align content to touch the left stroke (50px inset) === */
+.community-landing {
+  --stroke-inset: 50px;
+}
+
+.community-wrap {
+  /* content spans exactly between the 2 vertical strokes */
+  width: calc(100% - (var(--stroke-inset) * 2));
+  margin: 0 auto;
+  /* remove side padding so content edge sits on the stroke */
+  padding: 48px 0 72px !important;
+}
+
+/* make sure the left column doesn't add any extra offset */
+.community-copy {
+  margin-left: 0 !important;
+}
+
+/* === Typography: halve sizes & tighten letter-spacing === */
+/* Title was 64/48; now 32/24 with lighter tracking */
+.community-title {
+  color: #0595f5;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 32px; /* 64 → 32 */
+  font-weight: 700;
+  line-height: 24px; /* 48 → 24 */
+  letter-spacing: -0.5px; /* -1px → -0.5px */
+  margin: 0 0 12px;
+}
+
+/* Paragraph was 36/44; now 18/22 with slight negative tracking */
+.community-subtitle {
+  color: #fff;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 18px; /* 36 → 18 */
+  font-weight: 500;
+  line-height: 22px; /* 44 → 22 */
+  letter-spacing: -0.25px;
+  margin: 0 0 24px;
+}
+
+/* Button keeps same visual but ensure it aligns with left edge */
+.cta-btn {
+  display: inline-block;
+  background: #ffffff;
+  color: #0595f5;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 22px; /* 110% */
+  padding: 14px 20px;
+  border-radius: 28px;
+  text-decoration: none;
+}
+
+/* --- Mobile: keep the same alignment to the stroke --- */
+@media (max-width: 640px) {
+  .community-wrap {
+    width: calc(100% - (var(--stroke-inset) * 2));
+    padding: 36px 0 56px !important; /* no side padding on mobile either */
+  }
+}
+/* Move the whole container up a bit */
+.community-wrap {
+  padding-top: 24px !important; /* was larger; lifts the block upward */
+}
+
+/* Stack title, paragraph, button with a 40px vertical rhythm */
+.community-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* exact vertical gap between the three */
+  margin-top: 0; /* no extra offset */
+}
+
+/* Title (no extra margins so the 40px gap controls spacing) */
+.community-title {
+  margin: 0;
+}
+
+/* Paragraph: target ~4 lines by limiting line length */
+.community-subtitle {
+  margin: 0; /* gap handles spacing */
+  max-width: 68ch; /* adjust if you need tighter/looser wrap */
+  text-wrap: balance; /* nicer multi-line balance (supported modern) */
+}
+
+/* Button: smaller text, single line */
+.cta-btn {
+  font-size: 16px; /* down from 20px */
+  line-height: 20px;
+  padding: 12px 18px;
+  white-space: nowrap; /* keep one line */
+}
+
+/* Responsive: allow paragraph to use full width on small screens */
+@media (max-width: 900px) {
+  .community-subtitle {
+    max-width: 100%;
+  }
+  .cta-btn {
+    font-size: 15px;
+    line-height: 18px;
+  }
+}
+/* +10px size bump */
+.community-title {
+  font-size: 42px; /* was 32px */
+  line-height: 32px; /* keeps the compact feel (~0.75 of font-size) */
+}
+
+.community-subtitle {
+  font-size: 28px; /* was 18px */
+  line-height: 34px; /* readable, slightly compact */
+  /* If you need the paragraph to remain ~4 lines, tweak this a bit:
+     max-width: 66ch;  or 70ch depending on viewport */
+}
+/* Keep the stroke elements below the content */
+.stroke {
+  z-index: 1;
+}
+
+/* Make sure the content sits above the strokes */
+.community-wrap {
+  position: relative;
+  z-index: 2;
+  /* small top breathing room so the breadcrumb isn't flush to the edge */
+  padding-top: 2px !important;
+}
+
+/* Breadcrumb styling (ensure it’s visible and has spacing) */
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 20px; /* space below the breadcrumb */
+  color: rgba(233, 242, 255, 0.85);
+  line-height: 1.2;
+}
+
+/* If your Breadcrumb component uses a different class, add this too */
+.breadcrumb,
+.breadcrumb-nav {
+  display: flex;
+  gap: 8px;
+  margin: 0 0 20px;
+  color: rgba(233, 242, 255, 0.85);
+}
+
+/* Make sure the title doesn’t pull itself over the breadcrumb */
+.community-title {
+  margin-top: 0;
+}
+/* Make the button size to its text and stop any flex stretching */
+.community-copy {
+  align-items: flex-start;
+}
+
+.cta-btn {
+  display: inline-flex; /* shrink-to-fit + vertical centering */
+  align-items: center;
+  inline-size: max-content; /* width fits exactly to text + padding */
+  min-width: 0; /* prevent any preset min-width */
+  white-space: nowrap; /* keep one line */
+  padding: 10px 16px; /* slightly tighter pill */
+  margin: 0; /* no extra horizontal space */
+}
