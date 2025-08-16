@@ -1,0 +1,372 @@
+/* =========================================================
+   Contact Us
+   ========================================================= */
+
+.cu {
+  --bg: #001430;
+  --ink: #ffffff;
+  --muted: #cfe0ff;
+  --brand: #0595f5;
+  --stroke: #0499fc;
+  --stroke-inset: 50px; /* 50px from edges */
+
+  position: relative;
+  background: var(--bg);
+  color: var(--ink);
+  overflow: hidden;
+  padding: 56px 0 88px;
+}
+
+/* page background safety */
+html,
+body,
+#root {
+  background: #001430;
+}
+
+/* two full-height vertical strokes, 50px from edges */
+.cu::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(
+      to bottom,
+      var(--stroke) 0,
+      var(--stroke) 100%
+    ),
+    linear-gradient(to bottom, var(--stroke) 0, var(--stroke) 100%);
+  background-repeat: no-repeat;
+  background-size: 1px 100%, 1px 100%;
+  background-position: left var(--stroke-inset) top,
+    right var(--stroke-inset) top;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+/* content sits above strokes */
+.cu-wrap {
+  position: relative;
+  z-index: 2;
+  width: calc(100% - var(--stroke-inset) * 2); /* content between strokes */
+  margin: 0 auto;
+}
+
+/* ---------- Header ---------- */
+.cu-header {
+  position: relative;
+  min-height: 120px;
+}
+
+.cu-title {
+  margin: 0 0 24px;
+  font-family: "Inter Tight", sans-serif;
+  color: var(--brand);
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* decorative vectors (top-right corner) */
+.cu-v1,
+.cu-v2 {
+  position: absolute;
+  right: 16px;
+  pointer-events: none;
+  opacity: 0.4;
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.35));
+}
+.cu-v1 {
+  top: -10px;
+  width: 160px;
+  height: auto;
+}
+.cu-v2 {
+  top: 22px;
+  right: 64px;
+  width: 64px;
+  height: auto;
+  opacity: 0.6;
+}
+
+/* hairline divider below header */
+.cu-divider {
+  height: 1px;
+  background: var(--stroke);
+  opacity: 0.18;
+  margin: 8px 0 24px;
+}
+
+/* ---------- Grid ---------- */
+.cu-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.4fr;
+  gap: 48px;
+}
+
+/* ---------- Left: Address ---------- */
+.cu-left {
+  padding-right: 12px;
+}
+
+.cu-block-title {
+  margin: 0 0 10px;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.cu-address {
+  margin: 0 0 24px;
+  font-style: normal;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.cu-address a {
+  color: var(--brand);
+  text-decoration: none;
+}
+.cu-address a:hover {
+  text-decoration: underline;
+}
+
+.cu-email {
+  margin: 0;
+}
+.cu-email a {
+  color: var(--brand);
+  text-decoration: none;
+}
+.cu-email a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Right: Form ---------- */
+.cu-right {
+  padding-left: 12px;
+}
+
+.cu-form-title {
+  margin: 0;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+.cu-form-sub {
+  margin: 6px 0 18px;
+  color: var(--muted);
+  font-family: "Inter Tight", sans-serif;
+  font-size: 13px;
+}
+
+.cu-form {
+  width: 100%;
+}
+
+.cu-row {
+  margin-bottom: 12px;
+}
+.cu-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* inputs */
+.cu-form input,
+.cu-form textarea {
+  width: 100%;
+  color: var(--ink);
+  font-family: "Inter Tight", sans-serif;
+  font-size: 14px;
+  border-radius: 56px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  background: rgba(255, 255, 255, 0.12);
+  outline: none;
+  transition: border-color 0.18s ease, background 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.cu-form input {
+  height: 46px;
+  padding: 0 16px;
+}
+.cu-form textarea {
+  border-radius: 16px;
+  padding: 12px 16px;
+  resize: vertical;
+  min-height: 140px;
+}
+
+.cu-form input::placeholder,
+.cu-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.cu-form input:focus,
+.cu-form textarea:focus {
+  border-color: rgba(4, 153, 252, 0.6);
+  box-shadow: 0 0 0 3px rgba(4, 153, 252, 0.18);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* submit button */
+.cu-actions {
+  margin-top: 8px;
+}
+
+.cu-submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border: 0;
+  border-radius: 28px;
+  background: #fff;
+  color: var(--brand);
+  font-family: "Inter Tight", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(4, 153, 252, 0.22);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+.cu-submit:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(4, 153, 252, 0.28);
+}
+.cu-submit:active {
+  transform: translateY(0);
+}
+.cu-arrow {
+  font-size: 14px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .cu-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .cu-left,
+  .cu-right {
+    padding: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .cu {
+    padding: 40px 0 72px;
+  }
+  .cu-title {
+    font-size: 32px;
+  }
+  .cu-row-2 {
+    grid-template-columns: 1fr;
+  }
+  .cu-v1 {
+    width: 120px;
+    top: -16px;
+  }
+  .cu-v2 {
+    width: 48px;
+    right: 48px;
+    top: 12px;
+  }
+}
+/* Contact button – brand blue, white text, wider pill */
+.cu-actions {
+  display: flex;
+}
+
+.cu-submit {
+  background: #0499fc; /* button color */
+  color: #fff; /* text color */
+  min-width: 240px; /* wider button */
+  justify-content: center; /* center label */
+  padding: 14px 28px; /* a bit taller/wider */
+  box-shadow: 0 10px 22px rgba(4, 153, 252, 0.28);
+}
+
+.cu-submit:hover {
+  box-shadow: 0 14px 28px rgba(4, 153, 252, 0.38);
+}
+
+.cu-submit:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(4, 153, 252, 0.35),
+    0 14px 28px rgba(4, 153, 252, 0.38);
+}
+/* Textboxes: new background + border + radius */
+.cu-form input,
+.cu-form textarea {
+  border-radius: 10px !important;
+  border: 1px solid #0f5b8d !important;
+  background: rgba(216, 111, 111, 0.12) !important;
+  color: #fff; /* keeps good contrast on the dark page */
+}
+
+/* Optional: consistent placeholder + focus */
+.cu-form input::placeholder,
+.cu-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.cu-form input:focus,
+.cu-form textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(15, 91, 141, 0.25);
+}
+/* Inputs (top five fields): big pill corners + shorter height */
+.cu-form input {
+  border-radius: 56px !important; /* 56px for the five boxes */
+  height: 41px !important; /* 46 → 41 (-5px) */
+  border: 1px solid #0f5b8d !important;
+  background: rgba(216, 111, 111, 0.12) !important;
+}
+
+/* Description textarea: small corners + slightly shorter */
+.cu-form textarea {
+  border-radius: 10px !important; /* 10px only for textarea */
+  min-height: 135px !important; /* 140 → 135 (-5px) */
+  border: 1px solid #0f5b8d !important;
+  background: rgba(216, 111, 111, 0.12) !important;
+}
+
+/* (Optional) keep consistent focus styling */
+.cu-form input:focus,
+.cu-form textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(15, 91, 141, 0.25);
+}
+/* Text color + smaller font inside all text boxes */
+.cu-form input,
+.cu-form textarea {
+  color: #666 !important;
+  font-size: 13px !important; /* was 14px */
+  line-height: 1.35;
+  caret-color: #666;
+}
+
+/* Placeholders to match (slightly lighter) */
+.cu-form input::placeholder,
+.cu-form textarea::placeholder {
+  color: #666 !important;
+  opacity: 0.85;
+  font-size: 13px; /* keep consistent with inputs */
+}
+
+/* Optional: a touch smaller on very small screens */
+@media (max-width: 480px) {
+  .cu-form input,
+  .cu-form textarea {
+    font-size: 12.5px !important;
+  }
+  .cu-form input::placeholder,
+  .cu-form textarea::placeholder {
+    font-size: 12.5px;
+  }
+}

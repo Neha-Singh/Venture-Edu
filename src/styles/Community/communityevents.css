@@ -219,3 +219,14 @@
   content: "";
   z-index: 1;
 }
+/* Increase vertical spacing between the three events */
+.ce-item + .ce-item {
+  margin-top: 40px; /* was 28px */
+}
+
+/* (optional) a touch more breathing room on desktop only */
+@media (min-width: 981px) {
+  .ce-item {
+    padding-bottom: 4px;
+  }
+}

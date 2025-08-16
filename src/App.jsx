@@ -20,6 +20,7 @@ import FeesScholarship from "./components/Admissions/FeesScholarship.jsx";
 import FAQS from "./components/Admissions/Faqs.jsx";
 import CommunityLanding from "./components/Community/CommunityLanding.jsx";
 import CommunityEvents from "./components/Community/CommunityEvents.jsx";
+import ContactUS from "./components/ContactUs/ContactUs.jsx";
 
 function App() {
   return (
@@ -84,6 +85,14 @@ function App() {
             <>
               <CommunityLanding />
               <CommunityEvents />
+            </>
+          }
+        />
+        <Route
+          path="/contactus"
+          element={
+            <>
+              <ContactUS />
             </>
           }
         />
