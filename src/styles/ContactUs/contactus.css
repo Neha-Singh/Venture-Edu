@@ -22,6 +22,7 @@ html,
 body,
 #root {
   background: #001430;
+  font-family: "Inter Tight", sans-serif;
 }
 
 /* two full-height vertical strokes, 50px from edges */
@@ -77,14 +78,15 @@ body,
   filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.35));
 }
 .cu-v1 {
-  top: -10px;
+  top: 40px;
   width: 160px;
   height: auto;
+  right: 112px;
 }
 .cu-v2 {
-  top: 22px;
+  top: 54px;
   right: 64px;
-  width: 64px;
+  width: 44px;
   height: auto;
   opacity: 0.6;
 }
@@ -120,7 +122,7 @@ body,
 .cu-address {
   margin: 0 0 24px;
   font-style: normal;
-  font-size: 13.5px;
+  font-size: 12.5px;
   line-height: 1.6;
   color: var(--muted);
 }
@@ -369,4 +371,53 @@ body,
   .cu-form textarea::placeholder {
     font-size: 12.5px;
   }
+}
+
+/* Put the breadcrumb at the very top, aligned to the stroke inset */
+.cu {
+  padding-top: 0; /* no extra space above the crumb */
+}
+
+.cu-crumb {
+  position: relative;
+  z-index: 3; /* above the ::before stroke overlay */
+  width: calc(100% - var(--stroke-inset) * 2);
+  margin: -1px auto 12px; /* tiny top breathing room, then space below */
+}
+
+/* Give the main content a bit of top space now that the crumb sits above */
+.cu-wrap {
+  padding-top: 8px;
+}
+/* Contact Us title – more vertical padding + heavier weight */
+.cu-header {
+  padding-block: 70px 70px !important; /* top, bottom */
+}
+
+.cu-title {
+  font-weight: 800 !important; /* heavier than 700 */
+}
+
+/* Slightly tighter on small screens */
+@media (max-width: 640px) {
+  .cu-header {
+    padding-block: 28px 36px !important;
+  }
+}
+/* Shorter Description textarea */
+.cu-form textarea {
+  min-height: 100px !important; /* was ~135px */
+  height: 100px !important; /* ensure it renders at this height */
+  resize: vertical; /* still allow manual expand if needed */
+}
+/* Shorter text fields (inputs) */
+.cu-form input {
+  height: 32px !important; /* was 41px previously */
+  padding: 0 14px !important; /* keep text comfortably centered */
+  line-height: 36px; /* helps some browsers vertically center */
+}
+
+/* Optional: a touch tighter spacing between paired fields */
+.cu-row-2 {
+  gap: 10px;
 }

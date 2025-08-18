@@ -1,30 +1,29 @@
 import React from "react";
 import "../../styles/ContactUs/contactus.css";
+import Breadcrumb from "../../components/Header/Breadcrumbs";
 
-// decorative vectors
 import vector1 from "../../assets/about-us-images/vector1.png";
 import vector2 from "../../assets/about-us-images/vector2.png";
 
 export default function ContactUs() {
   return (
     <section className="cu">
-      {/* edge strokes are drawn via CSS ::before; this wrapper stays above them */}
-      <div className="cu-wrap">
-        {/* optional: if you have a shared Breadcrumb component, uncomment:
+      {/* Breadcrumb at the very top, between the vertical strokes */}
+      <div className="cu-crumb">
         <Breadcrumb
           links={[
             { label: "Home", url: "/" },
-            { label: "Contact Us", url: "/contact" },
+            { label: "ContactUs", url: "/contactus" },
           ]}
           currentPath={window.location.pathname}
         />
-        */}
+      </div>
 
-        {/* Header */}
+      {/* content sits below the crumb */}
+      <div className="cu-wrap">
         <header className="cu-header">
           <h1 className="cu-title">Contact us</h1>
 
-          {/* decorative vectors */}
           <img
             className="cu-v1"
             src={vector1}
@@ -45,9 +44,7 @@ export default function ContactUs() {
 
         <div className="cu-divider" />
 
-        {/* Content */}
         <div className="cu-grid">
-          {/* LEFT: Address & Email */}
           <aside className="cu-left">
             <h3 className="cu-block-title">Address</h3>
             <address className="cu-address">
@@ -72,7 +69,6 @@ export default function ContactUs() {
             </p>
           </aside>
 
-          {/* RIGHT: Form */}
           <div className="cu-right">
             <h3 className="cu-form-title">Get in touch</h3>
             <p className="cu-form-sub">
@@ -100,7 +96,7 @@ export default function ContactUs() {
 
               <div className="cu-actions">
                 <button type="submit" className="cu-submit">
-                  Submit
+                  Submit{" "}
                   <span className="cu-arrow" aria-hidden="true">
                     ↗
                   </span>
