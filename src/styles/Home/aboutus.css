@@ -1,186 +1,501 @@
+/************************************************************
+ * AboutUs – Full CSS (gradient bg, thinner strokes, smaller type)
+ ************************************************************/
+
+:root {
+  --aboutus-stroke: #0499fc;
+  --aboutus-cta: #0595f5;
+  --aboutus-cta-hover: #0386dc;
+  --edge-offset: 50px; /* distance of the vertical strokes from edges */
+}
+
+/* Section wrapper with GRADIENT background */
 .aboutus-section {
   position: relative;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  padding: 120px 40px;
-  color: #fff;
+  /* exact gradient you requested */
   background: radial-gradient(
       82.34% 65.13% at 4.27% 5.51%,
       rgba(0, 110, 255, 0.2) 0%,
       rgba(0, 20, 48, 0.2) 100%
     ),
     #011a3c;
-
+  color: #fff;
   overflow: hidden;
-
-  justify-content: space-between;
+  padding: 88px var(--edge-offset);
 }
 
-.aboutus-content {
-  flex: 1;
-  max-width: 50%;
-}
-
-.aboutus-title {
-  color: #fff;
-  font-family: "Inter Tight", sans-serif;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 38px;
-  letter-spacing: -1px;
-  margin-bottom: 24px;
-}
-
-.aboutus-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 32px 0;
-  color: #fff;
-  font-family: "Inter Tight", sans-serif;
-}
-
-.aboutus-list li {
-  display: list-item;
-  margin-bottom: 16px;
-  font-size: 14px;
-}
-
-.aboutus-list li::before {
-  content: "•";
-  color: #fff;
-  font-weight: bold;
-  margin-right: 12px;
-  line-height: 1;
-}
-
-.aboutus-list li strong {
-  display: inline-block;
-  white-space: nowrap;
-}
-
-.aboutus-button {
-  display: inline-flex;
-  align-items: center;
-  border-radius: 50px;
-  background: #0499fc;
-  color: #fff;
-  border: none;
-  padding: 12px 32px;
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px;
-  cursor: pointer;
-}
-
-.aboutus-arrow {
-  margin-left: 8px;
-  width: 20px;
-  height: auto;
-  display: inline-block;
-}
-
-.aboutus-images {
-  flex: 1;
-  position: relative;
-  max-width: 50%;
-  margin-left: 80px;
-}
-
-.image-grid {
-  display: grid;
-  grid-template-columns: repeat(2, max-content);
-  gap: 8px 8px;
-  width: max-content;
-  align-items: start;
-}
-
-/* Lift first column images, so first column is slightly higher than the second */
-.image-grid .image-item:nth-child(odd) {
-  transform: translateY(-20px);
-  justify-self: end;
-}
-
-.vector {
-  position: absolute;
-}
-
-.vector1 {
-  top: 60%;
-  left: -12%;
-  transform: translate(-50%, -50%);
-}
-
-.vector2 {
-  bottom: 10%;
-  right: 10%;
-  transform: translate(50%, 50%);
-}
-
-.vector3 {
-  top: 65%;
-  right: 5%;
-  transform: translateX(50%);
-}
-
-/* Responsive Styles */
-@media (max-width: 1024px) {
-  .aboutus-section {
-    flex-direction: column;
-    padding: 100px 20px;
-  }
-  .aboutus-content,
-  .aboutus-images {
-    max-width: 100%;
-  }
-  .aboutus-images {
-    margin: 40px 0 0;
-  }
-}
-
-@media (max-width: 768px) {
-  .aboutus-title {
-    font-size: 36px;
-    line-height: 40px;
-  }
-  .image-grid {
-    grid-template-columns: 1fr;
-  }
-  .aboutus-button {
-    padding: 10px 24px;
-    font-size: 18px;
-    line-height: 22px;
-  }
-}
-.image-item {
-  max-width: 230px; /* adjust as needed */
-}
-.image-item img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  display: block;
-  margin: 0;
-}
-
+/* Left/right hairline vertical strokes ~0.2px */
 .aboutus-section::before,
 .aboutus-section::after {
   content: "";
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 1px;
-  background: #0499fc;
-  opacity: 0.2;
+  width: 1px; /* draw a crisp 1px… */
+  background: var(--aboutus-stroke);
+  transform: scaleX(0.2); /* …visually render as ~0.2px */
+  transform-origin: left center;
   pointer-events: none;
 }
-
 .aboutus-section::before {
-  left: 24px;
+  left: var(--edge-offset);
+}
+.aboutus-section::after {
+  right: var(--edge-offset);
+  transform-origin: right center;
 }
 
-.aboutus-section::after {
-  right: 24px;
+/* Layout */
+.aboutus-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 40px; /* global gap between columns */
+  align-items: start;
+  max-width: 1400px;
+  margin-inline: auto;
+}
+
+/* =======================
+   LEFT: Copy + bullets + CTA
+   ======================= */
+
+.aboutus-content {
+  padding-left: 25px; /* requested extra left padding */
+}
+
+/* Title — roughly half the previous size/weight */
+.aboutus-title {
+  margin: 0 0 18px 0;
+  font-weight: 600; /* lighter than before */
+  line-height: 1.12;
+  letter-spacing: 0;
+  font-size: clamp(20px, 2.4vw, 32px);
+}
+
+/* Bullets smaller + lighter */
+.aboutus-list {
+  margin: 0 0 22px 0;
+  padding-left: 0;
+  list-style: none;
+}
+.aboutus-list li {
+  position: relative;
+  text-align: left;
+  padding-left: 16px;
+  margin: 10px 0;
+  line-height: 1.5;
+  font-size: clamp(12px, 1.1vw, 15px);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.85);
+}
+.aboutus-list li strong {
+  color: #fff;
+  font-weight: 600; /* lighter than bold */
+}
+.aboutus-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.78em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #ffffff;
+  opacity: 0.95;
+}
+
+/* CTA button with your SVG arrow */
+.aboutus-cta {
+  --pad-y: 12px;
+  --pad-x: 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: var(--pad-y) var(--pad-x);
+  border-radius: 999px;
+  background: var(--aboutus-cta);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: clamp(13px, 1vw, 14px);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+    0 6px 20px rgba(5, 149, 245, 0.18);
+  transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+.aboutus-cta:hover {
+  transform: translateY(-1px);
+  background: var(--aboutus-cta-hover);
+  box-shadow: 0 8px 22px rgba(5, 149, 245, 0.24);
+}
+/* rightArrow SVG size + alignment */
+.aboutus-cta__icon {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  transform: translateY(1px); /* subtle optical align */
+}
+
+/* =======================
+   RIGHT: 2×2 image grid
+   ======================= */
+
+.aboutus-images {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 6px; /* was 16px – now very thin */
+  row-gap: 12px; /* keep your vertical spacing */
+  align-content: start;
+  justify-items: start;
+}
+
+.image-item {
+  max-width: 220px; /* slightly smaller than earlier */
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.34);
+}
+.image-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* =======================
+   Decorative vectors – still 10% smaller
+   ======================= */
+.vector {
+  position: absolute;
+  pointer-events: none;
+  transform: scale(0.9);
+  transform-origin: center;
+  opacity: 0.9;
+}
+/* Example positions (adjust if needed) */
+.vector1 {
+  right: 47%;
+  bottom: 98px;
+}
+.vector2 {
+  right: 5%;
+  bottom: 55px;
+}
+.vector3 {
+  left: 92%;
+  bottom: 150px;
+}
+
+/* =======================
+   RESPONSIVE
+   ======================= */
+
+/* Large tablets / small laptops */
+@media (max-width: 1200px) {
+  .aboutus-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .image-item {
+    max-width: 208px;
+  }
+  .vector {
+    transform: scale(0.85);
+  }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+  .aboutus-inner {
+    grid-template-columns: 1fr; /* stack */
+    gap: 28px;
+  }
+  .aboutus-images {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 3px;
+    row-gap: 12px;
+  }
+  .image-item {
+    max-width: 210px;
+  }
+  .vector {
+    transform: scale(0.82);
+  }
+}
+
+/* Phones */
+@media (max-width: 640px) {
+  :root {
+    --edge-offset: 24px;
+  }
+  .aboutus-section {
+    padding: 64px var(--edge-offset);
+  }
+  .aboutus-content {
+    padding-left: 20px;
+  }
+  .aboutus-title {
+    font-size: clamp(18px, 6.1vw, 26px);
+  }
+  .aboutus-list li {
+    font-size: clamp(12px, 3.7vw, 14px);
+  }
+  .image-item {
+    max-width: 176px;
+    border-radius: 14px;
+  }
+  .vector {
+    transform: scale(0.75);
+  }
+  .aboutus-images {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 2px; /* hairline-like */
+  }
+}
+/* Make the two grid tracks hug the cards instead of stretching to 1fr */
+.aboutus-images {
+  /* instead of repeat(2, minmax(0, 1fr)) */
+  grid-template-columns: repeat(2, max-content);
+  justify-content: start; /* leftover space stays on the right, not between columns */
+  column-gap: 2px; /* ultra-thin visual gap between columns */
+  row-gap: 12px; /* keep your vertical spacing */
+}
+
+/* Ensure cards occupy a fixed width and don't add hidden spacing */
+.image-item {
+  --imgW: 220px; /* desktop card width; adjust to taste */
+  width: var(--imgW);
+  max-width: none; /* override earlier max-width so width wins */
+  margin: 0;
+  padding: 0; /* guard against accidental inner padding */
+  border: 0; /* guard against borders adding visual gap */
+  box-sizing: border-box;
+}
+
+.image-item img {
+  display: block; /* removes inline-image whitespace */
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+/* Tighter on large tablets / small laptops */
+@media (max-width: 1200px) {
+  .image-item {
+    --imgW: 208px;
+  }
+  .aboutus-images {
+    column-gap: 2px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+  .image-item {
+    --imgW: 210px;
+  }
+  .aboutus-images {
+    grid-template-columns: repeat(2, max-content);
+    justify-content: start;
+    column-gap: 2px;
+  }
+}
+
+/* Phones */
+@media (max-width: 640px) {
+  .image-item {
+    --imgW: 176px;
+  }
+  .aboutus-images {
+    column-gap: 2px;
+  }
+} /* ── Zig-zag two-column image grid + thinner spacing ── */
+.aboutus-images {
+  /* Hug columns to the card width (prevents hidden space between columns) */
+  grid-template-columns: repeat(2, max-content);
+  justify-content: start;
+
+  /* Make the visible gap very thin */
+  column-gap: 2px; /* hairline-like */
+  row-gap: 6px; /* decreased vertical gap */
+
+  /* Vertical offset for the 2nd column to create the zig-zag */
+  --zigzag-offset: 22px; /* desktop default; tweak to taste */
+}
+
+/* Reset any accidental margins/padding that could add phantom gap */
+.aboutus-images .image-item {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Stagger: push the 2nd column down a bit */
+.aboutus-images .image-item:nth-child(2n) {
+  margin-top: var(--zigzag-offset);
+}
+
+/* Responsive: gently reduce the offset as the layout tightens */
+@media (max-width: 1200px) {
+  .aboutus-images {
+    --zigzag-offset: 18px;
+    row-gap: 5px;
+  }
+}
+@media (max-width: 992px) {
+  .aboutus-images {
+    --zigzag-offset: 14px;
+  }
+}
+@media (max-width: 640px) {
+  .aboutus-images {
+    --zigzag-offset: 10px;
+    /* If at some point you switch to a single column at this width,
+       the offset would create unwanted extra top space. Uncomment to neutralize:
+       grid-template-columns: 1fr;
+       column-gap: 0;
+    */
+  }
+}
+
+/* ── FORCE ultra-thin spacing + keep zig-zag ── */
+.aboutus-images {
+  /* Make tracks hug the card width so no phantom space appears */
+  grid-template-columns: repeat(2, max-content);
+  justify-content: start;
+
+  /* Hard override any previous gap declarations */
+  gap: 2px 2px !important; /* row-gap 2px, column-gap 2px */
+}
+
+/* Remove any margins/padding that could create fake row gaps */
+.aboutus-images .image-item {
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+}
+
+/* Keep zig-zag but reduce the offset so it doesn't 'look' like extra row gap */
+.aboutus-images .image-item:nth-child(2n) {
+  margin-top: 10px; /* was larger; smaller = tighter visual rows */
+}
+
+/* (Optional) If images themselves carry margins from a global reset */
+.aboutus-images img {
+  display: block;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+/* ── Restore zig-zag + force ultra-thin spacing ── */
+
+/* Hug columns to card width; keep hairline gap */
+.aboutus-images {
+  grid-template-columns: repeat(2, max-content) !important;
+  justify-content: start;
+  align-items: start;
+  gap: 2px 2px !important; /* row + column gap = 2px */
+  --zigzag-offset: 18px; /* visual vertical offset for right column */
+  padding-bottom: var(
+    --zigzag-offset
+  ); /* ensures container isn't visually cropped */
+}
+
+/* Kill sneaky spacing on cards/images */
+.aboutus-images > .image-item {
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+  width: var(--imgW, 220px); /* keep your fixed card width */
+  max-width: none !important;
+}
+.aboutus-images > .image-item img {
+  display: block;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Zig-zag: shift ONLY the second column down a bit (works regardless of gaps) */
+.aboutus-images > .image-item:nth-child(2n) {
+  transform: translateY(var(--zigzag-offset)) !important;
+}
+
+/* Tweak offset per breakpoint (optional) */
+@media (max-width: 1200px) {
+  .aboutus-images {
+    --zigzag-offset: 14px;
+  }
+}
+@media (max-width: 992px) {
+  .aboutus-images {
+    --zigzag-offset: 12px;
+  }
+}
+/* On phones, often single column → neutralize the offset */
+@media (max-width: 640px) {
+  .aboutus-images {
+    grid-template-columns: 1fr !important;
+    gap: 4px !important;
+    --zigzag-offset: 0px;
+  }
+  .aboutus-images > .image-item:nth-child(2n) {
+    transform: none !important;
+  }
+}
+/* ─────────────────────────────────────────────
+   TABLETS (≤ 1024px): stack below text + center
+   ───────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  /* Make sure the images block moves down and is centered */
+  .aboutus-images {
+    /* keep two columns on tablets, but center them */
+    grid-template-columns: repeat(2, minmax(140px, 1fr)) !important;
+    justify-content: center !important;
+    justify-items: center !important;
+    align-items: start;
+    margin: 32px auto 0 auto; /* pushes the grid down & centers it */
+    width: 100%;
+    max-width: 740px; /* prevents over-stretching on big tablets */
+
+    /* kill the zig-zag for compact screens */
+    --zigzag-offset: 0px;
+    gap: 8px 8px !important; /* slightly larger gap so it breathes on touch */
+  }
+
+  .aboutus-images > .image-item:nth-child(2n) {
+    transform: none !important; /* disable stagger on tablets */
+  }
+
+  /* Make sure images scale nicely */
+  .aboutus-images > .image-item {
+    width: auto !important;
+    max-width: 320px;
+  }
+  .aboutus-images > .image-item img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   PHONES (≤ 640px): single column + fully centered
+   ───────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .aboutus-images {
+    grid-template-columns: 1fr !important; /* one column on phones */
+    width: min(92vw, 420px); /* keep it within the viewport */
+    gap: 6px !important;
+    margin: 28px auto 0 auto; /* push down and center */
+    justify-items: center;
+  }
+
+  .aboutus-images > .image-item {
+    width: 100% !important; /* full width inside the block */
+    max-width: none;
+  }
+
+  .aboutus-images > .image-item:nth-child(2n) {
+    transform: none !important; /* no stagger on phones */
+  }
+}
+.aboutus-inner {
+  padding-top: calc(var(--aboutus-top-pad, 0px) + 30px) !important;
 }

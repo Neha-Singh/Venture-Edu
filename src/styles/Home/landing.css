@@ -1,13 +1,13 @@
 .landing-page {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  min-height: 85vh;
   background-color: #001430;
   display: flex;
   align-items: flex-start; /* moved content up closer to header */
   justify-content: center;
   margin: 0;
-  padding-top: 5px; /* adjust this value to match header height */
+  padding-top: 0px; /* adjust this value to match header height */
 }
 
 .landing-container {
@@ -182,4 +182,121 @@
     /* margin-left: 4px; */
     width: 12px;
   }
+}
+:root {
+  /* distance from bottom of the viewport where the pills should sit */
+  --hero-indicator-offset: 96px;
+}
+
+/* Keep overlay buttons clickable */
+.overlay-text .overlay-knowmore,
+.overlay-text .overlay-button {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+/* Sticky wrapper that never leaves the hero section */
+.hero-indicators-wrap {
+  position: sticky; /* <— key line */
+  top: calc(100vh - var(--hero-indicator-offset));
+  z-index: 6;
+  pointer-events: none; /* so it doesn't block hero scroll */
+}
+
+/* The actual pills row */
+.hero-indicators {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  width: 100%;
+  pointer-events: auto; /* re-enable clicks for the pills */
+}
+
+/* Pill style (unchanged) */
+.hero-dot {
+  width: 64px;
+  height: 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.18);
+  cursor: pointer;
+  outline: none;
+  transition: background 0.25s ease, transform 0.12s ease,
+    border-color 0.25s ease;
+}
+.hero-dot:hover {
+  transform: translateY(-1px);
+}
+.hero-dot.active {
+  background: #59b6ff;
+  border-color: #59b6ff;
+}
+
+/* Responsive tweak */
+@media (max-width: 768px) {
+  .hero-dot {
+    width: 48px;
+    height: 7px;
+  }
+  :root {
+    --hero-indicator-offset: 72px;
+  }
+}
+/* === Reposition the pills: more to the right and a bit higher === */
+
+/* push them higher (increase distance from the bottom) */
+:root {
+  /* was 96px; increase to move upward */
+  --hero-indicator-offset: 140px;
+}
+
+/* align the pills to the right edge with some breathing room */
+.hero-indicators {
+  justify-content: flex-end; /* move row to the right */
+  padding-right: clamp(24px, 6vw, 120px); /* right spacing from edge */
+  width: 100%;
+}
+
+/* keep them centered on small screens if you prefer */
+@media (max-width: 768px) {
+  :root {
+    --hero-indicator-offset: 96px; /* a bit lower on mobile */
+  }
+  .hero-indicators {
+    justify-content: center;
+    padding-right: 0;
+  }
+}
+/* --- Lift the pill indicators ~150px upwards, keep right aligned --- */
+.hero-indicators-wrap {
+  /* keep the sticky behavior so pills disappear on next section */
+  top: calc(100vh - var(--hero-indicator-offset, 96px));
+  transform: translateY(-85px); /* <— moves them ~150px higher */
+}
+
+/* If you already aligned them to the right earlier, keep it; otherwise: */
+.hero-indicators {
+  justify-content: flex-end;
+  padding-right: clamp(24px, 6vw, 120px);
+}
+
+/* Optional: slightly smaller lift on small screens */
+@media (max-width: 768px) {
+  .hero-indicators-wrap {
+    transform: translateY(-100px);
+  }
+}
+/* Keep exactly 50px gap from the page edges */
+.landing-container {
+  width: calc(100vw - 100px); /* page width minus 50px left + 50px right */
+  max-width: calc(100vw - 100px);
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+/* Ensure slides fill the new container width cleanly */
+.slider,
+.slide-wrapper,
+.slide {
+  width: 100%;
 }

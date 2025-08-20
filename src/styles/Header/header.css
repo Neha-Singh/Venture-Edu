@@ -72,3 +72,42 @@ body,
   width: 16px;
   height: auto;
 }
+:root {
+  --header-h: 72px;
+} /* adjust to your actual header height */
+
+/* Pin the header to the top */
+.sticky-header {
+  position: fixed; /* <-- use fixed instead of sticky */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+  background: rgba(1, 20, 48, 0.96);
+  backdrop-filter: saturate(180%) blur(10px);
+  border-bottom: 1px solid rgba(4, 153, 252, 0.12);
+}
+
+.header-container {
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+}
+
+/* Spacer to preserve layout under a fixed header */
+.header-offset {
+  height: var(--header-h);
+  width: 100%;
+}
+
+/* (Optional) stronger look after you scroll a bit */
+.sticky-header.is-scrolled {
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
+}
+
+/* Anchor offset if you use in-page anchors */
+html {
+  scroll-padding-top: var(--header-h);
+}
