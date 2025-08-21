@@ -1,58 +1,58 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 import imageOne from "../../assets/home-images/landing/imageone.png";
 import imageTwo from "../../assets/home-images/landing/imagetwo.png";
 import imageThree from "../../assets/home-images/landing/imagethree.png";
 
-/* 👉 Optional: add a tighter crop for mobile (left blank space removed) */
+/* 👉 Mobile-only tighter crop for slide 1 */
 import imageOneMobile from "../../assets/home-images/landing/imageone-mobile.png";
 
 import rightArrow from "../../assets/header-images/rightarrow.svg";
+
+import useSwipeSlider from "../../components/Global/useSwipeSlider.jsx";
 import "../../styles/Home/landing.css";
 
 export default function LandingPage() {
   const navigate = useNavigate();
 
-  const images = [
-    { src: imageOne, alt: "Founders on campus", mobileSrc: imageOneMobile }, // slide 1
-    { src: imageTwo, alt: "Team building a product" },
-    { src: imageThree, alt: "Pitch night" },
+  // note: slide 1 includes a mobileSrc for phones
+  const slides = [
+    { src: imageOne, mobileSrc: imageOneMobile, alt: "Founders on campus" },
+    { src: imageTwo, mobileSrc: null, alt: "Team building a product" },
+    { src: imageThree, mobileSrc: null, alt: "Pitch night" },
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-    if (prefersReduced) return;
-    const id = setInterval(
-      () => setCurrentIndex((p) => (p + 1) % images.length),
-      3000
-    );
-    return () => clearInterval(id);
-  }, [images.length]);
-
-  // --- if you already added swipe earlier, keep that code; otherwise, simple translate: ---
-  const translateX = `-${currentIndex * 100}%`;
+  const {
+    sliderRef,
+    currentIndex,
+    setCurrentIndex,
+    translateX,
+    gestureHandlers,
+  } = useSwipeSlider(slides.length, 3000);
 
   return (
     <div className="landing-page">
       <div className="landing-container">
+        {/* track */}
         <div
+          ref={sliderRef}
           className="slider"
-          style={{ transform: `translateX(${translateX})` }}
+          style={{
+            transform: `translateX(${translateX})`,
+            touchAction: "pan-y",
+          }}
+          {...gestureHandlers}
         >
-          {images.map((itm, idx) => (
+          {slides.map((s, idx) => (
             <div className="slide-wrapper" key={idx}>
-              {/* Art-direction for the FIRST slide only (uses mobileSrc on phones if present) */}
-              {idx === 0 && itm.mobileSrc ? (
+              {/* Art-direction: if slide 1 has a mobileSrc, use it on phones */}
+              {idx === 0 && s.mobileSrc ? (
                 <picture>
-                  <source media="(max-width: 480px)" srcSet={itm.mobileSrc} />
+                  <source media="(max-width: 480px)" srcSet={s.mobileSrc} />
                   <img
-                    src={itm.src}
-                    alt={itm.alt}
+                    src={s.src}
+                    alt={s.alt}
                     className="slide"
                     loading={idx === 0 ? "eager" : "lazy"}
                     decoding="async"
@@ -61,8 +61,8 @@ export default function LandingPage() {
                 </picture>
               ) : (
                 <img
-                  src={itm.src}
-                  alt={itm.alt}
+                  src={s.src}
+                  alt={s.alt}
                   className="slide"
                   loading={idx === 0 ? "eager" : "lazy"}
                   decoding="async"
@@ -70,10 +70,10 @@ export default function LandingPage() {
                 />
               )}
 
-              {/* overlays (unchanged)… */}
+              {/* overlays (unchanged content/layout) */}
               {idx === 0 && (
                 <div className="overlay-text">
-                  <p>India's Most Ambitious</p>
+                  <p>India&apos;s Most Ambitious</p>
                   <p>Startup School</p>
                   <p className="overlay-subtitl-first">
                     14-month residential program
@@ -103,10 +103,11 @@ export default function LandingPage() {
                   <p>Where Entrepreneurial</p>
                   <p>Minds Take Flight</p>
                   <p className="overlay-subtitle">
-                    Empower your dream at India's first venture school.
+                    Empower your dream at India&apos;s first venture school.
                   </p>
                   <button
                     className="overlay-knowmore"
+                    type="button"
                     onClick={() => navigate("/aboutus")}
                   >
                     Know More{" "}
@@ -131,6 +132,7 @@ export default function LandingPage() {
                   </p>
                   <button
                     className="overlay-knowmore"
+                    type="button"
                     onClick={() => navigate("/aboutus")}
                   >
                     Know More{" "}
@@ -146,13 +148,14 @@ export default function LandingPage() {
           ))}
         </div>
 
+        {/* indicators */}
         <div className="hero-indicators-wrap">
           <div
             className="hero-indicators"
             role="tablist"
             aria-label="Slide navigation"
           >
-            {images.map((_, i) => (
+            {slides.map((_, i) => (
               <button
                 key={i}
                 type="button"

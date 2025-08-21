@@ -1,84 +1,22 @@
+/* ============ Reset & Base ============ */
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
-
 html,
 body,
 #root {
-  overflow-x: hidden;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
-.sticky-header {
-  position: sticky;
-  top: 0; /* Increased space above header by 5px */
-  width: 100%;
-  background: transparent;
-  z-index: 1000;
-  background-color: #001430;
-}
-
-.header-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2px 20px;
-}
-
-.header-logo {
-  height: 100px;
-}
-
-.header-nav ul {
-  display: flex;
-  gap: 32px;
-  list-style: none;
-  align-items: center;
-}
-
-.header-nav a {
-  text-decoration: none;
-  color: #fff;
-  font-family: "Inter Tight", sans-serif;
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 24.38px;
-  letter-spacing: -0.16px;
-}
-
-.join-button {
-  display: inline-flex;
-  align-items: center;
-  border: none;
-  border-radius: 50px;
-  background: #0499fc;
-  color: #fff;
-  font-family: "Inter Tight", sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 24.38px;
-  letter-spacing: -0.16px;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-.join-button-icon {
-  margin-left: 8px;
-  width: 16px;
-  height: auto;
-}
 :root {
-  --header-h: 72px;
-} /* adjust to your actual header height */
+  --header-h: 72px; /* desktop header height */
+}
 
-/* Pin the header to the top */
+/* ============ Sticky Header ============ */
 .sticky-header {
-  position: fixed; /* <-- use fixed instead of sticky */
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -88,26 +26,246 @@ body,
   backdrop-filter: saturate(180%) blur(10px);
   border-bottom: 1px solid rgba(4, 153, 252, 0.12);
 }
-
-.header-container {
-  height: var(--header-h);
-  display: flex;
-  align-items: center;
-  padding: 0 24px;
+.sticky-header.is-scrolled {
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
 }
 
-/* Spacer to preserve layout under a fixed header */
+.header-container {
+  max-width: 1200px;
+  height: var(--header-h);
+  margin: 0 auto;
+  padding: 0 24px;
+
+  /* 👇 ensures items are perfectly centered vertically */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.header-logo-link {
+  display: inline-flex;
+  align-items: center;
+}
+.header-logo {
+  height: 100px;
+}
+
+/* Desktop Nav */
+.header-nav ul {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.header-nav a {
+  text-decoration: none;
+  color: #fff;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 24px;
+  letter-spacing: -0.16px;
+}
+.header-nav a.active {
+  color: #59b6ff;
+}
+
+/* CTA */
+.join-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: 50px;
+  background: #0499fc;
+  color: #fff;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: -0.16px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.join-button-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Spacer to preserve layout under fixed header */
 .header-offset {
   height: var(--header-h);
   width: 100%;
 }
 
-/* (Optional) stronger look after you scroll a bit */
-.sticky-header.is-scrolled {
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
+/* ============ Mobile / Tablet Only ============ */
+.hamburger {
+  display: none;
+} /* hidden on desktop */
+
+/* Backdrop for drawer */
+.mobile-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 999;
+}
+.mobile-backdrop.open {
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 1;
+  pointer-events: auto;
 }
 
-/* Anchor offset if you use in-page anchors */
-html {
-  scroll-padding-top: var(--header-h);
+/* Drawer panel */
+.mobile-drawer {
+  position: fixed;
+  top: var(--header-h);
+  right: 0;
+  height: calc(100vh - var(--header-h));
+  width: min(86vw, 360px);
+  background: #001430;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 1001;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.mobile-drawer.open {
+  transform: translateX(0%);
+}
+.mobile-drawer ul {
+  list-style: none;
+  padding: 16px 16px 24px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.mobile-drawer a {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 14px 12px;
+  border-radius: 8px;
+}
+.mobile-drawer a:hover,
+.mobile-drawer a.active {
+  background: rgba(255, 255, 255, 0.08);
+}
+.mobile-join .join-button {
+  width: 100%;
+  justify-content: center;
+  font-size: 15px;
+  padding: 12px 16px;
+  margin-top: 8px;
+}
+
+/* ---------- Breakpoints ---------- */
+@media (max-width: 1280px) {
+  .header-container {
+    padding: 0 16px;
+  }
+}
+
+/* <= 1024px: show hamburger, hide desktop nav */
+@media (max-width: 1024px) {
+  .header-nav {
+    display: none;
+  }
+
+  /* HAMBURGER BUTTON — perfectly centered, no top blank space */
+  .hamburger {
+    display: inline-block;
+    position: relative; /* bars are absolutely centered inside */
+    width: 36px;
+    height: 36px;
+    margin-left: 12px;
+    border-radius: 8px;
+    background: transparent;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+
+    /* remove any default button spacing */
+    padding: 0;
+    line-height: 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    appearance: none;
+  }
+
+  /* Three bars — absolute center; no flex, no gaps */
+  .hamburger-bar {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 22px;
+    height: 2px;
+    background: #fff;
+    border-radius: 1px;
+    transform-origin: center center;
+    transition: transform 200ms ease, opacity 150ms ease,
+      background-color 200ms ease;
+  }
+
+  /* Closed positions (stacked via translateY only) */
+  .hamburger-bar:nth-child(1) {
+    transform: translate(-50%, -7px);
+  }
+  .hamburger-bar:nth-child(2) {
+    transform: translate(-50%, 0);
+  }
+  .hamburger-bar:nth-child(3) {
+    transform: translate(-50%, 7px);
+  }
+
+  /* Open → perfect “X” */
+  .hamburger.open .hamburger-bar:nth-child(1) {
+    transform: translate(-50%, 0) rotate(45deg);
+  }
+  .hamburger.open .hamburger-bar:nth-child(2) {
+    opacity: 0;
+    transform: translate(-50%, 0) scaleX(0.8);
+  }
+  .hamburger.open .hamburger-bar:nth-child(3) {
+    transform: translate(-50%, 0) rotate(-45deg);
+  }
+
+  /* Smaller header on tablet/phone */
+  :root {
+    --header-h: 68px;
+  }
+  .header-logo {
+    height: 84px;
+  }
+}
+
+/* <= 640px: slightly smaller header/logo */
+@media (max-width: 640px) {
+  :root {
+    --header-h: 64px;
+  }
+  .header-logo {
+    height: 72px;
+  }
+  .mobile-drawer a {
+    font-size: 15px;
+    padding: 12px 10px;
+  }
+}
+
+/* Extra guard: never show hamburger on desktop if something overrides */
+@media (min-width: 1025px) {
+  .hamburger {
+    display: none !important;
+  }
 }
