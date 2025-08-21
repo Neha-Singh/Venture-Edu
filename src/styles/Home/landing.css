@@ -1,39 +1,49 @@
+/* ===== Base Hero ===== */
 .landing-page {
   position: relative;
   width: 100%;
-  min-height: 85vh;
+  min-height: 100vh;
   background-color: #001430;
   display: flex;
-  align-items: flex-start; /* moved content up closer to header */
   justify-content: center;
   margin: 0;
-  padding-top: 0px; /* adjust this value to match header height */
+  padding-top: 0;
 }
 
 .landing-container {
-  width: 100%;
-  max-width: 1100px; /* match header width */
+  width: calc(100vw - 100px); /* 50px gutters left + right */
+  max-width: calc(100vw - 100px);
   margin: 0 auto;
   overflow: hidden;
   position: relative;
+  height: 100vh;
 }
 
 .slider {
   display: flex;
   transition: transform 0.5s ease-in-out;
+  height: 100%;
+  gap: 0;
 }
 
 .slide-wrapper {
-  min-width: 100%; /* match container width */
+  min-width: 100%;
+  flex: 0 0 100%;
   position: relative;
+  height: 100%;
+  overflow: hidden;
 }
 
 .slide {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
 }
 
+/* ===== Overlay ===== */
 .overlay-text {
   position: absolute;
   top: 65%;
@@ -43,176 +53,79 @@
   font-family: "Inter Tight", sans-serif;
   font-size: 40px;
   font-weight: 600;
-  line-height: 37px;
+  line-height: 1.05;
   letter-spacing: -1px;
   pointer-events: none;
   white-space: pre-line;
 }
 
-.overlay-subtitle {
-  margin: 30px 0;
-  line-height: 1px;
+.overlay-subtitle,
+.overlay-subtitle-first,
+.overlay-subtitl-first {
+  margin: 20px 0 0;
   color: #fff;
-  font-family: "Inter Tight", sans-serif;
   font-size: 22px;
   font-weight: 300;
+  line-height: 1.3;
 }
-.overlay-subtitle-first {
-  margin: 20px 0;
-  line-height: 1px;
-  color: #fff;
+
+.overlay-button,
+.overlay-knowmore {
+  display: block;
+  width: max-content;
+  border-radius: 50px;
   font-family: "Inter Tight", sans-serif;
-  font-size: 22px;
-  font-weight: 300;
-}
-
-/* Responsive Breakpoints */
-@media (max-width: 1024px) {
-  .landing-container {
-    max-width: 90%; /* allow container to shrink */
-  }
-  .overlay-text {
-    left: 60px;
-    font-size: 72px;
-    line-height: 71px;
-  }
-  .overlay-subtitle {
-    font-size: 28px;
-    line-height: 36px;
-    margin-top: 16px;
-  }
-}
-
-@media (max-width: 768px) {
-  .landing-container {
-    max-width: 100%;
-    padding: 0 30px;
-  }
-  .overlay-text {
-    left: 40px;
-    font-size: 56px;
-    line-height: 55px;
-  }
-  .overlay-subtitle {
-    font-size: 24px;
-    line-height: 32px;
-    margin-top: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .overlay-text {
-    left: 20px;
-    font-size: 48px;
-    line-height: 47px;
-  }
-  .overlay-subtitle {
-    font-size: 20px;
-    line-height: 28px;
-    margin-top: 10px;
-  }
+  font-weight: 500;
+  font-size: 16px;
+  padding: 10px 24px;
+  cursor: pointer;
+  pointer-events: auto;
 }
 
 .overlay-button {
-  display: inline-block;
   margin-top: 20px;
   background: transparent;
-  border-radius: 50px;
   border: 1px solid #4281d7;
   color: #0499fc;
-  font-family: "Inter Tight", sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: normal;
-  padding: 10px 24px;
-  cursor: pointer;
-  display: inline-block;
-  margin: 20px 0 0 0;
 }
 
 .overlay-knowmore {
-  display: flex;
-  align-items: center;
-  clear: both;
-  margin-top: 24px;
+  margin-top: 16px;
   background: #0499fc;
-  border-radius: 50px;
   border: none;
   color: #fff;
-  font-family: "Inter Tight", sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: normal;
-  padding: 10px 24px;
-  cursor: pointer;
+
+  /* 👇 ensures text + icon are vertically aligned */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   gap: 8px;
 }
 
 .knowmore-icon {
   width: 16px;
-  height: auto;
-  vertical-align: middle;
+  height: 16px; /* fix arrow height so it aligns perfectly */
 }
 
-@media (max-width: 768px) {
-  .overlay-knowmore {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 14px;
-    padding: 8px 20px;
-    margin-top: 12px;
-  }
-  .knowmore-icon {
-    /* margin-left: 6px; */
-    width: 14px;
-  }
-}
-
-@media (max-width: 480px) {
-  .overlay-knowmore {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 12px;
-    padding: 6px 16px;
-    margin-top: 10px;
-  }
-  .knowmore-icon {
-    /* margin-left: 4px; */
-    width: 12px;
-  }
-}
-:root {
-  /* distance from bottom of the viewport where the pills should sit */
-  --hero-indicator-offset: 96px;
-}
-
-/* Keep overlay buttons clickable */
-.overlay-text .overlay-knowmore,
-.overlay-text .overlay-button {
-  pointer-events: auto;
-  cursor: pointer;
-}
-
-/* Sticky wrapper that never leaves the hero section */
+/* ===== Indicators ===== */
 .hero-indicators-wrap {
-  position: sticky; /* <— key line */
-  top: calc(100vh - var(--hero-indicator-offset));
-  z-index: 6;
-  pointer-events: none; /* so it doesn't block hero scroll */
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: clamp(16px, 6vh, 100px);
+  z-index: 10;
+  pointer-events: none;
 }
 
-/* The actual pills row */
 .hero-indicators {
   display: flex;
   gap: 14px;
-  justify-content: center;
+  justify-content: flex-end;
+  padding: 0 clamp(24px, 6vw, 120px) 0 16px;
   width: 100%;
-  pointer-events: auto; /* re-enable clicks for the pills */
+  pointer-events: auto;
 }
 
-/* Pill style (unchanged) */
 .hero-dot {
   width: 64px;
   height: 8px;
@@ -220,9 +133,7 @@
   border: 1px solid rgba(255, 255, 255, 0.35);
   background: rgba(255, 255, 255, 0.18);
   cursor: pointer;
-  outline: none;
-  transition: background 0.25s ease, transform 0.12s ease,
-    border-color 0.25s ease;
+  transition: background 0.25s ease, transform 0.12s ease;
 }
 .hero-dot:hover {
   transform: translateY(-1px);
@@ -232,71 +143,78 @@
   border-color: #59b6ff;
 }
 
-/* Responsive tweak */
-@media (max-width: 768px) {
-  .hero-dot {
-    width: 48px;
-    height: 7px;
+/* ===== Tablet (≤ 1024px) ===== */
+@media (max-width: 1024px) {
+  .overlay-text {
+    left: 40px;
+    top: 62%;
+    font-size: 34px;
   }
-  :root {
-    --hero-indicator-offset: 72px;
+  .overlay-subtitle,
+  .overlay-subtitle-first,
+  .overlay-subtitl-first {
+    font-size: 18px;
   }
-}
-/* === Reposition the pills: more to the right and a bit higher === */
-
-/* push them higher (increase distance from the bottom) */
-:root {
-  /* was 96px; increase to move upward */
-  --hero-indicator-offset: 140px;
-}
-
-/* align the pills to the right edge with some breathing room */
-.hero-indicators {
-  justify-content: flex-end; /* move row to the right */
-  padding-right: clamp(24px, 6vw, 120px); /* right spacing from edge */
-  width: 100%;
-}
-
-/* keep them centered on small screens if you prefer */
-@media (max-width: 768px) {
-  :root {
-    --hero-indicator-offset: 96px; /* a bit lower on mobile */
+  .overlay-button,
+  .overlay-knowmore {
+    font-size: 14px;
+    padding: 8px 20px;
   }
+
   .hero-indicators {
     justify-content: center;
     padding-right: 0;
   }
-}
-/* --- Lift the pill indicators ~150px upwards, keep right aligned --- */
-.hero-indicators-wrap {
-  /* keep the sticky behavior so pills disappear on next section */
-  top: calc(100vh - var(--hero-indicator-offset, 96px));
-  transform: translateY(-85px); /* <— moves them ~150px higher */
-}
-
-/* If you already aligned them to the right earlier, keep it; otherwise: */
-.hero-indicators {
-  justify-content: flex-end;
-  padding-right: clamp(24px, 6vw, 120px);
-}
-
-/* Optional: slightly smaller lift on small screens */
-@media (max-width: 768px) {
+  .hero-dot {
+    width: 56px;
+    height: 8px;
+  }
   .hero-indicators-wrap {
-    transform: translateY(-100px);
+    bottom: clamp(72px, 22vh, 180px);
   }
 }
-/* Keep exactly 50px gap from the page edges */
-.landing-container {
-  width: calc(100vw - 100px); /* page width minus 50px left + 50px right */
-  max-width: calc(100vw - 100px);
-  margin-left: 50px;
-  margin-right: 50px;
+
+/* ===== Phone (≤ 480px) ===== */
+@media (max-width: 480px) {
+  .landing-container {
+    width: 100vw; /* full bleed on phones */
+    max-width: 100vw;
+  }
+
+  .overlay-text {
+    left: 16px;
+    top: 58%;
+    font-size: 24px;
+  }
+  .overlay-subtitle,
+  .overlay-subtitle-first,
+  .overlay-subtitl-first {
+    font-size: 14px;
+    margin-top: 8px;
+  }
+  .overlay-button,
+  .overlay-knowmore {
+    font-size: 12px;
+    padding: 6px 16px;
+  }
+  .knowmore-icon {
+    width: 12px;
+    height: 12px;
+  }
+
+  .hero-dot {
+    width: 44px;
+    height: 7px;
+  }
+
+  /* dots lowered ~50px compared to earlier */
+  .hero-indicators-wrap {
+    bottom: clamp(46px, 20vh, 190px);
+  }
 }
 
-/* Ensure slides fill the new container width cleanly */
-.slider,
-.slide-wrapper,
-.slide {
-  width: 100%;
+@media (max-width: 480px) and (min-height: 760px) {
+  .overlay-text {
+    top: 54%;
+  }
 }

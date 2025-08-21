@@ -1,5 +1,7 @@
 // AboutUs.jsx
 import React from "react";
+import { useNavigate } from "react-router-dom";
+
 import rightArrow from "../../assets/header-images/rightarrow.svg";
 import img1 from "../../assets/home-images/aboutus/image1.svg";
 import img2 from "../../assets/home-images/aboutus/image2.svg";
@@ -12,6 +14,8 @@ import "../../styles/Home/aboutus.css";
 // ...other imports and component code unchanged...
 
 export default function AboutUs() {
+  const navigate = useNavigate();
+
   return (
     <section className="aboutus-section">
       <div className="aboutus-inner">

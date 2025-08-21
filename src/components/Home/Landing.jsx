@@ -1,43 +1,76 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import imageOne from "../../assets/home-images/landing/imageone.png";
 import imageTwo from "../../assets/home-images/landing/imagetwo.png";
 import imageThree from "../../assets/home-images/landing/imagethree.png";
-import rightArrow from "../../assets/header-images/rightarrow.svg";
 
+/* 👉 Optional: add a tighter crop for mobile (left blank space removed) */
+import imageOneMobile from "../../assets/home-images/landing/imageone-mobile.png";
+
+import rightArrow from "../../assets/header-images/rightarrow.svg";
 import "../../styles/Home/landing.css";
 
 export default function LandingPage() {
   const navigate = useNavigate();
 
-  // your original slider list
-  const images = [imageOne, imageTwo, imageThree];
+  const images = [
+    { src: imageOne, alt: "Founders on campus", mobileSrc: imageOneMobile }, // slide 1
+    { src: imageTwo, alt: "Team building a product" },
+    { src: imageThree, alt: "Pitch night" },
+  ];
+
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // keep your original auto-advance timing
   useEffect(() => {
-    const id = setInterval(() => {
-      setCurrentIndex((p) => (p + 1) % images.length);
-    }, 3000);
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (prefersReduced) return;
+    const id = setInterval(
+      () => setCurrentIndex((p) => (p + 1) % images.length),
+      3000
+    );
     return () => clearInterval(id);
   }, [images.length]);
 
+  // --- if you already added swipe earlier, keep that code; otherwise, simple translate: ---
   const translateX = `-${currentIndex * 100}%`;
 
   return (
     <div className="landing-page">
       <div className="landing-container">
-        {/* original track */}
         <div
           className="slider"
           style={{ transform: `translateX(${translateX})` }}
         >
-          {images.map((src, idx) => (
+          {images.map((itm, idx) => (
             <div className="slide-wrapper" key={idx}>
-              <img src={src} alt={`Slide ${idx + 1}`} className="slide" />
+              {/* Art-direction for the FIRST slide only (uses mobileSrc on phones if present) */}
+              {idx === 0 && itm.mobileSrc ? (
+                <picture>
+                  <source media="(max-width: 480px)" srcSet={itm.mobileSrc} />
+                  <img
+                    src={itm.src}
+                    alt={itm.alt}
+                    className="slide"
+                    loading={idx === 0 ? "eager" : "lazy"}
+                    decoding="async"
+                    fetchPriority={idx === currentIndex ? "high" : "low"}
+                  />
+                </picture>
+              ) : (
+                <img
+                  src={itm.src}
+                  alt={itm.alt}
+                  className="slide"
+                  loading={idx === 0 ? "eager" : "lazy"}
+                  decoding="async"
+                  fetchPriority={idx === currentIndex ? "high" : "low"}
+                />
+              )}
 
-              {/* ---- keep your existing overlay structure/content ---- */}
+              {/* overlays (unchanged)… */}
               {idx === 0 && (
                 <div className="overlay-text">
                   <p>India's Most Ambitious</p>
@@ -72,13 +105,11 @@ export default function LandingPage() {
                   <p className="overlay-subtitle">
                     Empower your dream at India's first venture school.
                   </p>
-
                   <button
                     className="overlay-knowmore"
-                    type="button"
                     onClick={() => navigate("/aboutus")}
                   >
-                    Know More
+                    Know More{" "}
                     <img
                       src={rightArrow}
                       alt="arrow"
@@ -98,13 +129,11 @@ export default function LandingPage() {
                   <p className="overlay-subtitle">
                     ideas into real, investor-ready ventures.
                   </p>
-
                   <button
                     className="overlay-knowmore"
-                    type="button"
                     onClick={() => navigate("/aboutus")}
                   >
-                    Know More
+                    Know More{" "}
                     <img
                       src={rightArrow}
                       alt="arrow"
@@ -117,7 +146,6 @@ export default function LandingPage() {
           ))}
         </div>
 
-        {/* ---- new: indicators (stick without changing layout) ---- */}
         <div className="hero-indicators-wrap">
           <div
             className="hero-indicators"
