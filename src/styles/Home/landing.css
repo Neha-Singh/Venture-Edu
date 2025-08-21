@@ -43,7 +43,7 @@
   object-position: center bottom;
 }
 
-/* ===== Overlay ===== */
+/* ===== Overlay (tightened line-height + spacing) ===== */
 .overlay-text {
   position: absolute;
   top: 65%;
@@ -53,10 +53,19 @@
   font-family: "Inter Tight", sans-serif;
   font-size: 40px;
   font-weight: 600;
-  line-height: 1.05;
+  line-height: 1;
   letter-spacing: -1px;
   pointer-events: none;
   white-space: pre-line;
+}
+
+.overlay-text p {
+  margin: 2px 0;
+}
+
+/* 👇 New rule: add breathing room after the first line */
+.overlay-text p:first-child {
+  margin-bottom: 10px;
 }
 
 .overlay-subtitle,
@@ -66,7 +75,7 @@
   color: #fff;
   font-size: 22px;
   font-weight: 300;
-  line-height: 1.3;
+  line-height: 1.2;
 }
 
 .overlay-button,
@@ -95,7 +104,6 @@
   border: none;
   color: #fff;
 
-  /* 👇 ensures text + icon are vertically aligned */
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -104,7 +112,7 @@
 
 .knowmore-icon {
   width: 16px;
-  height: 16px; /* fix arrow height so it aligns perfectly */
+  height: 16px;
 }
 
 /* ===== Indicators ===== */
@@ -149,12 +157,22 @@
     left: 40px;
     top: 62%;
     font-size: 34px;
+    line-height: 1;
   }
+  .overlay-text p {
+    margin: 2px 0;
+  }
+  .overlay-text p:first-child {
+    margin-bottom: 8px;
+  }
+
   .overlay-subtitle,
   .overlay-subtitle-first,
   .overlay-subtitl-first {
     font-size: 18px;
+    line-height: 1.18;
   }
+
   .overlay-button,
   .overlay-knowmore {
     font-size: 14px;
@@ -177,7 +195,7 @@
 /* ===== Phone (≤ 480px) ===== */
 @media (max-width: 480px) {
   .landing-container {
-    width: 100vw; /* full bleed on phones */
+    width: 100vw;
     max-width: 100vw;
   }
 
@@ -185,13 +203,23 @@
     left: 16px;
     top: 58%;
     font-size: 24px;
+    line-height: 1;
   }
+  .overlay-text p {
+    margin: 1px 0;
+  }
+  .overlay-text p:first-child {
+    margin-bottom: 6px;
+  }
+
   .overlay-subtitle,
   .overlay-subtitle-first,
   .overlay-subtitl-first {
     font-size: 14px;
     margin-top: 8px;
+    line-height: 1.16;
   }
+
   .overlay-button,
   .overlay-knowmore {
     font-size: 12px;
@@ -206,8 +234,6 @@
     width: 44px;
     height: 7px;
   }
-
-  /* dots lowered ~50px compared to earlier */
   .hero-indicators-wrap {
     bottom: clamp(46px, 20vh, 190px);
   }
@@ -217,4 +243,13 @@
   .overlay-text {
     top: 54%;
   }
+}
+/* spacing after line 1 */
+.overlay-text p:first-child {
+  margin-bottom: 10px;
+}
+
+/* 👇 spacing after line 2 */
+.overlay-text p:nth-child(2) {
+  margin-bottom: 10px;
 }

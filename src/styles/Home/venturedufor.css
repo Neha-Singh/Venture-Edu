@@ -157,32 +157,3 @@
   display: block; /* make the second part a new line */
   margin-top: 8px; /* optional spacing between lines */
 }
-
-/* Slider: allow vertical page scroll, but we control horizontal */
-.slider {
-  touch-action: pan-y; /* IMPORTANT for mobile */
-  user-select: none;
-  cursor: grab;
-  transition: transform 0.5s ease-in-out;
-}
-.slider.is-dragging {
-  transition: none; /* follow finger without rubber-banding */
-}
-.slider:active {
-  cursor: grabbing;
-}
-
-/* Each slide is exactly one step wide */
-.slide-wrapper {
-  min-width: 100%;
-  flex: 0 0 100%;
-}
-
-/* Image covers the frame */
-.slide {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
