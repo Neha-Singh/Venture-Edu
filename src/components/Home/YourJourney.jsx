@@ -71,6 +71,8 @@ export default function YourJourney() {
     <div className="your-journey-page">
       {/* Top Features */}
       <section className="journey-features">
+        <h2 className="features-heading">What sets us apart</h2>
+
         {features.map((f, i) => (
           <div key={i} className="feature-card">
             <img src={f.icon} alt={f.title} />

@@ -1,0 +1,63 @@
+/* Top strokes grid (DESKTOP preserved) */
+.yj-features {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap; /* 4-across on desktop */
+  background: #01193a;
+  padding: 0 24px; /* vertical padding stays 0 so dividers touch */
+  margin: 0 auto;
+  width: calc(100% - 2px); /* leave room for 1px borders each side */
+  border: 1px solid rgba(4, 153, 252, 0.2);
+  box-sizing: border-box;
+}
+
+.yj-feature-card {
+  flex: 1;
+  max-width: 23%;
+  text-align: center;
+  color: #fff;
+  padding: 32px 8px;
+  border-right: 1px solid rgba(4, 153, 252, 0.2);
+}
+.yj-feature-card:last-child {
+  border-right: 0;
+}
+
+.yj-feature-icon {
+  width: 48px;
+  height: auto;
+  margin-bottom: 16px;
+}
+
+.yj-feature-title {
+  font-family: "Inter Tight", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: #0499fc;
+}
+.yj-feature-desc {
+  font-family: "Inter Tight", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 0;
+}
+
+/* Tablet: 2x2; Mobile: 1 per row — desktop unchanged */
+@media (max-width: 1024px) {
+  .yj-features {
+    flex-wrap: wrap;
+    padding: 40px 20px;
+    width: calc(100% - 2px);
+  }
+  .yj-feature-card {
+    max-width: 48%;
+    margin-bottom: 24px;
+    border-right: none;
+  }
+}
+@media (max-width: 640px) {
+  .yj-feature-card {
+    max-width: 100%;
+  }
+}

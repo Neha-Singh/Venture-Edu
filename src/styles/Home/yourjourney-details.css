@@ -1,0 +1,201 @@
+/* Keep desktop look, thin rails drawn by parent/wrapper as overlays */
+
+/* Blue hero band */
+.yj-hero {
+  background: #0499fc;
+  padding: 80px 40px;
+  position: relative;
+  width: calc(100% - 2px); /* align with feature grid width */
+  box-sizing: border-box;
+}
+
+.yj-hero-text {
+  max-width: 50%;
+}
+.yj-small {
+  display: block;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 32px;
+  color: #000;
+  margin-bottom: 8px;
+}
+.yj-hero h2 {
+  margin: 0;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #000;
+}
+
+.yj-hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #000;
+  color: #fff;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 16px;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 24px;
+  cursor: pointer;
+
+  position: absolute;
+  top: 120px;
+  right: 2px;
+}
+.yj-hero-btn img {
+  width: 16px;
+  height: 16px;
+}
+
+/* Vectors */
+.yj-vector {
+  position: absolute;
+  pointer-events: none;
+}
+.yj-blue {
+  top: 20px;
+  right: 403px;
+  width: 60px;
+}
+.yj-grey {
+  top: -12px;
+  right: 365px;
+  width: 48px;
+}
+
+/* Lower: accordion + image (desktop two columns preserved) */
+.yj-lower {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr; /* keep your original proportion */
+  gap: 16px;
+  align-items: start;
+  margin: 40px auto 0;
+  width: calc(100% - 2px);
+  box-sizing: border-box;
+}
+
+/* Accordion (kept visually same) */
+.yj-accordion {
+  display: grid;
+  gap: 16px;
+}
+
+.yj-acc-item {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.yj-acc-title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 100px;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  text-align: left;
+}
+
+.yj-acc-index {
+  position: absolute;
+  left: -20px;
+  top: 68%;
+  transform: translateY(-50%);
+  font-family: "Inter Tight", sans-serif;
+  font-size: 82px;
+  font-weight: 550;
+  color: rgba(0, 0, 0, 0.1);
+  letter-spacing: -9.84px;
+}
+
+.yj-phase-label {
+  margin-left: 100px;
+  background: #0499fc;
+  color: #fff;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 14px;
+  padding: 6px 14px;
+  border-radius: 12px;
+}
+
+.yj-acc-title h4 {
+  margin: 0 0 0 16px;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 35px;
+  font-weight: 400;
+  color: #000;
+}
+
+.yj-acc-chevron {
+  margin-left: auto;
+  width: 16px;
+  height: auto;
+  transition: transform 0.2s ease;
+}
+.yj-acc-item.open .yj-acc-chevron {
+  transform: rotate(180deg);
+}
+
+.yj-acc-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  padding: 0 16px;
+}
+.yj-acc-item.open .yj-acc-content {
+  max-height: 300px; /* large enough to reveal text */
+  padding: 16px;
+}
+.yj-acc-content p {
+  margin: 0;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: #333;
+}
+
+/* Image */
+.yj-hero-image {
+  border-radius: 12px;
+  overflow: hidden;
+}
+.yj-hero-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ---------- Responsiveness (no desktop visual changes) ---------- */
+@media (max-width: 1024px) {
+  .yj-hero {
+    padding: 60px 20px;
+  }
+  .yj-hero h2 {
+    font-size: 36px;
+  }
+  .yj-lower {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .yj-hero h2 {
+    font-size: 28px;
+  }
+  .yj-hero-btn {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  /* stack vertically, one after the other as requested */
+  .yj-lower {
+    gap: 14px;
+  }
+}
