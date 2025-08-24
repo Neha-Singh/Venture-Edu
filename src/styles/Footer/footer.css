@@ -1927,3 +1927,94 @@
     white-space: nowrap !important;
   }
 }
+/* =========================================================
+   DESKTOP (≥1025px): 3-column layout with equal gaps
+   [ big title | text + CTA | people cluster ]
+   - vertical top alignment across all three columns
+   - equal column gap
+=========================================================*/
+@media (min-width: 1025px) {
+  /* Make the blue card itself the grid container */
+  .fv-card {
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: 1.1fr 0.9fr 360px !important; /* title | copy | image */
+    column-gap: 64px !important; /* equal spacing */
+    align-items: start !important; /* vertical alignment */
+    padding: 72px 56px !important; /* keep existing rails */
+  }
+
+  /* Put the existing inner grid across the first two columns */
+  .fv-card-grid {
+    grid-column: 1 / span 2 !important;
+    display: grid !important;
+    grid-template-columns: 1fr 560px !important; /* left: title, right: copy lane */
+    column-gap: 64px !important; /* equal spacing inside too */
+    align-items: start !important;
+    position: relative !important;
+    z-index: 4 !important; /* above decor */
+    padding-right: 0 !important; /* no "reserved" lane needed now */
+  }
+
+  /* Title & body sit in normal flow and align to the top */
+  .fv-card-title {
+    margin: 0 !important;
+    line-height: 0.95 !important;
+    position: static !important;
+    transform: none !important;
+  }
+  .fv-card-body {
+    max-width: 560px !important;
+    margin: 0 !important;
+  }
+
+  /* People cluster uses its own grid column so it never overlaps */
+  .fv-card-community {
+    grid-column: 3 !important;
+    position: static !important; /* stop absolute positioning */
+    width: 360px !important;
+    height: auto !important;
+    align-self: start !important;
+    justify-self: end !important;
+    opacity: 1 !important;
+    pointer-events: none;
+    z-index: 3 !important; /* below text, above decor */
+  }
+
+  /* Keep decorative shapes behind everything */
+  .fv-card-left,
+  .fv-card-triangle,
+  .fv-card::before,
+  .fv-card::after {
+    z-index: 1 !important;
+  }
+}
+/* Desktop: shrink the middle copy lane ~50% */
+@media (min-width: 1025px) {
+  /* Inner grid: left title | RIGHT NARROW TEXT LANE */
+  .fv-card-grid {
+    grid-template-columns: 1fr 280px !important; /* was ~560px */
+    column-gap: 64px !important;
+  }
+
+  /* Constrain the copy to the new narrow lane */
+  .fv-card-body,
+  .fv-card-text {
+    max-width: 280px !important;
+    line-height: 15px !important;
+  }
+
+  /* Keep the CTA fitting comfortably within 280px */
+  .fv-card-cta {
+    font-size: 16px !important;
+    padding: 12px 18px !important;
+    max-width: 100% !important;
+    white-space: normal !important; /* allow wrapping if needed */
+  }
+}
+/* Move the community image up by 10px (iPad + Desktop) */
+@media (min-width: 769px) {
+  .fv-card-community {
+    transform: translateY(-14px) !important; /* works for static or absolute */
+  }
+}
