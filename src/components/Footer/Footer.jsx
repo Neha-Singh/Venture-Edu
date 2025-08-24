@@ -18,10 +18,13 @@ import igIcon from "../../assets/footer-images/ig.png";
 import linkedinIcon from "../../assets/footer-images/linkedin.png";
 import bigLogo from "../../assets/footer-images/big-white-logo.png";
 
+/* community cluster graphic for the middle card (right side) */
+import communityImg from "../../assets/footer-images/community.png";
+
 export default function Footer() {
   return (
     <footer className="site-footer">
-      {/* ─── UPPER: Launch Your Venture ───────────────────────── */}
+      {/* ─── UPPER: Launch Your Venture ─────────────────────── */}
       <section className="fv-upper">
         <div className="fv-upper-text">
           <span className="small">Ready to</span>
@@ -37,14 +40,12 @@ export default function Footer() {
             <img src={rightArrow} alt="→" loading="lazy" />
           </button>
         </div>
-        {/* bottom-left small arrow */}
         <img
           src={smallVector}
           alt=""
           className="fv-upper-small-bottom"
           loading="lazy"
         />
-        {/* top-right small arrow */}
         <img
           src={smallVector}
           alt=""
@@ -54,52 +55,44 @@ export default function Footer() {
         <img src={bigVector} alt="" className="fv-upper-big" loading="lazy" />
       </section>
 
-      {/* ─── MIDDLE CARD: Connect, Collaborate, Conquer ───────── */}
+      {/* ─── MIDDLE CARD: Connect / Collaborate / Conquer ───── */}
       <section className="fv-card">
-        {/* slanted left corner */}
         <img src={leftVector} alt="" className="fv-card-left" loading="lazy" />
 
-        {/* heading top-left */}
-        <h2 className="fv-card-title">
-          Connect,
-          <br />
-          <span className="fv-highlight">Collaborate,</span>
-          <br />
-          Conquer.
-        </h2>
+        {/* Grid makes a left title column and a centered text/CTA column */}
+        <div className="fv-card-grid">
+          <h2 className="fv-card-title">
+            Connect,
+            <br />
+            <span className="fv-highlight">Collaborate,</span>
+            <br />
+            Conquer.
+          </h2>
 
-        {/* logo  avatars container */}
-        {/* <div className="fv-card-graphic">
-          <img
-            src={logoVector}
-            alt=""
-            className="fv-card-logo-vector"
-            loading="lazy"
-          />
-          <img src={blazerGuy} alt="" className="avatar a1" loading="lazy" />
-          <img src={curlyGirl} alt="" className="avatar a2" loading="lazy" />
-          <img
-            src={spectaclesGuy}
-            alt=""
-            className="avatar a3"
-            loading="lazy"
-          />
-          <img src={yellowGirl} alt="" className="avatar a4" loading="lazy" />
-        </div> */}
+          <div className="fv-card-body">
+            <p className="fv-card-text">
+              Being part of VenturEdu means more than just education — it means
+              joining a thriving community of ambitious, like-minded innovators
+              and disruptors. Benefit from a slew of knowledge resources,
+              exclusive events, digital collaboration spaces, and a growing
+              network that supports you long after graduation.
+            </p>
 
-        {/* centered body panel */}
-        <div className="fv-card-body">
-          <p className="fv-card-text">
-            Being part of VenturEdu means more than just education—it means
-            joining a thriving community of ambitious, like-minded innovators
-            and disruptors. Benefit from a slew of knowledge resources,
-            exclusive events, digital collaboration spaces, and a growing
-            network that supports you long after graduation.
-          </p>
-          <button className="fv-card-cta">Join the Community</button>
+            {/* White pill button with blue text */}
+            <button className="fv-card-cta" type="button">
+              Join the Community
+            </button>
+          </div>
         </div>
 
-        {/* slanted triangle top-right */}
+        {/* Right-side community graphic (sits behind copy) */}
+        <img
+          src={communityImg}
+          alt=""
+          className="fv-card-community"
+          loading="lazy"
+        />
+
         <img
           src={invertedTriangle}
           alt=""
@@ -108,9 +101,8 @@ export default function Footer() {
         />
       </section>
 
-      {/* ─── LOWER: Contact Form / Links / Address ────────────── */}
+      {/* ─── LOWER: Contact & links ─────────────────────────── */}
       <section className="fv-lower">
-        {/* Contact form */}
         <div className="fv-form">
           <h3>Get in touch</h3>
           <form>
@@ -152,7 +144,6 @@ export default function Footer() {
           </form>
         </div>
 
-        {/* Navigation links */}
         <div className="fv-links">
           <a href="#">Home</a>
           <a href="#">About VenturEdu</a>
@@ -162,7 +153,6 @@ export default function Footer() {
           <a href="#">Success Stories</a>
         </div>
 
-        {/* Address & social */}
         <div className="fv-address">
           <h3>Address</h3>
           <p>WeWork Two Horizon Centre,</p>
@@ -192,7 +182,6 @@ export default function Footer() {
         </div>
       </section>
 
-      {/* ─── BRAND LOGO ───────────────────────────────────────── */}
       <div className="fv-logo">
         <img src={bigLogo} alt="VenturEdu Logo" loading="lazy" />
         <span className="fv-logo-text">VenturEdu</span>

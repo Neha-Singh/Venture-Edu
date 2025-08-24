@@ -767,3 +767,1163 @@
   width: 96px; /* ~20% larger for emphasis */
   transform: translateY(-10%); /* fine-tune centering */
 }
+/* Right-side community graphic inside the blue card (desktop) */
+.fv-card-community {
+  position: absolute;
+  top: 50%;
+  right: 40px; /* hugs the right rail like in Figma */
+  transform: translateY(-50%);
+  width: 520px; /* adjust to 500–560px to fine-tune */
+  height: auto;
+  opacity: 0.28; /* subtle, sits behind content */
+  pointer-events: none;
+  z-index: 1; /* below text (.fv-card-body) and title */
+}
+
+/* If you want it strictly desktop-only, keep it hidden below 1025px */
+@media (max-width: 1024px) {
+  .fv-card-community {
+    display: none;
+  }
+}
+/* ===== FIX: community image looks faded/blurred (desktop) ===== */
+.fv-card {
+  position: relative;
+}
+
+/* Make the image fully opaque and not blended/tinted */
+.fv-card-community {
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+  filter: none !important;
+  image-rendering: auto; /* avoid any crisp-edge artifacts on photos */
+  z-index: 3 !important; /* above decorative shapes/overlays */
+}
+
+/* Keep title/body above the image so copy stays readable */
+.fv-card-title,
+.fv-card-body {
+  position: relative;
+  z-index: 4 !important;
+}
+
+/* Ensure decorative triangle/lines stay behind the image */
+.fv-card-triangle {
+  position: relative;
+  z-index: 2 !important;
+}
+
+/* If the card itself draws a semi-transparent overlay via pseudo-elements,
+   keep those below the image too. (Safe no-ops if they don't exist.) */
+.fv-card::before,
+.fv-card::after {
+  z-index: 1 !important;
+}
+/* ================================================
+   DESKTOP TUNE: smaller right image + clear middle lane
+   (keeps everything else intact)
+===================================================*/
+@media (min-width: 1025px) {
+  /* Make the community graphic smaller and a bit tighter to the edge */
+  .fv-card-community {
+    width: 380px !important; /* was larger; shrink to relieve the center */
+    right: 32px !important; /* nudge in from the edge */
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    opacity: 1 !important;
+    z-index: 3 !important; /* under text but above decor */
+  }
+
+  /* Keep the body text neatly centered with a sane max width */
+  .fv-card-body {
+    position: relative;
+    z-index: 4; /* above the image */
+    max-width: 560px !important; /* middle column width */
+    margin: 0 auto !important; /* center it in the card */
+  }
+}
+/* ===== Middle card desktop layout: title left, text/CTA centered, image right ===== */
+.fv-card {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 2-column grid: left huge title, middle text lane */
+@media (min-width: 1025px) {
+  .fv-card {
+    padding: 72px 56px; /* blue card internal padding */
+  }
+
+  .fv-card-grid {
+    display: grid;
+    grid-template-columns: 48% 560px; /* left title ~half, fixed middle lane */
+    gap: 56px;
+    align-items: center;
+    position: relative;
+    z-index: 4; /* above background shapes */
+  }
+
+  .fv-card-title {
+    margin: 0;
+    line-height: 0.95;
+  }
+
+  .fv-card-body {
+    max-width: 560px;
+    margin: 0; /* no auto-centering needed—grid handles it */
+  }
+
+  .fv-card-text {
+    font-size: 18px;
+    line-height: 28px;
+    color: #0c1222; /* dark readable on blue */
+    margin: 0 0 28px 0;
+  }
+
+  /* White pill with blue label */
+  .fv-card-cta {
+    appearance: none;
+    border: none;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #1167f1; /* VenturEdu blue text */
+    font-family: "Inter Tight", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 16px 28px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Right-side people cluster image — smaller so text stays centered */
+  .fv-card-community {
+    position: absolute;
+    top: 50%;
+    right: 40px; /* keeps it inside the card edge */
+    transform: translateY(-50%);
+    width: 360px; /* reduced from previous size */
+    height: auto;
+    opacity: 1;
+    mix-blend-mode: normal;
+    z-index: 3; /* below .fv-card-grid content */
+    pointer-events: none;
+  }
+
+  /* Keep decorative triangle/lines behind everything */
+  .fv-card-triangle {
+    z-index: 2;
+  }
+}
+
+/* Optional hover for CTA */
+@media (hover: hover) and (min-width: 1025px) {
+  .fv-card-cta:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    transform: translateY(-1px);
+  }
+}
+/* ================================
+   DESKTOP FIX: clear middle text lane
+   and shrink/tuck the right image
+===================================*/
+@media (min-width: 1025px) {
+  /* 1) Reserve space on the right equal to the image width + offset
+        so text never overlaps the cluster */
+  .fv-card-grid {
+    padding-right: 380px !important; /* image(340) + right gap(40) */
+    align-items: center !important;
+    gap: 56px !important;
+  }
+
+  /* 2) Make the people cluster a bit smaller and hug the edge */
+  .fv-card-community {
+    width: 340px !important; /* down from 360–380 */
+    right: 40px !important; /* keeps it inside the card */
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 3 !important; /* beneath text */
+    pointer-events: none;
+  }
+
+  /* 3) Keep the copy neatly in the middle lane */
+  .fv-card-body {
+    max-width: 560px !important;
+    margin: 0 !important;
+    text-align: left;
+  }
+  .fv-card-text {
+    font-size: 18px !important;
+    line-height: 28px !important;
+    margin: 0 0 28px 0 !important;
+  }
+
+  /* 4) CTA spacing (white pill) */
+  .fv-card-cta {
+    margin-top: 6px !important;
+  }
+}
+/* ================================================
+   DESKTOP REFINEMENT: tighter text lane, lighter H1,
+   align all three elements to the same top baseline
+===================================================*/
+@media (min-width: 1025px) {
+  /* Make columns top-align and reserve a slightly smaller right lane */
+  .fv-card-grid {
+    align-items: flex-start !important;
+    padding-right: 360px !important; /* matches image width(320) + 40px gap */
+    gap: 48px !important;
+  }
+
+  /* Narrow the middle text column + smaller type/leading */
+  .fv-card-body {
+    max-width: 480px !important; /* was 560px */
+    margin: 0 !important;
+  }
+  .fv-card-text {
+    font-size: 16px !important; /* was 18px */
+    line-height: 26px !important; /* was 28px */
+    margin: 0 0 22px 0 !important;
+  }
+
+  /* Lighter, slightly higher H1 so tops align */
+  .fv-card-title {
+    font-weight: 700 !important; /* lighter than ultra-bold */
+    line-height: 0.95 !important;
+    margin-top: -8px !important; /* lift a bit to match the top baseline */
+  }
+  /* If "Collaborate" span was heavier, normalize it too */
+  .fv-card-title .fv-highlight {
+    font-weight: 700 !important;
+  }
+
+  /* People cluster: tuck to the edge and align to the same top line */
+  .fv-card-community {
+    width: 320px !important; /* a bit smaller to free space */
+    right: 40px !important;
+    top: 72px !important; /* same as card's top padding */
+    transform: none !important; /* use absolute top instead of translateY */
+    z-index: 3 !important;
+  }
+
+  /* Slightly smaller CTA to suit the tighter text column */
+  .fv-card-cta {
+    font-size: 16px !important;
+    padding: 14px 24px !important;
+    margin-top: 6px !important;
+  }
+}
+/* =========================================================
+   RESPONSIVE FOOTER (append-only)
+   Desktop remains unchanged. Tablet ≤1024px, Mobile ≤768px.
+=========================================================*/
+
+/* ---------- Tablet (≤1024px): stack sections vertically ---------- */
+@media (max-width: 1024px) {
+  /* UPPER block */
+  .fv-upper {
+    padding: 56px 32px !important;
+  }
+  .fv-upper-text {
+    max-width: 100% !important;
+  }
+
+  /* MIDDLE blue card */
+  .fv-card {
+    padding: 56px 32px !important;
+  }
+  .fv-card-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important; /* stack: title, then text/cta */
+    gap: 24px !important;
+    align-items: start !important;
+    padding-right: 0 !important; /* remove reserved right lane */
+  }
+  .fv-card-title {
+    line-height: 0.95 !important;
+    /* scale the jumbo heading for tablet */
+    font-size: clamp(44px, 8vw, 72px) !important;
+    margin: 0 !important;
+  }
+  .fv-card-body {
+    max-width: 680px !important;
+    margin: 0 !important;
+  }
+  .fv-card-text {
+    font-size: 16px !important;
+    line-height: 26px !important;
+    margin: 0 0 18px 0 !important;
+  }
+  .fv-card-cta {
+    font-size: 16px !important;
+    padding: 14px 24px !important;
+  }
+  /* hide the right people-cluster on smaller screens to avoid collisions */
+  .fv-card-community {
+    display: none !important;
+  }
+
+  /* LOWER block – stack form, links, address */
+  .fv-lower {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+    padding: 48px 32px !important;
+  }
+  .fv-form,
+  .fv-links,
+  .fv-address {
+    max-width: 720px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .fv-social-icons {
+    gap: 12px;
+  }
+}
+
+/* ---------- Mobile (≤768px): tighter paddings & type ---------- */
+@media (max-width: 768px) {
+  /* UPPER */
+  .fv-upper {
+    padding: 40px 20px !important;
+  }
+
+  /* MIDDLE */
+  .fv-card {
+    padding: 40px 20px !important;
+  }
+  .fv-card-title {
+    font-size: clamp(36px, 10vw, 50px) !important;
+    line-height: 1 !important;
+  }
+  .fv-card-body {
+    max-width: 560px !important;
+  }
+  .fv-card-text {
+    font-size: 15px !important;
+    line-height: 24px !important;
+    margin-bottom: 16px !important;
+  }
+  .fv-card-cta {
+    width: 100%;
+    max-width: 320px;
+    padding: 12px 18px !important;
+  }
+
+  /* LOWER */
+  .fv-lower {
+    padding: 36px 20px !important;
+    gap: 28px !important;
+  }
+  .fv-form .row {
+    display: block !important;
+  }
+  .fv-form .form-group {
+    width: 100% !important;
+  }
+  .fv-links a {
+    display: inline-block;
+    margin: 6px 10px 0 0;
+  }
+  .fv-social-icons img {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* ---------- Small phones (≤480px): extra compact ---------- */
+@media (max-width: 480px) {
+  .fv-card {
+    padding: 32px 16px !important;
+  }
+  .fv-card-title {
+    font-size: clamp(30px, 11vw, 42px) !important;
+  }
+  .fv-card-text {
+    font-size: 14px !important;
+    line-height: 22px !important;
+  }
+  .fv-card-cta {
+    font-size: 15px !important;
+    padding: 12px 16px !important;
+    max-width: 180px;
+  }
+
+  .fv-upper {
+    padding: 32px 16px !important;
+  }
+  .fv-lower {
+    padding: 28px 16px !important;
+    gap: 24px !important;
+  }
+  .fv-social-icons img {
+    width: 26px;
+    height: 26px;
+  }
+}
+/* ================================
+   MOBILE TWEAKS (≤768px)
+   - lift CCC heading ~30px
+   - add breathing room below it
+   - lift "Start your Application" button
+==================================*/
+@media (max-width: 768px) {
+  /* Middle blue card heading */
+  .fv-card-title {
+    margin-top: -30px !important; /* move heading up ~30px */
+    margin-bottom: 12px !important; /* keep paragraph from crowding it */
+  }
+  .fv-card-text {
+    margin-top: 6px !important; /* extra safety space above paragraph */
+  }
+
+  /* Upper section CTA */
+  .fv-upper .fv-button {
+    transform: translateY(
+      -12px
+    ) !important; /* move up so it doesn't overlap card */
+    /* if transforms are being ignored by your button styles, fall back: */
+    margin-bottom: 8px !important;
+  }
+}
+/* =========================================================
+   MOBILE FIX: no overlap between .fv-card-title and text
+   - stop using negative margin on the title
+   - lift the whole card content instead (less top padding)
+   - keep a real gap between title and body
+=========================================================*/
+@media (max-width: 768px) {
+  /* Lift the section content ~30px without breaking grid flow */
+  .fv-card {
+    padding-top: 10px !important; /* was ~40px; 40 - 30 ≈ 10 */
+  }
+
+  /* Title: remove the negative margin and give it real spacing below */
+  .fv-card-title {
+    margin-top: 0 !important; /* cancel earlier -30px */
+    margin-bottom: 12px !important; /* ensure space before paragraph */
+  }
+
+  /* Enforce a gap between grid rows (title vs. body) */
+  .fv-card-grid {
+    row-gap: 16px !important; /* keeps blocks from touching */
+    gap: 16px !important;
+  }
+
+  /* Body copy: no extra top margin so it honors the grid gap */
+  .fv-card-body,
+  .fv-card-text {
+    margin-top: 0 !important;
+  }
+}
+/* =========================================================
+   MOBILE (≤768px): Lift heading only; keep paragraph/CTA in place
+   - Title moves up visually (transform doesn't reflow siblings)
+   - Body gets top padding to create real separation
+   - Flow layout (no grid) to avoid overlap edge-cases
+=========================================================*/
+@media (max-width: 768px) {
+  /* Ensure simple block flow in the blue card */
+  .fv-card-grid {
+    display: block !important;
+    padding-right: 0 !important;
+    gap: 0 !important;
+    row-gap: 0 !important;
+  }
+
+  /* Move ONLY the heading up ~30px */
+  .fv-card-title {
+    position: relative !important;
+    transform: translateY(-30px) !important; /* visual lift; no reflow */
+    margin: 0 !important; /* no negative margins needed */
+    z-index: 1;
+  }
+
+  /* Create real space so paragraph/CTA don't "glue" to the title */
+  .fv-card-body {
+    padding-top: 32px !important; /* ≈ heading lift */
+    margin: 0 !important;
+    position: relative;
+    z-index: 0;
+  }
+
+  /* Comfortable mobile typography */
+  .fv-card-text {
+    font-size: 15px !important;
+    line-height: 24px !important;
+    margin: 0 0 14px 0 !important;
+    text-align: left;
+  }
+
+  /* Keep the right cluster hidden on phones to avoid collisions */
+  .fv-card-community {
+    display: none !important;
+  }
+}
+/* =========================================================
+   MOBILE FINAL FIX (≤768px): no overlap in blue card
+   - cancel any previous transforms/margins on the title
+   - restore normal document flow with real spacing
+   - tighten mobile typography a bit
+=========================================================*/
+@media (max-width: 768px) {
+  /* Use simple block flow for the card content */
+  .fv-card-grid {
+    display: block !important;
+    padding-right: 0 !important;
+  }
+
+  /* Title: cancel earlier lift/negative margins and let it occupy space */
+  .fv-card-title {
+    transform: none !important; /* cancels translateY from prior tweak */
+    margin-top: 0 !important; /* cancels any negative margins */
+    margin-bottom: 16px !important; /* real gap before the paragraph */
+    position: static !important;
+    line-height: 1.05 !important;
+  }
+
+  /* Body: remove the spacer we added earlier; sit right under the title */
+  .fv-card-body {
+    padding-top: 0 !important; /* was 32px in previous patch */
+    margin: 0 !important;
+  }
+
+  /* Comfortable paragraph sizing on phones */
+  .fv-card-text {
+    font-size: 15px !important;
+    line-height: 24px !important;
+    margin: 126px 0 14px 0 !important;
+    text-align: left !important;
+  }
+
+  /* Keep the people cluster hidden on phones to avoid collisions */
+  .fv-card-community {
+    display: none !important;
+  }
+}
+/* =========================================================
+   TABLET HARD FIX (iPad Pro etc., 769–1024px)
+   - stack title, paragraph, CTA in normal flow
+   - remove any transforms/positioning that cause overlap
+   - hide the right cluster image on tablet
+=========================================================*/
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Use simple block flow for the card content */
+  .fv-card-grid {
+    display: block !important;
+    padding-right: 0 !important; /* no reserved lane on tablet */
+    gap: 0 !important;
+    row-gap: 0 !important;
+  }
+
+  /* Title: cancel all lifts/absolutes; give real space below */
+  .fv-card-title {
+    position: static !important;
+    transform: none !important;
+    margin: 0 0 18px 0 !important; /* space before paragraph */
+    line-height: 1.05 !important;
+    z-index: auto !important;
+    display: block !important;
+  }
+
+  /* Body: flows right after the title */
+  .fv-card-body {
+    position: static !important;
+    margin: 0 !important;
+    padding-top: 0 !important;
+    display: block !important;
+  }
+
+  /* Comfortable tablet copy sizing */
+  .fv-card-text {
+    font-size: 16px !important;
+    line-height: 26px !important;
+    margin: 0 0 16px 0 !important;
+    text-align: left !important;
+  }
+
+  /* CTA */
+  .fv-card-cta {
+    display: inline-block !important;
+    font-size: 16px !important;
+    padding: 14px 22px !important;
+    margin-top: 4px !important;
+  }
+
+  /* Hide the right cluster on tablet to prevent collisions */
+  .fv-card-community {
+    display: none !important;
+  }
+}
+/* =========================================================
+   TABLET FIX (iPad / 769–1024px): stack cleanly, no overlap
+   - cancel transforms/positioning
+   - smaller title & paragraph
+   - show CTA
+=========================================================*/
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Use a plain vertical flow */
+  .fv-card-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+    padding-right: 0 !important; /* no reserved right lane */
+  }
+
+  /* Blue card padding; allow content to determine height */
+  .fv-card {
+    padding: 44px 28px !important;
+    min-height: auto !important;
+  }
+
+  /* Title: cancel any lifts/neg-margins and scale down */
+  .fv-card-title {
+    position: static !important;
+    transform: none !important;
+    margin: 0 0 14px 0 !important; /* real space below */
+    font-size: clamp(36px, 5.2vw, 48px) !important;
+    line-height: 1.05 !important;
+    font-weight: 700 !important;
+    z-index: auto !important;
+  }
+
+  /* Body text + CTA: flow right after the title */
+  .fv-card-body {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important; /* paragraph ↔ CTA spacing */
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: 640px !important;
+  }
+  .fv-card-text {
+    font-size: 15px !important;
+    line-height: 24px !important;
+    margin: 0 !important;
+    text-align: left !important;
+  }
+  .fv-card-cta {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px !important;
+    padding: 12px 20px !important;
+    margin: 0 !important;
+  }
+
+  /* Hide the right cluster on tablet so copy never collides */
+  .fv-card-community {
+    display: none !important;
+  }
+}
+/* =========================================================
+   TABLET FINAL RESET (iPad / 769–1024px)
+   - stack title → paragraph → CTA with no overlap
+   - cancel transforms/positions from earlier patches
+   - ensure CTA is visible above decorations
+=========================================================*/
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Card container */
+  .fv-card {
+    padding: 44px 28px !important;
+    min-height: auto !important;
+    position: relative !important;
+    overflow: hidden;
+  }
+
+  /* Content stack (no grid quirks) */
+  .fv-card-grid {
+    display: block !important;
+    padding-right: 0 !important; /* no reserved lane */
+    gap: 0 !important;
+    row-gap: 0 !important;
+    position: relative !important;
+    z-index: 4 !important; /* ABOVE shapes */
+  }
+
+  /* Kill any lifts/absolutes that cause overlap */
+  .fv-card-title,
+  .fv-card-body {
+    position: static !important;
+    transform: none !important;
+    float: none !important;
+    clear: both !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    z-index: auto !important;
+    display: block !important;
+  }
+
+  /* Title sizing + real space below */
+  .fv-card-title {
+    font-size: clamp(32px, 5vw, 44px) !important;
+    line-height: 1.06 !important;
+    font-weight: 700 !important;
+    margin-bottom: 18px !important;
+  }
+
+  /* Paragraph */
+  .fv-card-text {
+    font-size: 15px !important;
+    line-height: 24px !important;
+    margin: 0 0 16px 0 !important;
+    text-align: left !important;
+  }
+
+  /* CTA – visible and tappable */
+  .fv-card-cta {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px !important;
+    padding: 12px 20px !important;
+    margin: 0 !important;
+    position: relative !important;
+    z-index: 5 !important; /* make sure it sits above vectors */
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  /* Hide the right people cluster on tablet to avoid collisions */
+  .fv-card-community {
+    display: none !important;
+  }
+
+  /* Keep decorative shapes behind everything */
+  .fv-card-left,
+  .fv-card-triangle,
+  .fv-card::before,
+  .fv-card::after {
+    z-index: 1 !important;
+  }
+}
+/* =========================================================
+   FOOTER — RESPONSIVE FIXES FOR TABLET & MOBILE
+   (Desktop untouched)
+=========================================================*/
+
+/* ---------- shared: prevent the blue card from covering the lower block ---------- */
+@media (max-width: 1024px) {
+  .fv-card {
+    margin-bottom: 24px !important;
+  } /* breathing room above lower block */
+}
+
+/* ---------- Tablet (≤1024px): show + stack form / links / address ---------- */
+@media (max-width: 1024px) {
+  .fv-lower {
+    position: relative !important;
+    z-index: 3 !important; /* above decorative shapes */
+    display: grid !important;
+    grid-template-columns: 1fr !important; /* vertical stack */
+    gap: 32px !important;
+    padding: 48px 32px !important;
+    min-height: auto !important;
+    overflow: visible !important;
+    opacity: 1 !important; /* in case something faded it */
+    visibility: visible !important;
+  }
+
+  .fv-form,
+  .fv-links,
+  .fv-address {
+    width: 100% !important;
+    max-width: 720px !important;
+    margin: 0 auto !important;
+  }
+
+  /* form: single column and full-width inputs */
+  .fv-form .row {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+  .fv-form .form-group {
+    width: 100% !important;
+  }
+  .fv-form input,
+  .fv-form textarea,
+  .fv-form select {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* links wrap nicely */
+  .fv-links {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px 14px !important;
+  }
+  .fv-links a {
+    display: inline-block !important;
+  }
+
+  /* socials line up */
+  .fv-social-icons {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+  }
+
+  /* make sure the logo block doesn't overlay */
+  .fv-logo {
+    position: static !important;
+    margin-top: 24px !important;
+  }
+}
+
+/* ---------- Mobile (≤768px): tighter spacing and sizes ---------- */
+@media (max-width: 768px) {
+  .fv-lower {
+    gap: 24px !important;
+    padding: 32px 16px !important;
+  }
+
+  .fv-form .row {
+    gap: 12px !important;
+  }
+  .fv-social-icons img {
+    width: 26px !important;
+    height: 26px !important;
+  }
+
+  .fv-logo {
+    position: static !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 6px !important;
+    margin: 20px auto 0 !important;
+  }
+  .fv-logo img {
+    max-width: 84px !important;
+    height: auto !important;
+  }
+  .fv-logo-text {
+    font-size: 18px !important;
+  }
+}
+
+/* ---------- Small phones (≤480px): extra compact ---------- */
+@media (max-width: 480px) {
+  .fv-lower {
+    gap: 20px !important;
+    padding: 28px 14px !important;
+  }
+  .fv-links a {
+    margin-right: 10px !important;
+  }
+}
+/* =========================================================
+   LOWER FOOTER — MOBILE & TABLET REPAIR (append-only)
+   - stack form / links / address in normal flow
+   - full-width inputs
+   - keep the big logo after content (not overlaying)
+   - clear any absolute/floats/z-index from desktop
+=========================================================*/
+
+/* Tablet & down */
+@media (max-width: 1024px) {
+  .fv-card {
+    margin-bottom: 24px !important;
+  } /* avoid overlap from card above */
+
+  .fv-lower {
+    position: relative !important;
+    z-index: 2 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px !important;
+    padding: 32px 20px !important;
+    overflow: visible !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  /* Put every block back into normal flow */
+  .fv-form,
+  .fv-links,
+  .fv-address {
+    position: static !important;
+    float: none !important;
+    clear: both !important;
+    width: 100% !important;
+    max-width: 720px !important;
+    margin: 0 auto !important;
+    z-index: 3 !important;
+  }
+
+  /* Form: single column, full width */
+  .fv-form .row {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .fv-form .form-group {
+    width: 100% !important;
+  }
+  .fv-form input,
+  .fv-form textarea,
+  .fv-form select {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Links & socials: wrap nicely in a line */
+  .fv-links {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px 14px !important;
+  }
+  .fv-links a {
+    display: inline-block !important;
+  }
+  .fv-social-icons {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+  }
+}
+
+/* Phone sizes */
+@media (max-width: 768px) {
+  /* Make absolutely sure the logo doesn’t overlay the form */
+  .fv-logo,
+  .fv-logo *,
+  .site-footer .fv-logo {
+    position: static !important;
+    transform: none !important;
+    z-index: 1 !important;
+  }
+  .fv-logo {
+    align-self: center !important;
+    margin-top: 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+  }
+  .fv-logo img {
+    max-width: 84px !important;
+    height: auto !important;
+  }
+  .fv-logo-text {
+    font-size: 18px !important;
+  }
+
+  /* Keep address/socials from drifting over the form */
+  .fv-address,
+  .fv-links,
+  .fv-form {
+    z-index: 3 !important;
+  }
+}
+/* Mobile: center the social media icons row */
+@media (max-width: 768px) {
+  .fv-social-icons {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important; /* center horizontally */
+    align-items: center !important;
+    width: 100% !important;
+    gap: 14px !important;
+    margin: 8px auto 0 !important; /* center the block itself */
+    text-align: center !important;
+  }
+  .fv-social-icons a {
+    display: inline-flex !important;
+  }
+}
+/* =========================================================
+   iPad / Tablet (769–1024px): use DESKTOP layout
+   - middle blue card back to 2-col grid + right cluster
+   - lower footer back to 3-col layout
+=========================================================*/
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* ---- Middle blue card: desktop structure ---- */
+  .fv-card {
+    padding: 72px 56px !important;
+  }
+
+  .fv-card-grid {
+    display: grid !important;
+    grid-template-columns: 48% 560px !important; /* title | text lane */
+    gap: 56px !important;
+    align-items: flex-start !important;
+    padding-right: 360px !important; /* reserve space for image */
+    position: relative !important;
+    z-index: 4 !important;
+  }
+
+  .fv-card-title {
+    margin: 0 !important;
+    line-height: 0.95 !important;
+    font-weight: 700 !important;
+    font-size: clamp(48px, 2vw, 72px) !important;
+    position: static !important;
+    transform: none !important;
+  }
+
+  .fv-card-body {
+    max-width: 560px !important;
+    margin: 0 !important;
+  }
+  .fv-card-text {
+    font-size: 18px !important;
+    line-height: 20px !important;
+    margin: 0 0 28px 0 !important;
+  }
+  .fv-card-cta {
+    display: inline-flex !important;
+    padding: 16px 28px !important;
+    font-size: 18px !important;
+  }
+
+  /* show & tuck the people cluster like desktop */
+  .fv-card-community {
+    display: block !important;
+    position: absolute !important;
+    width: 320px !important;
+    right: 6px !important;
+    top: 51px !important;
+    transform: none !important;
+    opacity: 1 !important;
+    z-index: 3 !important;
+    pointer-events: none;
+  }
+
+  /* ---- Lower footer: desktop-like 3 columns ---- */
+  .fv-lower {
+    display: grid !important;
+    grid-template-columns: 1.2fr 1fr 1fr !important; /* form | links | address */
+    gap: 40px !important;
+    padding: 56px 40px !important;
+    align-items: start !important;
+  }
+  .fv-form,
+  .fv-links,
+  .fv-address {
+    position: static !important;
+    max-width: none !important;
+    width: auto !important;
+    margin: 0 !important;
+  }
+  /* form rows back to two columns */
+  .fv-form .row {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 16px !important;
+  }
+  .fv-form .form-group {
+    width: 100% !important;
+  }
+  .fv-form input,
+  .fv-form textarea,
+  .fv-form select {
+    width: 100% !important;
+  }
+
+  /* socials align like desktop */
+  .fv-social-icons {
+    justify-content: flex-start !important;
+  }
+
+  /* logo block behaves like desktop (not overlaying) */
+  .fv-logo {
+    position: static !important;
+    margin-top: 0 !important;
+  }
+}
+/* Desktop + iPad: vertically align the middle nav column
+   with "Get in touch" and "Address" */
+@media (min-width: 769px) {
+  .fv-lower {
+    align-items: flex-start !important;
+  }
+
+  /* normalize headings spacing on the left/right columns */
+  .fv-form h3,
+  .fv-address h3 {
+    margin-top: 0 !important;
+    margin-bottom: 18px !important; /* keep a consistent gap below titles */
+  }
+
+  /* give the nav column a top offset equal to the missing heading height */
+  .fv-links {
+    align-self: flex-start !important;
+    margin-top: 32px !important; /* tweak to 28–36px if you want it tighter/looser */
+  }
+}
+/* iPad / tablet: horizontally snap middle & right columns to the grid rails */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* middle navigation column → left toward the 3rd stroke */
+  .fv-links {
+    transform: translateX(-28px) !important; /* tweak ± a few px if needed */
+  }
+
+  /* right address column → right toward the 4th stroke */
+  .fv-address {
+    transform: translateX(28px) !important; /* tweak ± a few px if needed */
+  }
+}
+/* iPad / tablet: snap the middle & right columns to the rails
+   (cancel previous transforms and use margins instead) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* keep the 3-col desktop-like grid on iPad */
+  .fv-lower {
+    display: grid !important;
+    grid-template-columns: 1.2fr 1fr 1fr !important;
+    column-gap: 40px !important;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+    align-items: flex-start !important;
+  }
+
+  /* reset any earlier transforms */
+  .fv-links,
+  .fv-address {
+    transform: none !important;
+  }
+
+  /* middle navigation → a touch RIGHT, to meet the 3rd stroke */
+  .fv-links {
+    justify-self: start !important;
+    margin-left: 32px !important; /* tweak ± a few px if needed */
+  }
+
+  /* right address → further RIGHT, to meet the 4th stroke */
+  .fv-address {
+    justify-self: end !important;
+    margin-right: -1px !important; /* pushes toward the outer rail; tweak as needed */
+  }
+}
+/* iPad / tablet: move the middle nav block further right */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .fv-links {
+    transform: none !important; /* ensure no leftover shifts */
+    margin-left: 100px !important; /* was 32px; push more to the right */
+  }
+}
+/* iPad (769–1024px): narrow the middle paragraph lane */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* shrink the text column in the card's inner grid */
+  .fv-card-grid {
+    grid-template-columns: 1fr 460px !important; /* was wider (e.g., 520/560) */
+    column-gap: 28px !important;
+  }
+
+  /* enforce the narrower width on the body content */
+  .fv-card-body {
+    max-width: 460px !important;
+  }
+  .fv-card-text {
+    max-width: 260px !important;
+  }
+
+  /* keep CTA on the same line within the narrower lane */
+  .fv-card-cta {
+    white-space: nowrap !important;
+  }
+}
