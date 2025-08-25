@@ -63,7 +63,6 @@
   margin: 2px 0;
 }
 
-/* 👇 New rule: add breathing room after the first line */
 .overlay-text p:first-child {
   margin-bottom: 10px;
 }
