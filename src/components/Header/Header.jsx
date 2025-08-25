@@ -102,11 +102,7 @@ export default function Header() {
                   Admissions
                 </NavLink>
               </li>
-              <li>
-                <NavLink to="/" onClick={scrollTop}>
-                  Success Stories
-                </NavLink>
-              </li>
+
               <li>
                 <Link
                   to="/admissions"
@@ -178,11 +174,7 @@ export default function Header() {
                 Admissions
               </NavLink>
             </li>
-            <li>
-              <NavLink to="/" onClick={scrollTop}>
-                Success Stories
-              </NavLink>
-            </li>
+
             <li className="mobile-join">
               <Link
                 to="/admissions"
