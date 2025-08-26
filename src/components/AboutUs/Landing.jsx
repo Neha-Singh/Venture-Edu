@@ -15,14 +15,30 @@ const AboutUs = () => (
       ]}
       currentPath={window.location.pathname}
     />
+
     <div className="about-us__top">
       <div className="about-us__heading">
         <h1>About VenturEdu</h1>
         <div className="decorators">
-          <img src={vector1} alt="decor" className="decor decor1" />
-          <img src={vector2} alt="decor" className="decor decor2" />
+          <img
+            src={vector1}
+            alt="decor"
+            className="decor decor1"
+            loading="lazy"
+            decoding="async"
+            fetchpriority="low"
+          />
+          <img
+            src={vector2}
+            alt="decor"
+            className="decor decor2"
+            loading="lazy"
+            decoding="async"
+            fetchpriority="low"
+          />
         </div>
       </div>
+
       <div className="about-us__text">
         <p className="intro">
           VenturEdu is India’s first venture school—a launchpad for dreamers who
@@ -42,9 +58,30 @@ const AboutUs = () => (
     </div>
 
     <div className="about-us__hero">
-      <img src={heroImage} alt="Team" className="hero-image" />
-      <img src={invertedTriangle} alt="triangle" className="triangle" />
-      <img src={vector3} alt="decor" className="decor decor3" />
+      <img
+        src={heroImage}
+        alt="VenturEdu team"
+        className="hero-image"
+        loading="lazy"
+        decoding="async"
+        fetchpriority="low"
+      />
+      <img
+        src={invertedTriangle}
+        alt="triangle"
+        className="triangle"
+        loading="lazy"
+        decoding="async"
+        fetchpriority="low"
+      />
+      <img
+        src={vector3}
+        alt="decor"
+        className="decor decor3"
+        loading="lazy"
+        decoding="async"
+        fetchpriority="low"
+      />
     </div>
   </section>
 );

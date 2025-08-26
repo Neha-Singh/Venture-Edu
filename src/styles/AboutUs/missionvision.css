@@ -104,3 +104,180 @@
     padding-top: 0;
   }
 }
+
+/* ---------------------------------------------
+   Mission/Vision — MOBILE ONLY (≤ 767px)
+   - Reduce side padding to 20px
+   - Hide the two blue vertical strokes
+---------------------------------------------- */
+@media (max-width: 767px) {
+  .missionvision {
+    padding: 40px 20px !important; /* 20px left/right as requested */
+    background-image: none !important; /* remove the left/right blue strokes */
+  }
+
+  /* (already stacking in your file, keep as-is)
+     Just ensuring blocks keep the compact spacing */
+  .missionvision__block {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+/* =========================================================
+   VENTUREDU DIFFERENCE — MOBILE ONLY (≤ 767px)
+   - Stack cards vertically (already happening)
+   - Render each card inside a thin-stroke square box
+   - Keep desktop/tablet styling untouched
+=========================================================*/
+@media (max-width: 767px) {
+  .venture-difference {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .venture-difference__inner {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 14px !important; /* space between boxes */
+  }
+
+  /* Hide the decorative intro vector on phones to keep the stack clean */
+  .venture-difference__cell--intro {
+    display: none !important;
+  }
+
+  /* The square “thin-stroke” box */
+  .venture-difference__cell {
+    border: 1px solid rgba(4, 153, 252, 0.28) !important; /* thin blue stroke */
+    border-radius: 0 !important; /* square corners */
+    padding: 16px 14px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  /* Compact, mobile-friendly typography & icons */
+  .venture-difference__icon {
+    width: 40px !important;
+    height: auto !important;
+    margin-bottom: 10px !important;
+  }
+
+  .venture-difference__card-title {
+    font-size: 18px !important;
+    line-height: 1.25 !important;
+    margin: 0 0 6px 0 !important;
+  }
+
+  .venture-difference__card-text {
+    font-size: 14px !important;
+    line-height: 22px !important;
+    margin: 0 !important;
+  }
+}
+
+/* =========================================================
+   VENTUREDU DIFFERENCE — MOBILE FIX (≤ 767px)
+   - Keep the intro cell (heading + vectors) visible
+   - Stack cards vertically as thin-stroke square boxes
+   - Desktop/tablet remain unchanged
+=========================================================*/
+@media (max-width: 767px) {
+  /* Keep the section padded nicely on phones */
+  .venture-difference {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* 1) Ensure the intro cell (heading + vectors) stays visible */
+  .venture-difference__cell--intro {
+    display: block !important; /* override any previous hide */
+    border: none !important; /* no stroke around the vector area */
+    padding: 0 !important;
+    background: transparent !important;
+  }
+  .venture-difference__vector {
+    display: block !important;
+    max-width: 140px !important; /* tweak if you want it larger/smaller */
+    width: 40vw !important;
+    height: auto !important;
+    margin: 0 auto 12px auto !important; /* center above the grid */
+  }
+
+  /* 2) Single-column stack */
+  .venture-difference__inner {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  /* 3) Thin-stroke square boxes for every card except the intro cell */
+  .venture-difference__cell:not(.venture-difference__cell--intro) {
+    border: 1px solid rgba(4, 153, 252, 0.32) !important; /* thin blue stroke */
+    border-radius: 0 !important; /* square corners */
+    background: transparent !important; /* no filled bg */
+    padding: 16px 14px !important;
+    box-shadow: none !important;
+  }
+
+  /* 4) Compact, readable mobile sizes */
+  .venture-difference__icon {
+    width: 36px !important;
+    height: auto !important;
+    margin-bottom: 10px !important;
+  }
+  .venture-difference__card-title {
+    font-size: 18px !important;
+    line-height: 1.25 !important;
+    margin: 0 0 6px 0 !important;
+  }
+  .venture-difference__card-text {
+    font-size: 14px !important;
+    line-height: 22px !important;
+    margin: 0 !important;
+  }
+}
+/* VentureEdu Difference — bump vector image by +20px on mobile */
+@media (max-width: 767px) {
+  .venture-difference__vector {
+    /* was: max-width: 140px; width: 40vw; */
+    max-width: calc(140px + 20px) !important;
+    width: calc(40vw + 20px) !important;
+    height: auto !important; /* keep aspect ratio */
+  }
+}
+
+/* ---------------------------------------------------------
+   VentureEdu Difference — vector size bump on MOBILE
+   Increase the heading vector by at least ~20px
+---------------------------------------------------------*/
+@media (max-width: 767px) {
+  /* Make sure the intro cell allows the image to grow and stays centered */
+  .venture-difference__cell--intro {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* Robustly target the vector image (depending on how it's built) */
+  .venture-difference__cell--intro img,
+  img.venture-difference__vector,
+  img[src*="venturedudifference/vector"] {
+    /* remove typical constraints */
+    max-width: none !important;
+    height: auto !important;
+
+    /* Option A: explicit width bump (~ +20px) */
+    /* If your vector had a base width (e.g. 140px), this guarantees +20px */
+    width: calc(200px + 20px) !important;
+  }
+
+  /* If you don't know the base width or the parent still constrains width,
+     also scale it up a bit to guarantee a visible increase. */
+  .venture-difference__cell--intro img,
+  img.venture-difference__vector,
+  img[src*="venturedudifference/vector"] {
+    transform: scale(1.15) !important; /* ~15% bigger in both dimensions */
+    transform-origin: center center !important;
+  }
+}

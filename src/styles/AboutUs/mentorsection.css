@@ -48,6 +48,7 @@
 .advisory__subtitle {
   font-size: 1rem;
   line-height: 1.5;
+  font-weight: medium;
   max-width: 600px;
   margin: 0;
 }
@@ -169,4 +170,199 @@
     margin-bottom: 20px;
     height: auto;
   }
+}
+
+@media (min-width: 1025px) {
+  .advisory__grid {
+    grid-template-columns: repeat(2, minmax(420px, 480px)) !important;
+    gap: 0px !important;
+    justify-content: center !important;
+    max-width: 1100px !important;
+    margin: 40px auto 0 !important;
+    grid-auto-rows: auto !important; /* let rows size by content */
+  }
+
+  .advisory__card {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: stretch !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .advisory__card-content {
+    flex: 1; /* take all left space */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important; /* push text down */
+    padding: 24px !important;
+    min-height: 100%; /* fill card height */
+  }
+
+  .advisory__card-img {
+    width: 220px !important; /* smaller to balance narrower cards */
+    object-fit: cover !important;
+    align-self: stretch; /* match card height */
+  }
+
+  /* fix borders on grid edges */
+  .advisory__grid > .advisory__card:nth-child(2n) {
+    border-right: none !important;
+  }
+  .advisory__grid > .advisory__card:nth-last-child(-n + 2) {
+    border-bottom: none !important;
+  }
+}
+/* ============================
+   DESKTOP ONLY – tidy bullets
+============================ */
+@media (min-width: 1025px) {
+  /* make bullets truly left-aligned and readable */
+  .advisory__card-bio,
+  .advisory__card-bio ul,
+  .advisory__card-bio li {
+    text-align: left !important;
+  }
+
+  .advisory__card-bio ul {
+    list-style: disc outside !important;
+    margin: 0 0 12px 0 !important;
+    padding-left: 1.25rem !important; /* indent the bullets */
+  }
+
+  .advisory__card-bio li {
+    margin: 0 0 8px 0 !important;
+  }
+}
+
+/* clickable LinkedIn icon */
+.advisory__card-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.advisory__card-social img,
+.advisory__card-social svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.advisory__card-social:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+  border-radius: 999px;
+}
+/* =========================================================
+   DESKTOP — grid full-width inside the vertical strokes
+   (rails are typically 50px in from each edge)
+   Change 50px below if your page uses 40px, etc.
+=========================================================*/
+@media (min-width: 1025px) {
+  /* ensure the section creates the left/right gutters equal to rail inset */
+  .advisory {
+    padding-left: 50px !important; /* ← rail inset */
+    padding-right: 50px !important; /* ← rail inset */
+  }
+
+  /* grid spans the whole content width between strokes */
+  .advisory__grid {
+    max-width: none !important;
+    width: 100% !important;
+    margin: 40px 0 0 0 !important;
+    justify-content: stretch !important;
+    grid-template-columns: repeat(
+      2,
+      minmax(0, 1fr)
+    ) !important; /* fill available width */
+    gap: 0px !important;
+    grid-auto-rows: auto !important; /* rows grow with content */
+  }
+
+  /* cards stretch to fill their grid cell; image/text keep the same layout */
+  .advisory__card {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: stretch !important;
+  }
+
+  .advisory__card-content {
+    flex: 1 1 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important; /* text stays at bottom inside the card */
+    padding: 24px !important;
+  }
+
+  /* image on the right; scale responsively so the wider grid still looks balanced */
+  .advisory__card-img {
+    width: clamp(200px, 26vw, 320px) !important; /* responsive width */
+    object-fit: cover !important;
+    align-self: stretch !important;
+    margin-left: auto !important;
+  }
+}
+
+/* =========================================
+   DESKTOP: make mentor photo ~30px larger
+   (min/max both bumped; slightly larger scale)
+========================================= */
+@media (min-width: 1025px) {
+  /* previously something like clamp(200px, 26vw, 320px);
+     now +30 on both ends and a touch wider scaling */
+  .advisory__card-img {
+    width: clamp(330px, 28vw, 450px) !important;
+    height: auto !important;
+    object-fit: cover !important;
+    align-self: stretch !important;
+  }
+}
+
+/* =========================================
+   LAPTOPS: shrink LinkedIn icon
+   (keeps larger size for big desktops)
+========================================= */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .advisory__card-social {
+    width: 24px !important;
+    height: 24px !important;
+  }
+  .advisory__card-social img,
+  .advisory__card-social svg {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+/* Desktop: lift the text block ~20px inside each card */
+@media (min-width: 1025px) {
+  .advisory__card-content {
+    transform: translateY(-40px) !important; /* visual lift */
+  }
+
+  /* Optional: keep a little breathing room at the top on short cards */
+  .advisory__card {
+    scroll-margin-top: 20px; /* no layout change, just nicer anchor focus */
+  }
+}
+
+/* Tighter spacing for bullet lists in mentor cards (all screens) */
+.advisory__card-bio ul {
+  margin: 0 !important;
+  padding-left: 1.1rem !important; /* keep a small indent */
+  list-style: disc outside !important;
+}
+
+.advisory__card-bio li {
+  margin: 0 0 4px 0 !important; /* ↓ was larger; tighten vertical gap */
+  line-height: 1.35 !important; /* slightly tighter line height */
+}
+
+/* no extra gap after the last bullet */
+.advisory__card-bio li:last-child {
+  margin-bottom: 0 !important;
 }

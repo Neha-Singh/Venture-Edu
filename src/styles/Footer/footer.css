@@ -713,19 +713,13 @@
   opacity: 0.2;
 
   /* five full-height 1px blue lines */
-  background-image: linear-gradient(to bottom, #0499fc 0, #0499fc 100%),
+  /* background-image: linear-gradient(to bottom, #0499fc 0, #0499fc 100%),
     linear-gradient(to bottom, #0499fc 0, #0499fc 100%),
     linear-gradient(to bottom, #0499fc 0, #0499fc 100%),
     linear-gradient(to bottom, #0499fc 0, #0499fc 100%),
     linear-gradient(to bottom, #0499fc 0, #0499fc 100%);
-  background-repeat: no-repeat;
-  background-size: 1px 100%;
-  background-position:
-    /* 1st stroke 58px from left */ left 50px top 0,
-    /* 2nd stroke at 25% */ left 25% top 0,
-    /* 3rd stroke at 50% */ left 50% top 0,
-    /* 4th stroke at 75% */ left 75% top 0,
-    /* 5th stroke 58px from right */ right 50px top 0;
+  background-repeat: no-repeat; */
+  /* background-size: 1px 100%; */
 }
 
 /* lift the logo image above the strokes */

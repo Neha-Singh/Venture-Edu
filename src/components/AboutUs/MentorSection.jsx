@@ -8,9 +8,11 @@ import decor2 from "../../assets/about-us-images/advisorysection/decorativevecto
 import decor3 from "../../assets/about-us-images/advisorysection/decorativevector3.png";
 import decor4 from "../../assets/about-us-images/advisorysection/decorativevector4.png";
 import overlap from "../../assets/about-us-images/advisorysection/overlappingbackgroundvector.png";
-import liIcon from "../../assets/about-us-images/advisorysection/linkedInvector.png";
-import img1 from "../../assets/about-us-images/advisorysection/mentorimage1.png";
-import img2 from "../../assets/about-us-images/advisorysection/mentorimage2.png";
+import linkedinIcon from "../../assets/about-us-images/advisorysection/linkedInvector.png";
+import img4 from "../../assets/about-us-images/advisorysection/Amit.png";
+import img2 from "../../assets/about-us-images/advisorysection/Sorabh.png";
+import img3 from "../../assets/about-us-images/advisorysection/Vimal.png";
+import img1 from "../../assets/about-us-images/advisorysection/Aditya.png";
 
 const mentors = [
   {
@@ -20,6 +22,7 @@ const mentors = [
       "25 years of experience in automotive, technology, and enterprise sales",
     ],
     img: img1,
+    linkedin: "https://www.linkedin.com/in/XXXXXXX",
   },
   {
     name: "Yugal Yadav",
@@ -28,6 +31,7 @@ const mentors = [
       "15 years of experience in private consulting and risk management",
     ],
     img: img2,
+    linkedin: "https://www.linkedin.com/in/XXXXXXXX",
   },
   {
     name: "Niyant Maru",
@@ -35,7 +39,8 @@ const mentors = [
       "CFO of Vistara TATA SIA Airlines",
       "25 years of experience spanning hospitality, real estate, and aviation",
     ],
-    img: img1,
+    img: img3,
+    linkedin: "https://www.linkedin.com/in/XXXXXXXX",
   },
   {
     name: "Yaduraj Joshi",
@@ -43,39 +48,8 @@ const mentors = [
       "Partner at Shree Balaji Ayurveda Bhavan",
       "A 2-time founder with 10 years of experience in hospitality, food, and Ayurveda",
     ],
-    img: img2,
-  },
-  {
-    name: "Manish Verma",
-    bio: [
-      "Co-founder & CEO at AlphaBeta Holdings",
-      "25+ years of experience in retail banking and capital markets",
-    ],
-    img: img1,
-  },
-  {
-    name: "Ashish Nayyar",
-    bio: [
-      "Co-founder & Head – India at OneWealth",
-      "25 years of experience in private markets, M&A, and business consulting",
-    ],
-    img: img2,
-  },
-  {
-    name: "Sameer Nayak",
-    bio: [
-      "Board member at Wasana Engineering and Nice Code Solutions",
-      "5 years of experience in research and finance",
-    ],
-    img: img1,
-  },
-  {
-    name: "Hemang Sheth",
-    bio: [
-      "Head of Risks at First Abu Dhabi Bank, Oman",
-      "25 years of experience in credit, risk, and compliance management",
-    ],
-    img: img2,
+    img: img4,
+    linkedin: "https://www.linkedin.com/in/XXXXXXXX",
   },
 ];
 
@@ -132,23 +106,31 @@ const MentorSection = () => (
           />
           <div className="advisory__card-content">
             <h3 className="advisory__card-name">{m.name}</h3>
-            <ul className="advisory__card-bio">
-              {m.bio.map((line, j) => (
-                <li key={j}>{line}</li>
-              ))}
-            </ul>
-            <img
-              src={liIcon}
-              alt="LinkedIn"
-              className="advisory__card-linkedin"
-              loading="lazy"
-            />
+            <div className="advisory__card-bio">
+              <ul>
+                {m.bio.map((b, i) => (
+                  <li key={i}>{b}</li>
+                ))}
+              </ul>
+            </div>
+            {m.linkedin && (
+              <a
+                className="advisory__card-social"
+                href={m.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Open LinkedIn profile of ${m.name}`}
+              >
+                <img src={linkedinIcon} alt="" loading="lazy" />
+              </a>
+            )}
           </div>
           <img
             src={m.img}
             alt={m.name}
             className="advisory__card-img"
             loading="lazy"
+            decoding="async"
           />
         </div>
       ))}

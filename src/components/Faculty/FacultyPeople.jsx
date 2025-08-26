@@ -1,8 +1,8 @@
 import React from "react";
 import "../../styles/Faculty/facultypeople.css";
 
-import img1 from "../../assets/about-us-images/advisorysection/mentorimage1.png";
-import img2 from "../../assets/about-us-images/advisorysection/mentorimage2.png";
+import img1 from "../../assets/about-us-images/advisorysection/Sorabh.png";
+import img2 from "../../assets/about-us-images/advisorysection/Vimal.png";
 import bgVector from "../../assets/about-us-images/advisorysection/backgroundvector.png";
 
 const mentors = [

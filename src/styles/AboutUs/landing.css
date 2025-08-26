@@ -1,7 +1,7 @@
 .about-us {
   background: #001430;
   color: #fff;
-  padding: 40px 50px;
+  padding: 20px 50px;
   font-family: "Inter Tight", sans-serif;
 
   /* two vertical strokes 50px from left and right */
@@ -157,4 +157,200 @@
 }
 .about-us__text .intro {
   text-align-last: left;
+}
+/* =========================================================
+   RESPONSIVE ADD-ONS (append-only) — desktop styles unchanged
+   Tablet: 768–1024px  |  Mobile: ≤767px
+=========================================================*/
+
+/* ---------- Tablet (iPad, 768–1024px) ---------- */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* keep rails visible but inset a bit tighter */
+  .about-us {
+    padding: 20px 32px !important;
+    background-position: left 32px top 0, right 32px top 0 !important;
+    background-size: 0.2px 100% !important;
+  }
+
+  .about-us__top {
+    max-width: calc(100% - 64px) !important; /* 32px + 32px */
+    padding-top: 64px !important;
+    flex-wrap: nowrap !important;
+    gap: 24px !important;
+  }
+
+  /* line up the H1 with the left rail (desktop uses -50px) */
+  .about-us__heading {
+    left: -32px !important;
+  }
+  .about-us__heading h1 {
+    font-size: clamp(40px, 5.6vw, 56px) !important;
+    line-height: 1.05 !important;
+    margin: 0 !important;
+    text-align: left !important;
+  }
+
+  .decorators {
+    width: 100px !important;
+    height: 100px !important;
+  }
+  .decor1 {
+    width: 82px !important;
+    top: 36px !important;
+    left: 0 !important;
+  }
+  .decor2 {
+    width: 26px !important;
+    top: 36px !important;
+    left: 92px !important;
+  }
+
+  .about-us__text {
+    max-width: 60% !important;
+    padding-left: 24px !important;
+    text-align: left !important;
+  }
+  .about-us__text p {
+    font-size: 18px !important;
+    line-height: 28px !important;
+    letter-spacing: -0.2px !important;
+  }
+  .about-us__text p span:not(.blue) {
+    opacity: 0.8;
+  }
+
+  .about-us__hero {
+    max-width: calc(100% - 64px) !important;
+    margin: 32px auto 0 !important;
+  }
+  .triangle {
+    width: 48px !important;
+    right: -1px !important;
+    top: -1px !important;
+  }
+
+  /* the floating decor can crowd tablet layouts — hide it */
+  .decor3 {
+    display: none !important;
+  }
+}
+
+/* ---------- Mobile (≤767px) ---------- */
+@media (max-width: 767px) {
+  /* tighter insets for rails + compact padding */
+  .about-us {
+    padding: 16px 16px !important;
+    background-position: left 20px top 0, right 20px top 0 !important;
+    background-size: 0.2px 100% !important;
+  }
+
+  .about-us__top {
+    max-width: 100% !important;
+    padding-top: 40px !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+
+  .about-us__heading {
+    left: 0 !important;
+  }
+  .about-us__heading h1 {
+    font-size: clamp(28px, 8vw, 36px) !important;
+    line-height: 1.12 !important;
+    text-align: center !important;
+    margin: 0 0 8px 0 !important;
+  }
+
+  .decorators {
+    display: none !important;
+  } /* keep the H1 clean on phones */
+
+  .breadcrumb {
+    justify-content: center !important;
+    margin: 0 !important;
+  }
+
+  .about-us__text {
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    text-align: left !important;
+  }
+  .about-us__text p {
+    font-size: 16px !important;
+    line-height: 26px !important;
+    letter-spacing: -0.2px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .about-us__hero {
+    max-width: 100% !important;
+    margin: 24px auto 0 !important;
+  }
+  .about-us__hero .hero-image {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    border-radius: 0 !important;
+  }
+  .triangle {
+    width: 40px !important;
+    right: -1px !important;
+    top: -1px !important;
+  }
+
+  /* hide floating decor on phones to prevent overlap */
+  .decor3 {
+    display: none !important;
+  }
+}
+/* =========================================================
+   ABOUT US (MOBILE ONLY) — hide vertical rails/guide lines
+   Append to the end of styles/AboutUs/landing.css
+=========================================================*/
+@media (max-width: 480px) {
+  /* create a local stacking context */
+  .about-us {
+    position: relative !important;
+    isolation: isolate !important;
+  }
+
+  /* If rails are applied as background images (repeating gradients), kill them */
+  .about-us,
+  .about-us::before,
+  .about-us::after,
+  .about-us *::before,
+  .about-us *::after {
+    background-image: none !important;
+  }
+
+  /* If rails are separate DOM/SVG overlays, hide them within the section */
+  .about-us [class*="rail"],
+  .about-us [class*="Rail"],
+  .about-us [class*="grid"],
+  .about-us [class*="Grid"],
+  .about-us [class*="line"],
+  .about-us [class*="Line"],
+  .about-us [id*="rail"],
+  .about-us [id*="grid"],
+  .about-us [id*="line"] {
+    display: none !important;
+    pointer-events: none !important;
+  }
+
+  /* If an SVG draws the rails */
+  .about-us svg [stroke],
+  .about-us svg line,
+  .about-us svg path[stroke],
+  .about-us svg rect[stroke],
+  .about-us svg g[stroke] {
+    stroke: transparent !important;
+    stroke-opacity: 0 !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .page-rails,
+  [class*="page-rails"] {
+    display: none !important;
+  }
 }
