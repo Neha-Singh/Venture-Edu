@@ -134,3 +134,248 @@
   padding: 0;
   cursor: pointer;
 }
+/* =========================================================
+   TABLET (768–1024px)
+   - comfy gutters and stacked intro
+   - modest type scale
+   - carousel keeps 3-up but with tighter controls
+========================================================= */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .curriculum {
+    padding: 56px 32px !important;
+  }
+
+  .curriculum__inner {
+    flex-direction: column !important;
+    gap: 20px !important;
+    max-width: 100% !important;
+  }
+
+  .curriculum__heading {
+    left: 0 !important;
+    margin-bottom: 6px !important;
+  }
+  .curriculum__heading h2 {
+    font-size: clamp(1.8rem, 3.6vw, 2rem) !important;
+    line-height: 1.12 !important;
+  }
+
+  .curriculum__content {
+    flex: 0 0 auto !important;
+  }
+  .curriculum__content p {
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    text-align: left !important;
+  }
+
+  /* carousel: keep 3-up, pull controls in a bit */
+  .curriculum__carousel {
+    padding: 0 32px 24px !important;
+  }
+  .carousel {
+    max-width: 100% !important;
+  }
+  .carousel__controls {
+    right: 32px !important;
+    bottom: -56px !important;
+  }
+  .carousel__controls img {
+    width: 22px !important;
+  }
+}
+
+/* =========================================================
+   MOBILE (≤767px)
+   - tight gutters, stacked intro
+   - simpler carousel: stack images 1-up
+   - neutralize transform from desktop JS
+========================================================= */
+@media (max-width: 767px) {
+  .curriculum {
+    padding: 36px 20px !important;
+  }
+
+  .curriculum__inner {
+    flex-direction: column !important;
+    gap: 16px !important;
+    max-width: 100% !important;
+  }
+
+  .curriculum__heading {
+    left: 0 !important;
+    margin-bottom: 4px !important;
+  }
+  .curriculum__heading h2 {
+    font-size: clamp(1.6rem, 6.5vw, 1.9rem) !important;
+    line-height: 1.15 !important;
+  }
+
+  .curriculum__content p {
+    font-size: 0.98rem !important;
+    line-height: 1.5 !important;
+    text-align: left !important;
+  }
+
+  /* carousel: single column stack */
+  .curriculum__carousel {
+    padding: 0 20px 20px !important;
+    background-image: none !important;
+  }
+
+  .carousel {
+    max-width: 100% !important;
+  }
+
+  .carousel__track {
+    display: block !important;
+    transform: none !important; /* neutralize desktop translateX */
+  }
+
+  .carousel__item {
+    width: 100% !important;
+    flex: none !important;
+    margin-bottom: 14px !important;
+  }
+
+  .carousel__item img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+  }
+
+  /* controls centered under the list with larger tap targets */
+  .carousel__controls {
+    position: static !important;
+    display: flex !important;
+    justify-content: center !important;
+    gap: 20px !important;
+    margin-top: 8px !important;
+  }
+  .carousel__controls button {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  .carousel__controls img {
+    width: 20px !important;
+    height: 20px !important;
+  }
+}
+
+/* =========================================================
+   CAROUSEL — keep sliding behavior on all devices
+   (override any previous vertical stacking)
+========================================================= */
+
+/* Base: make sure track is flex + masked by viewport */
+.carousel {
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+/* The moving strip */
+.carousel__track {
+  display: flex !important;
+  gap: 0 !important;
+  will-change: transform !important;
+  transition: transform 0.4s ease !important;
+}
+
+/* Items are flex-fixed to a width; images fill card */
+.carousel__item {
+  flex: 0 0 33.3333% !important; /* desktop default: 3-up */
+}
+.carousel__item img {
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  object-fit: cover !important;
+}
+
+/* Controls float above */
+.carousel__controls {
+  position: absolute !important;
+  right: 32px !important;
+  bottom: -56px !important;
+  display: flex !important;
+  gap: 16px !important;
+}
+.carousel__controls img {
+  width: 22px !important;
+  height: 22px !important;
+}
+
+/* -------------------------
+   Tablet: 2-up carousel
+------------------------- */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .curriculum {
+    padding: 56px 32px !important;
+  }
+  .carousel__item {
+    flex: 0 0 50% !important; /* show 2 per view */
+  }
+  .carousel__controls {
+    right: 24px !important;
+    bottom: -48px !important;
+  }
+}
+
+/* -------------------------
+   Mobile: 1-up carousel
+------------------------- */
+@media (max-width: 767px) {
+  .curriculum {
+    padding: 36px 20px !important;
+  }
+
+  .carousel__track {
+    display: flex !important; /* restore flex if previously overridden */
+    transition: transform 0.35s ease !important;
+  }
+
+  .carousel__item {
+    flex: 0 0 100% !important; /* show 1 per view */
+  }
+
+  /* center controls under viewport with bigger tap targets */
+  .carousel__controls {
+    position: static !important;
+    justify-content: center !important;
+    margin-top: 12px !important;
+    gap: 20px !important;
+  }
+  .carousel__controls button {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  .carousel__controls img {
+    width: 20px !important;
+    height: 20px !important;
+  }
+}
+.carousel {
+  overflow: hidden;
+  position: relative;
+}
+.carousel__track {
+  display: flex;
+  transition: transform 0.35s ease;
+  will-change: transform;
+}
+/* width per view; adjust per breakpoint as you already did */
+@media (min-width: 1025px) {
+  .carousel__item {
+    flex: 0 0 33.333%;
+  }
+} /* 3-up desktop */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .carousel__item {
+    flex: 0 0 50%;
+  }
+} /* 2-up tablet */
+@media (max-width: 767px) {
+  .carousel__item {
+    flex: 0 0 100%;
+  }
+} /* 1-up mobile */

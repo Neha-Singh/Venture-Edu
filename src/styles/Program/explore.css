@@ -89,3 +89,72 @@
     padding-top: 24px;
   }
 }
+/* =========================================================
+   TABLET (768–1024px)
+   - keep tabs in a row
+   - inset rails to 32px
+   - comfortable touch targets & type
+========================================================= */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .explore {
+    padding: 60px 0 !important;
+    background-position: left 32px top 0, right 32px top 0 !important;
+  }
+  .explore__inner {
+    max-width: calc(100% - 64px) !important; /* 32px on each side */
+  }
+  .explore__heading {
+    font-size: 1.75rem !important;
+    margin: 0 0 24px !important;
+  }
+  .explore__tabs {
+    height: 48px !important; /* better touch target */
+    gap: 0 !important;
+  }
+  .explore__tab {
+    font-size: 0.95rem !important;
+  }
+  .explore__content {
+    padding-top: 32px !important;
+  }
+}
+
+/* =========================================================
+   MOBILE (≤767px)
+   - stack tabs
+   - comfy gutters
+   - slightly smaller type & spacing
+========================================================= */
+@media (max-width: 767px) {
+  .explore {
+    padding: 40px 0 !important;
+    background-image: none !important; /* cleaner, no rails */
+  }
+  .explore__inner {
+    max-width: 100% !important;
+    padding: 0 20px !important; /* mobile gutters */
+  }
+  .explore__heading {
+    font-size: 1.5rem !important;
+    margin: 0 0 18px !important;
+    text-align: left !important;
+  }
+  .explore__tabs {
+    flex-direction: column !important;
+    border-bottom: none !important;
+    gap: 12px !important;
+    height: auto !important;
+  }
+  .explore__tab {
+    width: 100% !important;
+    height: 44px !important; /* min tap height */
+    margin: 0 !important;
+    font-size: 0.95rem !important;
+  }
+  .explore__tab + .explore__tab {
+    border-left: none !important; /* we stack, no divider */
+  }
+  .explore__content {
+    padding-top: 20px !important;
+  }
+}

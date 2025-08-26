@@ -1,8 +1,8 @@
-import React, { useState, useRef, useEffect } from "react";
 import careerImg from "../../assets/program-images/curriculum/guy.png";
 import chevrondownArrow from "../../assets/home-images/yourjourney/chevron-down.svg";
 import chevronupArrow from "../../assets/home-images/yourjourney/chevron-up.svg";
 import "../../styles/Program/curriculumcontent.css";
+import React, { useState, useEffect, useRef } from "react";
 
 const moduleData = [
   {
