@@ -16,7 +16,7 @@ import img1 from "../../assets/about-us-images/advisorysection/Aditya.png";
 
 const mentors = [
   {
-    name: "Shashank Jaiswal",
+    name: "Vipin Joshi",
     bio: [
       "Business Head at Bolt Earth",
       "25 years of experience in automotive, technology, and enterprise sales",
@@ -25,10 +25,11 @@ const mentors = [
     linkedin: "https://www.linkedin.com/in/XXXXXXX",
   },
   {
-    name: "Yugal Yadav",
+    name: "Sorabh Agarwal",
     bio: [
-      "Director at OakNorth Credit Intelligence",
-      "15 years of experience in private consulting and risk management",
+      "Investor in over 100 startups",
+      "Founder at AngelBay",
+      "20+ years of experience in M&A and private markets",
     ],
     img: img2,
     linkedin: "https://www.linkedin.com/in/XXXXXXXX",
