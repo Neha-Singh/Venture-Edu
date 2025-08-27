@@ -230,3 +230,101 @@
     padding-bottom: 4px;
   }
 }
+/* =========================================================
+   Community – Events/Podcast (Responsive only)
+   Desktop unchanged
+========================================================= */
+
+/* Tablets & mobiles: rails inset = 24px, stack columns */
+@media (max-width: 1024px) {
+  /* rails 24px from edges + tighter vertical padding */
+  .ce {
+    --stroke-inset: 24px !important;
+    padding: 40px 0 56px !important;
+  }
+
+  /* single column between rails */
+  .ce-wrap {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+    width: calc(100% - (var(--stroke-inset) * 2)) !important;
+    margin: 0 auto !important;
+  }
+
+  /* remove the center divider line for small screens */
+  .ce::after {
+    display: none !important;
+  }
+
+  /* remove side paddings on columns */
+  .ce-left,
+  .ce-right {
+    padding: 0 !important;
+  }
+
+  /* type scale */
+  .ce-title {
+    font-size: 24px !important;
+    margin-bottom: 16px !important;
+  }
+  .ce-item + .ce-item {
+    margin-top: 20px !important;
+  }
+  .ce-item-title {
+    font-size: 13px !important;
+  }
+  .ce-item-desc {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    max-width: 100% !important;
+  }
+
+  .ce-promo-title {
+    font-size: 18px !important;
+  }
+  .ce-promo-copy {
+    font-size: 13px !important;
+    max-width: 100% !important;
+  }
+
+  /* podcast block */
+  .ce-podcast {
+    gap: 12px !important;
+  }
+  .ce-podcast-img {
+    width: min(70vw, 300px) !important;
+    height: auto !important;
+  }
+  .ce-podcast-label {
+    font-size: 14px !important;
+    letter-spacing: 2px !important;
+  }
+}
+
+/* Phones: a bit tighter */
+@media (max-width: 640px) {
+  .ce {
+    padding: 28px 0 44px !important;
+  }
+  .ce-title {
+    font-size: 22px !important;
+  }
+  .ce-item-title {
+    font-size: 12.5px !important;
+  }
+  .ce-item-desc {
+    font-size: 12.5px !important;
+  }
+  .ce-promo-title {
+    font-size: 16px !important;
+  }
+  .ce-promo-copy {
+    font-size: 12.5px !important;
+  }
+  .ce-podcast-img {
+    width: min(80vw, 260px) !important;
+  }
+  .ce-podcast-label {
+    font-size: 13px !important;
+  }
+}

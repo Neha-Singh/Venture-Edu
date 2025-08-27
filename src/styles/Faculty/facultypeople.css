@@ -123,3 +123,15 @@
     right: 16px;
   }
 }
+/* Mobile (≤767px): inset the vertical rails to 24px and keep grid aligned */
+@media (max-width: 767px) {
+  /* move the 1px rails from 50px → 24px */
+  .advisory-section::before {
+    background-position: left 24px top, right 24px top !important;
+  }
+
+  /* grid spans exactly between the rails: 24px + 24px = 48px */
+  .advisory-grid {
+    width: calc(100% - 48px) !important;
+  }
+}

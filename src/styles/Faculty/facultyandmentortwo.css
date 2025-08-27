@@ -592,3 +592,10 @@
     margin-top: 0;
   }
 }
+
+/* Mobile (≤767px): inset the vertical rails to 24px */
+@media (max-width: 767px) {
+  .faculty-intro {
+    --stroke-inset: 24px !important;
+  }
+}

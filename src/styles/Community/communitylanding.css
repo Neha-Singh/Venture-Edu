@@ -196,6 +196,7 @@ body,
 /* === Align content to touch the left stroke (50px inset) === */
 .community-landing {
   --stroke-inset: 50px;
+  padding-top: 20px;
 }
 
 .community-wrap {
@@ -359,4 +360,95 @@ body,
   white-space: nowrap; /* keep one line */
   padding: 10px 16px; /* slightly tighter pill */
   margin: 0; /* no extra horizontal space */
+}
+/* Rails 24px from edges on mobiles & tablets only */
+@media (max-width: 1024px) {
+  .community-landing {
+    --stroke-inset: 24px !important;
+  }
+}
+/* =========================================================
+   Community Landing — responsive (desktop unchanged)
+   Rails inset = 24px on tablets & mobiles
+========================================================= */
+@media (max-width: 1024px) {
+  /* rails: 24px from edges */
+  .community-landing {
+    --stroke-inset: 24px !important;
+  }
+
+  /* span content exactly between rails */
+  .community-wrap {
+    width: calc(100% - (var(--stroke-inset) * 2)) !important;
+    margin: 0 auto !important;
+    padding: 40px 0 56px !important; /* remove side padding so content aligns to rails */
+  }
+
+  /* stack layout, image first */
+  .community-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  .community-art {
+    order: -1 !important;
+    margin-bottom: 8px !important;
+  }
+
+  /* scale type & button for smaller screens */
+  .community-title {
+    font-size: clamp(32px, 5.2vw, 42px) !important;
+    line-height: 1.12 !important;
+  }
+  .community-subtitle {
+    font-size: clamp(16px, 2.2vw, 22px) !important;
+    line-height: 1.4 !important;
+    margin-bottom: 20px !important;
+  }
+  .cta-btn {
+    font-size: 16px !important;
+    line-height: 20px !important;
+    padding: 12px 18px !important;
+    white-space: nowrap !important;
+  }
+
+  /* image sizing */
+  .community-art img {
+    max-width: 420px !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+/* Phones: a bit tighter */
+@media (max-width: 640px) {
+  .community-wrap {
+    padding: 28px 0 48px !important;
+  }
+  .breadcrumbs {
+    font-size: 11px !important;
+    margin-bottom: 16px !important;
+  }
+  .community-art img {
+    max-width: 82vw !important;
+  }
+}
+/* =========================================================
+   Community Landing — mobile tweaks only
+   - Nudge hero image slightly left (keep floatY animation)
+   - Slimmer CTA button
+========================================================= */
+@media (max-width: 640px) {
+  /* shift the IMAGE CONTAINER, not the img (so floatY animation still works) */
+  .community-art {
+    transform: translateX(-12px) !important; /* adjust to -16px if needed */
+  }
+
+  /* smaller button width via smaller font + padding */
+  .cta-btn {
+    font-size: 12px !important;
+    line-height: 18px !important;
+    padding: 8px 14px !important; /* slimmer pill */
+    white-space: nowrap !important; /* keep one line */
+    inline-size: max-content !important; /* shrink to fit text */
+  }
 }
