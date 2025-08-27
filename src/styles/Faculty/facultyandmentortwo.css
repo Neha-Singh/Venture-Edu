@@ -15,7 +15,7 @@
 .fi-wrap {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 76px 24px; /* top/bottom, side gutters */
+  padding: 76px 50px; /* top/bottom, side gutters */
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   gap: 64px;
@@ -669,5 +669,135 @@
     object-position: center;
     display: block;
     border-radius: 12px;
+  }
+}
+/* ==============================================
+   Faculty & Mentors – two-photo block
+   Mobile & Tablet: stack vertically, no stagger
+   ============================================== */
+@media (max-width: 1024px) {
+  /* The wrapper holding the two images */
+  .faculty-intro .fi-images {
+    display: flex;
+    flex-direction: column; /* stack one by one */
+    gap: 20px; /* tidy spacing between cards */
+    align-items: center; /* center in the column */
+    min-height: unset; /* remove any forced height */
+    height: auto;
+  }
+
+  /* Each photo card */
+  .faculty-intro .fi-images .fi-photo {
+    width: min(560px, 100%); /* scale down on small screens */
+    height: auto !important; /* no fixed height on small screens */
+    margin: 0 !important; /* remove stagger offsets */
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  /* Ensure the images fill their card cleanly */
+  .faculty-intro .fi-images .fi-photo img {
+    display: block;
+    width: 100%;
+    height: auto; /* keep natural proportion */
+    object-fit: cover; /* or 'contain' if you prefer no crop */
+    border-radius: inherit;
+  }
+}
+
+/* Slightly tighter on small phones */
+@media (max-width: 640px) {
+  .faculty-intro .fi-images {
+    gap: 16px;
+  }
+}
+/* ==============================================
+   Faculty & Mentors – Two-photo block
+   TABLETS (iPad): keep a desktop-like two-column layout,
+   but scale fonts and image cards so they fit cleanly
+   ============================================== */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* The main two-column shell (use whichever of these exists in your JSX) */
+  .faculty-intro .fi-wrap,
+  .faculty-intro .fi-flex,
+  .faculty-intro .fi-grid,
+  .faculty-intro .container {
+    display: grid !important;
+    grid-template-columns: 1.15fr 1fr; /* text : images */
+    gap: 28px;
+    align-items: start;
+  }
+
+  /* Left copy block (headline + body + bullets) */
+  .faculty-intro .fi-text,
+  .faculty-intro .fi-copy,
+  .faculty-intro .content {
+    max-width: 100%;
+  }
+
+  /* Scale text a touch for the iPad viewport */
+  .faculty-intro .fi-text h2,
+  .faculty-intro .fi-copy h2,
+  .faculty-intro h2 {
+    font-size: clamp(22px, 2.6vw, 30px);
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+  .faculty-intro .fi-text p,
+  .faculty-intro .fi-copy p,
+  .faculty-intro .content p,
+  .faculty-intro li {
+    font-size: clamp(14px, 1.6vw, 17px);
+    line-height: 1.45;
+  }
+
+  /* Right image column: still vertical (two cards), sized to fit */
+  .faculty-intro .fi-images {
+    display: flex !important;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start; /* align to the left edge */
+    height: auto;
+    min-height: unset;
+  }
+
+  .faculty-intro .fi-images .fi-photo {
+    width: min(440px, 100%); /* tighter than desktop so it fits */
+    height: auto !important;
+    margin: 0 !important; /* remove stagger offsets */
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .faculty-intro .fi-images .fi-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* feel free to switch to 'contain' if desired */
+    border-radius: inherit;
+  }
+}
+
+/* (Already in place)
+   MOBILE ≤ 768px: stack vertically one by one (kept from previous answer) */
+@media (max-width: 768px) {
+  .faculty-intro .fi-wrap,
+  .faculty-intro .fi-flex,
+  .faculty-intro .fi-grid,
+  .faculty-intro .container {
+    display: block !important;
+  }
+
+  .faculty-intro .fi-images {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .faculty-intro .fi-images .fi-photo {
+    width: min(560px, 100%);
+    height: auto !important;
+    margin: 0 !important;
   }
 }
