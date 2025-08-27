@@ -110,23 +110,23 @@
 /* adjust positions to match the screenshot */
 .fi-vector.v1 {
   /* small arrow near upper right */
-  top: 70px;
+  top: 0px;
   right: 120px;
   width: 68px;
 }
 
 .fi-vector.v2 {
   /* large outline triangle behind images */
-  top: 40px;
-  right: 80px;
-  width: 520px;
+  top: 15px;
+  right: 180px;
+  width: 120px;
   opacity: 0.18;
 }
 
 .fi-vector.v3 {
   /* bottom center arrow */
-  bottom: 72px;
-  left: 50%;
+  bottom: 52px;
+  left: 70%;
   width: 88px;
   transform: translateX(-50%);
   opacity: 0.25;
@@ -597,5 +597,77 @@
 @media (max-width: 767px) {
   .faculty-intro {
     --stroke-inset: 24px !important;
+  }
+}
+
+/* =======================================================
+   Faculty & Mentor – Right-side images (DESKTOP only)
+   Make the cards taller and keep images fully visible
+   (no extra mobile/tablet rules added)
+======================================================= */
+
+.faculty-intro {
+  /* Increase the visible height of the photo cards */
+  --fi-photo-h: 680px; /* adjust if you want even taller/shorter */
+}
+
+/* Photo card wrapper controls the visible height */
+.fi-photo {
+  height: var(--fi-photo-h) !important;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden; /* keep rounded corners clean */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Show the whole image inside the card */
+.fi-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* use 'cover' if you prefer edge-to-edge */
+  object-position: center;
+  display: block;
+  border-radius: 12px;
+}
+
+/* Preserve the subtle stagger */
+.fi-photo.left {
+  margin-top: -12px;
+}
+.fi-photo.right {
+  margin-top: 40px;
+}
+
+/* ================================
+   Faculty & Mentors — Right images
+   Desktop-only: make both cards taller
+   ================================ */
+@media (min-width: 992px) {
+  /* ensure wrappers stretch and we control the visible height */
+  .faculty-intro .fi-images {
+    align-items: stretch;
+  }
+
+  /* force the visible card height */
+  .faculty-intro .fi-images .fi-photo {
+    height: 380px !important; /* <- increase/decrease as you like */
+    width: 280px !important;
+    border-radius: 12px;
+    overflow: hidden; /* keep rounded corners clean */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* make the image fill that height cleanly */
+  .faculty-intro .fi-images .fi-photo img {
+    width: 100%;
+    height: 100% !important;
+    object-fit: cover; /* use 'contain' if you prefer no cropping */
+    object-position: center;
+    display: block;
+    border-radius: 12px;
   }
 }
