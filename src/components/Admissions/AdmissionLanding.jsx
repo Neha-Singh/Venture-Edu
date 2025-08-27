@@ -11,8 +11,8 @@ import img3 from "../../assets/home-images/venturedu-for/nonbussinesspro.svg";
 import img4 from "../../assets/home-images/venturedu-for/legacybuilder.svg";
 
 /* Decorative vectors */
-import vector1 from "../../assets/program-images/vector2.png";
 import vector2 from "../../assets/program-images/vector1.png";
+import vector1 from "../../assets/program-images/vector2.png";
 
 const cards = [
   { title: "", img: img1 },

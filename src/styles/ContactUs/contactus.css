@@ -383,6 +383,7 @@ body,
   z-index: 3; /* above the ::before stroke overlay */
   width: calc(100% - var(--stroke-inset) * 2);
   margin: -1px auto 12px; /* tiny top breathing room, then space below */
+  padding-top: 20px;
 }
 
 /* Give the main content a bit of top space now that the crumb sits above */
