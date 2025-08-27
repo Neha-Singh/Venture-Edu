@@ -204,3 +204,9 @@
     font-size: 44px;
   }
 }
+/* Rails 24px from edges on mobiles & tablets only */
+@media (max-width: 1024px) {
+  .faqs {
+    --stroke-inset: 24px !important;
+  }
+}

@@ -172,6 +172,7 @@
 }
 
 /* ---------- Responsive ---------- */
+
 @media (max-width: 980px) {
   .adproc-head {
     grid-template-columns: 1fr;
@@ -227,4 +228,10 @@
 }
 .ad-proc .adproc-details {
   border-top: none !important; /* ensure no line at the top of details */
+}
+/* Rails 24px from edges on mobiles & tablets only */
+@media (max-width: 1024px) {
+  .ad-proc {
+    --stroke-inset: 24px !important;
+  }
 }
