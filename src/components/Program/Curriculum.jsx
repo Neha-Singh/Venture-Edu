@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  useRef,
-  useCallback,
-  useMemo,
-} from "react";
+import React, { useRef, useEffect } from "react";
 import "../../styles/Program/curriculum.css";
 
 import c1 from "../../assets/program-images/curriculum/carousalimage1.png";
@@ -12,6 +6,7 @@ import c2 from "../../assets/program-images/curriculum/carousalimage2.png";
 import c3 from "../../assets/program-images/curriculum/carousalimage3.png";
 import arrowForward from "../../assets/program-images/curriculum/arrowforward.svg";
 import arrowBack from "../../assets/program-images/curriculum/arrowback.svg";
+
 import CurriculumContent from "./CurriculumContent.jsx";
 import CurriculumActivities from "./CurriculumActivities.jsx";
 import DailySchedule from "./dailyschedule.jsx";
@@ -35,7 +30,6 @@ const Curriculum = () => (
       </div>
     </section>
 
-    {/* Carousel */}
     <section className="curriculum__carousel">
       <Carousel />
       <CurriculumContent />
@@ -45,76 +39,107 @@ const Curriculum = () => (
   </>
 );
 
-/* compute slides per view by breakpoint */
-const getVisibleCount = () => {
-  if (typeof window === "undefined") return 3;
-  const w = window.innerWidth;
-  if (w <= 767) return 1; // mobile
-  if (w <= 1024) return 2; // tablet
-  return 3; // desktop
-};
-
 const Carousel = () => {
-  // repeat 1-3 twice for 6 slides
-  const images = useMemo(() => [c1, c2, c3, c1, c2, c3], []);
-  const [visibleCount, setVisibleCount] = useState(getVisibleCount());
-  const [index, setIndex] = useState(0);
+  // duplicate images for seamless loop
+  const images = [c1, c2, c3, c1, c2, c3];
 
-  const maxIndex = images.length - visibleCount; // wraps at end
-
-  const prev = useCallback(
-    () => setIndex((i) => (i === 0 ? maxIndex : i - 1)),
-    [maxIndex]
-  );
-  const next = useCallback(
-    () => setIndex((i) => (i === maxIndex ? 0 : i + 1)),
-    [maxIndex]
-  );
-
-  // --- autoplay (every 3s), pause on hover/touch/hidden tab ---
+  const trackRef = useRef(null);
+  const rafId = useRef(null);
+  const lastTs = useRef(0);
+  const offsetPx = useRef(0);
   const isPaused = useRef(false);
-  const nextRef = useRef(next);
+
+  // pixels per second (adjust to taste)
+  const SPEED_PX_S = 40;
+
+  // ensure no CSS transition interferes
   useEffect(() => {
-    nextRef.current = next; // always call latest next()
-  }, [next]);
+    const track = trackRef.current;
+    if (track) track.style.setProperty("transition", "none", "important");
+  }, []);
 
+  // continuous animation loop with pause support
   useEffect(() => {
-    let id;
-    const tick = () => {
-      if (!isPaused.current) nextRef.current();
-      id = setTimeout(tick, 3000); // change slide every 3s
-    };
-    id = setTimeout(tick, 3000);
+    const track = trackRef.current;
+    if (!track) return;
 
-    const onVis = () => {
-      isPaused.current = document.hidden;
-    };
-    document.addEventListener("visibilitychange", onVis);
+    const step = (ts) => {
+      if (!lastTs.current) lastTs.current = ts;
 
+      // If paused, keep time in sync to avoid jump on resume
+      if (isPaused.current) {
+        lastTs.current = ts;
+      } else {
+        const dt = (ts - lastTs.current) / 1000;
+        lastTs.current = ts;
+
+        offsetPx.current += SPEED_PX_S * dt;
+
+        const first = track.children[0];
+        if (first) {
+          const w = first.getBoundingClientRect().width || 0;
+
+          // Move fully-scrolled items from start to end
+          while (offsetPx.current >= w && track.children.length > 0) {
+            track.appendChild(track.children[0]);
+            offsetPx.current -= w;
+          }
+        }
+      }
+
+      track.style.transform = `translateX(-${offsetPx.current}px)`;
+      rafId.current = requestAnimationFrame(step);
+    };
+
+    rafId.current = requestAnimationFrame(step);
     return () => {
-      clearTimeout(id);
-      document.removeEventListener("visibilitychange", onVis);
+      if (rafId.current) cancelAnimationFrame(rafId.current);
     };
   }, []);
 
+  // manual controls (instant rotate without breaking loop)
+  const next = () => {
+    const track = trackRef.current;
+    if (!track || track.children.length === 0) return;
+    const first = track.children[0];
+    const w = first.getBoundingClientRect().width || 0;
+    track.appendChild(first);
+    offsetPx.current = Math.max(0, offsetPx.current - w);
+    track.style.transform = `translateX(-${offsetPx.current}px)`;
+    lastTs.current = performance.now(); // avoid time jump after click
+  };
+
+  const prev = () => {
+    const track = trackRef.current;
+    if (!track || track.children.length === 0) return;
+    const last = track.children[track.children.length - 1];
+    const w = last.getBoundingClientRect().width || 0;
+    track.insertBefore(last, track.children[0]);
+    offsetPx.current += w;
+    track.style.transform = `translateX(-${offsetPx.current}px)`;
+    lastTs.current = performance.now();
+  };
+
+  // reset offset on resize for stable widths across breakpoints
+  useEffect(() => {
+    const onResize = () => {
+      offsetPx.current = 0;
+      lastTs.current = performance.now();
+      if (trackRef.current) {
+        trackRef.current.style.transform = "translateX(0px)";
+      }
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  // hover/touch pause handlers
   const pause = () => {
     isPaused.current = true;
   };
   const resume = () => {
     isPaused.current = false;
   };
-
-  // update slides-per-view on resize and clamp index
-  useEffect(() => {
-    const onResize = () => setVisibleCount(getVisibleCount());
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, []);
-
-  useEffect(() => {
-    const newMax = images.length - visibleCount;
-    setIndex((i) => Math.min(i, newMax));
-  }, [visibleCount, images.length]);
 
   return (
     <div
@@ -124,10 +149,7 @@ const Carousel = () => {
       onTouchStart={pause}
       onTouchEnd={resume}
     >
-      <div
-        className="carousel__track"
-        style={{ transform: `translateX(-${(index * 100) / visibleCount}%)` }}
-      >
+      <div ref={trackRef} className="carousel__track">
         {images.map((src, i) => (
           <div key={i} className="carousel__item">
             <img src={src} alt="" loading="lazy" decoding="async" />

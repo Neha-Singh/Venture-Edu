@@ -72,8 +72,8 @@ const CurriculumContent = () => {
           {/* Left sidebar */}
           <div className="curriculum-detailed__sidebar">
             <h2 className="curriculum-detailed__title">
-              <span className="curriculum-detailed__subtitle">Core</span>
-              <span className="curriculum-detailed__main">Curriculum</span>
+              <span className="curriculum-detailed__subtitle">Program</span>
+              <span className="curriculum-detailed__main">Phases</span>
             </h2>
             <img
               src={careerImg}

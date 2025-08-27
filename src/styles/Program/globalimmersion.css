@@ -91,3 +91,120 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+/* =========================================================
+   GLOBAL IMMERSION — Responsive only (desktop unchanged)
+========================================================= */
+
+/* ---------- Tablet (768–1024px) ---------- */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .global-immersion {
+    padding: 56px 32px !important;
+  }
+
+  /* Stack columns and remove desktop side gutter */
+  .global-immersion__wrapper {
+    flex-direction: column !important;
+    gap: 24px !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+  }
+
+  .global-immersion__sidebar {
+    flex: 0 0 auto !important;
+  }
+
+  .global-immersion__title {
+    font-size: 1.9rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .global-immersion__content {
+    width: 100% !important;
+  }
+
+  .global-immersion__intro {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 24px !important;
+  }
+
+  /* 2×2 icon grid on tablet for breathing room */
+  .global-immersion__icons {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 18px !important;
+    margin-bottom: 24px !important;
+  }
+  .global-immersion__icon {
+    padding: 14px !important;
+  }
+  .global-immersion__icon img {
+    width: 36px !important;
+  }
+  .global-immersion__icon span {
+    font-size: 0.9rem !important;
+  }
+
+  .global-immersion__lead {
+    font-size: 0.95rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 18px !important;
+  }
+
+  .global-immersion__details p {
+    font-size: 0.95rem !important;
+    line-height: 1.55 !important;
+    margin: 14px 0 !important;
+  }
+}
+
+/* ---------- Mobile (<=767px) ---------- */
+@media (max-width: 767px) {
+  .global-immersion {
+    padding: 28px 16px !important;
+  }
+
+  .global-immersion__wrapper {
+    flex-direction: column !important;
+    gap: 16px !important;
+    max-width: 100% !important; /* override calc(100% - 100px) */
+    margin: 0 auto !important;
+  }
+
+  .global-immersion__title {
+    font-size: 1.6rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .global-immersion__intro {
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 16px !important;
+  }
+
+  .global-immersion__icons {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+    margin-bottom: 16px !important;
+  }
+  .global-immersion__icon {
+    padding: 12px !important;
+  }
+  .global-immersion__icon img {
+    width: 32px !important;
+  }
+  .global-immersion__icon span {
+    font-size: 0.85rem !important;
+  }
+
+  .global-immersion__lead {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 14px !important;
+  }
+
+  .global-immersion__details p {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+    margin: 12px 0 !important;
+  }
+}
