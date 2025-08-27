@@ -422,3 +422,9 @@ body,
 .cu-row-2 {
   gap: 10px;
 }
+/* Rails 24px from edges on mobiles & tablets only */
+@media (max-width: 1024px) {
+  .cu {
+    --stroke-inset: 24px !important;
+  }
+}
