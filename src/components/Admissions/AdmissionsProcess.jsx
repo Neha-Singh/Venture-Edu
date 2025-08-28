@@ -1,5 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../../styles/Admissions/admissionsprocess.css";
+
+/* NEW: banner */
+import bannerImg from "../../assets/Admissions/banner.png";
 
 import icon1 from "../../assets/Admissions/applicationform.svg";
 import icon2 from "../../assets/Admissions/checklist.svg";
@@ -18,8 +22,38 @@ const STEPS = [
 ];
 
 export default function AdmissionsProcess() {
+  const navigate = useNavigate();
+
   return (
     <section className="ad-proc">
+      {/* ======= TOP BANNER ======= */}
+      <div className="adproc-banner">
+        <img
+          src={bannerImg}
+          alt="Admissions banner"
+          className="adproc-banner-img"
+          loading="eager"
+        />
+        <div className="adproc-banner-content">
+          <h1 className="adproc-banner-title">
+            Take the first step towards becoming a
+            <br />
+            VenturEdu founder. Admissions open!
+          </h1>
+
+          <button
+            type="button"
+            className="adproc-banner-cta"
+            onClick={() => navigate("/contactus")}
+          >
+            Start your application
+            <span className="adproc-banner-cta-arrow" aria-hidden="true">
+              ↗
+            </span>
+          </button>
+        </div>
+      </div>
+
       {/* Headline + intro */}
       <div className="adproc-head">
         <h2 className="adproc-title">Admission Process</h2>
@@ -42,14 +76,8 @@ export default function AdmissionsProcess() {
               ))}
             </h4>
 
-            {/* arrow between steps (except after the last) */}
             {i < STEPS.length - 1 && (
-              <img
-                className="adproc-arrow"
-                src={arrowRight}
-                alt=""
-                aria-hidden="true"
-              />
+              <img className="adproc-arrow" src={arrowRight} alt="" />
             )}
           </div>
         ))}
