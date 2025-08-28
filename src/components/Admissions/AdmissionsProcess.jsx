@@ -2,8 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/Admissions/admissionsprocess.css";
 
-/* NEW: banner */
 import bannerImg from "../../assets/Admissions/banner.png";
+import rightArrow from "../../assets/header-images/rightarrow.svg"; // ✅ correct arrow
 
 import icon1 from "../../assets/Admissions/applicationform.svg";
 import icon2 from "../../assets/Admissions/checklist.svg";
@@ -26,30 +26,24 @@ export default function AdmissionsProcess() {
 
   return (
     <section className="ad-proc">
-      {/* ======= TOP BANNER ======= */}
+      {/* ===== Banner ===== */}
       <div className="adproc-banner">
         <img
           src={bannerImg}
           alt="Admissions banner"
           className="adproc-banner-img"
-          loading="eager"
         />
         <div className="adproc-banner-content">
           <h1 className="adproc-banner-title">
-            Take the first step towards becoming a
-            <br />
-            VenturEdu founder. Admissions open!
+            Take the first step towards becoming a VenturEdu founder
           </h1>
-
           <button
-            type="button"
             className="adproc-banner-cta"
+            type="button"
             onClick={() => navigate("/contactus")}
           >
             Start your application
-            <span className="adproc-banner-cta-arrow" aria-hidden="true">
-              ↗
-            </span>
+            <img src={rightArrow} alt="" className="adproc-banner-arrow" />
           </button>
         </div>
       </div>
@@ -77,7 +71,12 @@ export default function AdmissionsProcess() {
             </h4>
 
             {i < STEPS.length - 1 && (
-              <img className="adproc-arrow" src={arrowRight} alt="" />
+              <img
+                className="adproc-arrow"
+                src={arrowRight}
+                alt=""
+                aria-hidden="true"
+              />
             )}
           </div>
         ))}
