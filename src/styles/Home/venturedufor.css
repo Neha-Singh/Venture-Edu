@@ -157,3 +157,12 @@
   display: block; /* make the second part a new line */
   margin-top: 8px; /* optional spacing between lines */
 }
+.vdf-button {
+  text-decoration: none;
+  pointer-events: auto;
+  position: relative;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}

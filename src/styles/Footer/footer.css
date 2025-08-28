@@ -742,7 +742,7 @@
 }
 
 .fv-logo img {
-  height: 120px; /* adjust to match your Figma spec */
+  height: 320px; /* adjust to match your Figma spec */
   width: auto;
 }
 
@@ -2011,4 +2011,16 @@
   .fv-card-community {
     transform: translateY(-14px) !important; /* works for static or absolute */
   }
+}
+.form-group.has-error input {
+  border-color: #d92d20; /* red-600 */
+  outline: none;
+}
+
+.fv-error-text {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 1.2;
+  color: #d92d20;
 }

@@ -86,8 +86,6 @@
   font-weight: 500;
   font-size: 16px;
   padding: 10px 24px;
-  cursor: pointer;
-  pointer-events: auto;
 }
 
 .overlay-button {
@@ -107,6 +105,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
+  text-decoration: none;
 }
 
 .knowmore-icon {

@@ -16,6 +16,25 @@ import "../../styles/Home/landing.css";
 export default function LandingPage() {
   const navigate = useNavigate();
 
+  // Robust, capture-phase navigation handler that beats swipe listeners
+  const goAbout = (e) => {
+    if (e) {
+      // Prevent default anchor behavior only if JS is active
+      e.preventDefault();
+      // Stop React bubbling
+      e.stopPropagation();
+      // Stop any other native listeners (like swipe/drag handlers) from firing
+      if (
+        e.nativeEvent &&
+        typeof e.nativeEvent.stopImmediatePropagation === "function"
+      ) {
+        e.nativeEvent.stopImmediatePropagation();
+      }
+    }
+    // Navigate via React Router
+    navigate("/aboutus");
+  };
+
   // note: slide 1 includes a mobileSrc for phones
   const slides = [
     { src: imageOne, mobileSrc: imageOneMobile, alt: "Founders on campus" },
@@ -70,7 +89,7 @@ export default function LandingPage() {
                 />
               )}
 
-              {/* overlays (unchanged content/layout) */}
+              {/* overlays */}
               {idx === 0 && (
                 <div className="overlay-text">
                   <p>India&apos;s Most Ambitious</p>
@@ -83,10 +102,16 @@ export default function LandingPage() {
                     PGP in Entrepreneurship
                   </button>
 
-                  <button
+                  {/* Anchor + capture-phase handler + programmatic nav */}
+                  <a
+                    href="/aboutus"
                     className="overlay-knowmore"
-                    type="button"
-                    onClick={() => navigate("/aboutus")}
+                    onMouseDownCapture={goAbout}
+                    onTouchStartCapture={goAbout}
+                    onClickCapture={goAbout}
+                    onKeyDownCapture={(e) => {
+                      if (e.key === "Enter" || e.key === " ") goAbout(e);
+                    }}
                   >
                     Know More
                     <img
@@ -94,7 +119,7 @@ export default function LandingPage() {
                       alt="arrow"
                       className="knowmore-icon"
                     />
-                  </button>
+                  </a>
                 </div>
               )}
 
@@ -105,10 +130,15 @@ export default function LandingPage() {
                   <p className="overlay-subtitle">
                     Empower your dream at India&apos;s first venture school.
                   </p>
-                  <button
+                  <a
+                    href="/aboutus"
                     className="overlay-knowmore"
-                    type="button"
-                    onClick={() => navigate("/aboutus")}
+                    onMouseDownCapture={goAbout}
+                    onTouchStartCapture={goAbout}
+                    onClickCapture={goAbout}
+                    onKeyDownCapture={(e) => {
+                      if (e.key === "Enter" || e.key === " ") goAbout(e);
+                    }}
                   >
                     Know More{" "}
                     <img
@@ -116,7 +146,7 @@ export default function LandingPage() {
                       alt="arrow"
                       className="knowmore-icon"
                     />
-                  </button>
+                  </a>
                 </div>
               )}
 
@@ -130,10 +160,15 @@ export default function LandingPage() {
                   <p className="overlay-subtitle">
                     ideas into real, investor-ready ventures.
                   </p>
-                  <button
+                  <a
+                    href="/aboutus"
                     className="overlay-knowmore"
-                    type="button"
-                    onClick={() => navigate("/aboutus")}
+                    onMouseDownCapture={goAbout}
+                    onTouchStartCapture={goAbout}
+                    onClickCapture={goAbout}
+                    onKeyDownCapture={(e) => {
+                      if (e.key === "Enter" || e.key === " ") goAbout(e);
+                    }}
                   >
                     Know More{" "}
                     <img
@@ -141,7 +176,7 @@ export default function LandingPage() {
                       alt="arrow"
                       className="knowmore-icon"
                     />
-                  </button>
+                  </a>
                 </div>
               )}
             </div>

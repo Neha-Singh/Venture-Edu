@@ -105,7 +105,7 @@ export default function Header() {
 
               <li>
                 <Link
-                  to="/admissions"
+                  to="/contactus"
                   onClick={scrollTop}
                   className="join-button"
                 >
