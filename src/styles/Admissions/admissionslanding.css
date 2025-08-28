@@ -232,7 +232,7 @@
    Bottom copy section (below the 2×2 grid)
    ────────────────────────────────────────────────────── */
 .ad-bottom {
-  padding: 24px 0 72px; /* top/bottom space around the copy block */
+  padding: 40px 0 20px !important; /* top/bottom space around the copy block */
 }
 
 .ad-bottom-wrap {
@@ -312,8 +312,8 @@
 /* ---------- Header / Top block ---------- */
 .ad-head {
   max-width: 1200px;
-  margin: 24px auto 44px;
-  padding: 20px 20px 86px;
+  margin: 24px auto 14px !important;
+  padding: 20px 20px 26px !important;
   position: relative;
 }
 
