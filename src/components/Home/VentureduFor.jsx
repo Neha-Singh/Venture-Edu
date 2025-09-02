@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../../styles/Home/venturedufor.css";
 
 import image1 from "../../assets/home-images/venturedu-for/graduate.svg";
@@ -6,10 +7,11 @@ import image2 from "../../assets/home-images/venturedu-for/careertransitioner.sv
 import image3 from "../../assets/home-images/venturedu-for/nonbussinesspro.svg";
 import image4 from "../../assets/home-images/venturedu-for/legacybuilder.svg";
 import cardVector from "../../assets/home-images/venturedu-for/vector.svg";
-
 import rightArrow from "../../assets/header-images/rightarrow.svg";
 
 export default function VentureduFor() {
+  const navigate = useNavigate();
+
   const cards = [
     {
       src: image1,
@@ -25,6 +27,15 @@ export default function VentureduFor() {
     { src: image4, alt: "The Legacy Builder", label: "The Legacy Builder" },
   ];
 
+  const goAbout = (e) => {
+    if (e) {
+      // keep it simple—no optional chaining
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    navigate("/aboutus");
+  };
+
   return (
     <div className="venturedufor-page">
       {/* Header */}
@@ -36,7 +47,7 @@ export default function VentureduFor() {
           VenturEdu is designed for driven individuals at various stages of
           their entrepreneurial journey.
         </p>
-        <button className="vdf-button">
+        <button className="vdf-button" type="button" onClick={goAbout}>
           See if VenturEdu is The Right Fit For You
           <img src={rightArrow} alt="→" />
         </button>

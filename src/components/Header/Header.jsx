@@ -102,6 +102,11 @@ export default function Header() {
                   Admissions
                 </NavLink>
               </li>
+              <li>
+                <NavLink to="/community" onClick={scrollTop}>
+                  Community
+                </NavLink>
+              </li>
 
               <li>
                 <Link

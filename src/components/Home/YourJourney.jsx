@@ -1,121 +1,136 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import "../../styles/Home/venturedufor.css";
+import React, { useState } from "react";
+import "../../styles/Home/yourjourney.css";
 
-import image1 from "../../assets/home-images/venturedu-for/graduate.svg";
-import image2 from "../../assets/home-images/venturedu-for/careertransitioner.svg";
-import image3 from "../../assets/home-images/venturedu-for/nonbussinesspro.svg";
-import image4 from "../../assets/home-images/venturedu-for/legacybuilder.svg";
-import cardVector from "../../assets/home-images/venturedu-for/vector.svg";
-
+import icon1 from "../../assets/home-images/yourjourney/icon1.svg";
+import icon2 from "../../assets/home-images/yourjourney/icon2.svg";
+import icon3 from "../../assets/home-images/yourjourney/icon3.svg";
+import icon4 from "../../assets/home-images/yourjourney/icon4.svg";
+import image1 from "../../assets/home-images/yourjourney/people-discussing.svg";
+import bluevector from "../../assets/home-images/yourjourney/blue-vector.svg";
+import greyvector from "../../assets/home-images/yourjourney/grey-vector.svg";
+import trianglevector from "../../assets/home-images/yourjourney/triangle-vector.svg";
+import chevrondownArrow from "../../assets/home-images/yourjourney/chevron-down.svg";
+import chevronupArrow from "../../assets/home-images/yourjourney/chevron-up.svg";
 import rightArrow from "../../assets/header-images/rightarrow.svg";
 
-export default function VentureduFor() {
-  const navigate = useNavigate();
+const features = [
+  {
+    icon: icon1,
+    title: "Real-World Startup Immersion",
+    desc: "Collaborate with active startups and experience the thrill of scaling a business firsthand.",
+  },
+  {
+    icon: icon2,
+    title: "The Founder Toolkit",
+    desc: "Gain essential skills in strategy, leadership, marketing, and finance while being mentored by seasoned founders and investors.",
+  },
+  {
+    icon: icon3,
+    title: "Build your Own Venture (BYOV)",
+    desc: "Launch, test, and refine your business idea with guidance from industry experts.",
+  },
+  {
+    icon: icon4,
+    title: "Unparalleled Funding Opportunity",
+    desc: "Secure direct funds from VenturEdu and gain direct connections to our extensive network of angel investors and VCs.",
+  },
+];
 
-  // Capture-phase nav; stops any parent/overlay handlers and falls back to hard redirect
-  const goAbout = (e) => {
-    try {
-      if (e) {
-        e.preventDefault?.();
-        e.stopPropagation?.();
-        if (e.nativeEvent?.stopImmediatePropagation) {
-          e.nativeEvent.stopImmediatePropagation();
-        }
-      }
-    } catch {}
-    try {
-      navigate("/aboutus");
-    } catch {
-      // ignore
-    }
-    // Fallback in case router is blocked
-    window.location.assign("/aboutus");
-  };
+const phases = [
+  {
+    phaseLabel: "Phase – Months 1–6",
+    title: "Founder Toolkit",
+    content:
+      "You’ll start by getting a solid grip on the essentials—strategy, markets, storytelling,and leadership. Think of this as your startup bootcamp made to build confidence from the ground up.",
+  },
+  {
+    phaseLabel: "Phase – Months 7–12",
+    title: "Venture Immersion",
+    content:
+      "It’s time to get your hands dirty. Step into real startup environments, shadow experienced teams, tackle live problems, and see what it truly takes to grow a venture.",
+  },
+  {
+    phaseLabel: "Phase – Months 13–18",
+    title: "Idea Validation",
+    content:
+      "Got a business idea? Great. Now let’s pressure-test it. Talk to real customers, run quick experiments, and use feedback to sharpen your concept.",
+  },
+  {
+    phaseLabel: "Phase – Months 19–24",
+    title: "MVP & Investor Readiness",
+    content:
+      "This is where things get real. Build your MVP, polish your pitch, and get ready to face investors with confidence. When you step out, you won’t just have an idea—you’ll have momentum.",
+  },
+];
 
-  const cards = [
-    {
-      src: image1,
-      alt: "The Aspiring Graduate",
-      label: "The Aspiring Graduate",
-    },
-    {
-      src: image2,
-      alt: "The Career Transitioner",
-      label: "The Career Transitioner",
-    },
-    { src: image3, alt: "The Non-Business Pro", label: "The Non-Business Pro" },
-    { src: image4, alt: "The Legacy Builder", label: "The Legacy Builder" },
-  ];
+export default function YourJourney() {
+  const [openIndex, setOpenIndex] = useState(0);
+  const toggle = (i) => setOpenIndex(openIndex === i ? -1 : i);
 
   return (
-    <div className="venturedufor-page">
-      {/* Header */}
-      <section className="vdf-header" style={{ position: "relative" }}>
-        <h2 className="vdf-title">
-          Who is <span className="vdf-title-line2">VenturEdu for ?</span>
-        </h2>
-        <p className="vdf-subtitle">
-          VenturEdu is designed for driven individuals at various stages of
-          their entrepreneurial journey.
-        </p>
+    <div className="your-journey-page">
+      {/* Top Features */}
+      <section className="journey-features">
+        <h2 className="features-heading">What sets us apart</h2>
 
-        {/* Click-safe wrapper to ensure on-top & clickable */}
-        <div
-          style={{
-            position: "relative",
-            zIndex: 1000,
-            pointerEvents: "auto",
-            display: "inline-block",
-          }}
-        >
-          {/* Anchor styled as button; capture-phase handlers */}
-          <a
-            href="/aboutus"
-            className="vdf-button"
-            role="button"
-            tabIndex={0}
-            onMouseDownCapture={goAbout}
-            onTouchStartCapture={goAbout}
-            onClickCapture={goAbout}
-            onKeyDownCapture={(e) => {
-              if (e.key === "Enter" || e.key === " ") goAbout(e);
-            }}
-            style={{
-              textDecoration: "none",
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 6,
-              pointerEvents: "auto",
-              position: "relative",
-              zIndex: 1001,
-            }}
-          >
-            See if VenturEdu is The Right Fit For You
-            <img src={rightArrow} alt="→" />
-          </a>
-        </div>
+        {features.map((f, i) => (
+          <div key={i} className="feature-card">
+            <img src={f.icon} alt={f.title} />
+            <h3>{f.title}</h3>
+            <p>{f.desc}</p>
+          </div>
+        ))}
       </section>
 
-      {/* Cards Row */}
-      <section className="vdf-cards" style={{ position: "relative" }}>
-        {cards.map((c, i) => (
-          <React.Fragment key={i}>
-            {i === 2 && (
-              <img
-                src={cardVector}
-                alt=""
-                className="vdf-cards-vector"
-                draggable="false"
-                // Prevent decorative vector from blocking clicks
-                style={{ pointerEvents: "none" }}
-              />
-            )}
-            <div className="vdf-card">
-              <img src={c.src} alt={c.alt} draggable="false" />
-            </div>
-          </React.Fragment>
-        ))}
+      {/* Hero + Accordion */}
+      <section className="journey-hero">
+        {/* Upper Hero */}
+        <div className="hero-top">
+          <div className="hero-text">
+            <span className="small">Your</span>
+            <h2>Journey with VenturEdu</h2>
+          </div>
+          <button className="hero-button">
+            Explore the full program
+            <img src={rightArrow} alt="arrow" />
+          </button>
+          {/* Decorative Vectors */}
+          <img src={bluevector} alt="" className="vector blue" />
+          <img src={greyvector} alt="" className="vector grey" />
+        </div>
+
+        {/* Lower Content */}
+        <div className="journey-lower">
+          <div className="accordion">
+            {phases.map((p, i) => (
+              <div
+                key={i}
+                className={`accordion-item ${openIndex === i ? "open" : ""}`}
+              >
+                <div className="title-bar" onClick={() => toggle(i)}>
+                  <span className="index">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="phase-label">{p.phaseLabel}</span>
+                  <h4>{p.title}</h4>
+                  <img
+                    src={openIndex === i ? chevronupArrow : chevrondownArrow}
+                    alt={openIndex === i ? "collapse" : "expand"}
+                    className="chevron-icon"
+                  />
+                </div>
+                {/* Always render content for CSS-driven slide animation */}
+                <div className="content">
+                  <p>{p.content}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="hero-image">
+            <img src={image1} alt="Group discussing" />
+          </div>
+        </div>
       </section>
     </div>
   );
