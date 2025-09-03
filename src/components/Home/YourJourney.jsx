@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
+import { useNavigate } from "react-router-dom";
 import "../../styles/Home/yourjourney.css";
 
 import icon1 from "../../assets/home-images/yourjourney/icon1.svg";
@@ -63,16 +64,34 @@ const phases = [
   },
 ];
 
+// Memoized image column to avoid unnecessary re-renders
+const HeroImage = memo(function HeroImage() {
+  return (
+    <div className="hero-image">
+      {/* Add intrinsic size to prevent layout shift; adjust to your actual asset if known */}
+      <img
+        src={image1}
+        alt="Group discussing"
+        width={720}
+        height={640}
+        loading="eager"
+        decoding="async"
+      />
+    </div>
+  );
+});
+
 export default function YourJourney() {
   const [openIndex, setOpenIndex] = useState(0);
   const toggle = (i) => setOpenIndex(openIndex === i ? -1 : i);
+
+  const navigate = useNavigate();
 
   return (
     <div className="your-journey-page">
       {/* Top Features */}
       <section className="journey-features">
         <h2 className="features-heading">What sets us apart</h2>
-
         {features.map((f, i) => (
           <div key={i} className="feature-card">
             <img src={f.icon} alt={f.title} />
@@ -90,10 +109,15 @@ export default function YourJourney() {
             <span className="small">Your</span>
             <h2>Journey with VenturEdu</h2>
           </div>
-          <button className="hero-button">
+          <button
+            className="hero-button"
+            type="button"
+            onClick={() => navigate("/program")}
+          >
             Explore the full program
             <img src={rightArrow} alt="arrow" />
           </button>
+
           {/* Decorative Vectors */}
           <img src={bluevector} alt="" className="vector blue" />
           <img src={greyvector} alt="" className="vector grey" />
@@ -119,7 +143,7 @@ export default function YourJourney() {
                     className="chevron-icon"
                   />
                 </div>
-                {/* Always render content for CSS-driven slide animation */}
+                {/* Render content for CSS-driven animation */}
                 <div className="content">
                   <p>{p.content}</p>
                 </div>
@@ -127,9 +151,8 @@ export default function YourJourney() {
             ))}
           </div>
 
-          <div className="hero-image">
-            <img src={image1} alt="Group discussing" />
-          </div>
+          {/* Right column image — now stable */}
+          <HeroImage />
         </div>
       </section>
     </div>

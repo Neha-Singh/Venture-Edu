@@ -16,13 +16,14 @@ import img1 from "../../assets/about-us-images/advisorysection/Aditya.png";
 
 const mentors = [
   {
-    name: "Vipin Joshi",
+    name: "Aditya Vikram Jain",
     bio: [
-      "Business Head at Bolt Earth",
-      "25 years of experience in automotive, technology, and enterprise sales",
+      "Executive Director & Global Head of Research, Boston Consulting Group (BCG)",
+      "25+ years of experience incubating and scaling global businesses, leading diverse teams",
+      "Expert in large-scale change management, strategic agenda and operational excellence",
     ],
     img: img1,
-    linkedin: "https://www.linkedin.com/in/XXXXXXX",
+    linkedin: "https://www.linkedin.com/in/adityavjain/",
   },
   {
     name: "Sorabh Agarwal",
@@ -32,25 +33,26 @@ const mentors = [
       "20+ years of experience in M&A and private markets",
     ],
     img: img2,
-    linkedin: "https://www.linkedin.com/in/XXXXXXXX",
+    linkedin: "https://www.linkedin.com/in/sorabh-agarwal-52277a1/",
   },
   {
-    name: "Niyant Maru",
+    name: "Vimal Kumar",
     bio: [
-      "CFO of Vistara TATA SIA Airlines",
-      "25 years of experience spanning hospitality, real estate, and aviation",
+      "25+ years of experience in Data, Analytics, and Digital Transformation",
+      "Executive Director, Global Head of Reconciliation Utility (firm-wide) at JPMorgan Chase & Co.x",
+      "Expert in AI-driven strategy, transformation, and data governance",
     ],
     img: img3,
-    linkedin: "https://www.linkedin.com/in/XXXXXXXX",
+    linkedin: "https://www.linkedin.com/in/vimalgoyal/",
   },
   {
-    name: "Yaduraj Joshi",
+    name: "Amit Dharod",
     bio: [
       "Partner at Shree Balaji Ayurveda Bhavan",
       "A 2-time founder with 10 years of experience in hospitality, food, and Ayurveda",
     ],
     img: img4,
-    linkedin: "https://www.linkedin.com/in/XXXXXXXX",
+    linkedin: "https://www.linkedin.com/in/amit-dharod-b7698b5/",
   },
 ];
 

@@ -40,9 +40,12 @@ export default function Footer() {
     phone: "",
   });
 
+  // API submission state
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMsg, setSubmitMsg] = useState("");
+
   // ---------------- Validation Helpers ----------------
   const validateField = (name, value) => {
-    // Trim value for validation but keep original in input
     const v = String(value || "").trim();
 
     switch (name) {
@@ -60,7 +63,6 @@ export default function Footer() {
         return "";
       case "email":
         if (!v) return "Email is required.";
-        // Basic, lenient email check
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) {
           return "Please enter a valid email address.";
         }
@@ -84,7 +86,6 @@ export default function Footer() {
       return acc;
     }, {});
     setErrors(nextErrors);
-    // Return boolean validity
     return Object.values(nextErrors).every((msg) => !msg);
   };
 
@@ -92,6 +93,7 @@ export default function Footer() {
   const onChange = (e) => {
     const { id, value } = e.target;
     setValues((prev) => ({ ...prev, [id]: value }));
+    setSubmitMsg(""); // clear previous success/error message on edit
   };
 
   const onBlur = (e) => {
@@ -99,14 +101,50 @@ export default function Footer() {
     setErrors((prev) => ({ ...prev, [id]: validateField(id, value) }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validateAll(values)) {
-      // You can wire this to your API here
-      console.log("Form submitted:", values);
-      // Simple UX: clear form and show a lightweight acknowledgement
+    setSubmitMsg("");
+    if (!validateAll(values)) return;
+
+    // ====== Adapted Google Form/Apps Script submission (from ApplicationForm.jsx) ======
+    // Build the payload similar to the other project, mapping our fields sensibly.
+    const fullName = `${values.firstName} ${values.secondName}`.trim();
+    const digits = values.phone.replace(/\D/g, "");
+    const finalPhone =
+      digits.length >= 10 && digits.length <= 15 ? digits : values.phone.trim();
+
+    // Use the same endpoint & encoding style as the reference ApplicationForm.jsx
+    const scriptURL =
+      "https://script.google.com/macros/s/AKfycbw0tEvkNK-cDowY99AOFQUeQjLKGJM2T2PPKAaMkAmtffVm17c_nfKMawFdkgnmcihu/exec";
+
+    // We keep "name" and "phone" keys to match the known script.
+    // We also send "email" and a small "source" tag; most Apps Scripts ignore unknown fields safely.
+    const body = new URLSearchParams({
+      name: fullName,
+      phone: finalPhone,
+      email: values.email.trim(),
+      source: "footer-form",
+    });
+
+    try {
+      setIsSubmitting(true);
+      const res = await fetch(scriptURL, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body.toString(),
+      });
+      // Apps Script often returns plain text
+      await res.text();
+
+      // Success UX
+      setSubmitMsg("Thanks! Your details were submitted successfully.");
       setValues({ firstName: "", secondName: "", email: "", phone: "" });
-      alert("Thanks! We’ll get back to you soon.");
+      setErrors({ firstName: "", secondName: "", email: "", phone: "" });
+    } catch (err) {
+      console.error("Error sending data to Google Sheet:", err?.message || err);
+      setSubmitMsg("Something went wrong. Please try again in a moment.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -201,7 +239,7 @@ export default function Footer() {
         <div className="fv-form">
           <h3>Get in touch</h3>
 
-          {/* Form with controlled inputs + custom validation */}
+          {/* Form with controlled inputs + custom validation + Google Script submit */}
           <form noValidate onSubmit={handleSubmit}>
             <div className="row">
               <div
@@ -283,9 +321,23 @@ export default function Footer() {
               </div>
             </div>
 
-            <button type="submit" className="fv-form-submit">
-              Submit
+            <button
+              type="submit"
+              className="fv-form-submit"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Submitting..." : "Submit"}
             </button>
+
+            {submitMsg && (
+              <p
+                className="fv-submit-message"
+                style={{ marginTop: 10, fontSize: 14 }}
+                role="status"
+              >
+                {submitMsg}
+              </p>
+            )}
           </form>
         </div>
 

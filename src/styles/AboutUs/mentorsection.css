@@ -89,7 +89,7 @@
   position: relative;
   background: #01469e;
   display: flex;
-  align-items: flex-start; /* top-align text + image */
+  align-items: flex-start;
   overflow: hidden;
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -129,7 +129,7 @@
 /* enable bullet points */
 .advisory__card-bio {
   margin: 0 0 24px;
-  padding-left: 20px; /* indent for bullets */
+  padding-left: 20px;
   list-style-type: disc;
   list-style-position: inside;
   font-size: 0.875rem;
@@ -146,9 +146,9 @@
 }
 
 .advisory__card-img {
-  position: relative; /* remove absolute positioning */
-  margin-left: auto; /* push it to the right */
-  margin-top: 32px; /* align with the text padding-top */
+  position: relative;
+  margin-left: auto;
+  margin-top: 32px;
   width: 280px;
   height: auto;
   object-fit: cover;
@@ -172,40 +172,64 @@
   }
 }
 
+/* =========================
+   DESKTOP OVERRIDES (fix)
+   Give text more width and
+   reduce font sizes slightly
+========================= */
 @media (min-width: 1025px) {
+  /* Grid should span the full content width between rails */
+  .advisory {
+    padding-left: 50px !important;
+    padding-right: 50px !important;
+  }
   .advisory__grid {
-    grid-template-columns: repeat(2, minmax(420px, 480px)) !important;
-    gap: 0px !important;
-    justify-content: center !important;
-    max-width: 1100px !important;
-    margin: 40px auto 0 !important;
-    grid-auto-rows: auto !important; /* let rows size by content */
+    max-width: none !important;
+    width: 100% !important;
+    margin: 40px 0 0 0 !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-auto-rows: auto !important;
+    gap: 0 !important;
   }
 
   .advisory__card {
     display: flex !important;
     flex-direction: row !important;
     align-items: stretch !important;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  .advisory__card-content {
-    flex: 1; /* take all left space */
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: flex-end !important; /* push text down */
-    padding: 24px !important;
-    min-height: 100%; /* fill card height */
-  }
-
+  /* 🔧 KEY CHANGE: shrink image so text gets more width */
   .advisory__card-img {
-    width: 220px !important; /* smaller to balance narrower cards */
+    width: clamp(240px, 22vw, 320px) !important; /* ↓ from 330–450px */
+    height: auto !important;
     object-fit: cover !important;
-    align-self: stretch; /* match card height */
+    align-self: stretch !important;
+    margin-left: auto !important;
   }
 
-  /* fix borders on grid edges */
+  /* Give the text side a little extra padding on the right */
+  .advisory__card-content {
+    flex: 1 1 auto !important;
+    padding: 24px 28px 24px 24px !important;
+  }
+
+  /* Slightly smaller heading/bullets so 3-line bullets wrap into ~2 */
+  .advisory__card-name {
+    font-size: 1.125rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 10px !important;
+  }
+  .advisory__card-bio {
+    font-size: 0.84rem !important;
+    line-height: 1.35 !important;
+    max-width: 66ch !important; /* avoid ultra-long lines */
+    padding-left: 1.05rem !important;
+  }
+  .advisory__card-bio li {
+    margin: 0 0 6px 0 !important;
+  }
+
+  /* Borders corrected on the rightmost/bottom cards */
   .advisory__grid > .advisory__card:nth-child(2n) {
     border-right: none !important;
   }
@@ -213,169 +237,15 @@
     border-bottom: none !important;
   }
 }
-/* ============================
-   DESKTOP ONLY – tidy bullets
-============================ */
-@media (min-width: 1025px) {
-  /* make bullets truly left-aligned and readable */
-  .advisory__card-bio,
-  .advisory__card-bio ul,
-  .advisory__card-bio li {
-    text-align: left !important;
-  }
-
-  .advisory__card-bio ul {
-    list-style: disc outside !important;
-    margin: 0 0 12px 0 !important;
-    padding-left: 1.25rem !important; /* indent the bullets */
-  }
-
-  .advisory__card-bio li {
-    margin: 0 0 8px 0 !important;
-  }
-}
-
-/* clickable LinkedIn icon */
-.advisory__card-social {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  color: inherit;
-  text-decoration: none;
-}
-
-.advisory__card-social img,
-.advisory__card-social svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.advisory__card-social:focus-visible {
-  outline: 2px solid #fff;
-  outline-offset: 3px;
-  border-radius: 999px;
-}
-/* =========================================================
-   DESKTOP — grid full-width inside the vertical strokes
-   (rails are typically 50px in from each edge)
-   Change 50px below if your page uses 40px, etc.
-=========================================================*/
-@media (min-width: 1025px) {
-  /* ensure the section creates the left/right gutters equal to rail inset */
-  .advisory {
-    padding-left: 50px !important; /* ← rail inset */
-    padding-right: 50px !important; /* ← rail inset */
-  }
-
-  /* grid spans the whole content width between strokes */
-  .advisory__grid {
-    max-width: none !important;
-    width: 100% !important;
-    margin: 40px 0 0 0 !important;
-    justify-content: stretch !important;
-    grid-template-columns: repeat(
-      2,
-      minmax(0, 1fr)
-    ) !important; /* fill available width */
-    gap: 0px !important;
-    grid-auto-rows: auto !important; /* rows grow with content */
-  }
-
-  /* cards stretch to fill their grid cell; image/text keep the same layout */
-  .advisory__card {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: stretch !important;
-  }
-
-  .advisory__card-content {
-    flex: 1 1 auto !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: flex-end !important; /* text stays at bottom inside the card */
-    padding: 24px !important;
-  }
-
-  /* image on the right; scale responsively so the wider grid still looks balanced */
-  .advisory__card-img {
-    width: clamp(200px, 26vw, 320px) !important; /* responsive width */
-    object-fit: cover !important;
-    align-self: stretch !important;
-    margin-left: auto !important;
-  }
-}
 
 /* =========================================
-   DESKTOP: make mentor photo ~30px larger
-   (min/max both bumped; slightly larger scale)
+   TABLET (768–1024px): one-up layout
 ========================================= */
-@media (min-width: 1025px) {
-  /* previously something like clamp(200px, 26vw, 320px);
-     now +30 on both ends and a touch wider scaling */
-  .advisory__card-img {
-    width: clamp(330px, 28vw, 450px) !important;
-    height: auto !important;
-    object-fit: cover !important;
-    align-self: stretch !important;
-  }
-}
-
-/* =========================================
-   LAPTOPS: shrink LinkedIn icon
-   (keeps larger size for big desktops)
-========================================= */
-@media (min-width: 1025px) and (max-width: 1440px) {
-  .advisory__card-social {
-    width: 24px !important;
-    height: 24px !important;
-  }
-  .advisory__card-social img,
-  .advisory__card-social svg {
-    width: 100% !important;
-    height: 100% !important;
-  }
-}
-/* Desktop: lift the text block ~20px inside each card */
-@media (min-width: 1025px) {
-  .advisory__card-content {
-    transform: translateY(-40px) !important; /* visual lift */
-  }
-
-  /* Optional: keep a little breathing room at the top on short cards */
-  .advisory__card {
-    scroll-margin-top: 20px; /* no layout change, just nicer anchor focus */
-  }
-}
-
-/* Tighter spacing for bullet lists in mentor cards (all screens) */
-.advisory__card-bio ul {
-  margin: 0 !important;
-  padding-left: 1.1rem !important; /* keep a small indent */
-  list-style: disc outside !important;
-}
-
-.advisory__card-bio li {
-  margin: 0 0 4px 0 !important; /* ↓ was larger; tighten vertical gap */
-  line-height: 1.35 !important; /* slightly tighter line height */
-}
-
-/* no extra gap after the last bullet */
-.advisory__card-bio li:last-child {
-  margin-bottom: 0 !important;
-}
-
-/* =========================================================
-   TABLET (768–1024px): 1-up vertical cards, scaled content
-========================================================= */
 @media (min-width: 768px) and (max-width: 1024px) {
   .advisory {
     padding-left: 32px !important;
     padding-right: 32px !important;
   }
-
   .advisory__grid {
     grid-template-columns: 1fr !important;
     grid-auto-rows: auto !important;
@@ -383,32 +253,24 @@
     max-width: 100% !important;
     margin: 24px auto 0 !important;
   }
-
   .advisory__card {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    border-right: none !important; /* no inner vertical borders */
+    border-right: none !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
     overflow: hidden !important;
   }
-
   .advisory__card-img {
-    order: -1; /* image on top */
+    order: -1;
     width: clamp(220px, 60vw, 340px) !important;
-    height: auto !important;
-    object-fit: cover !important;
     align-self: center !important;
     margin: 16px auto 0 !important;
   }
-
   .advisory__card-content {
     order: 0;
     padding: 20px !important;
-    transform: none !important; /* cancel desktop lift */
-    justify-content: flex-start !important;
   }
-
   .advisory__card-name {
     font-size: 1.125rem !important;
   }
@@ -416,33 +278,25 @@
     font-size: 0.95rem !important;
     line-height: 1.45 !important;
   }
-  .advisory__card-social {
-    width: 28px !important;
-    height: 28px !important;
-  }
-
-  /* last card: no bottom border */
   .advisory__grid > .advisory__card:last-child {
     border-bottom: none !important;
   }
 }
 
-/* =========================================================
-   MOBILE (≤767px): 1-up vertical cards, compact sizes
-========================================================= */
+/* =========================================
+   MOBILE (≤767px): compact
+========================================= */
 @media (max-width: 767px) {
   .advisory {
-    padding: 32px 20px !important; /* compact side gutters */
-    background-image: none !important; /* no vertical strokes on phones */
+    padding: 32px 20px !important;
+    background-image: none !important;
   }
-
   .advisory__grid {
     grid-template-columns: 1fr !important;
     grid-auto-rows: auto !important;
     gap: 14px !important;
     margin: 16px 0 0 !important;
   }
-
   .advisory__card {
     display: flex !important;
     flex-direction: column !important;
@@ -450,23 +304,16 @@
     border: none !important;
     background: #01469e !important;
   }
-
   .advisory__card-img {
-    order: -1; /* image on top */
+    order: -1;
     width: clamp(180px, 75vw, 260px) !important;
-    height: auto !important;
-    object-fit: cover !important;
     align-self: center !important;
     margin: 12px auto 0 !important;
   }
-
   .advisory__card-content {
     order: 0;
     padding: 16px !important;
-    transform: none !important; /* cancel desktop lift */
-    justify-content: flex-start !important;
   }
-
   .advisory__card-name {
     font-size: 1rem !important;
     margin-bottom: 8px !important;
@@ -476,81 +323,70 @@
     line-height: 1.4 !important;
     padding-left: 1rem !important;
   }
-  .advisory__card-social {
-    width: 22px !important;
-    height: 22px !important;
-  }
+}
+/* === Text column baseline & spacing === */
+.advisory__card-content {
+  position: relative; /* allow absolute children (icon) */
+  padding: 40px 32px 64px 32px; /* ↑ push content lower; ↑ add bottom room for icon */
 }
 
-/* =========================================================
-   TABS (768–1024): name | bullets on one row
-========================================================= */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .advisory__card-content {
-    display: grid !important;
-    grid-template-columns: minmax(140px, 35%) 1fr !important; /* name | bullets */
-    column-gap: 16px !important;
-    align-items: start !important;
+/* === Left-justify bullets nicely === */
+.advisory__card-bio,
+.advisory__card-bio ul,
+.advisory__card-bio li {
+  text-align: left;
+}
+
+.advisory__card-bio ul {
+  list-style: disc outside; /* bullet outside so text aligns vertically */
+  margin: 0;
+  padding-left: 1.25rem; /* indent for bullets */
+}
+
+.advisory__card-bio li {
+  line-height: 1.4;
+  margin: 0 0 8px 0;
+}
+
+/* === LinkedIn icon fixed at left-bottom of the text block === */
+.advisory__card-social {
+  position: absolute;
+  left: 32px; /* aligns with text left padding */
+  bottom: 24px; /* sits on the bottom padding we added */
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.advisory__card-social img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Desktop: keep the image from stealing text width; minor font tune */
+@media (min-width: 1025px) {
+  .advisory__card-img {
+    width: clamp(240px, 22vw, 320px);
+    align-self: stretch;
+    object-fit: cover;
+    margin-left: auto;
   }
 
   .advisory__card-name {
-    margin: 0 !important;
-    line-height: 1.15 !important;
-  }
-
-  .advisory__card-bio {
-    margin: 0 !important;
-  }
-
-  .advisory__card-bio ul {
-    margin: 0 !important;
-    padding-left: 1rem !important; /* keep bullet indent */
-    list-style: disc outside !important;
-    text-align: left !important;
-  }
-
-  /* Put the LinkedIn icon under both columns */
-  .advisory__card-social {
-    grid-column: 1 / -1;
-    margin-top: 10px !important;
-    justify-self: start;
+    margin-bottom: 12px;
+    line-height: 1.2;
   }
 }
+/* Make LinkedIn icons smaller */
+.advisory__card-social {
+  width: 20px !important; /* ↓ from 32px */
+  height: 20px !important;
+}
 
-/* =========================================================
-   MOBILE (≤767): name | bullets on one row (compact)
-========================================================= */
-@media (max-width: 767px) {
-  .advisory__card-content {
-    display: grid !important;
-    grid-template-columns: minmax(110px, 38%) 1fr !important; /* name | bullets */
-    column-gap: 12px !important;
-    align-items: start !important;
-  }
-
-  .advisory__card-name {
-    font-size: 1rem !important;
-    margin: 0 !important;
-    line-height: 1.15 !important;
-  }
-
-  .advisory__card-bio {
-    margin: 0 !important;
-    font-size: 0.875rem !important;
-    line-height: 1.4 !important;
-  }
-
-  .advisory__card-bio ul {
-    margin: 0 !important;
-    padding-left: 0.9rem !important; /* small indent to save space */
-    list-style: disc outside !important;
-    text-align: left !important;
-  }
-
-  /* Icon below the row, aligned left */
-  .advisory__card-social {
-    grid-column: 1 / -1;
-    margin-top: 8px !important;
-    justify-self: start;
-  }
+.advisory__card-social img {
+  width: 100% !important;
+  height: 100% !important;
 }
