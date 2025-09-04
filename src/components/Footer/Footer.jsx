@@ -342,12 +342,10 @@ export default function Footer() {
         </div>
 
         <div className="fv-links">
-          <a href="#">Home</a>
-          <a href="#">About VenturEdu</a>
-          <a href="#">The Program</a>
-          <a href="#">Faculty & Mentor</a>
-          <a href="#">Admissions</a>
-          <a href="#">Success Stories</a>
+          <a href="/">Home</a>
+          <a href="/aboutus">About VenturEdu</a>
+          <a href="/program">The Program</a>
+          <a href="/admissions">Admissions</a>
         </div>
 
         <div className="fv-address">
@@ -358,19 +356,39 @@ export default function Footer() {
           <p>Gurugram, HR 122002</p>
 
           <div className="fv-social-icons">
-            <a href="#">
+            <a
+              href="https://www.facebook.com/people/VenturEdu/61578937345670/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img src={fbIcon} alt="Facebook" />
             </a>
-            <a href="#">
+            <a
+              href="https://x.com/VenturEdu_"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img src={xIcon} alt="X" />
             </a>
-            <a href="#">
+            <a
+              href="https://www.youtube.com/@VenturEdu"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img src={youtubeIcon} alt="YouTube" />
             </a>
-            <a href="#">
+            <a
+              href="https://www.instagram.com/venturedu_"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img src={igIcon} alt="Instagram" />
             </a>
-            <a href="#">
+            <a
+              href="https://www.linkedin.com/company/venturedu/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img src={linkedinIcon} alt="LinkedIn" />
             </a>
           </div>
