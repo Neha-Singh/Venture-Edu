@@ -166,3 +166,38 @@
   align-items: center;
   gap: 6px;
 }
+/* --- Fix: cards have a fixed height; images cover the full box --- */
+:root {
+  --vdf-card-h: 280px; /* desktop default height */
+}
+
+.vdf-card {
+  height: var(--vdf-card-h);
+}
+
+.vdf-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fill and crop as needed */
+  object-position: center; /* nicely center faces */
+  display: block;
+}
+
+/* keep the title readable and inside the card */
+.vdf-card h3 {
+  bottom: 20px;
+}
+
+/* tablet */
+@media (max-width: 1024px) {
+  :root {
+    --vdf-card-h: 240px;
+  }
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  :root {
+    --vdf-card-h: 220px;
+  }
+}

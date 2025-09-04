@@ -19,7 +19,7 @@
   background: #01193a;
   padding: 0 24px; /* no vertical padding so dividers hit top/bottom */
   margin: 0 auto;
-  width: calc(100% - 2px); /* room for 1px borders each side */
+  width: calc(100%); /* room for 1px borders each side */
   border: 1px solid rgba(4, 153, 252, 0.2);
   box-sizing: border-box;
 }
@@ -59,7 +59,7 @@
   padding: 80px 40px;
   padding-bottom: -80px !important;
   position: relative;
-  width: calc(100% - 2px);
+  width: calc(100%);
 }
 .hero-top {
   display: flex;
@@ -137,7 +137,7 @@
   display: flex;
   align-items: flex-start;
   margin: 40px auto 0;
-  width: calc(100% - 2px);
+  width: calc(100%);
   box-sizing: border-box;
 }
 .accordion {
@@ -220,7 +220,7 @@
   .journey-features {
     flex-wrap: wrap;
     padding: 40px 20px;
-    width: calc(100% - 2px);
+    width: calc(100%);
   }
   .feature-card {
     max-width: 48%;
@@ -228,7 +228,7 @@
   }
   .journey-hero {
     padding: 60px 20px;
-    width: calc(100% - 2px);
+    width: calc(100%);
   }
   .hero-text h2 {
     font-size: 36px;
@@ -1120,7 +1120,7 @@
   /* Remove the outer frame so nothing shows above the heading */
   .journey-features {
     border: none !important; /* kills the top stroke you see */
-    width: 100% !important; /* was calc(100% - 2px) */
+    width: 100% !important; /* was calc(100% ) */
     /* keep the intended inner rails */
     background-position: left 20px top, right 20px top !important;
   }

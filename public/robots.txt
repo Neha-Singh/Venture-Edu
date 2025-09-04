@@ -1,4 +1,10 @@
+# robots.txt for VentureEdu
+
 User-agent: *
-Disallow:
+Allow: /
+
+# Block admin or internal paths (if any exist later)
+# Disallow: /admin/
+# Disallow: /api/
 
 Sitemap: https://venturedu.com/sitemap.xml
