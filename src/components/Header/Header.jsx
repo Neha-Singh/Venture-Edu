@@ -92,21 +92,21 @@ export default function Header() {
                   The Program
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink to="/faculty" onClick={scrollTop}>
                   Faculty &amp; Mentor
                 </NavLink>
-              </li>
+              </li> */}
               <li>
                 <NavLink to="/admissions" onClick={scrollTop}>
                   Admissions
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink to="/community" onClick={scrollTop}>
                   Community
                 </NavLink>
-              </li>
+              </li> */}
 
               <li>
                 <Link

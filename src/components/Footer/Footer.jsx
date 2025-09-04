@@ -6,11 +6,7 @@ import rightArrow from "../../assets/header-images/rightarrow.svg";
 import smallVector from "../../assets/home-images/launch-venture/smallvector.svg";
 import bigVector from "../../assets/home-images/launch-venture/bigvector.png";
 import leftVector from "../../assets/footer-images/left-vector.svg";
-import logoVector from "../../assets/footer-images/right-vector.svg";
-import blazerGuy from "../../assets/footer-images/blazer-guy.svg";
-import curlyGirl from "../../assets/footer-images/curly-hair-girl.svg";
-import spectaclesGuy from "../../assets/footer-images/spectacles-guy.svg";
-import yellowGirl from "../../assets/footer-images/yellow-tee-girl.svg";
+
 import invertedTriangle from "../../assets/footer-images/inverted-triangle.svg";
 import fbIcon from "../../assets/footer-images/fb.png";
 import xIcon from "../../assets/footer-images/x.png";
@@ -213,8 +209,12 @@ export default function Footer() {
               network that supports you long after graduation.
             </p>
 
-            <button className="fv-card-cta" type="button">
-              Join the Community
+            <button
+              className="fv-card-cta"
+              type="button"
+              onClick={() => navigate("/contactus")}
+            >
+              Join VenturEdu
             </button>
           </div>
         </div>
