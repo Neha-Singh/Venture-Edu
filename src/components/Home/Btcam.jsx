@@ -66,8 +66,8 @@ export default function Btcam() {
             </li>
           </ul>
 
-          <a href="/contactus" className="aboutus-cta">
-            <span>Apply For a Cohort</span>
+          <a href="/bootcamp" className="aboutus-cta">
+            <span>Explore More</span>
             <img src={rightArrow} alt="" className="aboutus-cta__icon" />
           </a>
         </div>
