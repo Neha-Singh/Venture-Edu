@@ -1,0 +1,414 @@
+/* bootcamp.css – BootCamp page styled to match Venturedu theme */
+
+:root {
+  --bg: #031a33;
+  --ink: #ffffff;
+  --sub: #cfe0ff;
+  --stroke: #0595f5;
+  --rule: rgba(4, 153, 252, 0.22);
+  --card: #0b2038;
+  --rail: 50px; /* vertical strokes inset (desktop) */
+
+  /* primary buttons elsewhere can reuse this */
+  --btn: #033982;
+  --btn-ink: #fff;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --rail: 32px;
+  }
+}
+@media (max-width: 640px) {
+  :root {
+    --rail: 0px;
+  }
+}
+
+.bootcamp {
+  background: var(--bg);
+  color: var(--ink);
+  overflow: hidden;
+  position: relative;
+}
+
+/* ===== Vertical blue strokes (rail lines) ===== */
+.bootcamp::before,
+.bootcamp::after {
+  content: "";
+  position: fixed; /* stays aligned while scrolling */
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--stroke);
+  opacity: 0.55;
+  pointer-events: none;
+}
+.bootcamp::before {
+  left: var(--rail);
+}
+.bootcamp::after {
+  right: var(--rail);
+}
+
+/* ===== Generic rail box (rail-to-rail content) ===== */
+.rails-box {
+  padding-left: var(--rail);
+  padding-right: var(--rail);
+}
+
+/* ===== Section layout (two columns on desktop) ===== */
+.bc-section {
+  position: relative;
+  padding: 44px 0;
+}
+.bc-section::before {
+  content: "";
+  position: absolute;
+  left: var(--rail);
+  right: var(--rail);
+  top: 0;
+  border-top: 0.2px solid var(--stroke);
+  opacity: 0.7;
+}
+
+@media (min-width: 1025px) {
+  .bc-section {
+    display: grid;
+    grid-template-columns: minmax(300px, 0.9fr) 1.1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .bc-right {
+    border-left: 1px solid var(--rule);
+    padding-left: 24px;
+  }
+}
+
+/* ===== Typography (reduced to stay inside rails) ===== */
+.bc-title {
+  font-size: clamp(22px, 3vw, 42px); /* reduced from 56px max */
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0;
+}
+.bc-h2 {
+  font-size: clamp(18px, 2vw, 26px); /* reduced from 34px max */
+  font-weight: 700;
+  margin: 0;
+}
+.bc-h3 {
+  font-size: clamp(16px, 1.6vw, 20px); /* reduced from 22px max */
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+.bc-body {
+  color: var(--ink);
+  font-size: clamp(14px, 1.2vw, 16px);
+  line-height: 1.55;
+  margin: 0 0 10px;
+}
+.bc-note {
+  color: var(--sub);
+  font-size: clamp(13px, 1.1vw, 15px);
+  line-height: 1.5;
+  margin: 8px 0 0;
+}
+.bc-list {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--sub);
+  font-size: clamp(13px, 1.1vw, 15px);
+  line-height: 1.45;
+}
+
+/* ===== Batch Size badge ===== */
+.bc-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
+  height: 48px; /* slightly smaller */
+  padding: 0 16px;
+  border: 1px solid var(--rule);
+  background: var(--card);
+  border-radius: 12px;
+  font-size: 24px;
+  font-weight: 800; /* reduced */
+}
+
+/* ===== Feature cards ===== */
+.bc-feature {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  border: 1px solid var(--rule);
+  background: var(--card);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 0 0 16px;
+}
+.bc-feature__num {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(4, 153, 252, 0.15);
+  border: 1px solid var(--stroke);
+  font-weight: 800;
+  font-size: 16px;
+}
+.bc-feature__content {
+  min-width: 0;
+}
+
+/* ===== Optional card/timeline styles if reused later ===== */
+.bc-cards {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (max-width: 820px) {
+  .bc-cards {
+    grid-template-columns: 1fr;
+  }
+}
+.bc-card {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  padding: 16px;
+  border-radius: 10px;
+}
+.bc-card h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+}
+.bc-card p {
+  margin: 0;
+  color: var(--sub);
+  line-height: 1.5;
+}
+
+.bc-timeline {
+  display: grid;
+  gap: 12px;
+}
+.bc-tm {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  padding: 14px;
+  border-radius: 10px;
+}
+.bc-tm h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+}
+.bc-tm p {
+  margin: 0;
+  color: var(--sub);
+}
+
+/* ===== Utility: center CTA buttons (if added) ===== */
+.bc-cta {
+  padding: 44px 0 60px;
+  text-align: center;
+  position: relative;
+}
+.bc-cta::before {
+  content: "";
+  position: absolute;
+  left: var(--rail);
+  right: var(--rail);
+  top: 0;
+  border-top: 0.2px solid var(--stroke);
+}
+
+/* Generic button styles (kept for reuse if needed) */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--btn);
+  color: var(--btn-ink);
+  padding: 10px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  border: 1px solid transparent;
+  transition: transform 0.1s ease, opacity 0.2s ease;
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+.btn-primary img {
+  width: 16px;
+  height: 16px;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  background: transparent;
+}
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+/* === BootCamp: rail-safe heading color + inner gutters === */
+
+/* small inner gutter inside the rails */
+:root {
+  --inner-gutter: 16px;
+}
+
+/* headings */
+.bc-title,
+.bc-h2 {
+  color: #0595f5; /* requested blue */
+}
+
+/* keep left column text comfortably inside the rail */
+.bc-left {
+  padding-left: var(--inner-gutter);
+}
+
+/* keep right column from touching the right rail and wrap earlier */
+.bc-right {
+  padding-right: var(--inner-gutter);
+}
+
+/* paragraphs and lists on the right: wrap sooner for nicer measure */
+.bc-right .bc-body,
+.bc-right .bc-note,
+.bc-right .bc-list {
+  max-width: 70ch; /* wrap earlier for readability & rail clearance */
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+/* tablet/mobile: a bit tighter */
+@media (max-width: 1024px) {
+  :root {
+    --inner-gutter: 12px;
+  }
+  .bc-right .bc-body,
+  .bc-right .bc-note,
+  .bc-right .bc-list {
+    max-width: 60ch;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --inner-gutter: 10px;
+  }
+  .bc-left,
+  .bc-right {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* still keep a comfortable width on tiny screens */
+  .bc-right .bc-body,
+  .bc-right .bc-note,
+  .bc-right .bc-list {
+    max-width: 100%;
+  }
+}
+/* === Force every section to sit EXACTLY between the rails === */
+.bc-section {
+  /* rail-to-rail box, no side padding tricks */
+  width: calc(100% - (var(--rail) * 2)) !important;
+  margin-left: var(--rail) !important;
+  margin-right: var(--rail) !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* keep the thin top stroke spanning rail-to-rail */
+.bc-section::before {
+  left: 0 !important;
+  right: 0 !important;
+}
+
+/* small inner gutter so content never touches rail lines */
+:root {
+  --inner-gutter: 14px;
+}
+.bc-left {
+  padding-left: var(--inner-gutter) !important;
+}
+.bc-right {
+  padding-right: var(--inner-gutter) !important;
+}
+
+/* make long paragraphs wrap earlier so they stay inside the right rail */
+.bc-right .bc-body,
+.bc-right .bc-note,
+.bc-right .bc-list {
+  max-width: 70ch; /* wrap a bit sooner */
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* tighten on tablet, full width on phones */
+@media (max-width: 1024px) {
+  :root {
+    --inner-gutter: 12px;
+  }
+  .bc-right .bc-body,
+  .bc-right .bc-note,
+  .bc-right .bc-list {
+    max-width: 60ch;
+  }
+}
+@media (max-width: 640px) {
+  :root {
+    --inner-gutter: 10px;
+  }
+  .bc-section {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .bc-left,
+  .bc-right {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .bc-right .bc-body,
+  .bc-right .bc-note,
+  .bc-right .bc-list {
+    max-width: 100%;
+  }
+}
+/* Breadcrumb wrapper at top-left */
+.bc-breadcrumb {
+  padding-top: 20px; /* space from top */
+  padding-bottom: 10px;
+}
+
+/* Add extra top padding to Program Features heading */
+#features .bc-h2 {
+  padding-top: 20px; /* adjust to match your design */
+}
+/* === Remove vertical divider line from Program Overview and Program Features === */
+#overview .bc-right,
+#features .bc-right {
+  border-left: none !important;
+  padding-left: 0 !important; /* remove extra space created by border */
+}
+/* === Remove top stroke above Program Overview section === */
+#overview.bc-section::before {
+  display: none !important;
+}

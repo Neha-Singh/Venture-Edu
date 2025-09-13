@@ -65,6 +65,15 @@
   z-index: 2;
 }
 
+.program-features-wrap {
+  width: calc(100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.6fr; /* left title / right accordion */
+  gap: 48px;
+  align-items: start;
+}
+
 /* ---------- Left panel ---------- */
 .faqs-left {
   padding: 8px 0 0;

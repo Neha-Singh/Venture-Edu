@@ -30,6 +30,7 @@ import ContactUS from "./components/ContactUs/ContactUs.jsx";
 import ScrollToTop from "../src/components/Global/ScrollTop.jsx";
 import Explore from "./components/Program/Explore.jsx";
 import Btcam from "./components/Home/Btcam.jsx";
+import BootCamp from "./components/BootCamp/bootcamp.jsx";
 
 /* Route → meta map (your exact copies) */
 const META = {
@@ -260,6 +261,24 @@ function App() {
                   />
                 </Helmet>
                 <ContactUS />
+              </>
+            }
+          />
+          <Route
+            path="/bootcamp"
+            element={
+              <>
+                <Helmet>
+                  <title>
+                    Join the VenturEdu Startup Community | Founders, Innovators
+                    &amp; Changemakers
+                  </title>
+                  <meta
+                    name="description"
+                    content="Join VenturEdu’s private startup community - connect with founders, mentors, and innovators shaping the future of entrepreneurship."
+                  />
+                </Helmet>
+                <BootCamp />
               </>
             }
           />

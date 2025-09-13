@@ -107,7 +107,11 @@ export default function Header() {
                   Community
                 </NavLink>
               </li> */}
-
+              <li>
+                <NavLink to="/bootcamp" onClick={scrollTop}>
+                  BootCamp
+                </NavLink>
+              </li>
               <li>
                 <Link
                   to="/contactus"
