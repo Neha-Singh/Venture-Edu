@@ -499,3 +499,85 @@
 .aboutus-inner {
   padding-top: calc(var(--aboutus-top-pad, 0px) + 30px) !important;
 }
+/* Btcam-specific left/right swap */
+.btcam-swap .aboutus-images {
+  order: 1;
+}
+.btcam-swap .aboutus-content {
+  order: 2;
+}
+
+@media (max-width: 992px) {
+  /* On tablets/phones stack with text first */
+  .btcam-swap .aboutus-content {
+    order: 1;
+  }
+  .btcam-swap .aboutus-images {
+    order: 2;
+  }
+}
+/* ==========================================================
+   Extra side padding from the vertical strokes (desktop ≈30px)
+   Keeps content inset from the hairline strokes without
+   shifting the strokes themselves.
+   ========================================================== */
+
+:root {
+  /* you already have --edge-offset (stroke position from edges) */
+  --stroke-gap: 50px; /* extra gap between stroke and content (desktop) */
+}
+
+/* Apply the extra side padding ON TOP of the stroke position */
+.aboutus-section {
+  /* preserve your top/bottom padding; only override left/right */
+  padding-left: calc(var(--edge-offset) + var(--stroke-gap)) !important;
+  padding-right: calc(var(--edge-offset) + var(--stroke-gap)) !important;
+}
+
+/* Large tablets / small laptops: make the gap a bit smaller */
+@media (max-width: 1200px) {
+  :root {
+    --stroke-gap: 20px;
+  }
+}
+
+/* Tablets: tighter gap */
+@media (max-width: 992px) {
+  :root {
+    --stroke-gap: 16px;
+  }
+  /* your layout already stacks at this width; keep padding comfortable */
+  .aboutus-section {
+    padding-left: calc(var(--edge-offset) + var(--stroke-gap)) !important;
+    padding-right: calc(var(--edge-offset) + var(--stroke-gap)) !important;
+  }
+}
+
+/* Phones: you already reduce --edge-offset, keep a small gap as well */
+@media (max-width: 640px) {
+  :root {
+    /* you already set --edge-offset: 24px in your base CSS */
+    --stroke-gap: 12px; /* subtle inset on mobile */
+  }
+  .aboutus-section {
+    padding-left: calc(var(--edge-offset) + var(--stroke-gap)) !important;
+    padding-right: calc(var(--edge-offset) + var(--stroke-gap)) !important;
+  }
+}
+
+/* Optional: ensure the inner grid doesn't hug the strokes when full-width */
+.aboutus-inner {
+  max-width: 1400px; /* keep your existing center limit */
+  margin-inline: auto;
+  width: 100%;
+}
+.aboutus-subtitle-home {
+  display: block;
+  font-size: 0.5em; /* half of parent font size */
+  font-weight: 400; /* lighter weight so it doesn’t overpower the title */
+  line-height: 1.4; /* more relaxed line height for readability */
+  margin-top: 8px; /* little spacing from the line above */
+  color: rgba(255, 255, 255, 0.85);
+  font-style: italic; /* ✅ make it italic */
+  padding-bottom: 25px;
+}

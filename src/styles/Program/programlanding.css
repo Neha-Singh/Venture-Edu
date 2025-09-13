@@ -461,3 +461,129 @@
     padding-bottom: 18px !important;
   }
 }
+.aboutus-subtitle {
+  display: block;
+  font-size: 1.2em; /* half of parent font size */
+  font-weight: 400; /* lighter weight so it doesn’t overpower the title */
+  line-height: 1.4; /* more relaxed line height for readability */
+  margin-top: 8px; /* little spacing from the line above */
+  color: rgba(255, 255, 255, 0.85);
+  font-style: italic; /* ✅ make it italic */
+  padding-bottom: 25px;
+}
+/* ===== Program Landing – enclose the 3 squares with blue strokes ===== */
+
+/* Desktop: align to the same 50px rails used by the page */
+.program-landing__grid {
+  /* make the grid sit exactly between the vertical strokes */
+  width: calc(100% - 100px) !important; /* 50px left + 50px right */
+  margin: 0 50px !important;
+
+  /* add the missing box strokes */
+  border-left: 0.2px solid #0595f5 !important;
+  border-right: 0.2px solid #0595f5 !important;
+  border-bottom: 0.2px solid #0595f5 !important;
+}
+
+/* keep only the inner vertical dividers between columns */
+.program-landing__grid-item {
+  border-right: 0.2px solid #0595f5;
+  background-color: #01193a;
+}
+.program-landing__grid-item:last-child {
+  border-right: none;
+}
+
+/* Tablet (your rails shift to 32px): keep box aligned and enclosed */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .program-landing__grid {
+    width: calc(100% - 64px) !important; /* 32px + 32px */
+    margin: 0 32px !important;
+    border-left: 0.2px solid #0595f5 !important;
+    border-right: 0.2px solid #0595f5 !important;
+    border-bottom: 0.2px solid #0595f5 !important;
+
+    /* you’re using a CSS grid here; no per-item borders on tablet */
+  }
+  .program-landing__grid-item {
+    border-right: none !important;
+  }
+}
+
+/* Mobile: you remove the page rails; still keep a clean box around the stack */
+@media (max-width: 767px) {
+  .program-landing__grid {
+    width: 100% !important;
+    margin: 0 !important;
+    border: 0.2px solid #0595f5 !important; /* all sides */
+    border-top: 0 !important; /* top line is the subtitle row */
+  }
+}
+/* ===== Make the 3 squares touch the page strokes (rail-to-rail) ===== */
+
+/* 1) Section provides the rail inset (same as page strokes) */
+.program-landing {
+  /* or the section wrapper for this block */
+  --rail: 50px; /* desktop rail inset */
+  padding-left: var(--rail) !important;
+  padding-right: var(--rail) !important;
+}
+
+/* 2) Grid stretches fully inside those rails and draws the box strokes */
+.program-landing__grid {
+  width: 100% !important; /* fill from rail to rail */
+  margin: 0 !important; /* no extra inner margins */
+  border-left: 0.2px solid #0595f5;
+  border-right: 0.2px solid #0595f5;
+  border-bottom: 0.2px solid #0595f5;
+}
+
+/* Inner vertical dividers between the three squares */
+.program-landing__grid-item {
+  border-right: 0.2px solid #0595f5;
+  background: #0b2038; /* keep your card background */
+}
+.program-landing__grid-item:last-child {
+  border-right: none;
+}
+
+/* 3) Tablet rails are tighter; keep the same behavior */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .program-landing {
+    --rail: 32px;
+  }
+  .program-landing__grid {
+    width: 100% !important;
+    margin: 0 !important;
+    border-left: 0.2px solid #0595f5;
+    border-right: 0.2px solid #0595f5;
+    border-bottom: 0.2px solid #0595f5;
+    display: grid; /* if you switch to grid here */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .program-landing__grid-item {
+    border-right: none;
+  }
+}
+
+/* 4) Mobile: stack with a clean enclosing box (top stroke is from the header row) */
+@media (max-width: 767px) {
+  .program-landing {
+    --rail: 0px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .program-landing__grid {
+    width: 100% !important;
+    margin: 0 !important;
+    border: 0.2px solid #0595f5;
+    border-top: 0; /* header/top stroke already present */
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .program-landing__grid-item {
+    border: none;
+  }
+}

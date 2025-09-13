@@ -29,6 +29,7 @@ import CommunityEvents from "./components/Community/CommunityEvents.jsx";
 import ContactUS from "./components/ContactUs/ContactUs.jsx";
 import ScrollToTop from "../src/components/Global/ScrollTop.jsx";
 import Explore from "./components/Program/Explore.jsx";
+import Btcam from "./components/Home/Btcam.jsx";
 
 /* Route → meta map (your exact copies) */
 const META = {
@@ -140,6 +141,7 @@ function App() {
                 </Helmet>
                 <LandingPage />
                 <AboutUsHome />
+                <Btcam />
                 <YourJourney />
                 <VentureduFor />
               </>

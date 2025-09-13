@@ -48,7 +48,7 @@ export default function LandingPage() {
     setCurrentIndex,
     translateX,
     gestureHandlers,
-  } = useSwipeSlider(slides.length, 3000);
+  } = useSwipeSlider(slides.length, 8000);
 
   return (
     <div className="landing-page">
@@ -92,15 +92,17 @@ export default function LandingPage() {
               {/* overlays */}
               {idx === 0 && (
                 <div className="overlay-text">
-                  <p>India&apos;s Most Ambitious</p>
-                  <p>Startup School</p>
+                  <p>A venture school that co-builds</p>
+                  <p>and funds your ideas</p>
                   <p className="overlay-subtitl-first">
-                    14-month residential program
+                    We help students build challenger brands <br></br>and we
+                    invest in the brands through our in-house <br></br>
+                    accelarator fund and partner VCs
                   </p>
-
+                  {/* 
                   <button className="overlay-button" type="button">
                     PGP in Entrepreneurship
-                  </button>
+                  </button> */}
 
                   {/* Anchor + capture-phase handler + programmatic nav */}
                   <a

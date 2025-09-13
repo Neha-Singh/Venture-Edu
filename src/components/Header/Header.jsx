@@ -84,7 +84,7 @@ export default function Header() {
               </li>
               <li>
                 <NavLink to="/aboutus" onClick={scrollTop}>
-                  AboutVenturEdu
+                  About VenturEdu
                 </NavLink>
               </li>
               <li>

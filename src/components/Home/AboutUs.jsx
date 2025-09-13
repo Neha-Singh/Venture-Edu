@@ -21,31 +21,30 @@ export default function AboutUs() {
       <div className="aboutus-inner">
         <div className="aboutus-content">
           <h1 className="aboutus-title">
-            VenturEdu is where aspiring founders transform bold ideas into real,
-            investor-ready ventures.
+            A 14 Month Residency Program
+            <span className="aboutus-subtitle-home">
+              Apply with an Idea and graduate with a funded startup
+            </span>
           </h1>
 
           <ul className="aboutus-list">
             <li>
-              <strong>Immersive 14-month entrepreneurship training</strong> to
-              take you from concept to launch, backed by expert mentorship and a
-              unique opportunity for cohort funding.
+              <strong>Investment Access</strong>- Assured investment offer to
+              top 30% of the class, via in house accelerator
             </li>
             <li>
-              <strong>Experienced faculty</strong> that includes visionary
-              founders, seasoned educators, and investors who have been integral
-              to the startup world.
+              <strong>Investor network </strong>-Pitch you idea to 100+ VCs in a
+              1:1 fashion demo days every month
             </li>
             <li>
-              <strong>Global immersion in Dubai</strong> to expand horizons and
-              connect with international investors, successful founders, and
-              industry leaders.
+              <strong>Immersion </strong>-Work alongside Series A+ founders for
+              2 months to practice hands on venture building
             </li>
           </ul>
 
           {/* CTA — now uses rightArrow image */}
-          <a href="/contactus" className="aboutus-cta">
-            <span>Apply For a Cohort</span>
+          <a href="/program" className="aboutus-cta">
+            <span>Explore More </span>
             <img src={rightArrow} alt="" className="aboutus-cta__icon" />
           </a>
         </div>
