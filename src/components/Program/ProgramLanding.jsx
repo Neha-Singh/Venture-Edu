@@ -38,6 +38,14 @@ const ProgramLanding = () => (
           Exhaustive, intense, and rigorous because building a company demands
           nothing less.
         </span>
+        <div className="program-landing__meta">
+          <div>
+            <strong>Duration:</strong> 14 months
+          </div>
+          <div>
+            <strong>Batch Size:</strong> 50
+          </div>
+        </div>
       </div>
     </div>
     <ProgramFeatures />

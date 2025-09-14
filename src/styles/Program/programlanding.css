@@ -587,3 +587,27 @@
     border: none;
   }
 }
+/* Meta info (Duration, Batch Size) under hero text */
+.program-landing__meta {
+  margin-top: 16px;
+  font-size: 1rem; /* not too big */
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.program-landing__meta p {
+  margin: 4px 0;
+}
+/* Meta info (Duration, Batch Size) under hero text */
+.program-landing__meta {
+  margin-top: 8px; /* reduced spacing */
+  display: flex; /* horizontal layout */
+  gap: 24px; /* space between items */
+  font-size: 0.95rem; /* slightly smaller */
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.program-landing__meta div {
+  margin: 0;
+}

@@ -1,72 +1,73 @@
+// ProgramFeatures.jsx (new)
 import React, { useEffect, useRef, useState } from "react";
-import "../../styles/Program/rogramfeautures.css";
+import "../../styles/Program/programfeatures.css";
 
-const FAQS = [
+/** Program features content */
+const FEATURES = [
   {
-    q: "Rigorous Business Education - Learn from globally recognised academicians",
+    q: "Rigorous Business Education — Learn from globally recognised academicians",
     a: [
-      "-Get exposure to business theories and concepts",
-      "-Designed to give a knowledge base equivalent to formal B schools",
+      "Get exposure to business theories and concepts",
+      "Designed to give a knowledge base equivalent to formal B-schools",
     ],
   },
   {
-    q: "Capital Access - Raise whenever you are ready (3 to 5 pitch days every month)",
+    q: "Capital Access — Raise whenever you are ready (3 to 5 pitch days every month)",
     a: [
-      "-Top 40% of the cohort will get a preferential investment offer from our in-house accelerator fund",
-      "-Beyond our fund get face time with 100+ VCs in the course duration; we have curated 3 to 5 pitch days every month",
-      "-A student can raise from the in-house accelerator fund or our VC partners or both",
+      "Top 40% of the cohort will get a preferential investment offer from our in-house accelerator fund",
+      "Beyond our fund, get face time with 100+ VCs during the program; we curate 3–5 pitch days every month",
+      "You can raise from the in-house accelerator, our VC partners, or both",
     ],
   },
   {
-    q: "A paid 2 month start-up immersion - Hands on venture building experience",
+    q: "A paid 2-month start-up immersion — Hands-on venture building experience",
     a: [
-      "-Work directly with CXOs (who have raised at least series A) on problem statements sourced directly from them",
-      "-Alternate track to step into full-time, high-paying Founder’s Office roles, where your impact is measured by results, not by a 30-minute interview",
-      "-Work in campus companies",
+      "Work directly with CXOs (who have raised at least Series A) on problem statements sourced from them",
+      "Alternate track to step into full-time, high-paying Founder’s Office roles—measured by results, not a 30-minute interview",
+      "Work in campus companies",
     ],
   },
   {
-    q: "Growth Lab - Fundraising is only a start, expansion comes next",
+    q: "Growth Lab — Fundraising is only a start, expansion comes next",
     a: [
-      "-Get a free 24/7 access to our in-house production studio and a marketing agency",
-      "-Absolutely free access to design, content, and campaign execution",
-      "-Everything you need to build and launch without bottlenecks",
-      "-A growth agency built into the campus to help you scale faster",
+      "Get 24/7 free access to our in-house production studio and a marketing agency",
+      "Absolutely free access to design, content, and campaign execution",
+      "Everything you need to build and launch without bottlenecks",
+      "A growth agency built into the campus to help you scale faster",
     ],
   },
   {
-    q: "Strategy Capsule - 1:1 access to Fortune 500 advisors and sector specialists",
+    q: "Strategy Capsule — 1:1 access to Fortune 500 advisors and sector specialists",
     a: [
-      "-Develop GTM with MBB consultants",
-      "-Learn from thematic experts who know your industry’s nuances",
-      "-Navigate through financial/legal compliances with in-house CAs and Lawyers",
-      "-VCs to plan your fund raise(s), exits",
-      "-Get your own board of advisors you can access in campus itself without paying hefty billables",
+      "Develop GTM with MBB consultants",
+      "Learn from thematic experts who know your industry’s nuances",
+      "Navigate financial/legal compliances with in-house CAs and lawyers",
+      "Work with VCs to plan your fundraise(s) and exits",
+      "Get your own board of advisors in-campus without paying hefty billables",
     ],
   },
   {
-    q: "Flexible Attendance - Spend more time in building",
+    q: "Flexible Attendance — Spend more time building",
     a: [
-      "-Option to reduce classroom time and focus more on venture-building, especially after raising funds",
-      "-Flexibility to test out of subjects you already know and earn credits upfront",
-      "-For instance, a CA can test out of Accounting 101 and focus on the venture",
+      "Option to reduce classroom time and focus more on venture-building, especially after raising funds",
+      "Flexibility to test out of subjects you already know and earn credits upfront",
+      "For instance, a CA can test out of Accounting 101 and focus on the venture",
     ],
   },
   {
     q: "Global learning",
     a: [
-      "-4 week immersion in Dubai with focus on building international VC network",
-      "-Mandatory bootcamps with global industry leaders, followed by graded assignments",
+      "4-week immersion in Dubai focused on building an international VC network",
+      "Mandatory bootcamps with global industry leaders, followed by graded assignments",
     ],
   },
 ];
 
-/** One FAQ item with smooth slide animation */
-function FaqItem({ i, q, a, open, onToggle }) {
+/* Single accordion row with smooth height animation */
+function Row({ i, q, a, open, onToggle }) {
   const wrapRef = useRef(null);
   const [h, setH] = useState(0);
 
-  // Measure the inner content height
   const measure = () => {
     if (wrapRef.current) setH(wrapRef.current.scrollHeight);
   };
@@ -78,52 +79,50 @@ function FaqItem({ i, q, a, open, onToggle }) {
   }, []);
 
   return (
-    <article className={`faq-item ${open ? "open" : ""}`} role="listitem">
+    <article className={`pf-item ${open ? "open" : ""}`} role="listitem">
       <button
         type="button"
-        className="faq-q"
+        className="pf-q"
         aria-expanded={open}
-        aria-controls={`faq-a-${i}`}
+        aria-controls={`pf-a-${i}`}
         onClick={onToggle}
       >
-        <span className="faq-q-text">{q}</span>
-        <span className="faq-toggle" aria-hidden="true" />
+        <span className="pf-q-text">{q}</span>
+        <span className="pf-toggle" aria-hidden="true" />
       </button>
 
-      {/* Collapsible area: we animate max-height using a CSS var */}
       <div
-        id={`faq-a-${i}`}
-        className="faq-a"
-        style={{ ["--h"]: open ? `${h}px` : "0px" }} // sets max-height
+        id={`pf-a-${i}`}
+        className="pf-a"
+        style={{ ["--h"]: open ? `${h}px` : "0px" }}
       >
-        <div ref={wrapRef} className="faq-a-inner">
-          {Array.isArray(a) ? (
-            a.map((line, idx) => <p key={idx}>{line}</p>)
-          ) : (
-            <p>{a}</p>
-          )}
+        <div ref={wrapRef} className="pf-a-inner">
+          <ul className="pf-ul">
+            {a.map((line, idx) => (
+              <li key={idx}>{line}</li>
+            ))}
+          </ul>
         </div>
       </div>
     </article>
   );
 }
 
-export default function Faqs() {
+export default function ProgramFeatures() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section className="faqs">
-      <div className="faqs-wrap">
-        {/* Left title panel */}
-        <div className="faqs-left">
-          <h2 className="faqs-title">Program Features</h2>
+    <section className="pf">
+      {/* rail-to-rail, enclosed box */}
+      <div className="pf-wrap">
+        <div className="pf-left">
+          <h2 className="pf-title">Program Features</h2>
         </div>
 
-        {/* Right accordion panel */}
-        <div className="faqs-right">
-          <div className="faq-list" role="list">
-            {FAQS.map((f, i) => (
-              <FaqItem
+        <div className="pf-right">
+          <div className="pf-list" role="list">
+            {FEATURES.map((f, i) => (
+              <Row
                 key={i}
                 i={i}
                 q={f.q}

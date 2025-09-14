@@ -1,0 +1,170 @@
+/* programfeatures.css — rail-to-rail Program Features with accordion */
+
+.pf {
+  /* Use the same rails as the rest of your site */
+  --rail: 0px; /* desktop vertical strokes inset */
+  --stroke: #0595f5; /* blue stroke */
+  --rule: rgba(4, 153, 252, 0.22); /* subtle dividers */
+  --ink: #ffffff;
+  --sub: #cfe0ff;
+  color: var(--ink);
+  position: relative;
+}
+
+/* Tablet & phones: tighten rails */
+@media (max-width: 1024px) {
+  .pf {
+    --rail: 24px;
+  }
+}
+@media (max-width: 640px) {
+  .pf {
+    --rail: 0px;
+  }
+}
+
+/* Top horizontal stroke connecting to page rails */
+.pf::before {
+  content: "";
+  position: absolute;
+  left: var(--rail);
+  right: var(--rail);
+  top: 0;
+  border-top: 0.2px solid var(--stroke);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Rail-to-rail container + enclosing box */
+.pf-wrap {
+  width: calc(100% - (var(--rail) * 2));
+  margin-left: var(--rail);
+  margin-right: var(--rail);
+
+  border-left: 0.2px solid var(--stroke);
+  border-right: 0.2px solid var(--stroke);
+  border-bottom: 0.2px solid var(--stroke);
+
+  display: grid;
+  grid-template-columns: minmax(300px, 0.85fr) 1.15fr; /* left title / right list */
+  gap: 56px;
+  align-items: start;
+  background: transparent;
+}
+
+/* Left column (title) */
+.pf-left {
+  padding: 18px 0 0 14px;
+}
+.pf-title {
+  margin: 18px 0 10px;
+  color: #0595f5; /* requested blue for section title */
+  font-weight: 700;
+  font-size: clamp(18px, 2.2vw, 28px);
+  line-height: 1.15;
+}
+
+/* Right column (accordion list) with center divider */
+.pf-right {
+  border-left: 1px solid var(--rule);
+  padding-left: 0; /* flush with the divider */
+}
+
+/* List box (no extra side borders to avoid double lines) */
+.pf-list {
+  margin: 0;
+}
+
+/* Rows */
+.pf-item {
+  border-bottom: 1px solid var(--rule);
+}
+.pf-item:last-child {
+  border-bottom: none;
+}
+
+/* Question row */
+.pf-q {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 16px;
+  background: transparent;
+  border: 0;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+.pf-q-text {
+  font-size: clamp(14px, 1.4vw, 16px);
+  line-height: 1.4;
+}
+
+/* Plus / minus icon */
+.pf-toggle {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  opacity: 0.9;
+  transition: transform 0.25s ease;
+}
+.pf-toggle::before,
+.pf-toggle::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background: var(--sub);
+  border-radius: 1px;
+}
+.pf-toggle::before {
+  width: 100%;
+  height: 2px;
+  top: 8px;
+} /* horizontal */
+.pf-toggle::after {
+  width: 2px;
+  height: 100%;
+  top: 0;
+} /* vertical */
+.pf-item.open .pf-toggle::after {
+  opacity: 0;
+} /* minus on open */
+
+/* Answer (smooth slide via max-height) */
+.pf-a {
+  max-height: var(--h, 0px);
+  overflow: hidden;
+  transition: max-height 350ms ease;
+}
+.pf-a-inner {
+  padding: 0 16px 14px 16px;
+  color: var(--sub);
+  font-size: clamp(13px, 1.2vw, 15px);
+  line-height: 1.45;
+}
+.pf-ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+.pf-ul li {
+  margin: 6px 0;
+}
+
+/* Responsive: stack neatly but still rail-aligned */
+@media (max-width: 1024px) {
+  .pf-wrap {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .pf-right {
+    border-left: none;
+    padding-left: 0;
+  }
+  .pf-left {
+    padding-left: 12px;
+  }
+}

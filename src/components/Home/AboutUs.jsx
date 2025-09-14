@@ -3,10 +3,10 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 import rightArrow from "../../assets/header-images/rightarrow.svg";
-import img1 from "../../assets/home-images/aboutus/image1.svg";
-import img2 from "../../assets/home-images/aboutus/image2.svg";
-import img3 from "../../assets/home-images/aboutus/image3.svg";
-import img4 from "../../assets/home-images/aboutus/image4.svg";
+import img1 from "../../assets/home-images/aboutus/image1.jpg";
+import img2 from "../../assets/home-images/aboutus/image2.jpg";
+import img3 from "../../assets/home-images/aboutus/image3.jpg";
+import img4 from "../../assets/home-images/aboutus/image4.jpg";
 import vector1 from "../../assets/home-images/aboutus/vector1.svg";
 import vector2 from "../../assets/home-images/aboutus/vector2.svg";
 import vector3 from "../../assets/home-images/aboutus/vector3.svg";

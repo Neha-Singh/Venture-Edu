@@ -1,8 +1,8 @@
 import React from "react";
 import "../../styles/Faculty/facultyandmentortwo.css";
 
-import image1 from "../../assets/home-images/aboutus/image1.svg";
-import image2 from "../../assets/home-images/aboutus/image2.svg";
+import image1 from "../../assets/home-images/aboutus/image1.jpg";
+import image2 from "../../assets/home-images/aboutus/image2.jpg";
 
 import vector1 from "../../assets/home-images/aboutus/vector1.svg";
 import vector2 from "../../assets/home-images/aboutus/vector2.svg";

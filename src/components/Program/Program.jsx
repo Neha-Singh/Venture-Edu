@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import careerImg from "../../assets/home-images/aboutus/image2.svg";
+import careerImg from "../../assets/home-images/aboutus/image2.jpg";
 import chevronDown from "../../assets/home-images/yourjourney/chevron-down.svg";
 import chevronUp from "../../assets/home-images/yourjourney/chevron-up.svg";
 import "../../styles/Program/programcontent.css";
