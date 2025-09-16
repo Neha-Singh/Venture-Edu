@@ -22,18 +22,18 @@ export default function BootCamp() {
         </div>
         <div className="bc-right">
           <p className="bc-body">
-            The Investor Readiness Bootcamp is built for mid-career
+            The investor expectations Bootcamp is built for mid-career
             professionals and family business heirs who want to make the leap
             into venture-backed startups but are unsure if they’re ready. Many
-            have promising ideas but lack clarity on VC expectations, structure,
-            and credibility. This bootcamp gives you a safe runway to test your
-            idea, sharpen your readiness, and leave with investor-grade material
-            and confidence.
+            have promising ideas but lack clarity on investor's expectations,
+            structure, and credibility. This bootcamp gives you a safe runway to
+            test your idea, sharpen your readiness, and leave with
+            investor-grade material and confidence
           </p>
           <p className="bc-body">
             Structured to fit around busy careers, the program blends customized
-            coaching, project-based learning, and direct exposure to VCs and
-            operators.
+            coaching, project-based learning, and direct exposure to investors
+            and operators
           </p>
         </div>
       </section>
@@ -75,8 +75,8 @@ export default function BootCamp() {
                 </li>
               </ul>
               <p className="bc-note">
-                Every participant leaves with a <strong>Data Kit</strong>: pitch
-                deck, financials, and fundraising plan ready to share.
+                Every participant leaves with a <strong>Data Room</strong>:
+                pitch deck, financials, and fundraising plan ready to share
               </p>
             </div>
           </article>
@@ -98,7 +98,7 @@ export default function BootCamp() {
               </ul>
               <p className="bc-note">
                 Progression depends on project submissions so every module
-                builds exactly where you stand.
+                builds exactly where you stand
               </p>
             </div>
           </article>
@@ -118,7 +118,7 @@ export default function BootCamp() {
               </ul>
               <p className="bc-note">
                 You don’t just finish with knowledge and tools, you finish with
-                a community to help you co-create.
+                a community to help you co-create
               </p>
             </div>
           </article>

@@ -37,7 +37,7 @@ const FAQS = [
     ],
   },
   {
-    q: "Do I need to take CAT/XAT/GRE or other standardized tests?",
+    q: "Do I need to take CAT / XAT / GRE or other standardized tests?",
     a: [
       {
         type: "p",
@@ -73,7 +73,7 @@ const FAQS = [
       },
       {
         type: "p",
-        text: "Round 2: In-person presentation/interview to a panel of CXOs, VCs, and academicians",
+        text: "Round 2: In-person presentation/interview to a panel of founders & investors",
       },
       { type: "p", text: "Round 3: Offer letter issued" },
     ],
@@ -152,11 +152,11 @@ const FAQS = [
     a: [
       {
         type: "p",
-        text: "1. Launch your own VC-backed venture",
+        text: "1. Launch your own venture",
       },
       {
         type: "p",
-        text: "Every participant gets multiple pitch opportunities to raise from 100+ VC partners, with 3–5 curated pitch days every month during the program",
+        text: "Every participant gets multiple pitch opportunities to raise from 100+ investors, with 3–5 curated pitch days every month during the program",
       },
       {
         type: "p",
@@ -188,7 +188,7 @@ const FAQS = [
       },
       {
         type: "p",
-        text: "Participants go through a mandatory 2-month salaried immersion with Series A+ startup CXOs, working on high-stakes business problems",
+        text: "Participants go through a mandatory 2-month salaried immersion with Series A+ founders , working on high-stakes business problems",
       },
       {
         type: "p",
