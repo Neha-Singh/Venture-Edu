@@ -20,25 +20,30 @@ export default function AboutUs() {
     <section className="aboutus-section">
       <div className="aboutus-inner">
         <div className="aboutus-content">
-          <h1 className="aboutus-title">
-            A 14 Month Residency Program
+          <h2 className="aboutus-title">
+            PGP in Entrepreneurship
+            <span className="aboutus-subtitle-home-1">
+              A 14 Month Residency Program (Cohort Size : 50)
+            </span>
             <span className="aboutus-subtitle-home">
               Apply with an Idea and graduate with a funded startup
             </span>
-          </h1>
+          </h2>
 
           <ul className="aboutus-list">
             <li>
-              <strong>Investment Access</strong>- Assured investment offer to
+              <strong>Investment Access</strong> : Assured investment offer to
               top 30% of the class, via in house accelerator
             </li>
             <li>
-              <strong>Investor network </strong>-Pitch you idea to 100+ VCs in a
-              1:1 fashion demo days every month
+              <strong>Investor network </strong> : Pitch you idea to 100+
+              investor in a 1:1 fashion demo days every month
             </li>
             <li>
-              <strong>Immersion </strong>-Work alongside Series A+ founders for
-              2 months to practice hands on venture building
+              <strong>Immersion </strong> : Work alongside Series A+ founders
+            </li>
+            <li>
+              <strong>Global immersion </strong> : 1 month residency in Dubai
             </li>
           </ul>
 
@@ -57,12 +62,12 @@ export default function AboutUs() {
           <div className="image-item">
             <img src={img2} alt="" loading="lazy" decoding="async" />
           </div>
-          <div className="image-item">
+          {/* <div className="image-item">
             <img src={img3} alt="" loading="lazy" decoding="async" />
           </div>
           <div className="image-item">
             <img src={img4} alt="" loading="lazy" decoding="async" />
-          </div>
+          </div> */}
         </div>
       </div>
 

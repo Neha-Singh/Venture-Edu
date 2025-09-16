@@ -26,12 +26,12 @@ export default function Btcam() {
           <div className="image-item">
             <img src={img2} alt="" loading="lazy" decoding="async" />
           </div>
-          <div className="image-item">
+          {/* <div className="image-item">
             <img src={img3} alt="" loading="lazy" decoding="async" />
           </div>
           <div className="image-item">
             <img src={img4} alt="" loading="lazy" decoding="async" />
-          </div>
+          </div> */}
         </div>
 
         {/* ➡️ Text right */}
@@ -39,28 +39,30 @@ export default function Btcam() {
           <h1 className="aboutus-title">
             1 month bootcamp
             <span className="aboutus-subtitle-home">
-              Designed to help professionals / business heirs to validate ideas
-              against VC requirements, and test investor readiness, without
-              leaving their current roles
+              Designed to help professional and founders with family business
+              background to validate ideas against investors.
             </span>
           </h1>
 
           <ul className="aboutus-list">
             <li>
-              <strong>Investor-Ready Outputs</strong> – Develop a financial
-              model, business plan, and pitch deck aligned with VC expectations
-            </li>
-            <li>
-              <strong>Work-Compatible Format</strong> – Weekend in-person
-              sessions, weekday online modules, and project-based progression.
-            </li>
-            <li>
-              <strong>Funding Clarity</strong> – Determine whether your idea is
+              <strong>Funding Clarity</strong> : Determine whether your idea is
               best suited for venture capital, angel investment, or strategic
               funding.
             </li>
+
             <li>
-              <strong>Risk-Free Validation</strong> – Assess if your idea
+              <strong>Work-Compatible Format</strong> : Weekend in-person
+              sessions, weekday online modules, and project-based progression.
+            </li>
+            <li>
+              <strong>Investor-Ready Outputs</strong> : Develop a financial
+              model, business plan, and pitch deck aligned with investors
+              expectations
+            </li>
+
+            <li>
+              <strong>Risk-Free Validation</strong> : Assess if your idea
               deserves a full-time commitment before resigning or committing
               significant resources
             </li>

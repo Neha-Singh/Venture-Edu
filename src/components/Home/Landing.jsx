@@ -130,7 +130,7 @@ export default function LandingPage() {
                   <p>Where Entrepreneurial</p>
                   <p>Minds Take Flight</p>
                   <p className="overlay-subtitle">
-                    Empower your dream at India&apos;s first venture school.
+                    Empower your dream at India&apos;s first venture school
                   </p>
                   <a
                     href="/aboutus"
@@ -160,7 +160,7 @@ export default function LandingPage() {
                     VenturEdu is where aspiring founders transform bold
                   </p>
                   <p className="overlay-subtitle">
-                    ideas into real, investor-ready ventures.
+                    ideas into real, investor-ready ventures
                   </p>
                   <a
                     href="/aboutus"

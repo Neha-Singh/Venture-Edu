@@ -154,8 +154,8 @@
 }
 
 .vdf-title-line2 {
-  display: block; /* make the second part a new line */
   margin-top: 8px; /* optional spacing between lines */
+  font-size: 30px; /* slightly larger for emphasis */
 }
 .vdf-button {
   text-decoration: none;

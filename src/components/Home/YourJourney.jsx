@@ -18,49 +18,49 @@ const features = [
   {
     icon: icon1,
     title: "Real-World Startup Immersion",
-    desc: "Collaborate with active startups and experience the thrill of scaling a business firsthand.",
+    desc: "Collaborate with active startups and experience the thrill of scaling a business firsthand",
   },
   {
     icon: icon2,
     title: "The Founder Toolkit",
-    desc: "Gain essential skills in strategy, leadership, marketing, and finance while being mentored by seasoned founders and investors.",
+    desc: "Gain essential skills in strategy, leadership, marketing, and finance while being mentored by seasoned founders and investors",
   },
   {
     icon: icon3,
-    title: "Build your Own Venture (BYOV)",
-    desc: "Launch, test, and refine your business idea with guidance from industry experts.",
+    title: "Build your Own Venture",
+    desc: "Launch, test, and refine your business idea with guidance from industry experts",
   },
   {
     icon: icon4,
     title: "Unparalleled Funding Opportunity",
-    desc: "Secure direct funds from VenturEdu and gain direct connections to our extensive network of angel investors and VCs.",
+    desc: "Secure direct funds from VenturEdu and gain direct connections to our extensive network of angel investors and VCs",
   },
 ];
 
 const phases = [
   {
-    phaseLabel: "Phase – Months 1–6",
+    phaseLabel: "Month 1–7",
     title: "Founder Toolkit",
     content:
-      "You’ll start by getting a solid grip on the essentials—strategy, markets, storytelling,and leadership. Think of this as your startup bootcamp made to build confidence from the ground up.",
+      "You’ll start by getting a solid grip on the essentials—strategy, markets, storytelling,and leadership. Think of this as your startup bootcamp made to build confidence from the ground up",
   },
   {
-    phaseLabel: "Phase – Months 7–12",
+    phaseLabel: "Month 8–9",
     title: "Venture Immersion",
     content:
-      "It’s time to get your hands dirty. Step into real startup environments, shadow experienced teams, tackle live problems, and see what it truly takes to grow a venture.",
+      "Step into real startup environments, shadow experienced teams, tackle live problems, and see what it truly takes to grow a venture",
   },
   {
-    phaseLabel: "Phase – Months 13–18",
+    phaseLabel: "Month 10-14",
     title: "Idea Validation",
     content:
-      "Got a business idea? Great. Now let’s pressure-test it. Talk to real customers, run quick experiments, and use feedback to sharpen your concept.",
+      "Talk to real customers, run quick experiments, and use feedback to sharpen your concept",
   },
   {
-    phaseLabel: "Phase – Months 19–24",
+    phaseLabel: "Month 10-14",
     title: "MVP & Investor Readiness",
     content:
-      "This is where things get real. Build your MVP, polish your pitch, and get ready to face investors with confidence. When you step out, you won’t just have an idea—you’ll have momentum.",
+      "Build your MVP, polish your pitch, and get ready to face investors with confidence",
   },
 ];
 

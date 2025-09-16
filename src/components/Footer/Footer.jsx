@@ -46,25 +46,25 @@ export default function Footer() {
 
     switch (name) {
       case "firstName":
-        if (!v) return "Name is required.";
+        if (!v) return "Name is required";
         if (!/^[A-Za-z\s'.-]{2,}$/.test(v)) {
           return "Please enter a valid name (min 2 letters).";
         }
         return "";
       case "secondName":
-        if (!v) return "Second name is required.";
+        if (!v) return "Last name is required";
         if (!/^[A-Za-z\s'.-]{2,}$/.test(v)) {
           return "Please enter a valid second name (min 2 letters).";
         }
         return "";
       case "email":
-        if (!v) return "Email is required.";
+        if (!v) return "Email is required";
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) {
           return "Please enter a valid email address.";
         }
         return "";
       case "phone":
-        if (!v) return "Phone number is required.";
+        if (!v) return "Phone number is required";
         // Accept digits, spaces, dashes, parentheses; must contain 10–15 digits
         const digits = v.replace(/\D/g, "");
         if (digits.length < 10 || digits.length > 15) {
@@ -157,12 +157,7 @@ export default function Footer() {
         <div className="fv-upper-text">
           <span className="small">Ready to</span>
           <h2>Launch Your Venture?</h2>
-          <p>
-            If you're passionate, driven, and ready to build something
-            impactful, VenturEdu provides the roadmap, resources, and support to
-            make it happen.
-          </p>
-          <p>Take the first step towards becoming a VenturEdu founder.</p>
+
           <button
             className="fv-button"
             type="button"
@@ -265,11 +260,11 @@ export default function Footer() {
               <div
                 className={`form-group ${errors.secondName ? "has-error" : ""}`}
               >
-                <label htmlFor="secondName">Second Name</label>
+                <label htmlFor="secondName">Last Name</label>
                 <input
                   id="secondName"
                   type="text"
-                  placeholder="Enter your second name"
+                  placeholder="Enter your Last name"
                   value={values.secondName}
                   onChange={onChange}
                   onBlur={onBlur}

@@ -579,5 +579,15 @@
   margin-top: 8px; /* little spacing from the line above */
   color: rgba(255, 255, 255, 0.85);
   font-style: italic; /* ✅ make it italic */
-  padding-bottom: 25px;
+  padding-bottom: 12px;
+}
+
+.aboutus-subtitle-home-1 {
+  display: block;
+  font-size: 0.6em; /* half of parent font size */
+  font-weight: 600; /* lighter weight so it doesn’t overpower the title */
+  line-height: 1.4; /* more relaxed line height for readability */
+  margin-top: 8px; /* little spacing from the line above */
+  color: rgba(255, 255, 255, 0.85);
+  padding-bottom: 2px;
 }

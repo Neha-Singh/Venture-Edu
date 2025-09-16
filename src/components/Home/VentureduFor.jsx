@@ -41,7 +41,7 @@ export default function VentureduFor() {
       {/* Header */}
       <section className="vdf-header">
         <h2 className="vdf-title">
-          Who is <span className="vdf-title-line2">VenturEdu for ?</span>
+          <span className="vdf-title-line2">VenturEdu is designed for </span>
         </h2>
         <p className="vdf-subtitle">
           VenturEdu is designed for driven individuals at various stages of

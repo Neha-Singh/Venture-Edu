@@ -109,7 +109,7 @@ export default function Header() {
               </li> */}
               <li>
                 <NavLink to="/bootcamp" onClick={scrollTop}>
-                  BootCamp
+                  Bootcamp
                 </NavLink>
               </li>
               <li>
