@@ -35,7 +35,7 @@ const VentureDifference = () => (
         </h3>
         <p className="venture-difference__card-text">
           Collaborate with active startups, tackle genuine challenges, and
-          experience the ups and downs of scaling—long before you graduate.
+          experience the ups and downs of scaling—long before you graduate
         </p>
       </div>
       <div className="venture-difference__cell">
@@ -50,7 +50,7 @@ const VentureDifference = () => (
         </h3>
         <p className="venture-difference__card-text">
           Learn alongside peers, pitch to a panel of investors, and secure
-          direct seed capital from VenturEdu’s built-in cohort fund.
+          direct seed capital from VenturEdu’s built-in cohort fund
         </p>
       </div>
 
@@ -65,7 +65,7 @@ const VentureDifference = () => (
         <h3 className="venture-difference__card-title">Founder Toolkit:</h3>
         <p className="venture-difference__card-text">
           Master strategy, leadership, marketing, finance, and storytelling
-          through live workshops, case studies, and 1:1 mentor sessions.
+          through live workshops, case studies, and 1:1 mentor sessions
         </p>
       </div>
       <div className="venture-difference__cell">
@@ -77,8 +77,8 @@ const VentureDifference = () => (
         />
         <h3 className="venture-difference__card-title">Global Exposure:</h3>
         <p className="venture-difference__card-text">
-          Experience the innovation ecosystem in Dubai, connecting with
-          international VCs, serial entrepreneurs, and innovation hubs.
+          Experience the innovation ecosystem in Dubai, connecting with global
+          investors, serial entrepreneurs, and innovation hubs
         </p>
       </div>
       <div className="venture-difference__cell">
@@ -91,7 +91,7 @@ const VentureDifference = () => (
         <h3 className="venture-difference__card-title">Lifelong Community:</h3>
         <p className="venture-difference__card-text">
           Gain access to exclusive events, digital collaboration spaces, and an
-          ever-growing network of alumni, mentors, and angel investors.
+          ever-growing network of alumni, mentors, and angel investors
         </p>
       </div>
     </div>

@@ -12,24 +12,21 @@ export default function FeesScholarship() {
             <span>Scholarship</span>
           </h3>
 
-          <div className="fee-amount">₹29,50,000</div>
+          <div className="fee-amount">₹29,50,000 (Including GST)</div>
           <p className="fee-caption">
             for the entire 14-month PGP in
             <br /> Entrepreneurship course
           </p>
         </div>
-
-        {/* Right — Scholarship copy (para → bullets → para) */}
+        {/* 
         <div className="ad-fee-card fee-white">
           <h3 className="sch-title">Scholarship</h3>
 
-          {/* paragraph 1 */}
           <p className="sch-p">
             VenturEdu is committed to making venture building knowledge
             accessible to top talent.
           </p>
 
-          {/* bullets (middle only) */}
           <ul className="sch-list">
             <li>
               We offer a 100% fee refund in the form of funding into their
@@ -42,13 +39,12 @@ export default function FeesScholarship() {
             </li>
           </ul>
 
-          {/* paragraph 2 */}
           <p className="sch-p">
             Rating is a function of performance on internal assessments, demo
             days, and idea potential. Funding is finalized during the last
             module of the program.
           </p>
-        </div>
+        </div> */}
       </div>
     </section>
   );

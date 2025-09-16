@@ -22,7 +22,7 @@ const FAQS = [
           "Aspiring entrepreneurs who are currently students — undergraduates who want to start building without giving up 2 years in a traditional MBA, while learning business fundamentals and developing a network.",
           "Early-stage founders — those seeking structured business education, access to VCs, marketing and growth professionals, and strategic guidance in one place.",
           "Family business successors — next-generation leaders preparing to professionalize and scale in a high-accountability environment.",
-          "Working professionals — individuals with just an idea, little or no business education, and a desire to transition into entrepreneurship without academic-heavy courses.",
+          "Working professionals — individuals with just an idea, little or no business education, and a desire to transition into entrepreneurship without academic-heavy courses",
         ],
       },
     ],
@@ -32,7 +32,7 @@ const FAQS = [
     a: [
       {
         type: "p",
-        text: "No. Selection is based on your idea and founder potential, not academic history. The program is open to undergraduates from any discipline, and there are no GPA or grade cut-offs.",
+        text: "No. Selection is based on your idea and founder potential, not academic history. The program is open to undergraduates from any discipline, and there are no GPA or grade cut-offs",
       },
     ],
   },
@@ -41,15 +41,15 @@ const FAQS = [
     a: [
       {
         type: "p",
-        text: "No. The only test we recommend is the VenturEdu Entrance Test (VET), a 60-minute assessment of arithmetic, problem-solving, and communication skills.",
+        text: "No. The only test we recommend is the VenturEdu Entrance Test (VET), a 60-minute assessment of arithmetic, problem-solving, and communication skills",
       },
       {
         type: "p",
-        text: "If you’ve already taken standardized tests like CAT, XAT, or GRE, you may submit those scores in place of VET. However, these are treated only as a qualifying criterion and carry no weight in the final selection, which is driven entirely by your idea and founder potential.",
+        text: "If you’ve already taken standardized tests like CAT, XAT, or GRE, you may submit those scores in place of VET. However, these are treated only as a qualifying criterion and carry no weight in the final selection, which is driven entirely by your idea and founder potential",
       },
       {
         type: "p",
-        text: "If you have other standardized scores, you may submit them as proof of basic aptitude, but they will carry no weight in final selection.",
+        text: "If you have other standardized scores, you may submit them as proof of basic aptitude, but they will carry no weight in final selection",
       },
     ],
   },
@@ -68,14 +68,14 @@ const FAQS = [
         type: "ul",
         items: [
           "Part 1: Submission of a 300-word idea thesis + profile review by 30+ investors.",
-          "Part 2: A 60-minute qualifying test (reasoning, communication, arithmetic, problem-solving).",
+          "Part 2: A 60-minute qualifying test (reasoning, communication, arithmetic, problem-solving)",
         ],
       },
       {
         type: "p",
-        text: "Round 2: In-person presentation/interview to a panel of CXOs, VCs, and academicians.",
+        text: "Round 2: In-person presentation/interview to a panel of CXOs, VCs, and academicians",
       },
-      { type: "p", text: "Round 3: Offer letter issued." },
+      { type: "p", text: "Round 3: Offer letter issued" },
     ],
   },
   {
@@ -83,7 +83,7 @@ const FAQS = [
     a: [
       {
         type: "p",
-        text: "Yes, provided this is explicitly mentioned in the application form.",
+        text: "Yes, provided this is explicitly mentioned in the application form",
       },
     ],
   },
@@ -92,7 +92,7 @@ const FAQS = [
     a: [
       {
         type: "p",
-        text: "It combines both. The program integrates academic rigor on par with top B-schools with accelerator-style venture building. Participants receive formal education, hands-on co-building with experts, and direct access to capital.",
+        text: "It combines both. The program integrates academic rigor on par with top B-schools with accelerator-style venture building. Participants receive formal education, hands-on co-building with experts, and direct access to capital",
       },
     ],
   },
@@ -110,7 +110,7 @@ const FAQS = [
     a: [
       {
         type: "p",
-        text: "Instead of just learning business theory, participants build and fund their ventures while studying. The outcome is not just a degree but a company, a co-founder network, and access to capital.",
+        text: "Instead of just learning business theory, participants build and fund their ventures while studying. The outcome is not just a degree but a company, a co-founder network, and access to capital",
       },
     ],
   },
@@ -119,7 +119,7 @@ const FAQS = [
     a: [
       {
         type: "p",
-        text: "No — you only need a compelling idea. However, having a business with some revenue or traction strengthens your application.",
+        text: "No — you only need a compelling idea. However, having a business with some revenue or traction strengthens your application",
       },
     ],
   },
@@ -130,10 +130,10 @@ const FAQS = [
       {
         type: "ul",
         items: [
-          "Strategy Capsule: 1:1 access to Fortune 500 advisors and MBB consultants.",
-          "Growth Lab: 24/7 access to production studios, design, content, and marketing support.",
-          "Capital Access: 3–5 pitch days monthly to provide you access to 100+ investors.",
-          "Rigorous Business Education: Core business learning with peer-to-peer and case-based formats, designed and delivered by world-class academicians.",
+          "Strategy Capsule: 1:1 access to Fortune 500 advisors and MBB consultants",
+          "Growth Lab: 24/7 access to production studios, design, content, and marketing support",
+          "Capital Access: 3–5 pitch days monthly to provide you access to 100+ investors",
+          "Rigorous Business Education: Core business learning with peer-to-peer and case-based formats, designed and delivered by world-class academicians",
         ],
       },
     ],
@@ -143,7 +143,7 @@ const FAQS = [
     a: [
       {
         type: "p",
-        text: "The program is sector-agnostic, but higher weight is given to domains like AI, deep-tech, climate impact, EV, etc.",
+        text: "The program is sector-agnostic, but higher weight is given to domains like AI, deep-tech, climate impact, EV, etc",
       },
     ],
   },
@@ -156,15 +156,15 @@ const FAQS = [
       },
       {
         type: "p",
-        text: "Every participant gets multiple pitch opportunities to raise from 100+ VC partners, with 3–5 curated pitch days every month during the program.",
+        text: "Every participant gets multiple pitch opportunities to raise from 100+ VC partners, with 3–5 curated pitch days every month during the program",
       },
       {
         type: "p",
-        text: "The top 30% of the cohort receive an assured investment offer from our in-house accelerator fund.",
+        text: "The top 30% of the cohort receive an assured investment offer from our in-house accelerator fund",
       },
       {
         type: "p",
-        text: "Participants can choose to raise capital from the in-house accelerator, external investor partners, or both.",
+        text: "Participants can choose to raise capital from the in-house accelerator, external investor partners, or both",
       },
       {
         type: "p",
@@ -180,7 +180,7 @@ const FAQS = [
       },
       {
         type: "p",
-        text: "Participants can stay on campus for up to 6 additional months at no extra cost, retaining access to mentors, infrastructure, and investor connect in case the idea needs more time.",
+        text: "Participants can stay on campus for up to 6 additional months at no extra cost, retaining access to mentors, infrastructure, and investor connect in case the idea needs more time",
       },
       {
         type: "p",
@@ -188,15 +188,15 @@ const FAQS = [
       },
       {
         type: "p",
-        text: "Participants go through a mandatory 2-month salaried immersion with Series A+ startup CXOs, working on high-stakes business problems.",
+        text: "Participants go through a mandatory 2-month salaried immersion with Series A+ startup CXOs, working on high-stakes business problems",
       },
       {
         type: "p",
-        text: "Performance is formally evaluated, building a credible track record to apply to highly paid Founder’s Office or strategic roles in the host or our 50+ partner startups.",
+        text: "Performance is formally evaluated, building a credible track record to apply to highly paid Founder’s Office or strategic roles in the host or our 50+ partner startups",
       },
       {
         type: "p",
-        text: "Ideal for participants whose ideas are not immediately funded; it is a way to stay embedded in startup culture with financial stability while preparing to restart venture building.",
+        text: "Ideal for participants whose ideas are not immediately funded; it is a way to stay embedded in startup culture with financial stability while preparing to restart venture building",
       },
     ],
   },

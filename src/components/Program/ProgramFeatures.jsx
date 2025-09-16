@@ -16,21 +16,20 @@ const FEATURES = [
     a: [
       "Top 40% of the cohort will get a preferential investment offer from our in-house accelerator fund",
       "Beyond our fund, get face time with 100+ VCs during the program; we curate 3–5 pitch days every month",
-      "You can raise from the in-house accelerator, our VC partners, or both",
+      "You can raise from the in-house accelerator, our Investment partners, or both",
     ],
   },
   {
     q: "A paid 2-month start-up immersion — Hands-on venture building experience",
     a: [
-      "Work directly with CXOs (who have raised at least Series A) on problem statements sourced from them",
+      "Work directly with founders (who have raised at least Series A) on problem statements sourced from them",
       "Alternate track to step into full-time, high-paying Founder’s Office roles—measured by results, not a 30-minute interview",
-      "Work in campus companies",
     ],
   },
   {
     q: "Growth Lab — Fundraising is only a start, expansion comes next",
     a: [
-      "Get 24/7 free access to our in-house production studio and a marketing agency",
+      "Get 24/7 free access to our in-house production studio and marketing agency",
       "Absolutely free access to design, content, and campaign execution",
       "Everything you need to build and launch without bottlenecks",
       "A growth agency built into the campus to help you scale faster",
@@ -43,7 +42,6 @@ const FEATURES = [
       "Learn from thematic experts who know your industry’s nuances",
       "Navigate financial/legal compliances with in-house CAs and lawyers",
       "Work with VCs to plan your fundraise(s) and exits",
-      "Get your own board of advisors in-campus without paying hefty billables",
     ],
   },
   {
@@ -51,13 +49,12 @@ const FEATURES = [
     a: [
       "Option to reduce classroom time and focus more on venture-building, especially after raising funds",
       "Flexibility to test out of subjects you already know and earn credits upfront",
-      "For instance, a CA can test out of Accounting 101 and focus on the venture",
     ],
   },
   {
     q: "Global learning",
     a: [
-      "4-week immersion in Dubai focused on building an international VC network",
+      "4-week immersion in Dubai focused on building an international investor network",
       "Mandatory bootcamps with global industry leaders, followed by graded assignments",
     ],
   },

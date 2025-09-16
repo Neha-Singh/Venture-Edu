@@ -29,14 +29,14 @@ const ProgramLanding = () => (
       </div>
       <div className="program-landing__intro">
         <p>
-          You bring the idea We bring the world-class resources to build it from
+          You bring the idea we bring the world-class resources to build it from
           the ground up, academic rigour at par with top B-schools,
           accelerator-style training from industry leaders, and a 24×7 access to
-          strategy, growth, tech, legal,creative and capital.
+          strategy, growth, tech, legal,creative and capital
         </p>
         <span className="aboutus-subtitle">
           Exhaustive, intense, and rigorous because building a company demands
-          nothing less.
+          nothing less
         </span>
         <div className="program-landing__meta">
           <div>
@@ -50,23 +50,18 @@ const ProgramLanding = () => (
     </div>
     <ProgramFeatures />
     {/* Subtitle + top grid stroke */}
-    <p className="program-landing__subtitle">
-      How to join the cohort ?{" "}
-      <span className="aboutus-subtitle-2">
-        We have dossier based admissions method with the heaviest weight
-        assigned to your idea
-      </span>
-    </p>
+    <p className="program-landing__subtitle">How to join the cohort ? </p>
 
     {/* Three-column pillars */}
     <div className="program-landing__grid">
       <div className="program-landing__grid-item">
         <h1>Round 1</h1>
-        <h1>Consists of two components</h1>
+        <h2>Consists of two components</h2>
         <p>
           1st: Submit a 300-word thesis of your idea, to be reviewed by a pool
-          of 30+ VCs with a profile form
+          of 30+ investors with a profile form
         </p>
+        <br />
         <p>
           2nd: Take a qualifying assessment on critical reasoning,
           communication, high school grade arthmetic and problem-solving{" "}
@@ -79,13 +74,13 @@ const ProgramLanding = () => (
       <div className="program-landing__grid-item">
         <h1>Round 2</h1>
         <p>
-          Once you qualify round 1. You’ll pitch your idea and present your deck
-          in person to a panel of CXOs, VCs, and academic heads
+          You will pitch your idea and present your deck in person to a panel of
+          CXOs, VCs, and academic heads
         </p>
       </div>
       <div className="program-landing__grid-item">
         <h1>Round 3</h1>
-        <p>- Offer letter roll-out</p>
+        <p>Offer letter roll-out</p>
       </div>
     </div>
 
@@ -101,7 +96,7 @@ const ProgramLanding = () => (
         <h2 className="program-landing__cta-title">
           Transform your
           <br />
-          entrepreneurial dreams into reality.
+          entrepreneurial dreams into reality
         </h2>
         <button className="program-landing__cta-button">
           Apply for the Next Cohort

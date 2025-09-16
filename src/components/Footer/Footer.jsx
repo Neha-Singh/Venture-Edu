@@ -188,11 +188,11 @@ export default function Footer() {
 
         <div className="fv-card-grid">
           <h2 className="fv-card-title">
-            Connect,
+            Connect
             <br />
-            <span className="fv-highlight">Collaborate,</span>
+            <span className="fv-highlight">Collaborate</span>
             <br />
-            Conquer.
+            Conquer
           </h2>
 
           <div className="fv-card-body">

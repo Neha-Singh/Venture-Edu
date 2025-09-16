@@ -15,7 +15,7 @@ import YourJourney from "./components/Home/YourJourney.jsx";
 import VentureduFor from "./components/Home/VentureduFor.jsx";
 import MissionVision from "./components/AboutUs/MissionVision.jsx";
 import VentureDifference from "./components/AboutUs/VentureEduDifference.jsx";
-import MentorSection from "./components/AboutUs/MentorSection.jsx";
+// import MentorSection from "./components/AboutUs/MentorSection.jsx";
 import ProgramLandingPage from "./components/Program/ProgramLanding.jsx";
 import Faculty from "./components/Faculty/FacultyandMentor.jsx";
 import Facultyandmentortwo from "./components/Faculty/FacultyandMentortwo.jsx";
@@ -165,7 +165,7 @@ function App() {
                 <AboutUsPage />
                 <MissionVision />
                 <VentureDifference />
-                <MentorSection />
+                {/* <MentorSection /> */}
               </>
             }
           />
@@ -220,7 +220,6 @@ function App() {
                     content="Apply to VenturEdu’s 14-month PGP in Entrepreneurship - admission open now. No GPA or experience required. Launch your venture with expert-led support."
                   />
                 </Helmet>
-                <Admissions />
                 <AdmissionsProcess />
                 <FeesScholarship />
                 <FAQS />
