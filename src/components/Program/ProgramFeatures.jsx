@@ -14,7 +14,7 @@ const FEATURES = [
   {
     q: "Capital Access — Raise whenever you are ready (3 to 5 pitch days every month)",
     a: [
-      "Top 40% of the cohort will get a preferential investment offer from our in-house accelerator fund",
+      "Top 30% of the cohort will get a preferential investment offer from our in-house accelerator fund",
       "Beyond our fund, get face time with 100+ VCs during the program; we curate 3–5 pitch days every month",
       "You can raise from the in-house accelerator, our Investment partners, or both",
     ],
