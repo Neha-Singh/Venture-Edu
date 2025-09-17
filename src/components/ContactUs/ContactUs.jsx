@@ -34,7 +34,7 @@ export default function ContactUs() {
           return "Please enter a valid first name (min 2 letters).";
         return "";
       case "secondName":
-        if (!v) return "Second name is required.";
+        if (!v) return "Last name is required.";
         if (!/^[A-Za-z\s'.-]{2,}$/.test(v))
           return "Please enter a valid second name (min 2 letters).";
         return "";
@@ -210,7 +210,7 @@ export default function ContactUs() {
                   <input
                     id="secondName"
                     type="text"
-                    placeholder="Second name*"
+                    placeholder="Last name*"
                     value={values.secondName}
                     onChange={onChange}
                     onBlur={onBlur}
