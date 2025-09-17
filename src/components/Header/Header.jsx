@@ -152,6 +152,7 @@ export default function Header() {
         />
 
         {/* Mobile Drawer */}
+        {/* Mobile Drawer */}
         <nav
           id="mobileMenu"
           className={`mobile-drawer ${menuOpen ? "open" : ""}`}
@@ -165,7 +166,7 @@ export default function Header() {
             </li>
             <li>
               <NavLink to="/aboutus" onClick={scrollTop}>
-                AboutVenturEdu
+                About VenturEdu
               </NavLink>
             </li>
             <li>
@@ -173,14 +174,16 @@ export default function Header() {
                 The Program
               </NavLink>
             </li>
-            <li>
-              <NavLink to="/faculty" onClick={scrollTop}>
-                Faculty &amp; Mentor
-              </NavLink>
-            </li>
+            {/* Removed Faculty from mobile */}
             <li>
               <NavLink to="/admissions" onClick={scrollTop}>
                 Admissions
+              </NavLink>
+            </li>
+            {/* ✅ Added Bootcamp to mobile */}
+            <li>
+              <NavLink to="/bootcamp" onClick={scrollTop}>
+                Bootcamp
               </NavLink>
             </li>
 

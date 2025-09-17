@@ -412,3 +412,110 @@
 #overview.bc-section::before {
   display: none !important;
 }
+/* =========================================================
+   Bootcamp — Mobile boxes for sections BELOW Program Features
+   (Curriculum / Schedule / Fees / FAQ …)
+========================================================= */
+@media (max-width: 640px) {
+  /* Every section after #features becomes a card */
+  #features ~ .bc-section {
+    margin: 16px 16px 0 16px !important; /* side gutters so borders are visible */
+    padding: 14px 12px 16px !important; /* inner breathing room */
+    border: 1px solid var(--stroke) !important;
+    border-radius: 10px;
+    background: var(--card);
+    width: auto !important; /* override rail width on phones */
+  }
+
+  /* tidy the two-column remnants for stacked mobile layout */
+  #features ~ .bc-section .bc-left,
+  #features ~ .bc-section .bc-right {
+    padding: 0 !important;
+  }
+
+  /* consistent spacing for headings & body inside the card */
+  #features ~ .bc-section .bc-h2,
+  #features ~ .bc-section .bc-title {
+    margin: 0 0 8px 0 !important;
+  }
+  #features ~ .bc-section .bc-body,
+  #features ~ .bc-section .bc-list,
+  #features ~ .bc-section .bc-note {
+    margin-top: 6px !important;
+  }
+
+  /* if a section contains its own cards, don't double-box them */
+  #features ~ .bc-section .bc-card,
+  #features ~ .bc-section .bc-tm {
+    border-color: var(--rule) !important; /* keep softer inner borders */
+    background: var(--card);
+  }
+}
+/* =========================================================
+   Bootcamp — Mobile: box Program Features + anything after it
+========================================================= */
+@media (max-width: 640px) {
+  /* Program Features section as a single clean card */
+  #features.bc-section {
+    margin: 16px 16px 0 16px !important; /* side gutters so strokes are visible */
+    padding: 14px 12px 16px !important; /* inner breathing room */
+    border: 1px solid var(--stroke) !important;
+    border-radius: 10px;
+    background: var(--card);
+    width: auto !important;
+  }
+  /* Don’t draw the section’s built-in top stroke inside the card */
+  #features.bc-section::before {
+    display: none !important;
+  }
+
+  /* Any sections you add *after* Program Features will also be boxed */
+  #features ~ .bc-section {
+    margin: 16px 16px 0 16px !important;
+    padding: 14px 12px 16px !important;
+    border: 1px solid var(--stroke) !important;
+    border-radius: 10px;
+    background: var(--card);
+    width: auto !important;
+  }
+  #features ~ .bc-section::before {
+    display: none !important;
+  }
+}
+/* === Extra spacing adjustments === */
+
+/* 1. Batch Size: space below the "30" badge */
+#batch .bc-badge {
+  margin-bottom: 20px; /* adjust as needed */
+}
+
+/* 2. Program Overview: add bottom spacing only on mobiles */
+@media (max-width: 640px) {
+  #overview .bc-title {
+    margin-bottom: 20px; /* spacing under "Program Overview" */
+  }
+}
+/* === Mobile: center align Batch Size heading + number === */
+@media (max-width: 640px) {
+  #batch {
+    display: flex !important;
+    flex-direction: column; /* stack heading above number */
+    align-items: center; /* center horizontally */
+    text-align: center;
+  }
+
+  #batch .bc-left,
+  #batch .bc-right {
+    padding: 0 !important;
+    border: none !important;
+    width: auto !important;
+  }
+
+  #batch .bc-h2 {
+    margin-bottom: 10px; /* space between "Batch Size" and 30 */
+  }
+
+  #batch .bc-badge {
+    margin: 0; /* reset old margins */
+  }
+}
