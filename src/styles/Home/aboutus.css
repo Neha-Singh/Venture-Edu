@@ -618,3 +618,20 @@
     ) !important; /* still keep safe space from right stroke */
   }
 }
+/* === MOBILE: show full image (no bottom crop) === */
+@media (max-width: 768px) {
+  /* let the card grow to the image's natural height */
+  .vdf-card {
+    height: auto !important;
+    background: #01193a; /* keeps a clean box behind any letterboxing */
+  }
+
+  /* show the entire image from top to bottom */
+  .vdf-card img {
+    width: 100% !important;
+    height: auto !important; /* unlock fixed height */
+    object-fit: contain !important; /* no cropping */
+    object-position: top center !important; /* anchor from top */
+    display: block;
+  }
+}
