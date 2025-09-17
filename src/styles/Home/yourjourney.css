@@ -475,7 +475,7 @@
   position: absolute;
   top: 50%;
   color: #fff;
-  font-size: 30px;
+  font-size: 15px;
 }
 
 /*─────────────────────────────────────────────
@@ -1520,4 +1520,58 @@
     object-fit: cover !important; /* ensures the entire box is filled */
     display: block;
   }
+}
+/* === NO-SLIT, COLOR-PRESERVING FIX (append at end) === */
+
+/* 1) Make the two halves touch exactly */
+.journey-hero .journey-lower {
+  display: flex !important;
+  gap: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* 2) Neutralize earlier fixed widths / calc(50% - 1px) on both sides */
+.journey-hero .journey-lower .accordion,
+.journey-hero .journey-lower .hero-image {
+  flex: 1 1 0% !important;
+  width: auto !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important; /* no borders creating a line */
+  box-sizing: border-box;
+}
+
+/* 3) Overlap the accordion by 1px over the image to defeat any sub-pixel gap */
+.journey-hero .journey-lower .accordion {
+  margin-right: -1px !important; /* ← key: covers rounding slits at any zoom/DPR */
+}
+
+/* 4) Ensure the image fills its half cleanly */
+.journey-hero .journey-lower .hero-image img {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+/* 5) Safety: if any vertical “rails” are being drawn with pseudo-elements,
+      disable them in this section only so they can’t appear between the halves. */
+.journey-hero::before,
+.journey-hero::after {
+  content: none !important;
+}
+/* === POSITION TWEAKS: Button up, "Your" text down === */
+
+/* 1) Lift the black button higher */
+.journey-hero .hero-button {
+  top: 60px !important; /* was ~120px in your file */
+  transform: none !important; /* cancel earlier Y-translate */
+}
+
+/* 2) Push the "Your" text downward for better balance */
+.hero-text .small {
+  margin-top: 40px !important; /* add some downward spacing */
+  margin-bottom: 0px !important; /* keep a bit of gap above "Journey" */
 }
