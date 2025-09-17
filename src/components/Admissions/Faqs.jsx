@@ -58,26 +58,31 @@ const FAQS = [
     a: [
       {
         type: "p",
-        text: "Admissions follow a dossier-based method with the heaviest weight on your idea:",
+        text: "Admissions follow a portfolio-based method, with the strongest emphasis on your idea. We consider everything you bring to the table — background, skills, and experience — but above all, we care most about the strength of your startup idea.",
       },
       {
         type: "p",
-        text: "Round 1: Consists of two parts",
+        text: "Even if you don’t have great academic scores, a well-thought-out idea can carry you through the process.",
       },
+      { type: "p", text: "Round 1 (Comprises of two steps)" },
       {
         type: "ul",
         items: [
           "Step 1: You will write and submit a 300-word essay (idea thesis) explaining your startup idea. Along with this, you need to submit your personal and professional profile as well. This will be reviewed by a panel of 30+ investors",
-          "Step 2: A 60-minute qualifying test (reasoning, communication, arithmetic, problem-solving)",
+          "Step 2: You will take a 60-minute online test. The test will check: Critical reasoning skills, Communication skills, Arithmetic skills, Problem-solving skills, Psychometric assessment",
         ],
       },
       {
         type: "p",
-        text: "Round 2: Post clearing round 1, you will be invited for an in-person interview and presentation. Here, you will present your idea directly to a panel of successful startup founders and professional investors. They will ask you questions, test how strong your idea is, and evaluate how well you defend it",
+        text: "The online test is qualifying in nature. Its only purpose is to check that you have the basic skills needed to be a successful startup founder.",
       },
       {
         type: "p",
-        text: "Round 3: Based on the performance in Round 2, we issue admission letters to the selected candidates.",
+        text: "Round 2: Post clearing Round 1, you will be invited for an in-person interview and presentation. Here, you will present your idea directly to a panel of successful startup founders and professional investors. They will ask you questions, test how strong your idea is, and evaluate how well you defend it.",
+      },
+      {
+        type: "p",
+        text: "Round 3: Based on performance in Round 2, we issue admission letters to selected candidates.",
       },
     ],
   },

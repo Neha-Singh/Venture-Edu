@@ -22,8 +22,9 @@ const MissionVision = () => (
           />
         </div>
         <p className="missionvision__text missionvision__mission-text">
-          Empower driven individuals with the skills, mindset, and network
-          needed to turn bold ideas into scalable,investor-ready ventures
+          To create a venture school where idea-stage founders co-build with the
+          world’s best minds to build culturally resonant, consumer-first, and
+          investment-friendly brands
         </p>
         <img src={invertedTri} alt="" className="missionvision__cutout" />
       </div>
@@ -43,11 +44,9 @@ const MissionVision = () => (
           />
         </div>
         <p className="missionvision__text missionvision__vision-text">
-          We envision a world where entrepreneurship isn’t just an aspiration
-          but a proven pathway to inclusive growth and positive change.<br></br>
-          <br></br> By cultivating a global community of fearless founders, we
-          aim to democratize access to startup know-how, foster sustainable
-          ventures, and spark an innovation revolution that transcends borders
+          Creation of a comprehensive venture building ecosystem where
+          early-stage founders can transform their contrarian ideas into
+          scalable and enduring companies
         </p>
         <img src={invertedTri} alt="" className="missionvision__cutout" />
       </div>

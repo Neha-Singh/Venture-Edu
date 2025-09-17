@@ -264,7 +264,7 @@ export default function Footer() {
                 <input
                   id="secondName"
                   type="text"
-                  placeholder="Enter your Last name"
+                  placeholder="Enter your last name"
                   value={values.secondName}
                   onChange={onChange}
                   onBlur={onBlur}
