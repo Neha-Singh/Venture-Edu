@@ -611,3 +611,149 @@
 .program-landing__meta div {
   margin: 0;
 }
+
+/* =========================================================
+   PROGRAM LANDING – Grid boxes (Round 1, 2, 3)
+   Wider section (rail-to-rail) + extra top padding on Round 1
+========================================================= */
+
+/* Desktop: align the grid width with page rails (50px each side) */
+.program-landing {
+  --rail: 50px; /* rail offset for desktop */
+}
+@media (min-width: 1025px) {
+  .program-landing__grid {
+    width: calc(100% - (var(--rail) * 2)) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+/* Tablet: use 32px rails */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .program-landing {
+    --rail: 32px;
+  }
+  .program-landing__grid {
+    width: calc(100% - (var(--rail) * 2)) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    gap: 12px !important; /* keep good spacing */
+  }
+}
+
+/* Mobile: full width already; no special change needed */
+@media (max-width: 767px) {
+  .program-landing__grid {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+}
+
+/* Add a little extra top padding ONLY to the first box (Round 1) */
+.program-landing__grid-item:first-child {
+  padding-top: 36px !important; /* adjust as needed */
+}
+/* Make the 3 "Round" boxes as wide as other sections: rail-to-rail */
+.program-landing {
+  --rail: 50px;
+} /* desktop rail position like the rest */
+
+@media (min-width: 1025px) {
+  .program-landing__grid {
+    width: calc(100% - (var(--rail) * 2)) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+/* Add some spacing above the whole block */
+.program-landing__grid {
+  margin-top: 20px !important;
+}
+
+/* Add extra padding at the top of each Round card */
+.program-landing__grid-item {
+  padding-top: 28px !important;
+}
+
+/* Tablet: keep the same intent with tighter rails */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .program-landing {
+    --rail: 32px;
+  }
+  .program-landing__grid {
+    width: calc(100% - (var(--rail) * 2)) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    gap: 12px !important; /* already using grid here */
+  }
+  .program-landing__grid-item {
+    padding-top: 24px !important;
+  }
+}
+
+/* Phones: stack stays full width; just a little extra cushion */
+@media (max-width: 767px) {
+  .program-landing__grid {
+    margin-top: 16px !important;
+  }
+  .program-landing__grid-item {
+    padding-top: 20px !important;
+  }
+}
+/* =========================================================
+   Program Landing – Cohort Steps (Round 1, 2, 3)
+========================================================= */
+
+/* Subtitle styling */
+.program-landing__subtitle {
+  padding: 16px 0 12px 16px !important; /* top | right | bottom | left */
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #fff;
+  border: none !important; /* remove old thin line */
+}
+
+/* Each Round in its own neat box */
+.program-landing__grid-item {
+  background-color: #01193a;
+  border: 0.2px solid #0595f5; /* blue stroke like other boxes */
+  border-radius: 6px;
+  margin-bottom: 16px; /* spacing between boxes */
+  padding: 20px 16px !important; /* top/bottom + sides */
+  box-sizing: border-box;
+}
+
+/* Remove inner right borders since each is already enclosed */
+.program-landing__grid-item:not(:last-child) {
+  border-right: 0.2px solid #0595f5; /* keep consistency if side by side */
+}
+
+@media (max-width: 767px) {
+  .program-landing__grid {
+    display: block !important; /* stack vertically */
+  }
+  .program-landing__grid-item {
+    margin-bottom: 20px;
+    border-right: none !important;
+  }
+}
+/* === MOBILE (≤767px): make Round 1/2/3 true boxes with visible edges === */
+@media (max-width: 767px) {
+  /* give the stack side gutters so borders aren't flush with screen edge */
+  .program-landing__grid {
+    padding: 0 16px !important; /* creates room to see the left/right strokes */
+    box-sizing: border-box;
+  }
+
+  /* each Round card becomes a neat rectangle */
+  .program-landing__grid-item {
+    border: 1px solid #0595f5 !important; /* all four sides visible */
+    border-radius: 8px;
+    background: #0b2038; /* subtle contrast against page bg */
+    margin: 12px 0 !important; /* spacing between boxes */
+    padding: 20px 14px !important; /* comfy inner padding */
+    box-sizing: border-box;
+  }
+}

@@ -168,3 +168,78 @@
     padding-left: 12px;
   }
 }
+/* === FIX: remove double strokes, keep only single rails === */
+
+/* Remove the extra left/right borders from the box */
+.pf-wrap {
+  border-left: none !important;
+  border-right: none !important;
+}
+
+/* Keep only the outer page rails (or your .pf::before top stroke + bottom stroke).
+   Ensure the box still has a bottom line */
+.pf-wrap {
+  border-bottom: 0.2px solid var(--stroke) !important;
+}
+/* Program Features — give the section breathing room from the top */
+.pf {
+  padding-top: 32px !important; /* desktop/tablet */
+}
+@media (max-width: 767px) {
+  .pf {
+    padding-top: 24px !important;
+  } /* phones */
+}
+
+/* Optional: a touch of cushion inside the bordered box */
+.pf-wrap {
+  padding-top: 12px !important;
+}
+/* =========================================================
+   PROGRAM FEATURES – Mobile boxed layout
+   (≤640px)
+========================================================= */
+@media (max-width: 640px) {
+  .pf-wrap {
+    border: 0.2px solid var(--stroke) !important; /* full rectangle */
+    border-radius: 6px; /* optional rounding */
+    padding-left: 12px !important; /* inner padding */
+    padding-right: 12px !important;
+    margin: 0 16px !important; /* gap from screen edges */
+    background: #01193a; /* keep the dark bg */
+  }
+
+  /* Make sure the title and list fit neatly inside */
+  .pf-left,
+  .pf-right {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .pf-title {
+    margin-top: 12px !important;
+  }
+
+  .pf-item:last-child {
+    border-bottom: none !important; /* avoid double bottom line */
+  }
+}
+/* === Program Features — mobile box: show BOTH side strokes === */
+@media (max-width: 640px) {
+  /* remove any extra padding from the outer section so we can control gutters */
+  .pf {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .pf-wrap {
+    /* make the box fit inside 16px gutters on both sides */
+    width: calc(100% - 32px) !important;
+    margin: 0 auto !important; /* center it */
+    /* full rectangle */
+    border: 0.2px solid var(--stroke) !important;
+    border-radius: 6px;
+    padding: 12px 12px 10px !important; /* inner breathing room */
+    box-sizing: border-box;
+  }
+}

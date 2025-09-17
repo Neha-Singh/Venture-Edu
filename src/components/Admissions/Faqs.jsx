@@ -67,15 +67,18 @@ const FAQS = [
       {
         type: "ul",
         items: [
-          "Part 1: Submission of a 300-word idea thesis + profile review by 30+ investors.",
-          "Part 2: A 60-minute qualifying test (reasoning, communication, arithmetic, problem-solving)",
+          "Step 1: You will write and submit a 300-word essay (idea thesis) explaining your startup idea. Along with this, you need to submit your personal and professional profile as well. This will be reviewed by a panel of 30+ investors",
+          "Step 2: A 60-minute qualifying test (reasoning, communication, arithmetic, problem-solving)",
         ],
       },
       {
         type: "p",
-        text: "Round 2: In-person presentation/interview to a panel of founders & investors",
+        text: "Round 2: Post clearing round 1, you will be invited for an in-person interview and presentation. Here, you will present your idea directly to a panel of successful startup founders and professional investors. They will ask you questions, test how strong your idea is, and evaluate how well you defend it",
       },
-      { type: "p", text: "Round 3: Offer letter issued" },
+      {
+        type: "p",
+        text: "Round 3: Based on the performance in Round 2, we issue admission letters to the selected candidates.",
+      },
     ],
   },
   {
