@@ -757,3 +757,93 @@
     box-sizing: border-box;
   }
 }
+/* === DESKTOP/TABLET: remove the extra bottom stroke under Round boxes === */
+@media (min-width: 768px) {
+  /* The grid wrapper was adding a bottom border — drop it */
+  .program-landing__grid {
+    border-bottom: 0 !important;
+  }
+}
+
+/* If a section-level hairline is still showing below the grid,
+   disable that helper just for this section on desktop. */
+@media (min-width: 1025px) {
+  .program-landing {
+    box-shadow: none !important; /* prevents a second line below the cards */
+  }
+}
+/* ==== FIX: remove duplicate outer strokes around the 3 Round boxes ==== */
+
+/* Desktop + Tablet: keep only the page rails on the sides */
+@media (min-width: 768px) {
+  .program-landing__grid {
+    border-left: 0 !important;
+    border-right: 0 !important;
+  }
+}
+
+/* (Optional) If you still see 2 lines at the very bottom,
+   the section’s box-shadow is the second one; disable it here. */
+@media (min-width: 1025px) {
+  .program-landing {
+    box-shadow: none; /* removes the extra full-width bottom hairline */
+  }
+}
+/* === FIX: ensure Round 3 keeps its right border === */
+@media (min-width: 768px) {
+  .program-landing__grid {
+    border-left: 0 !important; /* no duplicate on the left */
+    border-right: none !important; /* remove grid-level right border */
+  }
+
+  .program-landing__grid-item {
+    border: 1px solid #0595f5;
+    border-left: none; /* handled by divider rules */
+  }
+
+  /* Add dividers between boxes */
+  .program-landing__grid-item + .program-landing__grid-item {
+    border-left: 1px solid #0595f5;
+  }
+
+  /* First item: no outer left */
+  .program-landing__grid-item:first-child {
+    border-left: none !important;
+  }
+
+  /* Last item: restore its right edge */
+  .program-landing__grid-item:last-child {
+    border-right: 1px solid #0595f5 !important;
+  }
+}
+/* === FINAL: balance borders for Round 1 / Round 2 / Round 3 === */
+@media (min-width: 768px) {
+  /* Remove grid-level left/right borders (cards handle their own) */
+  .program-landing__grid {
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: 0.2px solid #0595f5; /* keep one clean bottom line */
+  }
+
+  .program-landing__grid-item {
+    border: 1px solid #0595f5;
+    border-left: none; /* reset, we’ll handle specific cases */
+    border-right: none;
+  }
+
+  /* Round 1: restore left border */
+  .program-landing__grid-item:first-child {
+    border-left: 1px solid #0595f5 !important;
+  }
+
+  /* Round 2: add dividers left + right */
+  .program-landing__grid-item:nth-child(2) {
+    border-left: 1px solid #0595f5 !important;
+    border-right: 1px solid #0595f5 !important;
+  }
+
+  /* Round 3: restore right border */
+  .program-landing__grid-item:last-child {
+    border-right: 1px solid #0595f5 !important;
+  }
+}
