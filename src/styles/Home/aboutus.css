@@ -470,7 +470,7 @@
     max-width: 320px;
   }
   .aboutus-images > .image-item img {
-    width: 100%;
+    width: 90%;
     height: auto;
   }
 }
@@ -590,4 +590,31 @@
   margin-top: 8px; /* little spacing from the line above */
   color: rgba(255, 255, 255, 0.85);
   padding-bottom: 2px;
+}
+/* === MOBILE FIX: keep text inside strokes === */
+@media (max-width: 640px) {
+  .aboutus-content {
+    padding-left: 0 !important; /* drop extra left padding */
+    padding-right: 0 !important; /* keep it flush inside strokes */
+    margin: 0 auto !important; /* center within the available width */
+    max-width: calc(100% - 20px) !important; /* avoid hitting right stroke */
+  }
+
+  .aboutus-title,
+  .aboutus-list,
+  .aboutus-cta {
+    text-align: left; /* align neatly to the left stroke */
+    word-break: break-word; /* prevent long words from spilling */
+  }
+}
+/* === EXTRA NUDGE: shift AboutUs text left on phones === */
+@media (max-width: 640px) {
+  .aboutus-content {
+    margin-left: -6px !important; /* move block closer to left stroke */
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    max-width: calc(
+      100% - 32px
+    ) !important; /* still keep safe space from right stroke */
+  }
 }
