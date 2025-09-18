@@ -1,7 +1,7 @@
 // BootCamp.jsx
 import React from "react";
 import "../../styles/BootCamp/bootcamp.css";
-import Breadcrumb from "../../components/Header/BreadCrumbs";
+import Breadcrumb from "../Header/BreadCrumbs";
 
 export default function BootCamp() {
   return (

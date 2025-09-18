@@ -30,7 +30,7 @@ import ContactUS from "./components/ContactUs/ContactUs.jsx";
 import ScrollToTop from "../src/components/Global/ScrollTop.jsx";
 import Explore from "./components/Program/Explore.jsx";
 import Btcam from "./components/Home/Btcam.jsx";
-import BootCamp from "./components/BootCamp/bootcamp.jsx";
+import BootCamp from "./components/BootCamp/Bootcamp.jsx";
 
 /* Route → meta map (your exact copies) */
 const META = {
