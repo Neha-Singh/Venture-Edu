@@ -1,7 +1,7 @@
 import React from "react";
 import arrowRight from "../../assets/community/community-header.png"; // right-side graphic
 import "../../styles/Community/communitylanding.css";
-import Breadcrumb from "../../components/Header/Breadcrumbs";
+import Breadcrumb from "../../components/Header/BreadCrumbs";
 
 const CommunityLanding = () => {
   return (
