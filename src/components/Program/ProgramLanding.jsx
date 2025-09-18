@@ -1,5 +1,5 @@
 import React from "react";
-import Breadcrumb from "../../components/Header/Breadcrumbs";
+import Breadcrumb from "../../components/Header/BreadCrumbs";
 import vector1 from "../../assets/program-images/vector1.png";
 import vector2 from "../../assets/program-images/vector2.png";
 import bgImage from "../../assets/program-images/blue-background-image.png";

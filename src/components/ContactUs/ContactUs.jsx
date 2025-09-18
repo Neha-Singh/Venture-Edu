@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../../styles/ContactUs/contactus.css";
-import Breadcrumb from "../../components/Header/Breadcrumbs";
+import Breadcrumb from "../../components/Header/BreadCrumbs";
 
 import vector1 from "../../assets/about-us-images/vector1.png";
 import vector2 from "../../assets/about-us-images/vector2.png";

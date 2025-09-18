@@ -2,7 +2,7 @@ import React from "react";
 import "../../styles/Admissions/admissionslanding.css";
 
 /* Same breadcrumb used elsewhere */
-import Breadcrumb from "../../components/Header/Breadcrumbs";
+import Breadcrumb from "../../components/Header/BreadCrumbs";
 
 /* People tiles */
 import img1 from "../../assets/home-images/venturedu-for/graduate.svg";

@@ -1,5 +1,5 @@
 import "../../styles/AboutUs/landing.css";
-import Breadcrumb from "../../components/Header/Breadcrumbs";
+import Breadcrumb from "../../components/Header/BreadCrumbs";
 import heroImage from "../../assets/about-us-images/about-us-team.png";
 import vector1 from "../../assets/about-us-images/vector1.png";
 import vector2 from "../../assets/about-us-images/vector2.png";
