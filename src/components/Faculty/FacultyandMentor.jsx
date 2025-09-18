@@ -1,6 +1,6 @@
 import React from "react";
-import "../../styles/Faculty/FacultyandMentor.css";
-import Breadcrumb from "../../components/Header/Breadcrumbs";
+import "../../styles/Faculty/facultyandmentor.css";
+import Breadcrumb from "../../components/Header/BreadCrumbs";
 
 // decorative vectors
 import vector2 from "../../assets/program-images/vector1.png";
