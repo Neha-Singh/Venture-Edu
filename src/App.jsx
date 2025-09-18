@@ -37,7 +37,7 @@ const META = {
   "/": {
     title: "VenturEdu | India’s First Venture Mentorship for Entrepreneurs",
     description:
-      "Launch your startup with VenturEdu’s 14-month PGP in Entrepreneurship. Get hands-on mentorship for entrepreneurs, real-world experience, funding, and global exposure.",
+      "14-month residential program │ 2-month salaried startup immersion │ In-house funding for top 30%  of the class │ 4-week Dubai residency",
   },
   "/program": {
     title: "PGP in Entrepreneurship - Launch & Scale Your Startup | VenturEdu",
