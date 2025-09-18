@@ -9,7 +9,7 @@ import arrowBack from "../../assets/program-images/curriculum/arrowback.svg";
 
 import CurriculumContent from "./CurriculumContent.jsx";
 import CurriculumActivities from "./CurriculumActivities.jsx";
-import DailySchedule from "./dailyschedule.jsx";
+import DailySchedule from "./Dailyschedule.jsx";
 
 const Curriculum = () => (
   <>
