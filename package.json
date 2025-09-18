@@ -26,7 +26,8 @@
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^15.15.0",
     "sitemap": "^8.0.0",
-    "vite": "^6.2.0"
+    "vite": "^6.2.0",
+    "terser": "^5.31.6"
   },
   "overrides": {
     "esbuild": "0.19.12",
