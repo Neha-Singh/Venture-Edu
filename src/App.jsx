@@ -5,7 +5,7 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
-import { HelmetProvider, Helmet } from "react-helmet-async";
+import { HelmetProvider, Helmet } from "@dr.pogodin/react-helmet";
 import Header from "./components/Header/Header.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import LandingPage from "./components/Home/Landing.jsx";
