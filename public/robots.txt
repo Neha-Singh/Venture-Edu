@@ -7,4 +7,4 @@ Allow: /
 # Disallow: /admin/
 # Disallow: /api/
 
-Sitemap: https://venturedu.com/sitemap.xml
+Sitemap: https://www.venturedu.com/sitemap.xml
