@@ -519,3 +519,15 @@
     margin: 0; /* reset old margins */
   }
 }
+/* === Mobile: style the Program Overview heading === */
+@media (max-width: 640px) {
+  #overview .bc-title {
+    text-align: center; /* center the heading */
+    font-size: 40px !important; /* increase by 5px (e.g., from 23px → 28px) */
+  }
+
+  /* hide the thin blue left stroke on mobile */
+  .bootcamp::before {
+    display: none !important;
+  }
+}

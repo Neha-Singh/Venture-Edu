@@ -266,9 +266,6 @@ export default function ContactUs() {
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Submitting…" : "Submit"}{" "}
-                  <span className="cu-arrow" aria-hidden="true">
-                    ↗
-                  </span>
                 </button>
               </div>
 

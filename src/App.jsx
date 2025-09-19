@@ -35,7 +35,7 @@ import BootCamp from "./components/BootCamp/Our.jsx";
 /* Route → meta map (your exact copies) */
 const META = {
   "/": {
-    title: "VenturEdu | India’s First Venture Mentorship for Entrepreneurs",
+    title: "VenturEdu | India’s First Venture School",
     description:
       "14-month residential program │ 2-month salaried startup immersion │ In-house funding for top 30%  of the class │ 4-week Dubai residency",
   },

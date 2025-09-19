@@ -58,14 +58,14 @@ const AboutUs = () => (
     </div>
 
     <div className="about-us__hero">
-      <img
+      {/* <img
         src={heroImage}
         alt="VenturEdu team"
         className="hero-image"
         loading="lazy"
         decoding="async"
         fetchpriority="low"
-      />
+      /> */}
       <img
         src={invertedTriangle}
         alt="triangle"
